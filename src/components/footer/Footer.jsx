@@ -31,7 +31,7 @@ const Footer = () => {
                     height={25}
                   />
                 </Link>
-                <p className="mb-4 text-dgrey">
+                <p className="mb-4 text-ddarkgrey dark:text-dgrey">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   Integer lobortis.
                 </p>
@@ -39,7 +39,7 @@ const Footer = () => {
                   <a
                     href="https://facebook.com/"
                     aria-label="facebook-social-link"
-                    className="text-dgrey mr-6 hover:text-blue-600"
+                    className="text-ddarkgrey dark:text-dgrey mr-6 hover:text-blue-600"
                   >
                     <svg
                       width="9"
@@ -53,7 +53,7 @@ const Footer = () => {
                   <a
                     href="https://twitter.com/"
                     aria-label="twitter-social-link"
-                    className="text-dgrey mr-6 hover:text-blue-600"
+                    className=" text-ddarkgrey dark:text-dgrey mr-6 hover:text-blue-600"
                   >
                     <svg
                       width="19"
@@ -67,7 +67,7 @@ const Footer = () => {
                   <a
                     href="https://youtube.com/"
                     aria-label="youtube-social-link"
-                    className="text-dgrey mr-6 hover:text-blue-600"
+                    className=" text-ddarkgrey dark:text-dgrey mr-6 hover:text-blue-600"
                   >
                     <svg
                       width="18"
@@ -81,7 +81,7 @@ const Footer = () => {
                   <a
                     href="https://linkedin.com/"
                     aria-label="linkedin-social-link"
-                    className="text-dgrey hover:text-blue-600"
+                    className=" text-ddarkgrey dark:text-dgrey hover:text-blue-600"
                   >
                     <svg
                       width="17"
@@ -105,7 +105,7 @@ const Footer = () => {
                   <li>
                     <a
                       href="/blog"
-                      className="text-dgrey hover:text-blue-600 mb-4 inline-block"
+                      className=" text-ddarkgrey dark:text-dgrey hover:text-blue-600 mb-4 inline-block"
                     >
                       Blog
                     </a>
@@ -113,7 +113,7 @@ const Footer = () => {
                   <li>
                     <a
                       href="/dineintel-tiers"
-                      className="text-dgrey hover:text-blue-600 mb-4 inline-block"
+                      className=" text-ddarkgrey dark:text-dgrey hover:text-blue-600 mb-4 inline-block"
                     >
                       Tiers
                     </a>
@@ -121,7 +121,7 @@ const Footer = () => {
                   <li>
                     <a
                       href="/features"
-                      className="text-dgrey hover:text-blue-600 mb-4 inline-block"
+                      className=" text-ddarkgrey dark:text-dgrey hover:text-blue-600 mb-4 inline-block"
                     >
                       Features
                     </a>
@@ -139,7 +139,7 @@ const Footer = () => {
                   <li>
                     <a
                       href="/terms-of-service"
-                      className="text-dgrey hover:text-blue-600 mb-4 inline-block"
+                      className=" text-ddarkgrey dark:text-dgrey hover:text-blue-600 mb-4 inline-block"
                     >
                       TOS
                     </a>
@@ -147,7 +147,7 @@ const Footer = () => {
                   <li>
                     <a
                       href="/privacy-policy"
-                      className="text-dgrey hover:text-blue-600 mb-4 inline-block"
+                      className=" text-ddarkgrey dark:text-dgrey hover:text-blue-600 mb-4 inline-block"
                     >
                       Privacy Policy
                     </a>
@@ -155,7 +155,7 @@ const Footer = () => {
                   <li>
                     <a
                       href="/about"
-                      className="text-dgrey hover:text-blue-600 mb-4 inline-block"
+                      className=" text-ddarkgrey dark:text-dgrey hover:text-blue-600 mb-4 inline-block"
                     >
                       About
                     </a>
@@ -173,7 +173,7 @@ const Footer = () => {
                   <li>
                     <a
                       href="/contact"
-                      className="text-dgrey hover:text-blue-600 mb-4 inline-block"
+                      className=" text-ddarkgrey dark:text-dgrey hover:text-blue-600 mb-4 inline-block"
                     >
                       Contact Us
                     </a>
@@ -181,7 +181,7 @@ const Footer = () => {
                   <li>
                     <a
                       href="/faqs"
-                      className="text-dgrey hover:text-blue-600 mb-4 inline-block"
+                      className=" text-ddarkgrey dark:text-dgrey hover:text-blue-600 mb-4 inline-block"
                     >
                       FAQs
                     </a>
@@ -189,7 +189,7 @@ const Footer = () => {
                   <li>
                     <a
                       href="/password-reset"
-                      className="text-dgrey hover:text-blue-600 mb-4 inline-block"
+                      className=" text-ddarkgrey dark:text-dgrey hover:text-blue-600 mb-4 inline-block"
                     >
                       Password Reset
                     </a>
