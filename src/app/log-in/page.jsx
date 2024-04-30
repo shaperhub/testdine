@@ -12,7 +12,6 @@ const SignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const router = useRouter()
-  // const userSession = sessionStorage.getItem('user')
 
   const handleSignIn = event => {
     try {
@@ -21,7 +20,6 @@ const SignIn = () => {
           // Signed in
           const user = userCredential.user;
           console.log(user);
-          // sessionStorage.setItem('user', true)
           setEmail('');
           setPassword('');
           router.push('/user-profile')
@@ -39,7 +37,6 @@ const SignIn = () => {
           // Signed in
           const user = userCredential.user;
           console.log(user);
-          // sessionStorage.setItem('user', true)
           setEmail('');
           setPassword('');
           router.push('/user-profile')

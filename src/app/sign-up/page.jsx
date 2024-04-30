@@ -58,8 +58,6 @@ const SignUp = () => {
   const handleSignUp = async (pic) => {
     try {
         const res = await createUserWithEmailAndPassword(auth, email, password)
-        // console.log({res})
-        // sessionStorage.setItem('user', true)
         const userid = res.user.uid
         handleCreate(firstname, lastname, email, userid, pic)
     } catch(e){
@@ -71,8 +69,6 @@ const SignUp = () => {
     try {
         const provider = new GoogleAuthProvider();
         const res = await signInWithPopup(auth, provider)
-        // console.log({res})
-        // sessionStorage.setItem('user', true)
         const guserid = res.user.uid
         const gdisplayname = res.user.displayName
         const gfirstname = gdisplayname.split(" ")[0]
@@ -190,7 +186,6 @@ const SignUp = () => {
           onChange={(e) => {setImage(e.target.files[0])}} 
           className="w-full p-3 mb-4 bg-dlightestgreen dark:bg-gray-700 rounded outline-none text-black dark:text-white placeholder-gray-500"
         />
-        {/* <p>{image.name}</p> */}
         <div className="mb-8 flex text-xs">
           <label
             htmlFor="checkboxLabel"
