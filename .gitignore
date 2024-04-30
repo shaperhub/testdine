@@ -20,6 +20,7 @@
 *.pem
 
 .env
+loader.js
 
 # debug
 npm-debug.log*
