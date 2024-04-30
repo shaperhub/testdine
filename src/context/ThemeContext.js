@@ -5,10 +5,10 @@ import { createContext, useState } from "react";
 export const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
-  const lasttheme = localStorage.getItem("theme");
-  const [mode, setMode] = useState(lasttheme);
+  // const lasttheme = localStorage.getItem("theme");
+  const [mode, setMode] = useState('');
   
-  localStorage.setItem('theme', mode);
+  // localStorage.setItem('theme', mode);
 
   const toggle = () => {
     setMode((prev) => (prev === "dark" ? "light" : "dark"));
