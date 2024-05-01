@@ -17,6 +17,11 @@ module.exports = {
       //   'image-night':
       //     "url('https://masterfed.com/DineIntelLogoLight.png')",
       // }),
+      fontFamily: {
+        // 👇 Add CSS variables
+        heading: ["var(--font-poppins-big)"],
+        regular: ["var(--font-poppins-regular)"],
+      },
       colors: {
         "dred": "#E31C3D",
         "dgreen": "#248540",

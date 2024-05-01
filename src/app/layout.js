@@ -1,17 +1,17 @@
 import Navbar from "@/components/navbar/Navbar";
 import "./globals.css";
-import { Inter, Poppins } from "next/font/google";
+import { Poppins } from "next/font/google";
 import Footer from "@/components/footer/Footer";
 import { ThemeProvider } from "@/context/ThemeContext";
 import {auth} from '@/app/firebase/config'
 import ScrollToTop from "@/components/ScrollToTop/ScrollToTop";
 
-const inter = Inter({ subsets: ["latin"] });
-const poppins = Poppins({ subsets: ['latin'], weight: "400" });
+const poppins = Poppins({ subsets: ['latin'], weight: "400", variable: "--font-poppins-regular"});
+const poppinsbig = Poppins({ subsets: ['latin'], weight: "700", variable:"--font-poppins-big"});
 
 export const metadata = {
-  title: "Third Attempt",
-  description: "This is the third attempt",
+  title: "Home - DineIntel",
+  description: "Welcome to the place where dining is being revolutionized.",
 };
 
 export default function RootLayout({ children }) {
@@ -28,7 +28,7 @@ export default function RootLayout({ children }) {
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="manifest" href="/site.webmanifest" />
       </head>
-      <body className={poppins.className}>
+      <body className={`${poppins.variable} ${poppinsbig.variable}`}>
         <ThemeProvider>
             <div className="">
               <Navbar initialUser={currentuser?.toJSON()}/>

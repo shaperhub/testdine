@@ -106,7 +106,7 @@ const SignUp = () => {
   };
 
   return (
-    <div data-aos="fade-up" className=" flex items-center justify-center bg-white dark:bg-dblack pt-20 text-sm pb-8">
+    <div data-aos="fade-up" className=" flex items-center justify-center bg-white dark:bg-dblack pt-20 text-sm pb-8 font-regular">
       <div className="bg-dlightgreen dark:bg-dlightblack p-10 rounded-lg shadow-xl w-96">
         <h1 className="text-black dark:text-white text-2xl mb-5">Create Your Account</h1>
         <button onClick={handleGoogleSignUp} className="flex w-full items-center justify-center rounded p-3 outline-none text-white bg-dblue hover:bg-dlightblue">

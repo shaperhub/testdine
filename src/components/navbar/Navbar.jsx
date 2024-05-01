@@ -65,7 +65,7 @@ export default function Navbar({initialUser}) {
   }
 
   return (
-    <div className='fixed w-full h-16 bg-dlightgreen dark:bg-dblue shadow-xl z-[100]'>
+    <div className='fixed w-full h-16 bg-dlightgreen dark:bg-dblue shadow-xl z-[100] font-regular'>
         <div className='flex justify-between items-center w-full h-full px-2 2xl:px-16 mb-40'>
             <Link className='dark:hidden' href='/'>
                 <Image className="" src={Navlog} alt="DineIntel Logo Lightmode" width='150' height='70' priority={true} />

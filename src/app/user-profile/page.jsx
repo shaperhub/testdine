@@ -18,7 +18,7 @@ const UserProfile = () => {
   console.log({user})
 
   return (
-    <div className='flex h-full w-full bg-slate-500 text-center text-yellow-100 pt-20'>
+    <div className='flex h-full w-full bg-slate-500 text-center text-yellow-100 pt-20 font-regular'>
         <h1>User Profile</h1>
     </div>
   )

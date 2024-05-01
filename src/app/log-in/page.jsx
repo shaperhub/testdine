@@ -47,7 +47,7 @@ const SignIn = () => {
   };
 
   return (
-    <div data-aos="fade-up" className="min-h-screen flex items-center justify-center bg-white dark:bg-dblack text-sm">
+    <div data-aos="fade-up" className="min-h-screen flex items-center justify-center bg-white dark:bg-dblack text-sm font-regular">
       <div className="bg-dlightgreen dark:bg-dlightblack p-10 rounded-lg shadow-xl w-96">
         <h1 className="text-black dark:text-white text-2xl mb-5">Log In to Your Account</h1>
         <button onClick={handleGoogleSignIn} className="flex w-full items-center justify-center rounded p-3 outline-none text-white bg-dblue hover:bg-dlightblue">

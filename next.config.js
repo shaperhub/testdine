@@ -2,7 +2,7 @@
 const nextConfig = {
   images: {
 
-    domains: ["images.pexels.com", "masterfed.com", "unsplash.com"],
+    domains: ["images.pexels.com", "masterfed.com", "images.unsplash.com"],
 
     //Delete these 2 loader lines and the loader.js file if you want to deploy on a Node server like Vercel
     // loader: "custom",
