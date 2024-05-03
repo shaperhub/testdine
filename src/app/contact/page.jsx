@@ -1,30 +1,31 @@
 import React from "react";
-import Image from "next/image";
-import Button from "@/components/Button/Button";
-
-export const metadata = {
-  title: "Third Attempt Contact Information",
-  description: "This is Contact Page",
-};
 
 const Contact = () => {
   return (
-    <div className="">
-      <h1 className="">Let&apos;s Keep in Touch</h1>
-      <div className="">
-        <div className="">
-        </div>
-        <form className="">
-          <input type="text" placeholder="name" className="" />
-          <input type="text" placeholder="email" className="" />
-          <textarea
-            className=""
-            placeholder="message"
-            cols="30"
-            rows="10"
-          ></textarea>
-          <Button url="#" text="Send"/>
-        </form>
+    <div data-aos="fade-up" className="min-h-screen flex items-center justify-center bg-white dark:bg-dblack text-sm font-regular">
+      <div className="bg-dlightgreen dark:bg-dlightblack p-10 rounded-lg shadow-xl w-96">
+        <h1 className="text-black dark:text-white text-2xl mb-2">Contact Us</h1>
+        <h4 className="text-ddarkgrey dark:text-dgrey mb-5">For questions, comments, and inquiries</h4>
+        <input 
+          type="text" 
+          placeholder="Full Name"
+          className="w-full p-3 mb-4 bg-dlightestgreen dark:bg-gray-700 rounded outline-none text-[16px] text-black dark:text-white placeholder-dgrey"
+        />
+        <input 
+          type="text" 
+          placeholder="Subject"
+          className="w-full p-3 mb-4 bg-dlightestgreen dark:bg-gray-700 rounded outline-none text-[16px] text-black dark:text-white placeholder-dgrey"
+        />
+        <textarea
+          placeholder="Message"
+          rows={6}
+          className="w-full p-3 mb-4 bg-dlightestgreen dark:bg-gray-700 rounded outline-none text-[16px] text-black dark:text-white placeholder-dgrey"
+        ></textarea>
+        <button 
+          className="w-full p-3 bg-dblue rounded text-white hover:bg-dlightblue"
+        >
+          Send Message
+        </button>
       </div>
     </div>
   );
