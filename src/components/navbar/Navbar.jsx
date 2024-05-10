@@ -10,16 +10,11 @@ import { useRouter, useSelectedLayoutSegment } from 'next/navigation'
 import {onAuthStateChanged} from "firebase/auth";
 import {auth} from "@/app/firebase/config";
 
-// export const dynamic = "force-dynamic";
-// export const revalidate = 0;
-
 function useUserSession(initialUser) {
 	// The initialUser comes from the server via a server component
 	const [user, setUser] = useState(initialUser);
   const [currentpage, setcurrentpage] = useState('')
 	const router = useRouter()
-  // const protectedroutesloggedout = ['/user-profile' ]
-  // const protectedroutesloggedin = ['sign-up', 'sign-in']
 
 	useEffect(() => {
 		const unsubscribe = onAuthStateChanged(auth, (authUser) => {
@@ -50,10 +45,10 @@ export default function Navbar({initialUser}) {
   const segment = useSelectedLayoutSegment();
 
   const handleSignOut = event => {
-	event.preventDefault();
-	auth.signOut().then(() => {
-        // sessionStorage.removeItem('user')
-        // routernew.push('/');
+	  event.preventDefault();
+	  auth.signOut().then(() => {
+      // sessionStorage.removeItem('user')
+      // routernew.push('/');
     })
   };
 

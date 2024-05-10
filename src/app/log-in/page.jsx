@@ -5,9 +5,6 @@ import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from 
 import {auth} from '@/app/firebase/config'
 import { useRouter } from 'next/navigation';
 
-// export const dynamic = "force-dynamic";
-// export const revalidate = 0;
-
 const SignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -50,7 +47,7 @@ const SignIn = () => {
     <div data-aos="fade-up" className="min-h-screen flex items-center justify-center bg-white dark:bg-dblack text-sm font-regular">
       <div className="bg-dlightgreen dark:bg-dlightblack p-10 rounded-lg shadow-xl w-96">
         <h1 className="text-black dark:text-white text-2xl mb-5">Log In to Your Account</h1>
-        <button onClick={handleGoogleSignIn} className="flex w-full items-center justify-center rounded p-3 outline-none text-white bg-dblue hover:bg-dlightblue">
+        <button onClick={handleGoogleSignIn} className="flex w-full items-center justify-center rounded-lg p-3 outline-none text-white bg-dblue hover:bg-dlightblue">
           <span className="mr-3">
             <svg
               width="20"
@@ -110,7 +107,7 @@ const SignIn = () => {
         />
         <button 
           onClick={handleSignIn}
-          className="w-full p-3 bg-dblue rounded text-white hover:bg-dlightblue"
+          className="w-full p-3 bg-dblue rounded-lg text-white hover:bg-dlightblue"
         >
           Log In
         </button>

@@ -17,13 +17,6 @@ module.exports = {
       },
     },
     extend: {
-      // backgroundImage: (theme) => ({
-      //   'image-day':
-      //     "url('https://plus.unsplash.com/premium_photo-1713447395823-2e0b40b75a89')",
-      //   'image-night':
-      //     "url('https://masterfed.com/DineIntelLogoLight.png')",
-      // }),
-
       fontFamily: {
         heading: ["var(--font-poppins-big)"],
         regular: ["var(--font-poppins-regular)"],
@@ -39,7 +32,7 @@ module.exports = {
         "dlightblack": "#292D32",
         "dgrey": "#A0A8B3",
         "ddarkgrey": "#545454",
-        "dlightestgreen": "F5FCF8",
+        "dlightestgreen": "#F5FCF8",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",

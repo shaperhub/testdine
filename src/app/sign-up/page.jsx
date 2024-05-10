@@ -7,9 +7,6 @@ import {ref, getDownloadURL, uploadBytesResumable } from "firebase/storage"
 import {auth, db, storage} from '@/app/firebase/config'
 import { useRouter } from 'next/navigation';
 
-// export const dynamic = "force-dynamic";
-// export const revalidate = 0;
-
 const SignUp = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -109,7 +106,7 @@ const SignUp = () => {
     <div data-aos="fade-up" className=" flex items-center justify-center bg-white dark:bg-dblack pt-20 text-sm pb-8 font-regular">
       <div className="bg-dlightgreen dark:bg-dlightblack p-10 rounded-lg shadow-xl w-96">
         <h1 className="text-black dark:text-white text-2xl mb-5">Create Your Account</h1>
-        <button onClick={handleGoogleSignUp} className="flex w-full items-center justify-center rounded p-3 outline-none text-white bg-dblue hover:bg-dlightblue">
+        <button onClick={handleGoogleSignUp} className="flex w-full items-center justify-center rounded-lg p-3 outline-none text-white bg-dblue hover:bg-dlightblue">
           <span className="mr-3">
             <svg
               width="20"
@@ -232,7 +229,7 @@ const SignUp = () => {
         </div>
         <button 
           onClick={upload}
-          className="w-full p-3 bg-dblue rounded text-white hover:bg-dlightblue"
+          className="w-full p-3 bg-dblue rounded-lg text-white hover:bg-dlightblue"
         >
           Sign Up
         </button>
