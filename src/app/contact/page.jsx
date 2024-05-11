@@ -2,8 +2,8 @@ import React from "react";
 
 const Contact = () => {
   return (
-    <div data-aos="fade-up" className="min-h-screen flex items-center justify-center bg-white dark:bg-dblack text-sm font-regular">
-      <div className="bg-dlightgreen dark:bg-dlightblack p-10 rounded-lg shadow-xl w-96">
+    <div className="min-h-screen flex items-center justify-center bg-white dark:bg-dblack text-sm font-regular">
+      <div data-aos="fade-up" className="bg-dlightgreen dark:bg-dlightblack p-10 rounded-lg shadow-xl w-96">
         <h1 className="text-black dark:text-white text-2xl mb-2">Contact Us</h1>
         <h4 className="text-ddarkgrey dark:text-dgrey mb-5">For questions, comments, and inquiries</h4>
         <input 

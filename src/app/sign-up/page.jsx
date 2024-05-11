@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import {createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider} from "firebase/auth";
-import {collection, addDoc} from "firebase/firestore"
+import {doc, setDoc, serverTimestamp} from "firebase/firestore"
 import {ref, getDownloadURL, uploadBytesResumable } from "firebase/storage"
 import {auth, db, storage} from '@/app/firebase/config'
 import { useRouter } from 'next/navigation';
@@ -16,7 +16,7 @@ const SignUp = () => {
   const [image, setImage] = useState('');
  
   const upload = () => {
-    const storageRef = ref(storage, image.name);
+    const storageRef = ref(storage, `usersImages/${image.name}`);
     const uploadTask = uploadBytesResumable(storageRef, image);
     
     // Register three observers:
@@ -80,15 +80,25 @@ const SignUp = () => {
 
   const handleCreate = async(userfname, userlname, useremail, uid, upic) => {
     try {
-        const docRef = await addDoc(collection(db, "users"), {
-          firstname: userfname,
-          lastname: userlname,
-          email: useremail,
-          userid: uid,
-          profilepic: upic,
+        const docRef = await setDoc(doc(db, "users", uid), {
+          createdAt: serverTimestamp(),
+          fcmToken: '',
+          firstName: userfname,
+          lastName: userlname,
+          userName: '',
+          userEmail: useremail,
+          userId: uid,
+          userImage: upic,
+          subscriptionPlan: '',
+          isProfilePublic: true,
+          showMenus: true,
+          showDietPref: true,
+          showFavRestaurants: true,
+          groupsJoined: [],
+          groupsPending: [],
+          preferences: {cuisines: [], dietaryPreferences: [], foodAllergies: [], nutritionalBlocks: []},
         })
         console.log("User Data: " + userfname, userlname, useremail, uid, upic)
-        console.log("DOcument written with ID: " + docRef.id)
         setEmail('');
         setPassword('');
         setFirstname('');
@@ -103,8 +113,8 @@ const SignUp = () => {
   };
 
   return (
-    <div data-aos="fade-up" className=" flex items-center justify-center bg-white dark:bg-dblack pt-20 text-sm pb-8 font-regular">
-      <div className="bg-dlightgreen dark:bg-dlightblack p-10 rounded-lg shadow-xl w-96">
+    <div className=" flex items-center justify-center bg-white dark:bg-dblack pt-20 text-sm pb-8 font-regular">
+      <div data-aos="fade-up" className="bg-dlightgreen dark:bg-dlightblack p-10 rounded-lg shadow-xl w-96">
         <h1 className="text-black dark:text-white text-2xl mb-5">Create Your Account</h1>
         <button onClick={handleGoogleSignUp} className="flex w-full items-center justify-center rounded-lg p-3 outline-none text-white bg-dblue hover:bg-dlightblue">
           <span className="mr-3">

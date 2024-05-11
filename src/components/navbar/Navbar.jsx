@@ -20,7 +20,6 @@ function useUserSession(initialUser) {
 		const unsubscribe = onAuthStateChanged(auth, (authUser) => {
 			setUser(authUser)
 		})
-
 		return () => unsubscribe()
 	}, [])
 

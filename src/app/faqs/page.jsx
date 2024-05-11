@@ -4,8 +4,8 @@ import Link from 'next/link'
 
 const Faqs = () => {
   return (
-    <div data-aos="fade-up" className=''>
-      <div className='w-full bg-dlightestgreen dark:bg-ddarkgrey text-black dark:text-white pt-28 pb-16 px-8 md:px-24'>
+    <div className='bg-dlightestgreen dark:bg-ddarkgrey text-black dark:text-white'>
+      <div data-aos="fade-up" className='w-full pt-28 pb-16 px-8 md:px-24'>
         <h1 className="font-heading text-4xl mb-8">Frequently Asked Questions</h1>
         <p className='font-regular text-2xl mb-8'>These are some of the frequently asked questions and answers about DineIntel.</p>
         <Accordion type="single" collapsible className="font-regular">
