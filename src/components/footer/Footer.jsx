@@ -30,8 +30,8 @@ const Footer = () => {
                 />
               </Link>
               <p className="mb-4 text-ddarkgrey dark:text-dgrey">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Integer lobortis.
+                At DineIntel, our passion lies in revolutionizing the dining experience. 
+                Founded by a team of culinary enthusiasts and tech innovators, our mission is to seamlessly merge the art of gastronomy with cutting-edge digital innovation.
               </p>
               <div className="flex items-center">
                 <a
