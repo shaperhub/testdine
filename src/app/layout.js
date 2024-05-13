@@ -30,7 +30,7 @@ export default function RootLayout({ children }) {
       </head>
       <body className={`${poppins.variable} ${poppinsbig.variable}`}>
         <ThemeProvider>
-            <div className="">
+            <div className=" bg-repeat bg-center bg-lightbg dark:bg-darkbg">
               <Navbar initialUser={currentuser?.toJSON()}/>
               {children}
               <Footer />
