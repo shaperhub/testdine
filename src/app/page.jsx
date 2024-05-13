@@ -19,7 +19,7 @@ export default function Home() {
     <div className="">
 
       {/* Hero */}
-      <div className="w-full flex flex-col text-center items-center justify-center px-4 md:px-36 py-32 md:py-40 bg-dlightgreen dark:bg-dblue">
+      <div className="w-full flex flex-col text-center items-center justify-center px-4 md:px-36 py-32 md:py-40">
         <h1 data-aos="fade-down" className="text-4xl md:text-8xl text-dblue dark:text-dlightgreen font-heading">
           Experience the essence of innovation with <span className="text-dgreen">DineIntel</span>
         </h1>
