@@ -1,35 +1,16 @@
 import React from "react";
-import Image from "next/image";
-import Link from "next/link";
-import LogoLight from '../../../public/DineIntelLogoLight.png'
-import LogoDark from '../../../public/DineIntelLogoDark.png'
 
 const Footer = () => {
   const currentyear = new Date().getFullYear();
 
   return (
     <div className="text-xs md:text-sm font-regular">
-      <div className="footer bg-dlightgreen dark:bg-dblue px-2 2xl:px-16 pt-8">
+      <div className="footer bg-dblue px-2 2xl:px-16 pt-8">
         <div className="flex flex-wrap">
           <div className="w-full md:w-1/2 lg:w-4/12 xl:w-5/12">
             <div className="mb-12 max-w-[360px] lg:mb-16">
-              <Link href="/" className="mb-4 inline-block">
-                <Image
-                  src={LogoLight}
-                  alt="DineIntel Logo Lightmode"
-                  className="w-full dark:hidden"
-                  width={80}
-                  height={25}
-                />
-                <Image
-                  src={LogoDark}
-                  alt="DineIntel Logo Darkmode"
-                  className="hidden w-full dark:block"
-                  width={80}
-                  height={25}
-                />
-              </Link>
-              <p className="mb-4 text-ddarkgrey dark:text-dgrey">
+              <h2 className="mb-4 text-xl font-bold text-white">About Us</h2>
+              <p className="mb-4 text-dgrey">
                 At DineIntel, our passion lies in revolutionizing the dining experience. 
                 Founded by a team of culinary enthusiasts and tech innovators, our mission is to seamlessly merge the art of gastronomy with cutting-edge digital innovation.
               </p>
@@ -37,7 +18,7 @@ const Footer = () => {
                 <a
                   href="https://facebook.com/"
                   aria-label="facebook-social-link"
-                  className="text-ddarkgrey dark:text-dgrey mr-6 hover:text-dgreen dark:hover:text-dgreen"
+                  className="text-dgrey mr-6 hover:text-dgreen"
                 >
                   <svg
                     width="9"
@@ -51,7 +32,7 @@ const Footer = () => {
                 <a
                   href="https://twitter.com/"
                   aria-label="twitter-social-link"
-                  className=" text-ddarkgrey dark:text-dgrey mr-6 hover:text-dgreen dark:hover:text-dgreen"
+                  className="text-dgrey mr-6 hover:text-dgreen"
                 >
                   <svg
                     width="19"
@@ -65,7 +46,7 @@ const Footer = () => {
                 <a
                   href="https://youtube.com/"
                   aria-label="youtube-social-link"
-                  className=" text-ddarkgrey dark:text-dgrey mr-6 hover:text-dgreen dark:hover:text-dgreen"
+                  className="text-dgrey mr-6 hover:text-dgreen"
                 >
                   <svg
                     width="18"
@@ -79,7 +60,7 @@ const Footer = () => {
                 <a
                   href="https://linkedin.com/"
                   aria-label="linkedin-social-link"
-                  className=" text-ddarkgrey dark:text-dgrey hover:text-dgreen dark:hover:text-dgreen"
+                  className="text-dgrey hover:text-dgreen"
                 >
                   <svg
                     width="17"
@@ -96,14 +77,14 @@ const Footer = () => {
 
           <div className="w-full sm:w-1/2 md:w-1/2 lg:w-2/12 xl:w-2/12">
             <div className="mb-6 lg:mb-16">
-              <h2 className="mb-4 text-xl font-bold text-black dark:text-white">
-                Useful Links
+              <h2 className="mb-4 text-xl font-bold text-white">
+                Quick Links
               </h2>
               <ul>
                 <li>
                   <a
                     href="/blog"
-                    className=" text-ddarkgrey dark:text-dgrey hover:text-dgreen dark:hover:text-dgreen mb-4 inline-block"
+                    className="text-dgrey hover:text-dgreen mb-4 inline-block"
                   >
                     Blog
                   </a>
@@ -111,7 +92,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="/dineintel-tiers"
-                    className=" text-ddarkgrey dark:text-dgrey hover:text-dgreen dark:hover:text-dgreen mb-4 inline-block"
+                    className="text-dgrey hover:text-dgreen mb-4 inline-block"
                   >
                     Tiers
                   </a>
@@ -119,7 +100,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="/features"
-                    className=" text-ddarkgrey dark:text-dgrey hover:text-dgreen dark:hover:text-dgreen mb-4 inline-block"
+                    className="text-dgrey hover:text-dgreen mb-4 inline-block"
                   >
                     Features
                   </a>
@@ -130,14 +111,14 @@ const Footer = () => {
 
           <div className="w-full sm:w-1/2 md:w-1/2 lg:w-2/12 xl:w-2/12">
             <div className="mb-6 lg:mb-16">
-              <h2 className="mb-4 text-xl font-bold text-black dark:text-white">
+              <h2 className="mb-4 text-xl font-bold text-white">
                 Terms
               </h2>
               <ul>
                 <li>
                   <a
                     href="/terms-of-service"
-                    className=" text-ddarkgrey dark:text-dgrey hover:text-dgreen dark:hover:text-dgreen mb-4 inline-block"
+                    className="text-dgrey hover:text-dgreen mb-4 inline-block"
                   >
                     TOS
                   </a>
@@ -145,7 +126,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="/privacy-policy"
-                    className=" text-ddarkgrey dark:text-dgrey hover:text-dgreen dark:hover:text-dgreen mb-4 inline-block"
+                    className="text-dgrey hover:text-dgreen mb-4 inline-block"
                   >
                     Privacy Policy
                   </a>
@@ -153,7 +134,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="/about"
-                    className=" text-ddarkgrey dark:text-dgrey hover:text-dgreen dark:hover:text-dgreen mb-4 inline-block"
+                    className="text-dgrey hover:text-dgreen mb-4 inline-block"
                   >
                     About
                   </a>
@@ -164,14 +145,14 @@ const Footer = () => {
 
           <div className="w-full md:w-1/2 lg:w-4/12 xl:w-3/12">
             <div className="mb-6 lg:mb-16">
-              <h2 className="mb-4 text-xl font-bold text-black dark:text-white">
+              <h2 className="mb-4 text-xl font-bold text-white">
                 Support & Help
               </h2>
               <ul>
                 <li>
                   <a
                     href="/contact"
-                    className=" text-ddarkgrey dark:text-dgrey hover:text-dgreen dark:hover:text-dgreen mb-4 inline-block"
+                    className="text-dgrey hover:text-dgreen mb-4 inline-block"
                   >
                     Contact Us
                   </a>
@@ -179,7 +160,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="/faqs"
-                    className=" text-ddarkgrey dark:text-dgrey hover:text-dgreen dark:hover:text-dgreen mb-4 inline-block"
+                    className="text-dgrey hover:text-dgreen mb-4 inline-block"
                   >
                     FAQs
                   </a>
@@ -187,7 +168,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="/password-reset"
-                    className=" text-ddarkgrey dark:text-dgrey hover:text-dgreen dark:hover:text-dgreen mb-4 inline-block"
+                    className="text-dgrey hover:text-dgreen mb-4 inline-block"
                   >
                     Password Reset
                   </a>
@@ -199,7 +180,7 @@ const Footer = () => {
 
         <div className="h-1 w-full bg-gradient-to-r from-transparent via-[#D2D8E183] to-transparent dark:via-[#959CB183]"></div>
         <div className="py-8">
-          <p className="text-center text-black dark:text-white">
+          <p className="text-center text-white">
             &copy; {currentyear}. DineIntel. All Rights Reserved.
           </p>
         </div>

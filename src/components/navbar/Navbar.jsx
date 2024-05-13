@@ -12,8 +12,7 @@ import {auth} from "@/app/firebase/config";
 
 function useUserSession(initialUser) {
 	// The initialUser comes from the server via a server component
-	const [user, setUser] = useState(initialUser);
-  const [currentpage, setcurrentpage] = useState('')
+	const [user, setUser] = useState(initialUser)
 	const router = useRouter()
 
 	useEffect(() => {
@@ -33,7 +32,7 @@ function useUserSession(initialUser) {
 				router.push('/')
 			}
 		})
-	}, [user, currentpage])
+	}, [user])
 
 	return user;
 }
@@ -59,16 +58,13 @@ export default function Navbar({initialUser}) {
   }
 
   return (
-    <div className='fixed w-full h-16 bg-dlightgreen dark:bg-dblue shadow-xl z-[100] font-regular'>
+    <div className='fixed w-full h-16 bg-dblue shadow-xl z-[100] font-regular'>
         <div className='flex justify-between items-center w-full h-full px-2 2xl:px-16 mb-40'>
-            <Link className='dark:hidden' href='/'>
-                <Image className="" src={Navlog} alt="DineIntel Logo Lightmode" width='150' height='70' priority={true} />
-            </Link>
-            <Link className='hidden dark:flex' href='/'>
-                <Image className="" src={NavlogDark} alt="DineIntel Logo Darkmode" width='150' height='70' priority={true} />
+            <Link className='' href='/'>
+                <Image className="" src={NavlogDark} alt="DineIntel Logo" width='150' height='70' priority={true} />
             </Link>
             <div>
-              <ul className='hidden md:flex pr-4 dark:text-dlightgreen'>
+              <ul className='hidden md:flex pr-4 text-dlightgreen'>
                 <Link href='/about'>
                   <li id='about' 
                   className={segment == 'about' 
@@ -129,7 +125,9 @@ export default function Navbar({initialUser}) {
                         <Link href='' onClick={handleSignOut}>
                         <li id='signout' 
                         className='ml-10 p-0.5 text-sm'
-                        >Sign Out</li>
+                        >Sign Out
+                        <span className='block max-w-0 group-hover:max-w-full transition-all duration-200 h-0.5 bg-dgreen'></span>
+                        </li>
                         </Link>
                         <Link href='/user-profile'>
                         <li id='profile' 
@@ -170,7 +168,7 @@ export default function Navbar({initialUser}) {
               <div className='flex flex-row md:hidden'>
                 <div className='mr-4'><DarkModeToggle /></div>
                 {/* Hamburger Icon */}
-                <div onClick={handleNav} className=' dark:text-dlightgreen'>
+                <div onClick={handleNav} className='text-dlightgreen'>
                   <AiOutlineMenu size={25} />
                 </div>
               </div>
@@ -179,17 +177,14 @@ export default function Navbar({initialUser}) {
 
         {/* Mobile Menu */}
         {/* Overlay */}
-        <div className={nav ? 'fixed left-[] top-0 w-full h-screen bg-black/70 dark:bg-dlightgreen/70' : ''}>
+        <div className={nav ? 'fixed left-[] top-0 w-full h-screen bg-dlightgreen/70' : ''}>
 
           {/* Side Drawer Menu */}
-          <div className={nav ? 'fixed left-0 top-0 w-[75%] sm:w-[60%] md:w-[45%] h-screen bg-[#ecf0f3] dark:bg-dblue dark:text-dlightgreen p-10 ease-in duration-500' : 'fixed left-[-105%] top-0 p-10 ease-in duration-500'}>
+          <div className={nav ? 'fixed left-0 top-0 w-[75%] sm:w-[60%] md:w-[45%] h-screen bg-dblue text-dlightgreen p-10 ease-in duration-500' : 'fixed left-[-105%] top-0 p-10 ease-in duration-500'}>
             <div>
               <div className='flex w-full items-center justify-between'>
-                <Link onClick={() => setNav(false)} href='/' className='pt-4 dark:hidden'>
-                  <Image src={Navlog} width='100' height='40' alt='DineIntel Logo Lightmode' priority={true} />
-                </Link>
-                <Link onClick={() => setNav(false)} href='/' className='pt-4 invisible dark:visible'>
-                  <Image src={NavlogDark} width='100' height='40' alt='DineIntel Logo Darkmode' priority={true}/>
+                <Link onClick={() => setNav(false)} href='/' className='pt-4'>
+                  <Image src={NavlogDark} width='100' height='40' alt='DineIntel Logo' priority={true}/>
                 </Link>
                 <div onClick={handleNav} className='rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer'>
                   <AiOutlineClose />

@@ -2,29 +2,34 @@ import React from "react";
 
 const Contact = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-white dark:bg-dblack text-sm font-regular">
-      <div data-aos="fade-up" className="bg-dlightgreen dark:bg-dlightblack p-10 rounded-lg shadow-xl w-96">
+    <div className="min-h-screen flex items-center justify-center text-sm font-regular">
+      <div data-aos="fade-up" className="bg-white dark:bg-dblack p-10 rounded-2xl shadow-xl w-96">
         <h1 className="text-black dark:text-white text-2xl mb-2">Contact Us</h1>
-        <h4 className="text-ddarkgrey dark:text-dgrey mb-5">For questions, comments, and inquiries</h4>
+        <h4 className="text-ddarkgrey dark:text-dgrey mb-5">Got Questions? Let&apos;s give you the answers you need.</h4>
         <input 
           type="text" 
-          placeholder="Full Name"
-          className="w-full p-3 mb-4 bg-dlightestgreen dark:bg-gray-700 rounded outline-none text-[16px] text-black dark:text-white placeholder-dgrey"
+          placeholder="Your Name"
+          className="w-full p-3 mb-4 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey"
         />
         <input 
           type="text" 
-          placeholder="Subject"
-          className="w-full p-3 mb-4 bg-dlightestgreen dark:bg-gray-700 rounded outline-none text-[16px] text-black dark:text-white placeholder-dgrey"
+          placeholder="Email"
+          className="w-full p-3 mb-4 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey"
+        />
+        <input 
+          type="text" 
+          placeholder="Phone Number"
+          className="w-full p-3 mb-4 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey"
         />
         <textarea
           placeholder="Message"
           rows={6}
-          className="w-full p-3 mb-4 bg-dlightestgreen dark:bg-gray-700 rounded outline-none text-[16px] text-black dark:text-white placeholder-dgrey"
+          className="w-full p-3 mb-4 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey resize-none"
         ></textarea>
         <button 
-          className="w-full p-3 bg-dblue rounded-lg text-white hover:bg-dlightblue"
+          className="w-full p-3 bg-dgreen/10 dark:bg-dgreen/20 rounded-2xl text-dgreen text-[16px] font-bold"
         >
-          Send Message
+          Submit
         </button>
       </div>
     </div>
