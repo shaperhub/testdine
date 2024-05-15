@@ -1,17 +1,24 @@
 'use client'
 import {useState, useEffect} from 'react'
 import {auth, db, storage} from '@/app/firebase/config'
-import {doc, updateDoc, deleteDoc, getDoc, arrayRemove, arrayUnion} from "firebase/firestore"
+import {doc, updateDoc, deleteDoc, getDoc, getDocs, collection, onSnapshot, query, where, arrayRemove, arrayUnion} from "firebase/firestore"
 import {ref, getDownloadURL, uploadBytesResumable } from "firebase/storage"
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
+import { getCheckoutUrl, getPortalUrl } from "./payment";
 import Image from 'next/image';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger} from "@/components/ui/alert-dialog"
+import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/alert-dialog"
 import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger} from "@/components/ui/dialog"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import tasteimage from "../../../public/TasteStarterBg.png"
+import cuisineimage from "../../../public/CuisineCrafterBg.png"
+import epicimage from "../../../public/EpicureanBg.png"
+import blurimage from "../../../public/LoginGraphic.png"
 
 const UserProfile = () => {
   const user = auth.currentUser;
@@ -21,73 +28,109 @@ const UserProfile = () => {
   const [profilepic, setProfilepic] = useState('')
   const [username, setUsername] = useState('')
   const [usersubscription, setUsersubscription] = useState('')
-  const [showpublicprofile, setShowpublicprofile] = useState(true)
-  const [showdietpref, setShowdietpref] = useState(true)
-  const [showmenus, setShowmenus] = useState('')
-  const [groupsjoined, setGroupsjoined] = useState('')
   const router = useRouter()
-  // setTimeout(() => { 
-  //   console.log("Profile user ID: " + user.uid); 
-  // }, 2000);
+  const [isPremium, setIsPremium] = useState(false);
+  const [currentsub, setCurrentsub] = useState('')
+  
   console.log({user})
 
 	useEffect(() => {
-		getDoc(doc(db, "users", user.uid)).then(docSnap => {
-      if (docSnap.exists()) {
-        const userdata = docSnap.data()
-        setFirstname(userdata.firstName)
-        setLastname(userdata.lastName)
-        setProfilepic(userdata.userImage)
-        setUseremail(userdata.userEmail)
-        setUsername(userdata.userName)
-        setUsersubscription(userdata.subscriptionPlan)
-        console.log("Document data:", docSnap.data());
-      } else {
-        // docSnap.data() will be undefined in this case
-        console.log("No such document!");
-      }
-    })
-    // const docSnap = getDoc(docRef);
+    // Get user details
+		const getUserData = async() => { 
+      await getDoc(doc(db, "users", user.uid)).then(docSnap => {
+        if (docSnap.exists()) {
+          const userdata = docSnap.data()
+          setFirstname(userdata.firstName)
+          setLastname(userdata.lastName)
+          setProfilepic(userdata.userImage)
+          setUseremail(userdata.userEmail)
+          setUsername(userdata.userName)
+          setUsersubscription(userdata.subscriptionPlan)
+
+          // Check if user has a subscription
+          const subscriptionsRef = collection(db, "customers", user.uid, "subscriptions");
+          const q = query(
+            subscriptionsRef,
+            where("status", "in", ["trialing", "active"])
+          );
+          const unsubscribe = onSnapshot(q, (snapshot) => {
+              // In this implementation we only expect one active or trial subscription to exist.
+              if (snapshot.docs.length === 0) {
+                console.log("No active or trial subscriptions found");
+                setIsPremium(false);
+              } else {
+                console.log("Active or trial subscription found");
+                setIsPremium(true);
+                getSubscription();
+              }
+              unsubscribe();
+          });
+          console.log("Document data:", docSnap.data());
+        } else {
+          // docSnap.data() will be undefined in this case
+          console.log("No such document!");
+        }
+      })
+    }
+    getUserData();
 
 	}, [])
 
-  const uploadpic = () => {
-    const storageRef = ref(storage, `usersImages/${image.name}`);
-    const uploadTask = uploadBytesResumable(storageRef, image);
-    
-    // Register three observers:
-    // 1. 'state_changed' observer, called any time the state changes
-    // 2. Error observer, called on failure
-    // 3. Completion observer, called on successful completion
-    uploadTask.on('state_changed', 
-      (snapshot) => {
-        // Observe state change events such as progress, pause, and resume
-        // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-        const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-        console.log('Upload is ' + progress + '% done');
-        switch (snapshot.state) {
-          case 'paused':
-            console.log('Upload is paused');
-            break;
-          case 'running':
-            console.log('Upload is running');
-            break;
-        }
-      }, 
-      (error) => {
-        // Handle unsuccessful uploads
-        console.log(error)
-      }, 
-      () => {
-        // Handle successful uploads on complete. For instance, get the download URL
-        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-          // console.log('File available at', downloadURL);
-          updateProfile(downloadURL);
-        });
-      }
-    )
+  console.log("Subscription Status: " + isPremium)
+
+  // Get Subscription Tier
+  const getSubscription = async() => {
+    const subRef = collection(db, `customers/${user.uid}/subscriptions`);
+    const q = query(subRef);
+    const qsnap = await getDocs(q)
+    const arr = []
+    qsnap.docs.map((d) => {
+      arr.push(d.data())
+    });
+    const subproduct = arr[0].items[0].plan.product;
+    if(subproduct == "prod_Q5cPY1oSMIPdXK"){
+      setCurrentsub("taste")
+    }
+    else if(subproduct == "prod_Q5cPjYWep1T9zX"){
+      setCurrentsub("cuisine")
+    }
+    else if(subproduct == "prod_Q5cQYrIMnnHdyE"){
+      setCurrentsub("epicurean")
+    }
   }
 
+  // Pay for Taste Starter Subscription
+  const upgradeToTasteStarter = async () => {
+    const priceId = "price_1PFRAIRtFO8HcW8t5OKlNRku";
+    const checkoutUrl = await getCheckoutUrl(priceId);
+    router.push(checkoutUrl);
+    console.log("Upgrade to Premium");
+  };
+
+  // Pay for Cuisine Crafter Subscription
+  const upgradeToCuisineCrafter = async () => {
+    const priceId = "price_1PFRAvRtFO8HcW8t7eXG3scB";
+    const checkoutUrl = await getCheckoutUrl(priceId);
+    router.push(checkoutUrl);
+    console.log("Upgrade to Premium");
+  };
+
+  // Pay for Epicurean Elite Subscription
+  const upgradeToEpicurean = async () => {
+    const priceId = "price_1PFRBSRtFO8HcW8tlndiFEvN";
+    const checkoutUrl = await getCheckoutUrl(priceId);
+    router.push(checkoutUrl);
+    console.log("Upgrade to Premium");
+  };
+
+  // Manage Subscription and Payments
+  const manageSubscription = async () => {
+    const portalUrl = await getPortalUrl();
+    router.push(portalUrl);
+    console.log("Manage Subscription");
+  };
+
+  // Update Profile
   const updateProfile = async () => {
     const newupdate = doc(db, "users", user.uid);
   
@@ -97,6 +140,7 @@ const UserProfile = () => {
     });
   }
   
+  // Delete Profile
   const deleteProfile = async () => {
     setFirstname('')
     setLastname('')
@@ -104,10 +148,6 @@ const UserProfile = () => {
     setProfilepic('')
     setUsername('')
     setUsersubscription('')
-    setShowpublicprofile(true)
-    setShowdietpref(true)
-    setShowmenus('')
-    setGroupsjoined('')
 
     // Delete User Data from Firestore
     await deleteDoc(doc(db, "users", user.uid)).then(() => {
@@ -115,13 +155,98 @@ const UserProfile = () => {
       user.delete()
       // Sign Out
       auth.signOut()
+    });
+
+    // Delete Customer Data from Firestore
+    await deleteDoc(doc(db, "customers", user.uid)).then(() => {
       // Route to Homepage
       router.push('/')
-    });
+    })
   }
 
   return (
-    <div className=''>
+    <div className='bg-white/50 dark:bg-black/80'>
+      <div className="h-screen flex flex-wrap items-center justify-center">
+          <div className="container lg:w-2/6 xl:w-2/7 sm:w-full md:w-2/3 bg-white dark:bg-black shadow-lg transform duration-200 ease-in-out">
+              <div className="h-32 overflow-hidden">
+                  <Image className="w-full" src={currentsub == "taste" ? tasteimage : currentsub == "cuisine" ? cuisineimage : currentsub == "epicurean" ? epicimage : "https://images.pexels.com/photos/247599/pexels-photo-247599.jpeg"} width={250} height={50} alt="Profile Background Picture" />
+              </div>
+              <div className="flex justify-center px-5 -mt-12">
+                  <Image className="h-32 w-32 bg-white p-2 rounded-full" src={profilepic} width={200} height={200} alt="Profile Picture" />
+              </div>
+              <div className="">
+                  <div className="text-center px-14 font-regular">
+                      <h2 className="text-black dark:text-white text-3xl font-bold"><span>{firstname}</span><span> </span><span>{lastname}</span></h2>
+                      <p className="text-dgreen mt-2">@{username}</p>
+                      <p className="mt-2 text-gray-500 text-sm">{useremail}</p>
+                  </div>
+                  <hr className="mt-6" />
+                  <div className="">
+                    <Tabs defaultValue="account" className="w-[400px]">
+                      <TabsList className="grid w-full grid-cols-2">
+                        <TabsTrigger value="editprofile">Edit Profile</TabsTrigger>
+                        <TabsTrigger value="subscription">Subscription</TabsTrigger>
+                      </TabsList>
+                      <TabsContent value="editprofile">
+                        <Card>
+                          <CardHeader>
+                            <CardTitle>Account</CardTitle>
+                            <CardDescription>
+                              Edit your profile here. Click save when you are done.
+                            </CardDescription>
+                          </CardHeader>
+                          <CardContent className="space-y-2">
+                            <div className="space-y-1">
+                              <Label htmlFor="firstname">First Name</Label>
+                              <Input id="firstname" className="text-[16px]" defaultValue={firstname} />
+                            </div>
+                            <div className="space-y-1">
+                              <Label htmlFor="lastname">Last Name</Label>
+                              <Input id="lastname" className="text-[16px]" defaultValue={lastname} />
+                            </div>
+                          </CardContent>
+                          <CardFooter>
+                            <Button>Save Changes</Button>
+                          </CardFooter>
+                        </Card>
+                      </TabsContent>
+                      <TabsContent value="subscription">
+                        <Card>
+                          <CardHeader>
+                            <CardTitle>Subscription</CardTitle>
+                            <CardDescription>
+                              Manage your subscription.
+                            </CardDescription>
+                          </CardHeader>
+                          <CardContent className="space-y-2">
+                            <div className="space-y-1">
+                              <Button onClick={upgradeToTasteStarter}>Upgrade to Taste Starter</Button>
+                            </div>
+                            <div className="space-y-1">
+                              <Button onClick={upgradeToCuisineCrafter}>Upgrade to Cuisine Crafter</Button>
+                            </div>
+                            <div className="space-y-1">
+                              <Button onClick={upgradeToEpicurean}>Upgrade to Epicurean Elite</Button>
+                            </div>
+                            <div className="space-y-1">
+                              <Button onClick={manageSubscription}>Manage Subscription</Button>
+                            </div>
+                          </CardContent>
+                          <CardFooter>
+              
+                          </CardFooter>
+                        </Card>
+                      </TabsContent>
+                    </Tabs>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+
+
+
+
       <div className='w-full flex flex-col py-32 md:py-40 px-8 md:px-24 bg-dlightgreen dark:bg-dblue'>
         <h1 className='font-heading text-3xl mb-4 text-black dark:text-white'>User Profile</h1>
         <p className='font-regular text-black dark:text-white mb-4'>Firstname: {firstname}</p>
@@ -172,7 +297,7 @@ const UserProfile = () => {
                 <Input
                   id="firstname"
                   defaultValue={firstname}
-                  className="col-span-3"
+                  className="col-span-3 text-[16px]"
                   onChange={(e) => setFirstname(e.target.value)} 
                 />
               </div>
@@ -183,7 +308,7 @@ const UserProfile = () => {
                 <Input
                   id="lastname"
                   defaultValue={lastname}
-                  className="col-span-3"
+                  className="col-span-3 text-[16px]"
                   onChange={(e) => setLastname(e.target.value)}
                 />
               </div>
@@ -195,6 +320,8 @@ const UserProfile = () => {
             </DialogFooter>
           </DialogContent>
         </Dialog>
+
+        
       </div>
     </div>
   )

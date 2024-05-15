@@ -3,12 +3,11 @@ import {useState, useEffect} from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import {AiOutlineClose, AiOutlineMenu} from 'react-icons/ai'
-import DarkModeToggle from "../DarkModeToggle/DarkModeToggle";
-import Navlog from '../../../public/DineIntelLogoLight.png'
+import DarkModeToggle from "../DarkModeToggle/DarkModeToggle"
 import NavlogDark from '../../../public/DineIntelLogoDark.png'
 import { useRouter, useSelectedLayoutSegment } from 'next/navigation'
-import {onAuthStateChanged} from "firebase/auth";
-import {auth} from "@/app/firebase/config";
+import {onAuthStateChanged} from "firebase/auth"
+import {auth} from "@/app/firebase/config"
 
 function useUserSession(initialUser) {
 	// The initialUser comes from the server via a server component
@@ -42,6 +41,7 @@ export default function Navbar({initialUser}) {
   const routernew = useRouter();
   const segment = useSelectedLayoutSegment();
 
+  // Sign Out function
   const handleSignOut = event => {
 	  event.preventDefault();
 	  auth.signOut().then(() => {
@@ -53,6 +53,7 @@ export default function Navbar({initialUser}) {
   const [nav, setNav] = useState(false);
   const router = useRouter();
 
+  // Hamburger Menu Toggle setState
   const handleNav = () => {
     setNav(!nav)
   }

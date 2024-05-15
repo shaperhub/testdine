@@ -1,36 +1,44 @@
 import React from "react";
+import Image from "next/image";
+import Contactimage from "../../../public/LoginGraphic.png"
 
 const Contact = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center text-sm font-regular">
-      <div data-aos="fade-up" className="bg-white dark:bg-dblack p-10 rounded-2xl shadow-xl w-96">
-        <h1 className="text-black dark:text-white text-2xl mb-2">Contact Us</h1>
-        <h4 className="text-ddarkgrey dark:text-dgrey mb-5">Got Questions? Let&apos;s give you the answers you need.</h4>
-        <input 
-          type="text" 
-          placeholder="Your Name"
-          className="w-full p-3 mb-4 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey"
-        />
-        <input 
-          type="text" 
-          placeholder="Email"
-          className="w-full p-3 mb-4 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey"
-        />
-        <input 
-          type="text" 
-          placeholder="Phone Number"
-          className="w-full p-3 mb-4 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey"
-        />
-        <textarea
-          placeholder="Message"
-          rows={6}
-          className="w-full p-3 mb-4 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey resize-none"
-        ></textarea>
-        <button 
-          className="w-full p-3 bg-dgreen/10 dark:bg-dgreen/20 rounded-2xl text-dgreen text-[16px] font-bold"
-        >
-          Submit
-        </button>
+    <div className="bg-white/50 dark:bg-black/80 min-h-screen flex flex-col md:flex-row items-center justify-center text-sm font-regular pt-8 shadow-xl">
+      <div className="bg-white dark:bg-black w-96 md:w-1/2 lg:w-1/3 px-12 py-12">
+        <h2 className="font-heading text-black dark:text-white text-3xl lg:text-4xl pb-8">Contact Us</h2>
+        <h4 className="font-heading text-ddarkgrey dark:text-dgrey text-xl lg:text-2xl pb-16">Got Questions? Let&apos;s give you the answers you need.</h4>
+        <Image className="pb-8" src={Contactimage} width="375" height="180" alt="Contact Page Image" />
+      </div>
+      <div data-aos="fade-up" className="bg-dlightestgreen dark:bg-dblack p-10 w-96">
+        <form className="">
+          <input 
+            type="text" 
+            placeholder="Your Name"
+            className="w-full p-3 mb-4 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey"
+          />
+          <input 
+            type="email" 
+            placeholder="Email"
+            className="w-full p-3 mb-4 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey"
+          />
+          <input 
+            type="tel" 
+            placeholder="Phone Number"
+            className="w-full p-3 mb-4 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey"
+          />
+          <textarea
+            placeholder="Message"
+            rows={6}
+            className="w-full p-3 mb-4 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey resize-none"
+          ></textarea>
+          <button 
+            type="submit"
+            className="w-full p-3 bg-dgreen/10 dark:bg-dgreen/20 rounded-2xl text-dgreen text-[16px] font-bold"
+          >
+            Submit
+          </button>
+        </form>
       </div>
     </div>
   );

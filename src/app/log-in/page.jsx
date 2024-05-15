@@ -10,6 +10,7 @@ const SignIn = () => {
   const [password, setPassword] = useState('');
   const router = useRouter()
 
+  // Sign In function for Email and Password users
   const handleSignIn = event => {
     try {
         event.preventDefault();
@@ -19,13 +20,14 @@ const SignIn = () => {
           console.log(user);
           setEmail('');
           setPassword('');
-          router.push('/user-profile')
+          router.push('/')
         })
     }catch(e){
         console.error(e)
     }
   };
 
+  // Sign In function for Google users
   const handleGoogleSignIn = async(e) => {
     try {
         e.preventDefault();
@@ -36,7 +38,7 @@ const SignIn = () => {
           console.log(user);
           setEmail('');
           setPassword('');
-          router.push('/user-profile')
+          router.push('/')
         })
     }catch(e){
         console.error(e)
@@ -44,10 +46,10 @@ const SignIn = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-white dark:bg-dblack text-sm font-regular">
-      <div data-aos="fade-up" className="bg-dlightgreen dark:bg-dlightblack p-10 rounded-lg shadow-xl w-96">
+    <div className="bg-white/50 dark:bg-black/80 min-h-screen flex items-center justify-center text-sm font-regular">
+      <div data-aos="fade-up" className="bg-white dark:bg-black p-10 rounded-lg shadow-xl w-96">
         <h1 className="text-black dark:text-white text-2xl mb-5">Log In to Your Account</h1>
-        <button onClick={handleGoogleSignIn} className="flex w-full items-center justify-center rounded-lg p-3 outline-none text-white bg-dblue hover:bg-dlightblue">
+        <button onClick={handleGoogleSignIn} className="flex w-full items-center justify-center rounded-xl p-3 outline-none text-dgreen bg-dgreen/10 dark:bg-dgreen/20 font-bold">
           <span className="mr-3">
             <svg
               width="20"
@@ -96,29 +98,29 @@ const SignIn = () => {
           placeholder="Email" 
           value={email} 
           onChange={(e) => setEmail(e.target.value)} 
-          className="w-full p-3 mb-4 bg-dlightestgreen dark:bg-gray-700 rounded outline-none text-[16px] text-black dark:text-white placeholder-dgrey"
+          className="w-full p-3 mb-4 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey"
         />
         <input 
           type="password" 
           placeholder="Password" 
           value={password} 
           onChange={(e) => setPassword(e.target.value)} 
-          className="w-full p-3 mb-4 bg-dlightestgreen dark:bg-gray-700 rounded outline-none text-[16px] text-black dark:text-white placeholder-dgrey"
+          className="w-full p-3 mb-4 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey"
         />
         <button 
           onClick={handleSignIn}
-          className="w-full p-3 bg-dblue rounded-lg text-white hover:bg-dlightblue"
+          className="w-full p-3 bg-dgreen/10 dark:bg-dgreen/20 rounded-xl text-dgreen font-bold"
         >
           Log In
         </button>
         <div className="pt-4 text-center">
-          <Link href="/password-reset" className="text-blue-600 hover:underline">
+          <Link href="/password-reset" className="text-dgreen hover:underline">
             Forgot Password?
           </Link>
         </div>
         <p className="pt-4 text-center text-black dark:text-white">
           Don't have an account?{" "}
-          <Link href="/sign-up" className="text-blue-600 hover:underline">
+          <Link href="/sign-up" className="text-dgreen hover:underline">
             Sign Up
           </Link>
         </p>

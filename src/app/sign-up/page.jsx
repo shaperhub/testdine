@@ -15,6 +15,7 @@ const SignUp = () => {
   const router = useRouter();
   const [image, setImage] = useState('');
  
+  // Upload selected profile picture to storage before calling handleSignup with the download URL
   const upload = () => {
     const storageRef = ref(storage, `usersImages/${image.name}`);
     const uploadTask = uploadBytesResumable(storageRef, image);
@@ -52,6 +53,7 @@ const SignUp = () => {
     )
   }
 
+  // Prepare data from Email SignUp to pass to handleCreate
   const handleSignUp = async (pic) => {
     try {
         const res = await createUserWithEmailAndPassword(auth, email, password)
@@ -62,6 +64,7 @@ const SignUp = () => {
     }
   };
 
+  // Prepare data from Google SignUp to pass to handleCreate
   const handleGoogleSignUp = async () => {
     try {
         const provider = new GoogleAuthProvider();
@@ -78,6 +81,7 @@ const SignUp = () => {
     }
   };
 
+  // Create User in the Firestore Users Collection
   const handleCreate = async(userfname, userlname, useremail, uid, upic) => {
     try {
         const docRef = await setDoc(doc(db, "users", uid), {
@@ -104,7 +108,7 @@ const SignUp = () => {
         setFirstname('');
         setLastname('');
         setImage('');
-        router.push('/user-profile')
+        router.push('/')
         return true
     } catch(e){
         console.error(e)
@@ -113,10 +117,10 @@ const SignUp = () => {
   };
 
   return (
-    <div className=" flex items-center justify-center bg-white dark:bg-dblack pt-20 text-sm pb-8 font-regular">
-      <div data-aos="fade-up" className="bg-dlightgreen dark:bg-dlightblack p-10 rounded-lg shadow-xl w-96">
+    <div className="bg-white/50 dark:bg-black/80 flex items-center justify-center pt-20 text-sm pb-8 font-regular">
+      <div data-aos="fade-up" className="bg-white dark:bg-black p-10 rounded-lg shadow-xl w-96">
         <h1 className="text-black dark:text-white text-2xl mb-5">Create Your Account</h1>
-        <button onClick={handleGoogleSignUp} className="flex w-full items-center justify-center rounded-lg p-3 outline-none text-white bg-dblue hover:bg-dlightblue">
+        <button onClick={handleGoogleSignUp} className="flex w-full items-center justify-center rounded-xl p-3 outline-none text-dgreen bg-dgreen/10 dark:bg-dgreen/20 font-bold">
           <span className="mr-3">
             <svg
               width="20"
@@ -165,33 +169,33 @@ const SignUp = () => {
           placeholder="First Name" 
           value={firstname} 
           onChange={(e) => setFirstname(e.target.value)} 
-          className="w-full p-3 mb-4 bg-dlightestgreen dark:bg-gray-700 rounded outline-none text-[16px] text-black dark:text-white placeholder-dgrey"
+          className="w-full p-3 mb-4 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey"
         />
         <input 
           type="text" 
           placeholder="Last Name" 
           value={lastname} 
           onChange={(e) => setLastname(e.target.value)} 
-          className="w-full p-3 mb-4 bg-dlightestgreen dark:bg-gray-700 rounded outline-none text-[16px] text-black dark:text-white placeholder-dgrey"
+          className="w-full p-3 mb-4 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey"
         />
         <input 
           type="email" 
           placeholder="Email" 
           value={email} 
           onChange={(e) => setEmail(e.target.value)} 
-          className="w-full p-3 mb-4 bg-dlightestgreen dark:bg-gray-700 rounded outline-none text-[16px] text-black dark:text-white placeholder-dgrey"
+          className="w-full p-3 mb-4 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey"
         />
         <input 
           type="password" 
           placeholder="Password" 
           value={password} 
           onChange={(e) => setPassword(e.target.value)} 
-          className="w-full p-3 mb-4 bg-dlightestgreen dark:bg-gray-700 rounded outline-none text-[16px] text-black dark:text-white placeholder-dgrey"
+          className="w-full p-3 mb-4 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey"
         />
         <input 
           type="file"
           onChange={(e) => {setImage(e.target.files[0])}} 
-          className="w-full p-3 mb-4 bg-dlightestgreen dark:bg-gray-700 rounded outline-none text-black dark:text-white placeholder-gray-500"
+          className="w-full p-3 mb-4 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey"
         />
         <div className="mb-8 flex text-xs">
           <label
@@ -225,12 +229,12 @@ const SignUp = () => {
             </div>
             <span>
               By creating an account you agree to our
-              <a href="/terms-of-service" className="text-blue-600 hover:underline">
+              <a href="/terms-of-service" className="text-dgreen hover:underline">
                 {" "}
                 Terms and Conditions{" "}
               </a>
               and
-              <a href="/privacy-policy" className="text-blue-600 hover:underline">
+              <a href="/privacy-policy" className="text-dgreen hover:underline">
                 {" "}
                 Privacy Policy{" "}
               </a>
@@ -239,13 +243,13 @@ const SignUp = () => {
         </div>
         <button 
           onClick={upload}
-          className="w-full p-3 bg-dblue rounded-lg text-white hover:bg-dlightblue"
+          className="w-full p-3 bg-dgreen/10 dark:bg-dgreen/20 rounded-xl text-dgreen font-bold"
         >
           Sign Up
         </button>
         <p className="pt-4 text-center text-black dark:text-white">
           Already have an account?{" "}
-          <Link href="/log-in" className="text-blue-600 hover:underline">
+          <Link href="/log-in" className="text-dgreen hover:underline">
             Log in
           </Link>
         </p>
