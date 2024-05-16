@@ -179,6 +179,7 @@ const UserProfile = () => {
                       <h2 className="text-black dark:text-white text-3xl font-bold"><span>{firstname}</span><span> </span><span>{lastname}</span></h2>
                       <p className="text-dgreen mt-2">@{username}</p>
                       <p className="mt-2 text-gray-500 text-sm">{useremail}</p>
+                      <p className="mt-2 text-dgreen text-sm italic">{currentsub == "taste" ? "Taste Starter" : currentsub == "cuisine" ? "Cuisine Crafter" : currentsub == "epicurean" ? "Epicurean Concierge" : ""}</p>
                   </div>
                   <hr className="mt-6" />
                   <div className="">
@@ -198,15 +199,33 @@ const UserProfile = () => {
                           <CardContent className="space-y-2">
                             <div className="space-y-1">
                               <Label htmlFor="firstname">First Name</Label>
-                              <Input id="firstname" className="text-[16px]" defaultValue={firstname} />
+                              <Input id="firstname" className="text-[16px]" defaultValue={firstname} onChange={(e) => setFirstname(e.target.value)} />
                             </div>
                             <div className="space-y-1">
                               <Label htmlFor="lastname">Last Name</Label>
-                              <Input id="lastname" className="text-[16px]" defaultValue={lastname} />
+                              <Input id="lastname" className="text-[16px]" defaultValue={lastname} onChange={(e) => setLastname(e.target.value)} />
                             </div>
                           </CardContent>
                           <CardFooter>
-                            <Button>Save Changes</Button>
+                            <Button onClick={updateProfile}>Save Changes</Button>
+                            <AlertDialog>
+                              <AlertDialogTrigger asChild>
+                                <Button className="w-full p-3 bg-dred rounded-lg text-black hover:bg-dyellow">Delete Account</Button>
+                              </AlertDialogTrigger>
+                              <AlertDialogContent>
+                                <AlertDialogHeader>
+                                  <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+                                  <AlertDialogDescription>
+                                    This action cannot be undone. This will permanently delete your
+                                    account and remove your data from our servers.
+                                  </AlertDialogDescription>
+                                </AlertDialogHeader>
+                                <AlertDialogFooter>
+                                  <AlertDialogCancel>Cancel</AlertDialogCancel>
+                                  <AlertDialogAction onClick={deleteProfile}>Continue</AlertDialogAction>
+                                </AlertDialogFooter>
+                              </AlertDialogContent>
+                            </AlertDialog>
                           </CardFooter>
                         </Card>
                       </TabsContent>
@@ -219,18 +238,23 @@ const UserProfile = () => {
                             </CardDescription>
                           </CardHeader>
                           <CardContent className="space-y-2">
-                            <div className="space-y-1">
-                              <Button onClick={upgradeToTasteStarter}>Upgrade to Taste Starter</Button>
-                            </div>
-                            <div className="space-y-1">
-                              <Button onClick={upgradeToCuisineCrafter}>Upgrade to Cuisine Crafter</Button>
-                            </div>
-                            <div className="space-y-1">
-                              <Button onClick={upgradeToEpicurean}>Upgrade to Epicurean Elite</Button>
-                            </div>
+                            {currentsub.length > 1 ? (
                             <div className="space-y-1">
                               <Button onClick={manageSubscription}>Manage Subscription</Button>
                             </div>
+                            ) : (
+                            <>
+                              <div className="space-y-1">
+                                <Button onClick={upgradeToTasteStarter}>Subscribe to Taste Starter</Button>
+                              </div>
+                              <div className="space-y-1">
+                                <Button onClick={upgradeToCuisineCrafter}>Subscribe to Cuisine Crafter</Button>
+                              </div>
+                              <div className="space-y-1">
+                                <Button onClick={upgradeToEpicurean}>Subscribe to Epicurean Elite</Button>
+                              </div>
+                            </>
+                            )}
                           </CardContent>
                           <CardFooter>
               
@@ -258,25 +282,6 @@ const UserProfile = () => {
           <AvatarImage src={profilepic} />
           <AvatarFallback>CN</AvatarFallback>
         </Avatar>
-
-        <AlertDialog>
-          <AlertDialogTrigger asChild>
-            <Button className="w-full p-3 bg-dred rounded-lg text-black hover:bg-dyellow">Delete Account</Button>
-          </AlertDialogTrigger>
-          <AlertDialogContent>
-            <AlertDialogHeader>
-              <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
-              <AlertDialogDescription>
-                This action cannot be undone. This will permanently delete your
-                account and remove your data from our servers.
-              </AlertDialogDescription>
-            </AlertDialogHeader>
-            <AlertDialogFooter>
-              <AlertDialogCancel>Cancel</AlertDialogCancel>
-              <AlertDialogAction onClick={deleteProfile}>Continue</AlertDialogAction>
-            </AlertDialogFooter>
-          </AlertDialogContent>
-        </AlertDialog>
 
         <Dialog>
           <DialogTrigger asChild>
