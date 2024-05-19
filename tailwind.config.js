@@ -17,6 +17,12 @@ module.exports = {
       },
     },
     extend: {
+      screens: {
+        'lg': '950px',
+        // => @media (min-width: 950px) { ... }
+        'lgxl': '1800px',
+        // => @media (min-width: 1800px) { ... }
+      },
       backgroundImage: {
         'taste': "url('/TasteStarterBg.png')",
         'cuisine': "url('/CuisineCrafterBg.png')",
@@ -27,13 +33,16 @@ module.exports = {
       fontFamily: {
         heading: ["var(--font-poppins-big)"],
         regular: ["var(--font-poppins-regular)"],
+        dine: ["var(--font-merriweather-regular)"],
       },
       colors: {
         "dred": "#E31C3D",
         "dgreen": "#44A358",
+        "dgreenw": "#248540",
         "dblack": "#171717",
         "dlightblue": "#205493",
         "dblue": "#173A65",
+        "dbluew": "#112E51",
         "dlightgreen": "#EBF3EC",
         "dyellow": "#FFC129",
         "dlightblack": "#2B302D",

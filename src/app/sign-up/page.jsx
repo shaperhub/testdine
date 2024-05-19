@@ -1,8 +1,8 @@
 'use client'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import {createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider} from "firebase/auth";
-import {doc, setDoc, serverTimestamp} from "firebase/firestore"
+import {collection, doc, getDocs, onSnapshot, query, setDoc, serverTimestamp, where} from "firebase/firestore"
 import {ref, getDownloadURL, uploadBytesResumable } from "firebase/storage"
 import {auth, db, storage} from '@/app/firebase/config'
 import { useRouter } from 'next/navigation';
@@ -14,7 +14,26 @@ const SignUp = () => {
   const [lastname, setLastname] = useState('');
   const router = useRouter();
   const [image, setImage] = useState('');
- 
+  const [useruname, setUseruname] = useState('')
+  const [unameerror, setUnameError] = useState('')
+
+  useEffect(() => {
+    // Check if the Username Already Exists
+    const checkUsername = async () => {
+      const usersCollection = collection(db, 'uniqueusernames');
+      const queryun = query(usersCollection, where('username', '==', useruname));
+      const snap = await getDocs(queryun)
+      if(snap.size > 0){
+        setUnameError("Username Already Exists")
+      }
+      else {
+        setUnameError('')
+      }
+    }
+    checkUsername()
+  }, [useruname])
+  
+
   // Upload selected profile picture to storage before calling handleSignup with the download URL
   const upload = () => {
     const storageRef = ref(storage, `usersImages/${image.name}`);
@@ -58,7 +77,7 @@ const SignUp = () => {
     try {
         const res = await createUserWithEmailAndPassword(auth, email, password)
         const userid = res.user.uid
-        handleCreate(firstname, lastname, email, userid, pic)
+        handleCreate(firstname, lastname, email, useruname, userid, pic)
     } catch(e){
         console.error(e)
     }
@@ -74,22 +93,23 @@ const SignUp = () => {
         const gfirstname = gdisplayname.split(" ")[0]
         const glastname = gdisplayname.split(" ")[1]
         const gemail = res.user.email
+        const gusername = gemail.split("@")[0]
         const gpicture = res.user.photoURL
-        handleCreate(gfirstname, glastname, gemail, guserid, gpicture)
+        handleCreate(gfirstname, glastname, gemail, gusername, guserid, gpicture)
     } catch(e){
         console.error(e)
     }
   };
 
   // Create User in the Firestore Users Collection
-  const handleCreate = async(userfname, userlname, useremail, uid, upic) => {
+  const handleCreate = async(userfname, userlname, useremail, username, uid, upic) => {
     try {
         const docRef = await setDoc(doc(db, "users", uid), {
           createdAt: serverTimestamp(),
           fcmToken: '',
           firstName: userfname,
           lastName: userlname,
-          userName: '',
+          userName: username,
           userEmail: useremail,
           userId: uid,
           userImage: upic,
@@ -101,14 +121,21 @@ const SignUp = () => {
           groupsJoined: [],
           groupsPending: [],
           preferences: {cuisines: [], dietaryPreferences: [], foodAllergies: [], nutritionalBlocks: []},
+          accountDeleted: false,
+          accountDeletedAt: '',
         })
-        console.log("User Data: " + userfname, userlname, useremail, uid, upic)
+        // Store New Unique Username in the Firestore Unique Usernames Collection
+        setDoc(doc(db, "uniqueusernames", uid), {
+          username: username,
+        })
+        console.log("User Data: " + userfname, userlname, useremail, username, uid, upic)
         setEmail('');
         setPassword('');
         setFirstname('');
         setLastname('');
+        setUseruname('')
         setImage('');
-        router.push('/')
+        router.push('/user-profile')
         return true
     } catch(e){
         console.error(e)
@@ -119,7 +146,8 @@ const SignUp = () => {
   return (
     <div className="bg-white/50 dark:bg-black/80 flex items-center justify-center pt-20 text-sm pb-8 font-regular">
       <div data-aos="fade-up" className="bg-white dark:bg-black p-10 rounded-lg shadow-xl w-96">
-        <h1 className="text-black dark:text-white text-2xl mb-5">Create Your Account</h1>
+        <h1 className="text-black dark:text-white text-2xl mb-4">Create An Account</h1>
+        <p className="text-ddarkgrey dark:text-dgrey mb-5">Sign up now to explore the app</p>
         <button onClick={handleGoogleSignUp} className="flex w-full items-center justify-center rounded-xl p-3 outline-none text-dgreen bg-dgreen/10 dark:bg-dgreen/20 font-bold">
           <span className="mr-3">
             <svg
@@ -164,89 +192,99 @@ const SignUp = () => {
           <span className="hidden h-[1px] w-full max-w-[60px] bg-dblack dark:bg-dlightgreen sm:block"></span>
         </div>
 
-        <input 
-          type="text" 
-          placeholder="First Name" 
-          value={firstname} 
-          onChange={(e) => setFirstname(e.target.value)} 
-          className="w-full p-3 mb-4 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey"
-        />
-        <input 
-          type="text" 
-          placeholder="Last Name" 
-          value={lastname} 
-          onChange={(e) => setLastname(e.target.value)} 
-          className="w-full p-3 mb-4 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey"
-        />
-        <input 
-          type="email" 
-          placeholder="Email" 
-          value={email} 
-          onChange={(e) => setEmail(e.target.value)} 
-          className="w-full p-3 mb-4 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey"
-        />
-        <input 
-          type="password" 
-          placeholder="Password" 
-          value={password} 
-          onChange={(e) => setPassword(e.target.value)} 
-          className="w-full p-3 mb-4 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey"
-        />
-        <input 
-          type="file"
-          onChange={(e) => {setImage(e.target.files[0])}} 
-          className="w-full p-3 mb-4 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey"
-        />
-        <div className="mb-8 flex text-xs">
-          <label
-            htmlFor="checkboxLabel"
-            className="flex cursor-pointer select-none text-black dark:text-white"
-          >
-            <div className="relative">
-              <input
-                type="checkbox"
-                id="checkboxLabel"
-                className="sr-only"
-              />
-              <div className="mr-4 mt-1 flex h-5 w-5 items-center justify-center rounded border border-dblue dark:border-white">
-                <span className="opacity-0">
-                  <svg
-                    width="11"
-                    height="8"
-                    viewBox="0 0 11 8"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M10.0915 0.951972L10.0867 0.946075L10.0813 0.940568C9.90076 0.753564 9.61034 0.753146 9.42927 0.939309L4.16201 6.22962L1.58507 3.63469C1.40401 3.44841 1.11351 3.44879 0.932892 3.63584C0.755703 3.81933 0.755703 4.10875 0.932892 4.29224L0.932878 4.29225L0.934851 4.29424L3.58046 6.95832C3.73676 7.11955 3.94983 7.2 4.1473 7.2C4.36196 7.2 4.55963 7.11773 4.71406 6.9584L10.0468 1.60234C10.2436 1.4199 10.2421 1.1339 10.0915 0.951972ZM4.2327 6.30081L4.2317 6.2998C4.23206 6.30015 4.23237 6.30049 4.23269 6.30082L4.2327 6.30081Z"
-                      fill="#3056D3"
-                      stroke="#3056D3"
-                      strokeWidth="0.4"
-                    />
-                  </svg>
-                </span>
+        <>
+          <input 
+            type="text" 
+            placeholder="First Name" 
+            value={firstname} 
+            onChange={(e) => setFirstname(e.target.value)} 
+            className="w-full p-3 mb-4 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey"
+          />
+          <input 
+            type="text" 
+            placeholder="Last Name" 
+            value={lastname} 
+            onChange={(e) => setLastname(e.target.value)} 
+            className="w-full p-3 mb-4 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey"
+          />
+          <input 
+            type="text" 
+            placeholder="Username" 
+            value={useruname} 
+            onChange={(e) => setUseruname(e.target.value)} 
+            className="w-full p-3 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey"
+          />
+          {unameerror && <span className='text-red-600'>{unameerror}</span>}
+          <input 
+            type="email" 
+            placeholder="Email" 
+            value={email} 
+            onChange={(e) => setEmail(e.target.value)} 
+            className="w-full p-3 my-4 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey"
+          />
+          <input 
+            type="password" 
+            placeholder="Password" 
+            value={password} 
+            onChange={(e) => setPassword(e.target.value)} 
+            className="w-full p-3 mb-4 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey"
+          />
+          <input 
+            type="file"
+            onChange={(e) => {setImage(e.target.files[0])}} 
+            className="w-full p-3 mb-4 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey"
+          />
+          <div className="mb-8 flex text-xs">
+            <label
+              htmlFor="checkboxLabel"
+              className="flex cursor-pointer select-none text-black dark:text-white"
+            >
+              <div className="relative">
+                <input
+                  type="checkbox"
+                  id="checkboxLabel"
+                  className="sr-only"
+                />
+                <div className="mr-4 mt-1 flex h-5 w-5 items-center justify-center rounded border border-dblue dark:border-white">
+                  <span className="opacity-0">
+                    <svg
+                      width="11"
+                      height="8"
+                      viewBox="0 0 11 8"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M10.0915 0.951972L10.0867 0.946075L10.0813 0.940568C9.90076 0.753564 9.61034 0.753146 9.42927 0.939309L4.16201 6.22962L1.58507 3.63469C1.40401 3.44841 1.11351 3.44879 0.932892 3.63584C0.755703 3.81933 0.755703 4.10875 0.932892 4.29224L0.932878 4.29225L0.934851 4.29424L3.58046 6.95832C3.73676 7.11955 3.94983 7.2 4.1473 7.2C4.36196 7.2 4.55963 7.11773 4.71406 6.9584L10.0468 1.60234C10.2436 1.4199 10.2421 1.1339 10.0915 0.951972ZM4.2327 6.30081L4.2317 6.2998C4.23206 6.30015 4.23237 6.30049 4.23269 6.30082L4.2327 6.30081Z"
+                        fill="#3056D3"
+                        stroke="#3056D3"
+                        strokeWidth="0.4"
+                      />
+                    </svg>
+                  </span>
+                </div>
               </div>
-            </div>
-            <span>
-              By creating an account you agree to our
-              <a href="/terms-of-service" className="text-dgreen hover:underline">
-                {" "}
-                Terms and Conditions{" "}
-              </a>
-              and
-              <a href="/privacy-policy" className="text-dgreen hover:underline">
-                {" "}
-                Privacy Policy{" "}
-              </a>
-            </span>
-          </label>
-        </div>
-        <button 
-          onClick={upload}
-          className="w-full p-3 bg-dgreen/10 dark:bg-dgreen/20 rounded-xl text-dgreen font-bold"
-        >
-          Sign Up
-        </button>
+              <span>
+                By creating an account you agree to our
+                <a href="/terms-of-service" className="text-dgreen hover:underline">
+                  {" "}
+                  Terms and Conditions{" "}
+                </a>
+                and
+                <a href="/privacy-policy" className="text-dgreen hover:underline">
+                  {" "}
+                  Privacy Policy{" "}
+                </a>
+              </span>
+            </label>
+          </div>
+          <button 
+            onClick={upload}
+            className="w-full p-3 bg-dgreen/10 dark:bg-dgreen/20 rounded-xl text-dgreen font-bold"
+          >
+            Sign Up
+          </button>
+        </>
         <p className="pt-4 text-center text-black dark:text-white">
           Already have an account?{" "}
           <Link href="/log-in" className="text-dgreen hover:underline">

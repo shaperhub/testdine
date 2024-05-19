@@ -9,21 +9,25 @@ const SignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const router = useRouter()
+  const [error, setError] = useState('')
 
   // Sign In function for Email and Password users
   const handleSignIn = event => {
     try {
-        event.preventDefault();
-        signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
-          // Signed in
-          const user = userCredential.user;
-          console.log(user);
-          setEmail('');
-          setPassword('');
-          router.push('/')
-        })
+      event.preventDefault();
+      signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        console.log(user);
+        setEmail('');
+        setPassword('');
+        router.push('/user-profile')
+      })
     }catch(e){
-        console.error(e)
+      setError(e)
+      setEmail('')
+      setPassword('')
+      console.error(e)
     }
   };
 
@@ -38,7 +42,7 @@ const SignIn = () => {
           console.log(user);
           setEmail('');
           setPassword('');
-          router.push('/')
+          router.push('/user-profile')
         })
     }catch(e){
         console.error(e)
@@ -48,7 +52,8 @@ const SignIn = () => {
   return (
     <div className="bg-white/50 dark:bg-black/80 min-h-screen flex items-center justify-center text-sm font-regular">
       <div data-aos="fade-up" className="bg-white dark:bg-black p-10 rounded-lg shadow-xl w-96">
-        <h1 className="text-black dark:text-white text-2xl mb-5">Log In to Your Account</h1>
+        <h1 className="text-black dark:text-white text-2xl mb-4">Welcome Back!</h1>
+        <h1 className="text-ddarkgrey dark:text-dgrey mb-5">Let&apos;s get you logged in so you can start exploring</h1>
         <button onClick={handleGoogleSignIn} className="flex w-full items-center justify-center rounded-xl p-3 outline-none text-dgreen bg-dgreen/10 dark:bg-dgreen/20 font-bold">
           <span className="mr-3">
             <svg
@@ -92,27 +97,29 @@ const SignIn = () => {
           </p>
           <span className="hidden h-[1px] w-full max-w-[60px] bg-dblack dark:bg-dlightgreen sm:block"></span>
         </div>
-
-        <input 
-          type="email" 
-          placeholder="Email" 
-          value={email} 
-          onChange={(e) => setEmail(e.target.value)} 
-          className="w-full p-3 mb-4 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey"
-        />
-        <input 
-          type="password" 
-          placeholder="Password" 
-          value={password} 
-          onChange={(e) => setPassword(e.target.value)} 
-          className="w-full p-3 mb-4 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey"
-        />
-        <button 
-          onClick={handleSignIn}
-          className="w-full p-3 bg-dgreen/10 dark:bg-dgreen/20 rounded-xl text-dgreen font-bold"
-        >
-          Log In
-        </button>
+        <>
+          <input 
+            type="email" 
+            placeholder="Email" 
+            value={email} 
+            onChange={(e) => setEmail(e.target.value)} 
+            className="w-full p-3 mb-4 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey"
+          />
+          <input 
+            type="password" 
+            placeholder="Password" 
+            value={password} 
+            onChange={(e) => setPassword(e.target.value)} 
+            className="w-full p-3 mb-4 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey"
+          />
+          <button 
+            onClick={handleSignIn}
+            className="w-full p-3 bg-dgreen/10 dark:bg-dgreen/20 rounded-xl text-dgreen font-bold"
+          >
+            Log In
+          </button>
+        </>
+        {error && <span className='text-red-600'>{error}</span>}
         <div className="pt-4 text-center">
           <Link href="/password-reset" className="text-dgreen hover:underline">
             Forgot Password?

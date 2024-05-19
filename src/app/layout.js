@@ -1,11 +1,12 @@
 import Navbar from "@/components/navbar/Navbar";
 import "./globals.css";
-import { Poppins } from "next/font/google";
+import { Poppins, Merriweather } from "next/font/google";
 import Footer from "@/components/footer/Footer";
 import { ThemeProvider } from "@/context/ThemeContext";
 import {auth} from '@/app/firebase/config'
 import ScrollToTop from "@/components/ScrollToTop/ScrollToTop";
 
+const merry = Merriweather({ subsets: ['latin'], weight: "900", variable: "--font-merriweather-regular"});
 const poppins = Poppins({ subsets: ['latin'], weight: "400", variable: "--font-poppins-regular"});
 const poppinsbig = Poppins({ subsets: ['latin'], weight: "700", variable:"--font-poppins-big"});
 
@@ -28,7 +29,7 @@ export default function RootLayout({ children }) {
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="manifest" href="/site.webmanifest" />
       </head>
-      <body className={`${poppins.variable} ${poppinsbig.variable}`}>
+      <body className={`${poppins.variable} ${poppinsbig.variable} ${merry.variable}`}>
         <ThemeProvider>
             <div className=" bg-repeat bg-center bg-lightbg dark:bg-darkbg">
               <Navbar initialUser={currentuser?.toJSON()}/>

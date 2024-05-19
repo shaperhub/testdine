@@ -3,7 +3,7 @@ import {useState, useEffect} from 'react'
 import {auth, db, storage} from '@/app/firebase/config'
 import {doc, updateDoc, deleteDoc, getDoc, getDocs, collection, onSnapshot, query, where, arrayRemove, arrayUnion} from "firebase/firestore"
 import {ref, getDownloadURL, uploadBytesResumable } from "firebase/storage"
-import { useRouter } from 'next/navigation';
+import { redirect, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { getCheckoutUrl, getPortalUrl } from "./payment";
 import Image from 'next/image';
@@ -31,6 +31,7 @@ const UserProfile = () => {
   const router = useRouter()
   const [isPremium, setIsPremium] = useState(false);
   const [currentsub, setCurrentsub] = useState('')
+  const [loading, setLoading] = useState(true)
   
   console.log({user})
 
@@ -73,6 +74,7 @@ const UserProfile = () => {
       })
     }
     getUserData();
+    setLoading(false)
 
 	}, [])
 
@@ -88,7 +90,7 @@ const UserProfile = () => {
       arr.push(d.data())
     });
     const subproduct = arr[0].items[0].plan.product;
-    if(subproduct == "prod_Q5cPY1oSMIPdXK"){
+    if(subproduct == "prod_Q8CwCa0rPlngD9"){
       setCurrentsub("taste")
     }
     else if(subproduct == "prod_Q5cPjYWep1T9zX"){
@@ -101,7 +103,7 @@ const UserProfile = () => {
 
   // Pay for Taste Starter Subscription
   const upgradeToTasteStarter = async () => {
-    const priceId = "price_1PFRAIRtFO8HcW8t5OKlNRku";
+    const priceId = "price_1PHwWvRtFO8HcW8tVoOj7K2J";
     const checkoutUrl = await getCheckoutUrl(priceId);
     router.push(checkoutUrl);
     console.log("Upgrade to Premium");
@@ -164,10 +166,19 @@ const UserProfile = () => {
 
   }
 
+  if(!user){
+    redirect("/sign-up")
+  }
+
   return (
     <div className='bg-white/50 dark:bg-black/80'>
+      { loading ? ("Loading...") : (
+        <>
       <div className="h-screen flex flex-wrap items-center justify-center">
           <div className="container lg:w-2/6 xl:w-2/7 sm:w-full md:w-2/3 bg-white dark:bg-black shadow-lg transform duration-200 ease-in-out">
+              <div className='bg-dgreenw dark:bg-dgreen'></div>
+              <div className='bg-gradient-to-r from-[#C0C0C0] via-[#AAABAB] to-[#6C6C6C]'></div>
+              <div className='bg-gradient-to-r from-[#B08C36] via-[#D9BD5B] to-[#9B7424]'></div>
               <div className="h-32 overflow-hidden">
                   <Image className="w-full" src={currentsub == "taste" ? tasteimage : currentsub == "cuisine" ? cuisineimage : currentsub == "epicurean" ? epicimage : "https://images.pexels.com/photos/247599/pexels-photo-247599.jpeg"} width={250} height={50} alt="Profile Background Picture" />
               </div>
@@ -183,7 +194,7 @@ const UserProfile = () => {
                   </div>
                   <hr className="mt-6" />
                   <div className="">
-                    <Tabs defaultValue="account" className="w-[400px]">
+                    <Tabs defaultValue="account" className="">
                       <TabsList className="grid w-full grid-cols-2">
                         <TabsTrigger value="editprofile">Edit Profile</TabsTrigger>
                         <TabsTrigger value="subscription">Subscription</TabsTrigger>
@@ -325,9 +336,9 @@ const UserProfile = () => {
             </DialogFooter>
           </DialogContent>
         </Dialog>
-
-        
       </div>
+      </>
+      )}
     </div>
   )
 }

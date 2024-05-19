@@ -5,7 +5,7 @@ const Footer = () => {
 
   return (
     <div className="text-xs md:text-sm font-regular">
-      <div className="footer bg-dblue px-2 2xl:px-16 pt-8">
+      <div className="footer bg-dblue px-8 2xl:px-16 pt-8">
         <div className="flex flex-wrap">
           <div className="w-full md:w-1/2 lg:w-4/12 xl:w-5/12">
             <div className="mb-12 max-w-[360px] lg:mb-16">
@@ -99,10 +99,10 @@ const Footer = () => {
                 </li>
                 <li>
                   <a
-                    href="/features"
+                    href="/services"
                     className="text-dgrey hover:text-dgreen mb-4 inline-block"
                   >
-                    Features
+                    Services
                   </a>
                 </li>
               </ul>
