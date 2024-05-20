@@ -25,12 +25,12 @@ export default function Home() {
       <div className="bg-dlightgreen/50 dark:bg-black/70 w-full flex flex-col lg:flex-row gap-8 px-8 md:px-12 py-32 md:py-40">
         <div className="lg:w-1/2 xl:pl-32 flex flex-col lgxl:ml-64">
           <h1 className="text-4xl xl:text-6xl text-dbluew dark:text-dlightgreen font-heading uppercase">
-            Experience the essence of innovation with <span className="text-dgreenw dark:text-dgreen">Dine</span><span className="font-dine text-dgreenw dark:text-dgreen">I</span><span className="text-dgreenw dark:text-dgreen">ntel</span>
+            Experience the essence of dining innovation with <span className="text-dgreenw dark:text-dgreen">Dine</span><span className="font-dine text-dgreenw dark:text-dgreen">I</span><span className="text-dgreenw dark:text-dgreen">ntel</span>
           </h1>
           <p className="font-regular xl:text-xl text-black dark:text-dgrey pb-6 pt-2 xl:pt-8">
-            Where every meal is a journey of discovery. Connect with the heart of culinary creativity, share genuine moments, and savor the satisfaction of unparalleled dining experiences.
+            Welcome to DineIntel, where every meal is a journey of discovery. Connect with the heart of culinary creativity, share genuine moments, and savor the satisfaction of unparalleled dining experiences.
           </p>
-          <Button text="How It Works" url="/services"/>
+          <Button text="Explore Features" url="/services"/>
         </div>
         <div className="lg:w-1/2 relative flex justify-center">
           <Image className="rounded-tr-[50px] rounded-bl-[50px]" width={400} height={200} alt="Hero Image" src="https://images.pexels.com/photos/1001773/pexels-photo-1001773.jpeg" />
@@ -54,13 +54,13 @@ export default function Home() {
         <div className="lg:w-1/2 lgxl:pr-64">
           <h4 className="text-3xl font-heading mb-4 text-dblue dark:text-dgrey">Transforming <span className="text-dgreenw dark:text-white">Tradition</span> into <span className="text-dgreenw dark:text-white">Innovation</span></h4>
           <p className="font-regular">
-            Welcome to DineIntel, where culinary tradition meets innovation. 
+            At DineIntel, culinary tradition meets innovation. 
             Our culinary hub seamlessly blends global flavors with cutting-edge technology, offering personalized dining experiences tailored to your tastes.
           </p>
           <br></br>
           <p className="font-regular">
-            Join our vibrant community at Dine Group to share culinary adventures and inspire each other. Let's redefine dining together. 
-            Explore the DineIntel experience—a seamless blend of pleasure, health, and discovery.
+            Join our vibrant community at <span className="font-bold">Dine Group</span> to share culinary adventures and inspire each other. Let's redefine dining together. 
+            Explore the DineIntel experience; a seamless blend of pleasure, health, and discovery.
           </p>
           <br></br>
           <Button text="More About DineIntel" url="/about" />
@@ -72,45 +72,45 @@ export default function Home() {
 
       {/* Igniting Joy */}
       <div className="px-8 md:px-24 py-12 md:py-24 bg-gradient-to-tr from-dlightgreen via-white to-dgreenw/50 dark:from-dlightblack dark:via-dblack dark:to-dlightblack">
-        <h2 className="text-dbluew dark:text-dgrey mb-16 font-heading text-3xl text-center">Igniting Joy with Our <span className="text-dgreenw dark:text-white">Cutting-Edge Delivery</span></h2>
+        <h2 className="text-dbluew dark:text-dgrey mb-16 font-heading text-3xl text-center">Igniting Joy with Our <span className="text-dgreenw dark:text-white">Cutting-Edge Features</span></h2>
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
-          <div className="rounded-[24px] px-8 py-8 bg-white dark:bg-black shadow-lg shadow-dgreenw">
+          <div className="rounded-[24px] px-8 py-8 bg-white dark:bg-black shadow-lg shadow-dgreenw/50">
             <div className="flex justify-center mb-4">
               <Image className="" src={UploadIcon} width={50} height={50} alt="Cloud Icon" />
             </div>
             <h4 className="font-heading text-dbluew dark:text-white mb-6 text-center">For You</h4>
-            <p className="text-sm text-dblack dark:text-dgrey">
-              Our <span className="font-bold">For You</span> feature offers personalized restaurant recommendations, real-time updates on local trending eateries, and customizable search options tailored to your culinary preferences.
+            <p className="text-sm text-dgrey dark:text-dgrey">
+              Our For You feature offers personalized restaurant recommendations, real-time updates on local trending eateries, and customizable search options tailored to your culinary preferences.
             </p>
           </div>
-          <div className="rounded-[24px] px-8 py-8 bg-white dark:bg-black shadow-lg shadow-dgreenw">
+          <div className="rounded-[24px] px-8 py-8 bg-white dark:bg-black shadow-lg shadow-dgreenw/50">
             <div className="flex justify-center mb-4">
               <Image className="" src={UploadIcon} width={50} height={50} alt="Cloud Icon" />
             </div>
             <h4 className="font-heading text-dbluew dark:text-white mb-6 text-center">Modify Dish</h4>
-            <p className="text-sm text-dblack dark:text-dgrey">
-              <span className="font-bold">Modify Dish</span> — a game-changer in personalized dining. Say goodbye to one-size-fits-all meals and hello to a world of culinary customization at your fingertips. 
+            <p className="text-sm text-dgrey dark:text-dgrey">
+              Modify Dish — a game-changer in personalized dining. Say goodbye to one-size-fits-all meals and hello to a world of culinary customization at your fingertips. 
               Explore personalized ingredient analysis, seamless swaps, and expert flavor pairings tailored to your taste buds. 
               With real-time nutritional insights and the guidance of our Epicurean Concierge, every dish is a masterpiece, crafted just for you. Get ready to elevate your dining experience like never before.
             </p>
           </div>
-          <div className="rounded-[24px] px-8 py-8 bg-white dark:bg-black shadow-lg shadow-dgreenw">
+          <div className="rounded-[24px] px-8 py-8 bg-white dark:bg-black shadow-lg shadow-dgreenw/50">
             <div className="flex justify-center mb-4">
               <Image className="" src={UploadIcon} width={50} height={50} alt="Cloud Icon" />
             </div>
             <h4 className="font-heading text-dbluew dark:text-white mb-6 text-center">Dine Group</h4>
-            <p className="text-sm text-dblack dark:text-dgrey">
-              <span className="font-bold">Dine Group</span> is your culinary community hub within the DineIntel universe, where members share dining narratives, insights, and favorite dining experiences. 
+            <p className="text-sm text-dgrey dark:text-dgrey">
+              Dine Group is your culinary community hub within the DineIntel universe, where members share dining narratives, insights, and favorite dining experiences. 
               Engage in lively forums, showcase your dining adventures, and discover hidden gems. 
               With features like Meal Planning events, members can create and vote on events seamlessly, ensuring memorable dining experiences for all.
             </p>
           </div>
-          <div className="rounded-[24px] px-8 py-8 bg-white dark:bg-black shadow-lg shadow-dgreenw">
+          <div className="rounded-[24px] px-8 py-8 bg-white dark:bg-black shadow-lg shadow-dgreenw/50">
             <div className="flex justify-center mb-4">
               <Image className="" src={UploadIcon} width={50} height={50} alt="Cloud Icon" />
             </div>
             <h4 className="font-heading text-dbluew dark:text-white mb-6 text-center">Epicurean Concierge</h4>
-            <p className="text-sm text-dblack dark:text-dgrey">
+            <p className="text-sm text-dgrey dark:text-dgrey">
               Step into a world of tailored culinary assistance with our Epicurean Concierge, the epitome of personalized service at DineIntel. 
               This feature is designed to offer customized meal experiences and deep insights into the culinary arts. 
               Whether you're creating unforgettable dining moments, exploring exotic ingredients, or refining your gastronomic skills, the Epicurean Concierge is your trusted guide on this gourmet journey.
