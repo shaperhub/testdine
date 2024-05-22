@@ -46,13 +46,11 @@ export default function Navbar({initialUser}) {
   const handleSignOut = event => {
 	  event.preventDefault();
 	  auth.signOut().then(() => {
-      // sessionStorage.removeItem('user')
-      // routernew.push('/');
+      routernew.push('/');
     })
   };
 
   const [nav, setNav] = useState(false);
-  const router = useRouter();
 
   // Hamburger Menu Toggle setState
   const handleNav = () => {
@@ -63,10 +61,10 @@ export default function Navbar({initialUser}) {
     <div className='fixed w-full h-16 bg-dlightgreen dark:bg-dblue shadow-xl z-[100] font-regular'>
         <div className='flex justify-between items-center w-full h-full px-8 2xl:px-16 mb-40'>
             <Link className='dark:hidden' href='/'>
-                <Image className="" src={Navlog} alt="DineIntel Logo" width='150' height='70' priority={true} />
+                <Image className="" src={Navlog} alt="DineIntel Logo" width='150' height='70' priority />
             </Link>
             <Link className='hidden dark:flex' href='/'>
-                <Image className="" src={NavlogDark} alt="DineIntel Logo Darkmode" width='150' height='70' priority={true} />
+                <Image className="" src={NavlogDark} alt="DineIntel Logo Darkmode" width='150' height='70' priority />
             </Link>
             <div>
               <ul className='hidden min-[950px]:flex pr-4 text-black dark:text-dlightgreen'>
@@ -79,21 +77,21 @@ export default function Navbar({initialUser}) {
                   <span className='block max-w-0 group-hover:max-w-full transition-all duration-200 h-0.5 bg-dgreenw'></span>
                   </li>
                 </Link>
-                <Link href='/services'>
-                  <li id='services' 
-                  className={segment == 'services' 
+                <Link href='/features'>
+                  <li id='features' 
+                  className={segment == 'features' 
                   ? 'border-b-dgreenw border-b-2 ml-10 p-0.5 text-sm' 
                   : 'ml-10 p-0.5 text-sm group transition duration-300'}
-                  >Services
+                  >Features
                   <span className='block max-w-0 group-hover:max-w-full transition-all duration-200 h-0.5 bg-dgreenw'></span>
                   </li>
                 </Link>
-                <Link href='/dineintel-tiers'>
-                  <li id='tiers' 
-                  className={segment == 'dineintel-tiers' 
+                <Link href='/pricing'>
+                  <li id='pricing' 
+                  className={segment == 'pricing' 
                   ? 'border-b-dgreenw border-b-2 ml-10 p-0.5 text-sm' 
                   : 'ml-10 p-0.5 text-sm group transition duration-300'}
-                  >Tiers
+                  >Pricing
                   <span className='block max-w-0 group-hover:max-w-full transition-all duration-200 h-0.5 bg-dgreenw'></span>
                   </li>
                 </Link>
@@ -189,10 +187,10 @@ export default function Navbar({initialUser}) {
             <div>
               <div className='flex w-full items-center justify-between'>
                 <Link onClick={() => setNav(false)} href='/' className='pt-4 dark:hidden'>
-                  <Image src={Navlog} width='100' height='40' alt='DineIntel Logo' priority={true}/>
+                  <Image src={Navlog} width='100' height='40' alt='DineIntel Logo' priority />
                 </Link>
                 <Link onClick={() => setNav(false)} href='/' className='pt-4 hidden dark:flex'>
-                  <Image src={NavlogDark} width='100' height='40' alt='DineIntel Logo Darkmode' priority={true}/>
+                  <Image src={NavlogDark} width='100' height='40' alt='DineIntel Logo Darkmode' priority />
                 </Link>
                 <div onClick={handleNav} className='rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer'>
                   <AiOutlineClose />
@@ -207,18 +205,18 @@ export default function Navbar({initialUser}) {
                 <Link href='/about'>
                   <li onClick={() => setNav(false)} id='about' className='py-4 text-sm'>About</li>
                 </Link>
-                <Link href='/services'>
-                  <li onClick={() => setNav(false)} id='services' className='py-4 text-sm'>Services</li>
+                <Link href='/features'>
+                  <li onClick={() => setNav(false)} id='features' className='py-4 text-sm'>Features</li>
                 </Link>
-                <Link href='/dineintel-tiers'>
-                  <li onClick={() => setNav(false)} id='tiers' className='py-4 text-sm'>Tiers</li>
+                <Link href='/pricing'>
+                  <li onClick={() => setNav(false)} id='pricing' className='py-4 text-sm'>Pricing</li>
                 </Link>
                 <Link href='/faqs'>
                   <li onClick={() => setNav(false)} id='faqs' className='py-4 text-sm'>FAQs</li>
                 </Link>
-                <Link href='/blog'>
+                {/* <Link href='/blog'>
                   <li onClick={() => setNav(false)} id='blog' className='py-4 text-sm'>Blog</li>
-                </Link>
+                </Link> */}
                 <Link href='/contact'>
                   <li onClick={() => setNav(false)} id='contact' className='py-4 text-sm'>Contact</li>
                 </Link>

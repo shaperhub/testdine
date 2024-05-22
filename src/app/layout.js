@@ -12,7 +12,7 @@ const poppinsbig = Poppins({ subsets: ['latin'], weight: "700", variable:"--font
 
 export const metadata = {
   title: "Home - DineIntel",
-  description: "Welcome to the place where dining is being revolutionized.",
+  description: "Welcome to DineIntel, where dining innovation meets personalization. Explore custom dining experiences that cater uniquely to your taste and lifestyle.",
 };
 
 export default function RootLayout({ children }) {

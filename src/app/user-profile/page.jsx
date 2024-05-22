@@ -15,10 +15,8 @@ import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, Di
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import tasteimage from "../../../public/TasteStarterBg.png"
-import cuisineimage from "../../../public/CuisineCrafterBg.png"
-import epicimage from "../../../public/EpicureanBg.png"
-import blurimage from "../../../public/LoginGraphic.png"
+import { Badge } from "@/components/ui/badge"
+import { Loader2 } from "lucide-react"
 
 const UserProfile = () => {
   const user = auth.currentUser;
@@ -30,6 +28,7 @@ const UserProfile = () => {
   const [usersubscription, setUsersubscription] = useState('')
   const router = useRouter()
   const [isPremium, setIsPremium] = useState(false);
+  const [isPublic, setPublic] = useState(true);
   const [currentsub, setCurrentsub] = useState('')
   const [loading, setLoading] = useState(true)
   
@@ -47,6 +46,7 @@ const UserProfile = () => {
           setUseremail(userdata.userEmail)
           setUsername(userdata.userName)
           setUsersubscription(userdata.subscriptionPlan)
+          setPublic(userdata.isProfilePublic)
 
           // Check if user has a subscription
           const subscriptionsRef = collection(db, "customers", user.uid, "subscriptions");
@@ -59,6 +59,7 @@ const UserProfile = () => {
               if (snapshot.docs.length === 0) {
                 console.log("No active or trial subscriptions found");
                 setIsPremium(false);
+                setCurrentsub("taste");
               } else {
                 console.log("Active or trial subscription found");
                 setIsPremium(true);
@@ -70,11 +71,11 @@ const UserProfile = () => {
         } else {
           // docSnap.data() will be undefined in this case
           console.log("No such document!");
-        }
+        } 
+        setLoading(false)
       })
     }
     getUserData();
-    setLoading(false)
 
 	}, [])
 
@@ -90,24 +91,13 @@ const UserProfile = () => {
       arr.push(d.data())
     });
     const subproduct = arr[0].items[0].plan.product;
-    if(subproduct == "prod_Q8CwCa0rPlngD9"){
-      setCurrentsub("taste")
-    }
-    else if(subproduct == "prod_Q5cPjYWep1T9zX"){
+    if(subproduct == "prod_Q5cPjYWep1T9zX"){
       setCurrentsub("cuisine")
     }
     else if(subproduct == "prod_Q5cQYrIMnnHdyE"){
       setCurrentsub("epicurean")
     }
   }
-
-  // Pay for Taste Starter Subscription
-  const upgradeToTasteStarter = async () => {
-    const priceId = "price_1PHwWvRtFO8HcW8tVoOj7K2J";
-    const checkoutUrl = await getCheckoutUrl(priceId);
-    router.push(checkoutUrl);
-    console.log("Upgrade to Premium");
-  };
 
   // Pay for Cuisine Crafter Subscription
   const upgradeToCuisineCrafter = async () => {
@@ -166,133 +156,130 @@ const UserProfile = () => {
 
   }
 
+  // const imageLoader = ({ src, width, quality }) => {
+  //   return `https://firebasestorage.googleapis.com/${src}?w=${width}&q=${quality || 100}`
+  // }
+
   if(!user){
     redirect("/sign-up")
   }
 
   return (
     <div className='bg-white/50 dark:bg-black/80'>
-      { loading ? ("Loading...") : (
+      { loading ? (
+        <div className="h-screen flex flex-wrap items-center justify-center">
+          <Button disabled>
+            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+            Loading....
+          </Button>
+        </div>
+      ) : (
         <>
       <div className="h-screen flex flex-wrap items-center justify-center">
-          <div className="container lg:w-2/6 xl:w-2/7 sm:w-full md:w-2/3 bg-white dark:bg-black shadow-lg transform duration-200 ease-in-out">
-              <div className='bg-dgreenw dark:bg-dgreen'></div>
-              <div className='bg-gradient-to-r from-[#C0C0C0] via-[#AAABAB] to-[#6C6C6C]'></div>
-              <div className='bg-gradient-to-r from-[#B08C36] via-[#D9BD5B] to-[#9B7424]'></div>
-              <div className="h-32 overflow-hidden">
-                  <Image className="w-full" src={currentsub == "taste" ? tasteimage : currentsub == "cuisine" ? cuisineimage : currentsub == "epicurean" ? epicimage : "https://images.pexels.com/photos/247599/pexels-photo-247599.jpeg"} width={250} height={50} alt="Profile Background Picture" />
+          <div className="p-2 lg:w-2/6 xl:w-2/7 sm:w-full md:w-2/3 border-2 border-dgreenw rounded-3xl bg-white dark:bg-black shadow-lg transform duration-200 ease-in-out">
+            <div className={currentsub == "taste" ? "bg-dgreenw dark:bg-dgreen h-32 rounded-3xl" : currentsub == "cuisine" ? "bg-gradient-to-r from-[#C0C0C0] via-[#AAABAB] to-[#6C6C6C] h-32 rounded-3xl" : currentsub == "epicurean" ? "bg-gradient-to-r from-[#B08C36] via-[#D9BD5B] to-[#9B7424] h-32 rounded-3xl" : "h-32 rounded-3xl"}>
+              <div className='flex justify-between'>
+                <div className=''>
+                  <Badge className="text-black bg-white ml-4 mt-2">{currentsub == "taste" ? "Taste Starter" : currentsub == "cuisine" ? "Cuisine Crafter" : currentsub == "epicurean" ? "Epicurean Concierge" : ""}</Badge>
+                </div>
+                <div className="flex items-center justify-center mt-4 mr-4">
+                  <Image className="h-24 w-24 bg-white p-1 rounded-full" src={profilepic} width={100} height={100} alt="Profile Picture" />
+                </div>
+                <div className=''>
+                  <Badge className="text-black bg-white mr-4 mt-2">{isPublic ? "Public" : "Private"}</Badge>
+                </div>
               </div>
-              <div className="flex justify-center px-5 -mt-12">
-                  <Image className="h-32 w-32 bg-white p-2 rounded-full" src={profilepic} width={200} height={200} alt="Profile Picture" />
+            </div>
+            <div className=''>
+              <div className="text-center px-14 font-regular">
+                <p className="text-black dark:text-white mt-2 font-bold">@{username}</p>
+                <p className="mt-2 text-ddarkgrey dark:text-dgrey text-sm">{useremail}</p>
+                {isPremium && <button onClick={manageSubscription} className='mt-2 text-dgreenw dark:text-dgreen underline'>Manage Subscription</button>}
               </div>
+              <hr className="mt-6" />
               <div className="">
-                  <div className="text-center px-14 font-regular">
-                      <h2 className="text-black dark:text-white text-3xl font-bold"><span>{firstname}</span><span> </span><span>{lastname}</span></h2>
-                      <p className="text-dgreen mt-2">@{username}</p>
-                      <p className="mt-2 text-gray-500 text-sm">{useremail}</p>
-                      <p className="mt-2 text-dgreen text-sm italic">{currentsub == "taste" ? "Taste Starter" : currentsub == "cuisine" ? "Cuisine Crafter" : currentsub == "epicurean" ? "Epicurean Concierge" : ""}</p>
-                  </div>
-                  <hr className="mt-6" />
-                  <div className="">
-                    <Tabs defaultValue="account" className="">
-                      <TabsList className="grid w-full grid-cols-2">
-                        <TabsTrigger value="editprofile">Edit Profile</TabsTrigger>
-                        <TabsTrigger value="subscription">Subscription</TabsTrigger>
-                      </TabsList>
-                      <TabsContent value="editprofile">
-                        <Card>
-                          <CardHeader>
-                            <CardTitle>Account</CardTitle>
-                            <CardDescription>
-                              Edit your profile here. Click save when you are done.
-                            </CardDescription>
-                          </CardHeader>
-                          <CardContent className="space-y-2">
-                            <div className="space-y-1">
-                              <Label htmlFor="firstname">First Name</Label>
-                              <Input id="firstname" className="text-[16px]" defaultValue={firstname} onChange={(e) => setFirstname(e.target.value)} />
-                            </div>
-                            <div className="space-y-1">
-                              <Label htmlFor="lastname">Last Name</Label>
-                              <Input id="lastname" className="text-[16px]" defaultValue={lastname} onChange={(e) => setLastname(e.target.value)} />
-                            </div>
-                          </CardContent>
-                          <CardFooter>
-                            <Button onClick={updateProfile}>Save Changes</Button>
-                            <AlertDialog>
-                              <AlertDialogTrigger asChild>
-                                <Button className="w-full p-3 bg-dred rounded-lg text-black hover:bg-dyellow">Delete Account</Button>
-                              </AlertDialogTrigger>
-                              <AlertDialogContent>
-                                <AlertDialogHeader>
-                                  <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
-                                  <AlertDialogDescription>
-                                    This action cannot be undone. This will permanently delete your
-                                    account and remove your data from our servers.
-                                  </AlertDialogDescription>
-                                </AlertDialogHeader>
-                                <AlertDialogFooter>
-                                  <AlertDialogCancel>Cancel</AlertDialogCancel>
-                                  <AlertDialogAction onClick={deleteProfile}>Continue</AlertDialogAction>
-                                </AlertDialogFooter>
-                              </AlertDialogContent>
-                            </AlertDialog>
-                          </CardFooter>
-                        </Card>
-                      </TabsContent>
-                      <TabsContent value="subscription">
-                        <Card>
-                          <CardHeader>
-                            <CardTitle>Subscription</CardTitle>
-                            <CardDescription>
-                              Manage your subscription.
-                            </CardDescription>
-                          </CardHeader>
-                          <CardContent className="space-y-2">
-                            {currentsub.length > 1 ? (
-                            <div className="space-y-1">
-                              <Button onClick={manageSubscription}>Manage Subscription</Button>
-                            </div>
-                            ) : (
-                            <>
-                              <div className="space-y-1">
-                                <Button onClick={upgradeToTasteStarter}>Subscribe to Taste Starter</Button>
-                              </div>
-                              <div className="space-y-1">
-                                <Button onClick={upgradeToCuisineCrafter}>Subscribe to Cuisine Crafter</Button>
-                              </div>
-                              <div className="space-y-1">
-                                <Button onClick={upgradeToEpicurean}>Subscribe to Epicurean Elite</Button>
-                              </div>
-                            </>
-                            )}
-                          </CardContent>
-                          <CardFooter>
-              
-                          </CardFooter>
-                        </Card>
-                      </TabsContent>
-                    </Tabs>
-                  </div>
+                <Tabs defaultValue="account" className="">
+                  <TabsList className="grid w-full grid-cols-2">
+                    <TabsTrigger value="editprofile">Edit Profile</TabsTrigger>
+                    <TabsTrigger value="subscription">Subscription</TabsTrigger>
+                  </TabsList>
+                  <TabsContent value="editprofile">
+                    <Card>
+                      <CardHeader>
+                        <CardTitle>Account</CardTitle>
+                        <CardDescription>
+                          Edit your profile here. Click save when you are done.
+                        </CardDescription>
+                      </CardHeader>
+                      <CardContent className="space-y-2">
+                        <div className="space-y-1">
+                          <Label htmlFor="firstname">First Name</Label>
+                          <Input id="firstname" className="text-[16px]" defaultValue={firstname} onChange={(e) => setFirstname(e.target.value)} />
+                        </div>
+                        <div className="space-y-1">
+                          <Label htmlFor="lastname">Last Name</Label>
+                          <Input id="lastname" className="text-[16px]" defaultValue={lastname} onChange={(e) => setLastname(e.target.value)} />
+                        </div>
+                      </CardContent>
+                      <CardFooter>
+                        <Button onClick={updateProfile}>Save Changes</Button>
+                        <AlertDialog>
+                          <AlertDialogTrigger asChild>
+                            <Button className="w-full p-3 bg-dred rounded-lg text-black hover:bg-dyellow">Delete Account</Button>
+                          </AlertDialogTrigger>
+                          <AlertDialogContent>
+                            <AlertDialogHeader>
+                              <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+                              <AlertDialogDescription>
+                                This action cannot be undone. This will permanently delete your
+                                account and remove your data from our servers.
+                              </AlertDialogDescription>
+                            </AlertDialogHeader>
+                            <AlertDialogFooter>
+                              <AlertDialogCancel>Cancel</AlertDialogCancel>
+                              <AlertDialogAction onClick={deleteProfile}>Continue</AlertDialogAction>
+                            </AlertDialogFooter>
+                          </AlertDialogContent>
+                        </AlertDialog>
+                      </CardFooter>
+                    </Card>
+                  </TabsContent>
+                  <TabsContent value="subscription">
+                    <Card>
+                      <CardHeader>
+                        <CardTitle>Subscription</CardTitle>
+                        <CardDescription>
+                          Manage your subscription.
+                        </CardDescription>
+                      </CardHeader>
+                      <CardContent className="space-y-2">
+                        {isPremium ? (
+                        <div className="space-y-1">
+                          <Button onClick={manageSubscription}>Manage Subscription</Button>
+                        </div>
+                        ) : (
+                        <>
+                          <div className="space-y-1">
+                            <Button onClick={upgradeToCuisineCrafter}>Subscribe to Cuisine Crafter</Button>
+                          </div>
+                          <div className="space-y-1">
+                            <Button onClick={upgradeToEpicurean}>Subscribe to Epicurean Elite</Button>
+                          </div>
+                        </>
+                        )}
+                      </CardContent>
+                      <CardFooter>
+          
+                      </CardFooter>
+                    </Card>
+                  </TabsContent>
+                </Tabs>
               </div>
+            </div>
           </div>
       </div>
 
 
-
-
-
-      <div className='w-full flex flex-col py-32 md:py-40 px-8 md:px-24 bg-dlightgreen dark:bg-dblue'>
-        <h1 className='font-heading text-3xl mb-4 text-black dark:text-white'>User Profile</h1>
-        <p className='font-regular text-black dark:text-white mb-4'>Firstname: {firstname}</p>
-        <p className='font-regular text-black dark:text-white mb-4'>Lastname: {lastname}</p>
-        <p className='font-regular text-black dark:text-white mb-4'>Email: {useremail}</p>
-        <p className='font-regular text-black dark:text-white mb-4'>Username: {username}</p>
-        <p className='font-regular text-black dark:text-white mb-4'>Tier: {usersubscription}</p>
-        <Avatar>
-          <AvatarImage src={profilepic} />
-          <AvatarFallback>CN</AvatarFallback>
-        </Avatar>
 
         <Dialog>
           <DialogTrigger asChild>
@@ -336,7 +323,7 @@ const UserProfile = () => {
             </DialogFooter>
           </DialogContent>
         </Dialog>
-      </div>
+      
       </>
       )}
     </div>

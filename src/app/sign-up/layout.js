@@ -2,7 +2,7 @@ import SignUp from './page';
 
 export const metadata = {
     title: "Sign Up - DineIntel",
-    description: "Sign up and join many other people using DineIntel to revolutionize their dining experience.",
+    description: "Ready to revolutionize your dining experience? Sign Up for DineIntel today and gain access to a world of personalized dining and innovative features.",
 }; 
 
 export default SignUp;

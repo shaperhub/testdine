@@ -2,7 +2,7 @@ import Faqs from './page';
 
 export const metadata = {
     title: "FAQs - DineIntel",
-    description: "These are some frequently asked questions and answers on the use of the DineIntel app.",
+    description: "Find answers to your questions about DineIntel’s innovative features, subscription plans, and user support on our comprehensive FAQs page.",
 }; 
 
 export default Faqs;

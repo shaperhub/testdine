@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
-const Services = () => {
+const Features = () => {
   return (
     <div className='text-black dark:text-white'>
 
@@ -105,4 +105,4 @@ const Services = () => {
   )
 }
 
-export default Services
+export default Features

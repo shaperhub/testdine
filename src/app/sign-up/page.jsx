@@ -16,18 +16,35 @@ const SignUp = () => {
   const [image, setImage] = useState('');
   const [useruname, setUseruname] = useState('')
   const [unameerror, setUnameError] = useState('')
+  const [unamegood, setUnameGood] = useState('')
 
   useEffect(() => {
     // Check if the Username Already Exists
     const checkUsername = async () => {
       const usersCollection = collection(db, 'uniqueusernames');
-      const queryun = query(usersCollection, where('username', '==', useruname));
+      const queryun = query(usersCollection, where('username', '==', useruname.toLowerCase()));
       const snap = await getDocs(queryun)
-      if(snap.size > 0){
-        setUnameError("Username Already Exists")
+      // If the username input length is within range
+      if (useruname.length > 5 && useruname.length < 16){
+        // if the username exists
+        if(snap.size > 0){
+          setUnameError("Username Already Exists")
+          setUnameGood("")
+        }
+        else {
+          setUnameError('')
+          setUnameGood("Username is available")
+        }
       }
-      else {
+      // if the username field is empty
+      else if (useruname.length == 0){
         setUnameError('')
+        setUnameGood('')
+      }
+      // if the username length is our of range
+      else {
+        setUnameError("Username must be between 6 to 15 characters long")
+        setUnameGood('')
       }
     }
     checkUsername()
@@ -109,7 +126,7 @@ const SignUp = () => {
           fcmToken: '',
           firstName: userfname,
           lastName: userlname,
-          userName: username,
+          userName: username.toLowerCase(),
           userEmail: useremail,
           userId: uid,
           userImage: upic,
@@ -214,7 +231,8 @@ const SignUp = () => {
             onChange={(e) => setUseruname(e.target.value)} 
             className="w-full p-3 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey"
           />
-          {unameerror && <span className='text-red-600'>{unameerror}</span>}
+          {unameerror && <span className='text-red-600 text-sm'>{unameerror}</span>}
+          {unamegood && <span className='text-dgreen text-sm'>{unamegood}</span>}
           <input 
             type="email" 
             placeholder="Email" 

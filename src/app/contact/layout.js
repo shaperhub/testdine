@@ -2,7 +2,7 @@ import Contact from './page';
 
 export const metadata = {
     title: "Contact - DineIntel",
-    description: "Contact us with your questions, messages, and inquiries.",
+    description: "Need assistance or have feedback? Contact DineIntel today. Our dedicated team is here to support you in enhancing your dining experience.",
 }; 
 
 export default Contact;
