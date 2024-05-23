@@ -9,6 +9,7 @@ import NavlogDark from '../../../public/DineIntelLogoDark.png'
 import { useRouter, useSelectedLayoutSegment } from 'next/navigation'
 import {onAuthStateChanged} from "firebase/auth"
 import {auth} from "@/app/firebase/config"
+import ComingSoon from '../ComingSoon/ComingSoon'
 
 function useUserSession(initialUser) {
 	// The initialUser comes from the server via a server component
@@ -58,8 +59,9 @@ export default function Navbar({initialUser}) {
   }
 
   return (
-    <div className='fixed w-full h-16 bg-dlightgreen dark:bg-dblue shadow-xl z-[100] font-regular'>
-        <div className='flex justify-between items-center w-full h-full px-8 2xl:px-16 mb-40'>
+    <div className='fixed w-full h-28 bg-dlightgreen dark:bg-dblue shadow-xl z-[100] font-regular'>
+        <div className=''><ComingSoon /></div>
+        <div className='flex justify-between items-center w-full h-full px-8 2xl:px-16 mb-40 -mt-6'>
             <Link className='dark:hidden' href='/'>
                 <Image className="" src={Navlog} alt="DineIntel Logo" width='150' height='70' priority />
             </Link>
@@ -123,7 +125,7 @@ export default function Navbar({initialUser}) {
                   </li>
                 </Link>
                 
-                {user ? (
+                {/* {user ? (
                     <>
                         <Link href='' onClick={handleSignOut}>
                         <li id='signout' 
@@ -163,7 +165,7 @@ export default function Navbar({initialUser}) {
                         </li>
                         </Link>
                     </>
-                )}
+                )} */}
                 <div className='ml-4'><DarkModeToggle /></div>
               </ul>
 
@@ -221,7 +223,7 @@ export default function Navbar({initialUser}) {
                   <li onClick={() => setNav(false)} id='contact' className='py-4 text-sm'>Contact</li>
                 </Link>
 
-                {user ? (
+                {/* {user ? (
                     <>
                         <Link href='' onClick={handleSignOut}>
                         <li onClick={() => setNav(false)} id='signout' className='py-4 text-sm'>Sign Out</li>
@@ -239,7 +241,7 @@ export default function Navbar({initialUser}) {
                         <li onClick={() => setNav(false)} id='login' className='py-4 text-sm'>Log In</li>
                         </Link>
                     </>
-                )}
+                )} */}
               </ul>
             </div>
           </div>

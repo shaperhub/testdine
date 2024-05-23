@@ -9,7 +9,7 @@ const Contact = () => {
         <h4 className="font-heading text-ddarkgrey dark:text-dgrey text-xl lg:text-2xl pb-16">Got Questions? Let&apos;s give you the answers you need.</h4>
         <Image className="pb-8" src={Contactimage} width="375" height="180" alt="Contact Page Image" />
       </div>
-      <div data-aos="fade-up" className="bg-dlightestgreen dark:bg-dblack p-10 w-96">
+      <div className="bg-dlightestgreen dark:bg-dblack p-10 w-96">
         <form className="">
           <input 
             type="text" 

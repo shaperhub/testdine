@@ -30,10 +30,10 @@ const Footer = () => {
               <ul>
                 <li>
                   <a
-                    href="/blog"
+                    href="/"
                     className="text-dgrey hover:text-dgreen mb-4 inline-block"
                   >
-                    Blog
+                    Home
                   </a>
                 </li>
                 <li>

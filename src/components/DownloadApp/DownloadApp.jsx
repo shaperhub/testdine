@@ -6,7 +6,7 @@ import DownPic from "../../../public/DownloadPic.png"
 
 const DownloadApp = () => {
   return (
-    <div className='flex flex-col md:flex-row gap-16 p-8 md:p-16 lg:p-20 2xl:justify-center bg-dlightgreen dark:bg-dlightblack text-black dark:text-dgrey rounded-[32px]'>
+    <div className='flex flex-col md:flex-row gap-16 p-8 md:p-16 lg:p-20 2xl:justify-center bg-dlightgreen dark:bg-dlightblack text-black dark:text-dgrey'>
         <div className='flex flex-col justify-center'>
             <div className=''>
                 <h6 className='font-heading text-2xl md:text-3xl mb-6'>Discover a world of personalized dining experiences at your command.</h6>

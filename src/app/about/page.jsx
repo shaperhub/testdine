@@ -1,4 +1,3 @@
-import DownloadApp from "@/components/DownloadApp/DownloadApp";
 import Image from "next/image";
 import Break from "../../../public/breakfast.jpg"
 import Vision from "../../../public/cheers.jpg"
@@ -10,8 +9,8 @@ const About = () => {
 
       {/* Hero */}
       <div className="bg-aboutbg bg-cover bg-center">
-        <div className="flex flex-col text-center items-center px-4 md:px-36 py-32 md:py-40 backdrop-brightness-50 backdrop-blur-sm">
-          <h1 className="font-heading text-4xl text-center text-white">Transform your Dining Experience with our Epicurean Concierge</h1>
+        <div className="flex flex-col text-center items-center px-4 md:px-36 pt-40 pb-16 md:pt-60 md:pb-40 backdrop-brightness-50 backdrop-blur-sm">
+          <h1 className="font-heading text-2xl md:text-4xl text-center text-white">Transform your Dining Experience with our Epicurean Concierge</h1>
         </div>
       </div>
 
@@ -24,7 +23,8 @@ const About = () => {
           </p>
           <p className="mb-4">
             Our platform serves as a gateway to extraordinary culinary adventures, connecting diners with exceptional experiences. 
-            From personalized recommendations tailored to your dietary preferences and allergies to ground-breaking features like <span className="font-bold"><a href="/features#modifydish">Modify Dish</a></span> and the <span className="font-bold"><a href="/features#epicurean">Epicurean Concierge</a></span>, we are committed to empowering you with the ultimate freedom of choice and discovery.
+            From personalized recommendations tailored to your dietary preferences and allergies to ground-breaking features like 
+            <span className="font-bold text-dgreenw dark:text-dgreen"><a href="/features#modifydish">Modify Dish</a></span> and the <span className="font-bold text-dgreenw dark:text-dgreen"><a href="/features#epicurean">Epicurean Concierge</a></span>, we are committed to empowering you with the ultimate freedom of choice and discovery.
           </p>
           <p className="italic mb-4">
             Join us as we embark on this journey to redefine the essence of dining, one delightful moment at a time.
@@ -75,7 +75,7 @@ const About = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
           <div className="p-4 rounded-[24px] bg-white dark:bg-black mb-4">
             <p className="font-bold mb-4">Diversity in Dining</p>
-            <p className="mb-4 text-ddarkgrey dark:text-dgrey">
+            <p className="mb-4 text-ddarkgrey dark:text-dgrey text-justify">
               We celebrate the rich tapestry of global cuisines. 
               At DineIntel, our personalized offerings are open for everyone to discover and savour the vast universe of flavours and dishes the world has to offer. 
               DineIntel is dedicated to offering an exceptional, personalized dining experience that honours every culture's culinary tradition.
@@ -83,38 +83,33 @@ const About = () => {
           </div>
           <div className="p-4 rounded-[24px] bg-white dark:bg-black mb-4">
             <p className="font-bold mb-4">Responsiveness to Needs</p>
-            <p className="mb-4 text-ddarkgrey dark:text-dgrey">
+            <p className="mb-4 text-ddarkgrey dark:text-dgrey text-justify">
               Your culinary preferences shape our service. At DineIntel, we are attuned to the unique tastes and health considerations of our diverse user base. 
               We listen carefully and adapt swiftly, ensuring that our recommendations resonate with your individual dietary needs.
             </p>
           </div>
           <div className="p-4 rounded-[24px] bg-white dark:bg-black mb-4">
             <p className="font-bold mb-4">Innovation in Technology</p>
-            <p className="mb-4 text-ddarkgrey dark:text-dgrey">
+            <p className="mb-4 text-ddarkgrey dark:text-dgrey text-justify">
               Innovation is the lifeblood of DineIntel, propelling us to harness state-of-the-art technology to enhance the journey of dining discovery and personalization, delivering a seamless, contemporary experience that sets new industry standards. 
               We are redefining culinary experiences with cutting-edge technology solutions.
             </p>
           </div>
           <div className="p-4 rounded-[24px] bg-white dark:bg-black mb-4">
             <p className="font-bold mb-4">Vibrant Community Engagement</p>
-            <p className="mb-4 text-ddarkgrey dark:text-dgrey">
+            <p className="mb-4 text-ddarkgrey dark:text-dgrey text-justify">
               DineIntel is dedicated to nurturing a lively and engaging community where food enthusiasts can bond over shared passions, exchange culinary insights, and celebrate the joy of food together. 
               Our focus is to create a global table for food lovers to express their dietary experiences and preferences.
             </p>
           </div>
           <div className="p-4 rounded-[24px] bg-white dark:bg-black mb-4">
             <p className="font-bold mb-4">Excellence in Experience</p>
-            <p className="mb-4 text-ddarkgrey dark:text-dgrey">
+            <p className="mb-4 text-ddarkgrey dark:text-dgrey text-justify">
               Excellence is the cornerstone upon which DineIntel is built. Every feature, from tailored recommendations to our interactive Modify Dish feature, 
               is crafted to the highest standard, ensuring an unparalleled user experience. With DineIntel, every meal is an experience.
             </p>
           </div>
         </div>
-      </div>
-
-      {/* Download the App  */}
-      <div className="py-8 md:py-16 lg:py-24 px-8 md:px-16 lg:px-48 bg-white/80 dark:bg-black/90">
-        <DownloadApp />
       </div>
 
     </div>

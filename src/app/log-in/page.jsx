@@ -50,8 +50,8 @@ const SignIn = () => {
   };
 
   return (
-    <div className="bg-white/50 dark:bg-black/80 min-h-screen flex items-center justify-center text-sm font-regular">
-      <div data-aos="fade-up" className="bg-white dark:bg-black p-10 rounded-lg shadow-xl w-96">
+    <div className="bg-white/50 dark:bg-black/80 min-h-screen pt-24 flex items-center justify-center text-sm font-regular">
+      <div className="bg-white dark:bg-black p-10 rounded-lg shadow-xl w-96">
         <h1 className="text-black dark:text-white text-2xl mb-4">Welcome Back!</h1>
         <h1 className="text-ddarkgrey dark:text-dgrey mb-5">Let&apos;s get you logged in so you can start exploring</h1>
         <button onClick={handleGoogleSignIn} className="flex w-full items-center justify-center outline-none px-8 py-4 bg-dbluew dark:bg-dgreen/20 hover:bg-dbluew/80 dark:hover:bg-dgreen/30 rounded-full font-bold text-white dark:text-dgreen">
