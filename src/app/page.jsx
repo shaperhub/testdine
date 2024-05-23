@@ -118,7 +118,7 @@ export default function Home() {
             <p className="mb-4 font-bold text-lg dark:text-white">Taste Starter</p>
             <p className="mb-4 text-sm">Ideal for individuals who need quick access to basic features</p>
             <p className="text-2xl mb-4">$0<span className="text-xs">/Month</span></p>
-            <Link href="/sign-up">
+            <Link href="/">
               <button className='w-full px-8 py-4 text-sm bg-transparent hover:bg-dgreen/30 rounded-full outline outline-2 outline-dgreenw font-bold text-dgreenw dark:text-dgrey items-center'>Get Started Now</button>
             </Link>
             <div className="flex gap-2 my-4 items-center text-sm">
@@ -147,7 +147,7 @@ export default function Home() {
             <p className="mb-4 font-bold text-lg dark:text-white">Epicurean Elite</p>
             <p className="mb-4 text-sm">Ideal for individuals who need full access to everything, including the AI features</p>
             <p className="text-2xl mb-4">$100<span className="text-xs">/Month</span></p>
-            <Link href="/sign-up">
+            <Link href="/">
               <button className='w-full px-8 py-4 text-sm bg-transparent hover:bg-dgreen/30 rounded-full outline outline-2 outline-dgreenw font-bold text-dgreenw dark:text-dgrey items-center'>Get Started Now</button>
             </Link>
             <div className="flex gap-2 my-4 items-center text-sm">
@@ -176,7 +176,7 @@ export default function Home() {
             <p className="mb-4 font-bold text-lg dark:text-white">Cuisine Crafter</p>
             <p className="mb-4 text-sm">Ideal for individuals who need advanced features</p>
             <p className="text-2xl mb-4">$25<span className="text-xs">/Month</span></p>
-            <Link href="/sign-up">
+            <Link href="/">
               <button className='w-full px-8 py-4 text-sm bg-transparent hover:bg-dgreen/30 rounded-full outline outline-2 outline-dgreenw font-bold text-dgreenw dark:text-dgrey items-center'>Get Started Now</button>
             </Link>
             <div className="flex gap-2 my-4 items-center text-sm">
