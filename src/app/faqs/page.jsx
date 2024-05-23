@@ -3,7 +3,7 @@ import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/co
 
 const Faqs = () => {
   return (
-    <div className='min-h-screen text-black dark:text-white bg-white/80 dark:bg-black/90'>
+    <div className='min-h-screen text-black dark:text-white bg-white/80 dark:bg-black/90 font-regular'>
             
       {/* Hero */}
       <div className="bg-faqbg bg-cover bg-center">
@@ -13,8 +13,8 @@ const Faqs = () => {
       </div>
 
       {/* FAQs */}
-      <div data-aos="fade-up" className='pt-28 pb-16 px-8 md:px-36'>
-        <p className='font-regular text-2xl mb-12 text-center dark:text-dgrey'>We&apos;ve got all the answers</p>
+      <div className='pt-28 pb-16 px-8 md:px-36'>
+        <p className='text-2xl mb-12 text-center dark:text-dgrey'>We&apos;ve got all the answers</p>
         <Accordion type="single" collapsible className="font-regular">
           <AccordionItem value="item-1">
             <AccordionTrigger className="px-2 lg:px-16 text-left text-sm md:text-base font-bold">What is DineIntel?</AccordionTrigger>

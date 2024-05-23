@@ -165,7 +165,7 @@ const UserProfile = () => {
   }
 
   return (
-    <div className='bg-white/50 dark:bg-black/80'>
+    <div className='bg-white/50 dark:bg-black/80 font-regular'>
       { loading ? (
         <div className="h-screen flex flex-wrap items-center justify-center">
           <Button disabled>
@@ -175,7 +175,7 @@ const UserProfile = () => {
         </div>
       ) : (
         <>
-      <div className="h-screen flex flex-wrap items-center justify-center">
+      <div className="h-screen flex flex-wrap items-center justify-center font-regular">
           <div className="p-2 lg:w-2/6 xl:w-2/7 sm:w-full md:w-2/3 border-2 border-dgreenw rounded-3xl bg-white dark:bg-black shadow-lg transform duration-200 ease-in-out">
             <div className={currentsub == "taste" ? "bg-dgreenw dark:bg-dgreen h-32 rounded-3xl" : currentsub == "cuisine" ? "bg-gradient-to-r from-[#C0C0C0] via-[#AAABAB] to-[#6C6C6C] h-32 rounded-3xl" : currentsub == "epicurean" ? "bg-gradient-to-r from-[#B08C36] via-[#D9BD5B] to-[#9B7424] h-32 rounded-3xl" : "h-32 rounded-3xl"}>
               <div className='flex justify-between'>

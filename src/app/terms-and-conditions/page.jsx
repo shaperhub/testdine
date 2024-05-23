@@ -2,7 +2,7 @@ import Link from "next/link"
 
 const TermsAndConditions = () => {
   return (
-    <div className='pt-36 pb-16 px-8 md:px-36 bg-white dark:bg-black text-black dark:text-white'>
+    <div className='pt-36 pb-16 px-8 md:px-36 bg-white dark:bg-black text-black dark:text-white font-regular'>
             
       {/* Terms and Conditions */}
       <div className=''>

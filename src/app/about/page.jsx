@@ -5,7 +5,7 @@ import Mission from "../../../public/oldpeople.jpg"
 
 const About = () => {
   return (
-    <div className="text-black dark:text-white">
+    <div className="text-black dark:text-white font-regular">
 
       {/* Hero */}
       <div className="bg-aboutbg bg-cover bg-center">

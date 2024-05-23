@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 const Pricing = () => {
   return (
-    <div className='text-ddarkgrey dark:text-dgrey'>
+    <div className='text-ddarkgrey dark:text-dgrey font-regular'>
 
       {/* Hero */}
       <div className="bg-pricebg bg-cover bg-center">

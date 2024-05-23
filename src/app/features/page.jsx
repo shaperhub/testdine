@@ -5,7 +5,7 @@ import Dine from "../../../public/AppGroupPage.png"
 
 const Features = () => {
   return (
-    <div className='text-ddarkgrey dark:text-dgrey'>
+    <div className='text-ddarkgrey dark:text-dgrey font-regular'>
       
       {/* Hero */}
       <div className="bg-featbg bg-cover bg-center">
