@@ -2,9 +2,11 @@ import React from 'react'
 
 const TermsAndConditions = () => {
   return (
-    <div className=''>
-      <div className='bg-white dark:bg-black text-black dark:text-white'>
-        <h1>Terms and Conditions for DineIntel</h1>
+    <div className='pt-28 pb-16 px-8 md:px-36 bg-white dark:bg-black text-black dark:text-white'>
+            
+      {/* Terms and Conditions */}
+      <div className=''>
+        <h1 className='text-4xl font-heading text-center mb-8'>Terms and Conditions for DineIntel</h1>
         <br></br>
         <h2>Introduction</h2>
         <p>Welcome to DineIntel! These Terms and Conditions outline the rules and regulations for the use of DineIntel&apos;s Application, available through various mobile platforms and our website.</p>

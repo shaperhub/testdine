@@ -54,7 +54,7 @@ const SignIn = () => {
       <div data-aos="fade-up" className="bg-white dark:bg-black p-10 rounded-lg shadow-xl w-96">
         <h1 className="text-black dark:text-white text-2xl mb-4">Welcome Back!</h1>
         <h1 className="text-ddarkgrey dark:text-dgrey mb-5">Let&apos;s get you logged in so you can start exploring</h1>
-        <button onClick={handleGoogleSignIn} className="flex w-full items-center justify-center rounded-xl p-3 outline-none text-dgreen bg-dgreen/10 dark:bg-dgreen/20 font-bold">
+        <button onClick={handleGoogleSignIn} className="flex w-full items-center justify-center outline-none px-8 py-4 bg-dbluew dark:bg-dgreen/20 hover:bg-dbluew/80 dark:hover:bg-dgreen/30 rounded-full font-bold text-white dark:text-dgreen">
           <span className="mr-3">
             <svg
               width="20"
@@ -114,7 +114,7 @@ const SignIn = () => {
           />
           <button 
             onClick={handleSignIn}
-            className="w-full p-3 bg-dgreen/10 dark:bg-dgreen/20 rounded-xl text-dgreen font-bold"
+            className="w-full px-8 py-4 bg-dbluew dark:bg-dgreen/20 hover:bg-dbluew/80 dark:hover:bg-dgreen/30 rounded-full font-bold text-white dark:text-dgreen"
           >
             Log In
           </button>

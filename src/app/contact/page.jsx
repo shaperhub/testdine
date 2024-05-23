@@ -1,4 +1,3 @@
-import React from "react";
 import Image from "next/image";
 import Contactimage from "../../../public/LoginGraphic.png"
 
@@ -34,7 +33,7 @@ const Contact = () => {
           ></textarea>
           <button 
             type="submit"
-            className="w-full p-3 bg-dgreen/10 dark:bg-dgreen/20 rounded-2xl text-dgreen text-[16px] font-bold"
+            className="w-full px-8 py-4 bg-dbluew dark:bg-dgreen/20 hover:bg-dbluew/80 dark:hover:bg-dgreen/30 rounded-full font-bold text-white dark:text-dgreen"
           >
             Submit
           </button>

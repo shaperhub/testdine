@@ -6,18 +6,17 @@ import DownPic from "../../../public/DownloadPic.png"
 
 const DownloadApp = () => {
   return (
-    <div className='flex flex-col md:flex-row gap-16 p-16 lg:p-20 2xl:justify-center bg-dgreenw dark:bg-dlightblack text-white dark:text-dgrey rounded-[32px]'>
+    <div className='flex flex-col md:flex-row gap-16 p-8 md:p-16 lg:p-20 2xl:justify-center bg-dlightgreen dark:bg-dlightblack text-black dark:text-dgrey rounded-[32px]'>
         <div className='flex flex-col justify-center'>
             <div className=''>
-                <h6 className='font-heading text-3xl mb-2 dark:text-white'>Download the App Today!</h6>
-                <p className='font-regular mb-4 text-xl'>Explore beautiful and delectable restaurants like never before</p>
+                <h6 className='font-heading text-2xl md:text-3xl mb-6'>Discover a world of personalized dining experiences at your command.</h6>
             </div>
             <div className='flex'>
                 <Link href="" className='mb-4 mr-4'>
-                    <Image className='' src={IosApp} width={120} height={30} alt='' quality={100} />
+                    <Image className='' src={IosApp} width={120} height={30} alt='IOS App Download Icon' quality={100} />
                 </Link>
                 <Link href="" className='mb-4'>
-                    <Image className='' src={AndroidApp} width={135} height={40} alt='' quality={100} />
+                    <Image className='' src={AndroidApp} width={135} height={40} alt='Android App Download Icon' quality={100} />
                 </Link>
             </div>
         </div>

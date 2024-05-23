@@ -29,6 +29,10 @@ module.exports = {
         'epicurean': "url('/EpicureanBg.png')",
         'lightbg': "url('/LightThemeBg.png')",
         'darkbg': "url('/DarkThemeBg.png')",
+        'aboutbg': "url('/glassesonly.jpg')",
+        'featbg': "url('/friesburger.jpg')",
+        'pricebg': "url('/afamgirl.jpg')",
+        'faqbg': "url('/cheers.jpg')",
       },
       fontFamily: {
         heading: ["var(--font-poppins-big)"],
