@@ -115,7 +115,7 @@ export default function Navbar({initialUser}) {
                   <span className='block max-w-0 group-hover:max-w-full transition-all duration-200 h-0.5 bg-dgreenw'></span>
                   </li>
                 </Link> */}
-                <Link href='/contact'>
+                {/*<Link href='/contact'>
                   <li id='contact' 
                   className={segment == 'contact' 
                   ? 'border-b-dgreenw border-b-2 ml-10 p-0.5 text-sm' 
@@ -125,7 +125,7 @@ export default function Navbar({initialUser}) {
                   </li>
                 </Link>
                 
-                {/* {user ? (
+                 {user ? (
                     <>
                         <Link href='' onClick={handleSignOut}>
                         <li id='signout' 
@@ -219,11 +219,11 @@ export default function Navbar({initialUser}) {
                 {/* <Link href='/blog'>
                   <li onClick={() => setNav(false)} id='blog' className='py-4 text-sm'>Blog</li>
                 </Link> */}
-                <Link href='/contact'>
+                {/*<Link href='/contact'>
                   <li onClick={() => setNav(false)} id='contact' className='py-4 text-sm'>Contact</li>
                 </Link>
 
-                {/* {user ? (
+                {user ? (
                     <>
                         <Link href='' onClick={handleSignOut}>
                         <li onClick={() => setNav(false)} id='signout' className='py-4 text-sm'>Sign Out</li>
