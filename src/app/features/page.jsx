@@ -1,7 +1,10 @@
 import Image from "next/image";
-import Foryou from "../../../public/AppForYouPage.png"
-import Modify from "../../../public/AppNutritionalInsight.png"
-import Dine from "../../../public/AppGroupPage.png"
+import Foryou from "../../../public/forYouLightMode.png"
+import ForyouDark from "../../../public/forYouDark.png"
+import Modify from "../../../public/mm2.png"
+import ModifyDark from "../../../public/sc3.png"
+import Dine from "../../../public/groups.png"
+import DineDark from "../../../public/groupsdark.png"
 
 const Features = () => {
   return (
@@ -17,10 +20,10 @@ const Features = () => {
       {/* For You */}
       <div className='px-8 md:px-24 py-24 bg-dlightgreen/90 dark:bg-dblack/90' id="foryou">
         <div className='my-4'>
-          <h2 className='font-bold text-3xl mb-6 text-black dark:text-white'>For You: Tailored Culinary Discovery</h2>
+          <h2 className='font-heading text-3xl mb-6 text-black dark:text-white'>For You: Tailored Culinary Discovery</h2>
           <p className='mb-4'>
             At DineIntel, the <span className='font-bold'>For You</span> feature is a testament to our dedication to personalized dining experiences. 
-            It's where culinary precision and individual preferences unite to chart your journey through the world's flavors. Delve into what <span className='font-bold italic'>For You</span> brings to the table:
+            It's where culinary precision and individual preferences unite to chart your journey through the world's flavors. Delve into what <span className='font-bold'>For You</span> brings to the table:
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-4">
             <div className="mb-4 p-4 rounded-[24px] bg-white dark:bg-black">
@@ -46,15 +49,16 @@ const Features = () => {
             </div>
           </div>
         </div>
-        {/* <div className='mb-4'>
-          <Image className="rounded-tr-[50px] rounded-bl-[50px]" src={Foryou} width={400} height={220} alt="For You Image" />
-        </div> */}
+        <div className='my-4 flex justify-center'>
+          <Image className="dark:hidden rounded-tr-[50px] rounded-bl-[50px]" src={Foryou} width={220} height={400} alt="For You Image" />
+          <Image className="hidden dark:flex rounded-tr-[50px] rounded-bl-[50px]" src={ForyouDark} width={220} height={400} alt="For You Image Darkmode" />
+        </div>
       </div>
 
       {/* Modify Dish */}
       <div className='px-8 md:px-24 py-24 bg-white/80 dark:bg-black/90' id="modifydish">
         <div className='my-4'>
-          <h2 className='font-bold text-3xl mb-6 text-black dark:text-white'>Modify Dish: Sophisticated Culinary Customization</h2>
+          <h2 className='font-heading text-3xl mb-6 text-black dark:text-white'>Modify Dish: Sophisticated Culinary Customization</h2>
           <p className='mb-4'>
             DineIntel&apos;s Modify Dish is a suite of bespoke features that redefine culinary customization, offering an unparalleled experience in personalized dining. 
             With innovative tools at your disposal, Modify Dish transforms meal preparation into a refined art form. Included in this suite are:
@@ -100,15 +104,16 @@ const Features = () => {
             DineIntel encapsulates the essence of modern dining—where technology, health, and taste converge to create an exclusive experience for the discerning diner.
           </p>
         </div>
-        {/* <div className='mb-4'>
-          <Image className="rounded-tr-[50px] rounded-bl-[50px]" src={Modify} width={400} height={220} alt="Modify Dish Image" />
-        </div> */}
+        <div className='my-4 flex justify-center'>
+          <Image className="dark:hidden rounded-tr-[50px] rounded-bl-[50px]" src={Modify} width={220} height={400} alt="Modify Dish Image" />
+          <Image className="hidden dark:flex rounded-tr-[50px] rounded-bl-[50px]" src={ModifyDark} width={220} height={400} alt="Modify Dish Image Darkmode" />
+        </div>
       </div>
 
       {/* Dine Group */}
       <div className='px-8 md:px-24 py-24 bg-dlightgreen/90 dark:bg-dblack/90' id="dinegroup">
         <div className='my-4'>
-          <h2 className='font-bold text-3xl mb-6 text-black dark:text-white'>Dine Group: Your Culinary Community Platform</h2>
+          <h2 className='font-heading text-3xl mb-6 text-black dark:text-white'>Dine Group: Your Culinary Community Platform</h2>
           <p className='mb-4'>
             At the heart of DineIntel lies the Dine Group, a dedicated platform celebrating culinary diversity. Here, members exchange rich dining narratives, share gastronomic insights, and spotlight their preferred eateries and dishes. 
             It&apos;s where the pleasures of the table are celebrated, exchanged, and amplified within a community of shared culinary passion. 
@@ -148,9 +153,10 @@ const Features = () => {
             Dine Group is where culinary culture thrives, connecting gourmets and gourmands in a shared quest for exceptional dining experiences.
           </p>
         </div>
-        {/* <div className='mb-4'>
-          <Image className="rounded-tr-[50px] rounded-bl-[50px]" src={Dine} width={400} height={220} alt="Dine Group Image" />
-        </div> */}
+        <div className='my-4 flex justify-center'>
+          <Image className="dark:hidden rounded-tr-[50px] rounded-bl-[50px]" src={Dine} width={220} height={400} alt="Dine Group Image" />
+          <Image className="hidden dark:flex rounded-tr-[50px] rounded-bl-[50px]" src={DineDark} width={220} height={400} alt="Dine Group Image Darkmode" />
+        </div>
       </div>
 
     </div>

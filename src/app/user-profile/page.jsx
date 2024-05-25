@@ -1,7 +1,7 @@
 'use client'
 import {useState, useEffect} from 'react'
 import {auth, db, storage} from '@/app/firebase/config'
-import {doc, updateDoc, deleteDoc, getDoc, getDocs, collection, onSnapshot, query, where, arrayRemove, arrayUnion} from "firebase/firestore"
+import {doc, updateDoc, deleteDoc, getDoc, getDocs, collection, onSnapshot, query, where, serverTimestamp, arrayRemove, arrayUnion} from "firebase/firestore"
 import {ref, getDownloadURL, uploadBytesResumable } from "firebase/storage"
 import { redirect, useRouter } from 'next/navigation';
 import Link from 'next/link';
@@ -141,19 +141,13 @@ const UserProfile = () => {
     setUsername('')
     setUsersubscription('')
 
-    // Delete User Data from Firestore
-    await deleteDoc(doc(db, "users", user.uid)).then(() => {
-      // Delete User from Firebase Authentication
-      user.delete()
-      // Delete Customer Data from Firestore
-      deleteDoc(doc(db, "customers", user.uid)).then(() => {
-      // Route to Homepage
-      router.push('/')
-    })
-      // Sign Out
+    const deleteupdate = doc(db, "users", user.uid);
+    await updateDoc(deleteupdate, {
+      accountDeleted: true,
+      accountDeletedAt: serverTimestamp()
+    }).then(() => {
       auth.signOut()
-    });
-
+    })
   }
 
   // const imageLoader = ({ src, width, quality }) => {
