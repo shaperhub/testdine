@@ -23,7 +23,7 @@ export default function Home() {
   // }, []);
 
   return (
-    <div className="">
+    <div className="font-regular">
 
       {/* Hero */}
       <div className="bg-white/80 dark:bg-dblack/90 flex flex-col lg:flex-row gap-8 px-8 md:px-24 py-32 md:py-40">
@@ -111,93 +111,226 @@ export default function Home() {
 
       {/* Pricing Cards */}
       <div className="px-8 md:px-24 py-12 md:py-24 bg-dlightgreen/90 dark:bg-dlightblack/90">
-        <h2 className="text-dbluew dark:text-dgrey mb-16 font-heading text-3xl text-center">Select Your <span className="text-dgreenw dark:text-white">Plan</span></h2>
-        <div className="flex flex-col lg:flex-row justify-center items-center">
+        <h2 className="text-dbluew dark:text-dgrey mb-16 font-heading text-3xl text-center">Choose Your <span className="text-dgreenw dark:text-white">Perfect Plan</span></h2>
+        <div className="flex flex-col lgmd:flex-row justify-center items-center">
+
           {/* Taste Starter Card */}
-          <div className="rounded-[24px] lg:max-w-[320px] p-8 mb-8 bg-white dark:bg-dblack font-regular text-black dark:text-dgrey">
-            <p className="mb-4 font-bold text-lg dark:text-white">Taste Starter</p>
-            <p className="mb-4 text-sm">Ideal for individuals who need quick access to basic features</p>
-            <p className="text-2xl mb-4">$0<span className="text-xs">/Month</span></p>
-            <Link href="/">
-              <button className='w-full px-8 py-4 text-sm bg-transparent hover:bg-dgreen/30 rounded-full outline outline-2 outline-dgreenw font-bold text-dgreenw dark:text-dgrey items-center'>Get Started Now</button>
-            </Link>
+          <div className="rounded-[24px] lgmd:max-w-[380px] p-8 mb-8 bg-white dark:bg-dblack font-regular text-black dark:text-dgrey">
+            <p className="mb-4 font-heading text-2xl dark:text-white text-center">Taste Starter</p>
+            <p className="mb-4 text-sm">
+              Embark on your culinary journey with Taste Starter&apos;s Complimentary Access. Perfect for enthusiasts from all walks of life, this tier connects you with local 
+              dining gems, setting the stage for deeper culinary exploration.
+            </p>
+            <p className="text-xl mb-4">Price: <span className="text-lg">Free</span></p>
+            <p className="font-heading mb-2">For You:</p>
             <div className="flex gap-2 my-4 items-center text-sm">
-              <div className="bg-dgreenw/20 p-2 rounded-full outline-none"><FaCheck className="text-dgreenw" /></div>
-              <p>Lorem ipsum is simply dummy text</p>
+              <div className=""><FaCheck className="text-dgreenw" /></div>
+              <p>Tailored Recommendations: Personalized dining suggestions</p>
             </div>
             <div className="flex gap-2 my-4 items-center text-sm">
-              <div className="bg-dgreenw/20 p-2 rounded-full outline-none"><FaCheck className="text-dgreenw" /></div>
-              <p>Lorem ipsum is simply dummy text</p>
+              <div className=""><FaCheck className="text-dgreenw" /></div>
+              <p>My Dish Insight: Detailed, personalized meal insights</p>
             </div>
             <div className="flex gap-2 my-4 items-center text-sm">
-              <div className="bg-dgreenw/20 p-2 rounded-full outline-none"><FaCheck className="text-dgreenw" /></div>
-              <p>Lorem ipsum is simply dummy text</p>
+              <div className=""><FaCheck className="text-dgreenw" /></div>
+              <p>Enhanced Discovery: Engage with relevant and sophisticated ads</p>
             </div>
             <div className="flex gap-2 my-4 items-center text-sm">
-              <div className="bg-dgreenw/20 p-2 rounded-full outline-none"><FaCheck className="text-dgreenw" /></div>
-              <p>Lorem ipsum is simply dummy text</p>
+              <div className=""><FaCheck className="text-dgreenw" /></div>
+              <p>Personalized Restaurant Recommendations: Discover top dining spots</p>
             </div>
             <div className="flex gap-2 my-4 items-center text-sm">
-              <div className="bg-dgreenw/20 p-2 rounded-full outline-none"><FaCheck className="text-dgreenw" /></div>
-              <p>Lorem ipsum is simply dummy text</p>
+              <div className=""><FaCheck className="text-dgreenw" /></div>
+              <p>Trending Near You: Find popular local restaurants</p>
+            </div>
+            <div className="flex gap-2 my-4 pb-4 items-center text-sm">
+              <div className=""><FaCheck className="text-dgreenw" /></div>
+              <p>Dynamic Search: Easily find the perfect restaurant</p>
+            </div>
+            <p className="font-heading mb-2">Dine Group:</p>
+            <div className="flex gap-2 my-4 items-center text-sm">
+              <div className=""><FaCheck className="text-dgreenw" /></div>
+              <p>Public Groups: Create up to 3, join any number</p>
+            </div>
+            <div className="flex gap-2 my-4 items-center text-sm">
+              <div className=""><FaCheck className="text-dgreenw" /></div>
+              <p>Private Groups: Not included, can&apos;t join</p>
+            </div>
+            <div className="flex gap-2 my-4 pb-4 items-center text-sm">
+              <div className=""><FaCheck className="text-dgreenw" /></div>
+              <p>Community Connect: Engage with food enthusiasts</p>
+            </div>
+            <p className="font-heading mb-2">Modify Dish:</p>
+            <div className="flex gap-2 my-4 items-center text-sm">
+              <div className=""><FaCheck className="text-dgreenw" /></div>
+              <p>Meal Recommendations: 1 meal recommendation</p>
+            </div>
+            <div className="flex gap-2 my-4 pb-4 items-center text-sm">
+              <div className=""><FaCheck className="text-dgreenw" /></div>
+              <p>Culinary Tracker: Track up to 5 meals</p>
+            </div>
+            <div className="text-center">
+              <Button text="Get Started Now" url="/" />
             </div>
           </div>
+
           {/* Epicurean Elite Card */}
-          <div className="rounded-[24px] h-[650px] lg:max-w-[400px] border-4 border-dgreenw p-8 mb-8 bg-white dark:bg-dblack font-regular text-black dark:text-dgrey">
-            <p className="mb-4 font-bold text-lg dark:text-white">Epicurean Elite</p>
-            <p className="mb-4 text-sm">Ideal for individuals who need full access to everything, including the AI features</p>
-            <p className="text-2xl mb-4">$100<span className="text-xs">/Month</span></p>
-            <Link href="/">
-              <button className='w-full px-8 py-4 text-sm bg-transparent hover:bg-dgreen/30 rounded-full outline outline-2 outline-dgreenw font-bold text-dgreenw dark:text-dgrey items-center'>Get Started Now</button>
-            </Link>
+          <div className="rounded-[24px] lgmd:max-w-[400px] border-2 border-dgreenw p-8 mb-8 bg-white dark:bg-dblack font-regular text-black dark:text-dgrey">
+            <p className="mb-4 font-heading text-2xl dark:text-white text-center">Epicurean Elite</p>
+            <p className="mb-4 text-sm">
+              Welcome to Epicurean Elite, Premium All-Access. Experience the pinnacle of culinary indulgence with unlimited meal tracking, personalized guidance from our 
+              Epicurean Concierge, and VIP support. Elevate your dining to new heights with the finest in gastronomic excellence.
+            </p>
+            <p className="text-xl mb-4">Price: $50<span className="text-xs">/Month</span></p>
+            <p className="font-heading mb-2">For You:</p>
             <div className="flex gap-2 my-4 items-center text-sm">
-              <div className="bg-dgreenw/20 p-2 rounded-full outline-none"><FaCheck className="text-dgreenw" /></div>
-              <p>Lorem ipsum is simply dummy text</p>
+              <div className=""><FaCheck className="text-dgreenw" /></div>
+              <p>Tailored Recommendations: Personalized dining suggestions</p>
             </div>
             <div className="flex gap-2 my-4 items-center text-sm">
-              <div className="bg-dgreenw/20 p-2 rounded-full outline-none"><FaCheck className="text-dgreenw" /></div>
-              <p>Lorem ipsum is simply dummy text</p>
+              <div className=""><FaCheck className="text-dgreenw" /></div>
+              <p>My Dish Insight: Detailed, personalized meal insights</p>
             </div>
             <div className="flex gap-2 my-4 items-center text-sm">
-              <div className="bg-dgreenw/20 p-2 rounded-full outline-none"><FaCheck className="text-dgreenw" /></div>
-              <p>Lorem ipsum is simply dummy text</p>
+              <div className=""><FaCheck className="text-dgreenw" /></div>
+              <p>Enhanced Discovery: Engage with relevant and sophisticated ads</p>
             </div>
             <div className="flex gap-2 my-4 items-center text-sm">
-              <div className="bg-dgreenw/20 p-2 rounded-full outline-none"><FaCheck className="text-dgreenw" /></div>
-              <p>Lorem ipsum is simply dummy text</p>
+              <div className=""><FaCheck className="text-dgreenw" /></div>
+              <p>Personalized Restaurant Recommendations: Discover top dining spots</p>
             </div>
             <div className="flex gap-2 my-4 items-center text-sm">
-              <div className="bg-dgreenw/20 p-2 rounded-full outline-none"><FaCheck className="text-dgreenw" /></div>
-              <p>Lorem ipsum is simply dummy text</p>
+              <div className=""><FaCheck className="text-dgreenw" /></div>
+              <p>Trending Near You: Find popular local restaurants</p>
+            </div>
+            <div className="flex gap-2 my-4 pb-4 items-center text-sm">
+              <div className=""><FaCheck className="text-dgreenw" /></div>
+              <p>Dynamic Search: Easily find the perfect restaurant</p>
+            </div>
+            <p className="font-heading mb-2">Dine Group:</p>
+            <div className="flex gap-2 my-4 items-center text-sm">
+              <div className=""><FaCheck className="text-dgreenw" /></div>
+              <p>Public Groups: Create up to 50, join any number</p>
+            </div>
+            <div className="flex gap-2 my-4 items-center text-sm">
+              <div className=""><FaCheck className="text-dgreenw" /></div>
+              <p>Private Groups: Create up to 50, join any number</p>
+            </div>
+            <div className="flex gap-2 my-4 items-center text-sm">
+              <div className=""><FaCheck className="text-dgreenw" /></div>
+              <p>Community Connect: Engage with food enthusiasts</p>
+            </div>
+            <div className="flex gap-2 my-4 items-center text-sm">
+              <div className=""><FaCheck className="text-dgreenw" /></div>
+              <p>Create Meal Dining Events: Host and join events</p>
+            </div>
+            <div className="flex gap-2 my-4 pb-4 items-center text-sm">
+              <div className=""><FaCheck className="text-dgreenw" /></div>
+              <p>VIP Support: Priority customer service</p>
+            </div>
+            <p className="font-heading mb-2">Modify Dish:</p>
+            <div className="flex gap-2 my-4 items-center text-sm">
+              <div className=""><FaCheck className="text-dgreenw" /></div>
+              <p>Meal Recommendations: Up to 2 meal recommendations</p>
+            </div>
+            <div className="flex gap-2 my-4 items-center text-sm">
+              <div className=""><FaCheck className="text-dgreenw" /></div>
+              <p>Culinary Tracker: Unlimited meal tracking</p>
+            </div>
+            <div className="flex gap-2 my-4 items-center text-sm">
+              <div className=""><FaCheck className="text-dgreenw" /></div>
+              <p>Ingredient Swap: Customize your dishes</p>
+            </div>
+            <div className="flex gap-2 my-4 items-center text-sm">
+              <div className=""><FaCheck className="text-dgreenw" /></div>
+              <p>Flavor Compatibility Analyzer: Find perfect flavor pairings</p>
+            </div>
+            <div className="flex gap-2 my-4 items-center text-sm">
+              <div className=""><FaCheck className="text-dgreenw" /></div>
+              <p>Ingredient Health Analysis: Analyze the health benefits</p>
+            </div>
+            <div className="flex gap-2 my-4 pb-4 items-center text-sm">
+              <div className=""><FaCheck className="text-dgreenw" /></div>
+              <p>Epicurean Concierge: Personalized culinary guidance</p>
+            </div>
+            <div className="text-center">
+              <Button text="Get Started Now" url="/" />
             </div>
           </div>
+
           {/* Cuisine Crafter Card */}
-          <div className="rounded-[24px] lg:max-w-[320px] p-8 mb-8 bg-white dark:bg-dblack font-regular text-black dark:text-dgrey">
-            <p className="mb-4 font-bold text-lg dark:text-white">Cuisine Crafter</p>
-            <p className="mb-4 text-sm">Ideal for individuals who need advanced features</p>
-            <p className="text-2xl mb-4">$25<span className="text-xs">/Month</span></p>
-            <Link href="/">
-              <button className='w-full px-8 py-4 text-sm bg-transparent hover:bg-dgreen/30 rounded-full outline outline-2 outline-dgreenw font-bold text-dgreenw dark:text-dgrey items-center'>Get Started Now</button>
-            </Link>
+          <div className="rounded-[24px] lgmd:max-w-[380px] p-8 mb-8 bg-white dark:bg-dblack font-regular text-black dark:text-dgrey">
+            <p className="mb-4 font-heading text-2xl dark:text-white text-center">Cuisine Crafter</p>
+            <p className="mb-4 text-sm">
+              Discover Cuisine Crafter, the distinguished tier for food connoisseurs. Enjoy personalized dining experiences with enhanced access and innovative tools for 
+              dish customization. Elevate your journey and prepare for the ultimate indulgence with Epicurean Elite.
+            </p>
+            <p className="text-xl mb-4">Price: $15<span className="text-xs">/Month</span></p>
+            <p className="font-heading mb-2">For You:</p>
             <div className="flex gap-2 my-4 items-center text-sm">
-              <div className="bg-dgreenw/20 p-2 rounded-full outline-none"><FaCheck className="text-dgreenw" /></div>
-              <p>Lorem ipsum is simply dummy text</p>
+              <div className=""><FaCheck className="text-dgreenw" /></div>
+              <p>Tailored Recommendations: Personalized dining suggestions</p>
             </div>
             <div className="flex gap-2 my-4 items-center text-sm">
-              <div className="bg-dgreenw/20 p-2 rounded-full outline-none"><FaCheck className="text-dgreenw" /></div>
-              <p>Lorem ipsum is simply dummy text</p>
+              <div className=""><FaCheck className="text-dgreenw" /></div>
+              <p>My Dish Insight: Detailed, personalized meal insights</p>
             </div>
             <div className="flex gap-2 my-4 items-center text-sm">
-              <div className="bg-dgreenw/20 p-2 rounded-full outline-none"><FaCheck className="text-dgreenw" /></div>
-              <p>Lorem ipsum is simply dummy text</p>
+              <div className=""><FaCheck className="text-dgreenw" /></div>
+              <p>Enhanced Discovery: Engage with relevant and sophisticated ads</p>
             </div>
             <div className="flex gap-2 my-4 items-center text-sm">
-              <div className="bg-dgreenw/20 p-2 rounded-full outline-none"><FaCheck className="text-dgreenw" /></div>
-              <p>Lorem ipsum is simply dummy text</p>
+              <div className=""><FaCheck className="text-dgreenw" /></div>
+              <p>Personalized Restaurant Recommendations: Discover top dining spots</p>
             </div>
             <div className="flex gap-2 my-4 items-center text-sm">
-              <div className="bg-dgreenw/20 p-2 rounded-full outline-none"><FaCheck className="text-dgreenw" /></div>
-              <p>Lorem ipsum is simply dummy text</p>
+              <div className=""><FaCheck className="text-dgreenw" /></div>
+              <p>Trending Near You: Find popular local restaurants</p>
+            </div>
+            <div className="flex gap-2 my-4 pb-4 items-center text-sm">
+              <div className=""><FaCheck className="text-dgreenw" /></div>
+              <p>Dynamic Search: Easily find the perfect restaurant</p>
+            </div>
+            <p className="font-heading mb-2">Dine Group:</p>
+            <div className="flex gap-2 my-4 items-center text-sm">
+              <div className=""><FaCheck className="text-dgreenw" /></div>
+              <p>Public Groups: Create up to 10, join any number</p>
+            </div>
+            <div className="flex gap-2 my-4 items-center text-sm">
+              <div className=""><FaCheck className="text-dgreenw" /></div>
+              <p>Private Groups: Create up to 10, join any number</p>
+            </div>
+            <div className="flex gap-2 my-4 items-center text-sm">
+              <div className=""><FaCheck className="text-dgreenw" /></div>
+              <p>Community Connect: Engage with food enthusiasts</p>
+            </div>
+            <div className="flex gap-2 my-4 pb-4 items-center text-sm">
+              <div className=""><FaCheck className="text-dgreenw" /></div>
+              <p>Create Meal Dining Events: Host and join events</p>
+            </div>
+            <p className="font-heading mb-2">Modify Dish:</p>
+            <div className="flex gap-2 my-4 items-center text-sm">
+              <div className=""><FaCheck className="text-dgreenw" /></div>
+              <p>Meal Recommendations: Up to 2 meal recommendations</p>
+            </div>
+            <div className="flex gap-2 my-4 items-center text-sm">
+              <div className=""><FaCheck className="text-dgreenw" /></div>
+              <p>Culinary Tracker: Track up to 30 meals</p>
+            </div>
+            <div className="flex gap-2 my-4 items-center text-sm">
+              <div className=""><FaCheck className="text-dgreenw" /></div>
+              <p>Ingredient Swap: Customize your dishes</p>
+            </div>
+            <div className="flex gap-2 my-4 items-center text-sm">
+              <div className=""><FaCheck className="text-dgreenw" /></div>
+              <p>Flavor Compatibility Analyzer: Find perfect flavor pairings</p>
+            </div>
+            <div className="flex gap-2 my-4 pb-4 items-center text-sm">
+              <div className=""><FaCheck className="text-dgreenw" /></div>
+              <p>Ingredient Health Analysis: Analyze the health benefits</p>
+            </div>
+            <div className="text-center">
+              <Button text="Get Started Now" url="/" />
             </div>
           </div>
         </div>

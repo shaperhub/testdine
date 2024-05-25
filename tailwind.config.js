@@ -20,6 +20,8 @@ module.exports = {
       screens: {
         'lg': '950px',
         // => @media (min-width: 950px) { ... }
+        'lgmd': '1150px',
+        // => @media (min-width: 950px) { ... }
         'lgxl': '1800px',
         // => @media (min-width: 1800px) { ... }
       },

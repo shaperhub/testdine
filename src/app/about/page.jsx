@@ -23,8 +23,7 @@ const About = () => {
           </p>
           <p className="mb-4">
             Our platform serves as a gateway to extraordinary culinary adventures, connecting diners with exceptional experiences. 
-            From personalized recommendations tailored to your dietary preferences and allergies to ground-breaking features like 
-            <span className="font-bold text-dgreenw dark:text-dgreen"><a href="/features#modifydish">Modify Dish</a></span> and the <span className="font-bold text-dgreenw dark:text-dgreen"><a href="/features#epicurean">Epicurean Concierge</a></span>, we are committed to empowering you with the ultimate freedom of choice and discovery.
+            From personalized recommendations tailored to your dietary preferences and allergies to ground-breaking features like <span className="font-bold text-dgreenw dark:text-dgreen"><a href="/features#modifydish">Modify Dish</a></span> and the <span className="font-bold text-dgreenw dark:text-dgreen"><a href="/features#epicurean">Epicurean Concierge</a></span>, we are committed to empowering you with the ultimate freedom of choice and discovery.
           </p>
           <p className="italic mb-4">
             Join us as we embark on this journey to redefine the essence of dining, one delightful moment at a time.
