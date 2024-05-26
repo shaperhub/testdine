@@ -18,7 +18,7 @@ module.exports = {
     },
     extend: {
       boxShadow: {
-        'epc': '16px 16px 16px 16px rgba(0, 0, 0, 0.3)',
+        'epc': '0 4px 6px rgba(0, 0, 0, 0.1)',
       },
       screens: {
         'lg': '950px',
