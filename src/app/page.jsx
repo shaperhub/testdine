@@ -16,6 +16,7 @@ import FlavAna from "../../public/flavoranalyzer.png"
 import DownloadApp from "@/components/DownloadApp/DownloadApp";
 import Button from "@/components/Button/Button";
 import { FaCheck } from "react-icons/fa6";
+import { BsArrowRight } from "react-icons/bs";
 
 export default function Home() {
   // useEffect(() => {
@@ -77,7 +78,9 @@ export default function Home() {
               Unlock personalized restaurant recommendations, stay updated with real-time trending spots, and customize your search options to enhance your culinary journey.
             </p>
             <div className="flex justify-center">
-              <Button text="Learn More" url="/features#foryou" />
+              <Link href="">
+                <button className='bg-transparent rounded-full font-bold text-dgreenw dark:text-dgreen inline-flex items-center font-regular'>Learn More <span className="pl-2"><BsArrowRight /></span></button>
+              </Link>
             </div>
           </div>
           <div className="rounded-[24px] h-[420px] md:max-w-[300px] p-8 bg-white dark:bg-black shadow-lg shadow-dgreenw/50">
@@ -90,7 +93,9 @@ export default function Home() {
               Explore personalized ingredient analysis, seamless swaps, and expert flavor pairings tailored to your taste buds.
             </p>
             <div className="flex justify-center">
-              <Button text="Learn More" url="/features#modifydish" />
+              <Link href="">
+                <button className='bg-transparent rounded-full font-bold text-dgreenw dark:text-dgreen inline-flex items-center font-regular'>Learn More <span className="pl-2"><BsArrowRight /></span></button>
+              </Link>
             </div>
           </div>
           <div className="rounded-[24px] h-[420px] md:max-w-[300px] p-8 bg-white dark:bg-black shadow-lg shadow-dgreenw/50" id="dinegrouphome">
@@ -103,7 +108,9 @@ export default function Home() {
               Engage in lively forums, showcase your dining adventures, and discover hidden gems.
             </p>
             <div className="flex justify-center">
-              <Button text="Learn More" url="/features#dinegroup" />
+              <Link href="">
+                <button className='bg-transparent rounded-full font-bold text-dgreenw dark:text-dgreen inline-flex items-center font-regular'>Learn More <span className="pl-2"><BsArrowRight /></span></button>
+              </Link>
             </div>
           </div>
           <div className="rounded-[24px] h-[420px] md:max-w-[300px] p-8 bg-white dark:bg-black shadow-lg shadow-dgreenw/50">
@@ -116,7 +123,9 @@ export default function Home() {
               This feature is designed to offer customized meal experiences and deep insights into the culinary arts.
             </p>
             <div className="flex justify-center">
-              <Button text="Learn More" url="/features#epicureanconcierge" />
+              <Link href="">
+                <button className='bg-transparent rounded-full font-bold text-dgreenw dark:text-dgreen inline-flex items-center font-regular'>Learn More <span className="pl-2"><BsArrowRight /></span></button>
+              </Link>
             </div>
           </div>
         </div>
