@@ -8,7 +8,7 @@ import Epic from "../../public/epicconc.png"
 import Modify from "../../public/modifydish.png"
 import Dinegroup from "../../public/dinegroup.png"
 import HeroPic from "../../public/restaurant.jpg"
-import TransformPic from "../../public/breakfast.jpg"
+import TransformPic from "../../public/trad2inno.png"
 import IngSwap from "../../public/ingredientswap.png"
 import NutIns from "../../public/nutritionalinsights.png"
 import IngAna from "../../public/ingredientanalysis.png"
@@ -60,7 +60,7 @@ export default function Home() {
           <Button text="More About DineIntel" url="/about" />
         </div>
         <div className="flex items-center justify-center lg:w-1/2">
-          <Image className="rounded-tr-[50px] rounded-bl-[50px]" src={TransformPic} width={600} height={320} alt="Dining Photo" priority />
+          <Image className="rounded-tr-[50px] rounded-bl-[50px]" src={TransformPic} width={440} height={320} alt="Dining Photo" priority />
         </div>
       </div>
 
@@ -365,7 +365,7 @@ export default function Home() {
       </div>
 
       {/* FAQS */}
-      <div className="w-full bg-dlightgreen/90 dark:bg-dblack/90 text-black dark:text-white px-8 md:px-24 py-24">
+      <div className="w-full bg-dlightestgreen dark:bg-dblack/90 text-black dark:text-white px-8 md:px-24 py-24">
         <h1 className="font-heading text-3xl mb-4 text-black dark:text-white">Frequently Asked Questions</h1>
         <Accordion type="single" collapsible className="font-regular">
           <AccordionItem value="item-1">

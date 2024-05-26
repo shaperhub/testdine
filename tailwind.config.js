@@ -40,6 +40,11 @@ module.exports = {
         'featbg': "url('/friesburger.jpg')",
         'pricebg': "url('/afamgirl.jpg')",
         'faqbg': "url('/cheers.jpg')",
+        'coreone': "url('/cheers.jpg')",
+        'coretwo': "url('/cheers.jpg')",
+        'corethree': "url('/cheers.jpg')",
+        'corefour': "url('/cheers.jpg')",
+        'corefive': "url('/cheers.jpg')",
       },
       fontFamily: {
         heading: ["var(--font-poppins-big)"],
