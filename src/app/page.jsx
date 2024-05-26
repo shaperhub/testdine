@@ -74,7 +74,7 @@ export default function Home() {
               <Image className="" src={Foryou} width={35} height={35} alt="For You Icon" quality={100} />
             </div>
             <h3 className="font-heading text-dbluew dark:text-dlightblue mb-6 text-center">For You</h3>
-            <p className="text-sm text-black dark:text-dgrey font-regular mb-6">
+            <p className="text-sm text-dlightblack dark:text-dgrey font-regular mb-6">
               Unlock personalized restaurant recommendations, stay updated with real-time trending spots, and customize your search options to enhance your culinary journey.
             </p>
             <div className="flex justify-center">
@@ -88,7 +88,7 @@ export default function Home() {
               <Image className="" src={Modify} width={35} height={35} alt="Modify Dish Icon" quality={100} />
             </div>
             <h3 className="font-heading text-dbluew dark:text-dlightblue mb-6 text-center">Modify Dish</h3>
-            <p className="text-sm text-black dark:text-dgrey font-regular mb-6">
+            <p className="text-sm text-dlightblack dark:text-dgrey font-regular mb-6">
               A game-changer in personalized dining. Say goodbye to one-size-fits-all meals and hello to a world of culinary customization at your fingertips. 
               Explore personalized ingredient analysis, seamless swaps, and expert flavor pairings tailored to your taste buds.
             </p>
