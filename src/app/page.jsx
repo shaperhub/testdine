@@ -32,7 +32,7 @@ export default function Home() {
       {/* Hero */}
       <div className="bg-white/80 dark:bg-dblack/90 flex flex-col lg:flex-row gap-8 px-8 md:px-24 py-32 md:py-40">
         <div className="lg:w-1/2 lgxl:pl-64 flex flex-col place-content-center">
-          <h1 className="text-4xl xl:text-6xl text-dbluew dark:text-dblue font-heading">
+          <h1 className="text-4xl xl:text-6xl text-dbluew dark:text-dlightblue font-heading">
             Experience the essence of dining innovation with <span className="text-dgreenw dark:text-dgreen">Dine</span><span className="font-dine text-dgreenw dark:text-dgreen">I</span><span className="text-dgreenw dark:text-dgreen">ntel</span>
           </h1>
           <p className="font-regular xl:text-xl text-black dark:text-dgrey pb-6 pt-2 xl:pt-8">
@@ -66,14 +66,14 @@ export default function Home() {
 
       {/* Igniting Joy */}
       <div className="px-8 md:px-24 py-12 md:py-24 bg-dlightestgreen/90 dark:bg-dblack/90">
-        <h2 className="text-dbluew dark:text-dblue mb-16 font-heading text-3xl text-center">Discover Our Innovative Features for a <span className="text-dgreenw dark:text-dgreen">Modern Dining Experience</span></h2>
+        <h2 className="text-dbluew dark:text-dlightblue mb-16 font-heading text-3xl text-center">Discover Our Innovative Features for a <span className="text-dgreenw dark:text-dgreen">Modern Dining Experience</span></h2>
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
           <div className="rounded-[24px] p-8 bg-white dark:bg-black shadow-lg shadow-dgreenw/50">
             <div className="flex justify-center mb-4">
               <Image className="" src={Foryou} width={35} height={35} alt="For You Icon" quality={100} />
             </div>
-            <h3 className="font-heading text-dbluew dark:text-dblue mb-6 text-center">For You</h3>
-            <p className="text-sm text-ddarkgrey dark:text-dgrey text-justify font-regular">
+            <h3 className="font-heading text-dbluew dark:text-dlightblue mb-6 text-center">For You</h3>
+            <p className="text-sm text-ddarkgrey dark:text-dgrey font-regular">
               Unlock personalized restaurant recommendations, stay updated with real-time trending spots, and customize your search options to enhance your culinary journey.
             </p>
           </div>
@@ -81,8 +81,8 @@ export default function Home() {
             <div className="flex justify-center mb-4">
               <Image className="" src={Modify} width={35} height={35} alt="Modify Dish Icon" quality={100} />
             </div>
-            <h3 className="font-heading text-dbluew dark:text-dblue mb-6 text-center">Modify Dish</h3>
-            <p className="text-sm text-ddarkgrey dark:text-dgrey text-justify font-regular">
+            <h3 className="font-heading text-dbluew dark:text-dlightblue mb-6 text-center">Modify Dish</h3>
+            <p className="text-sm text-ddarkgrey dark:text-dgrey font-regular">
               A game-changer in personalized dining. Say goodbye to one-size-fits-all meals and hello to a world of culinary customization at your fingertips. 
               Explore personalized ingredient analysis, seamless swaps, and expert flavor pairings tailored to your taste buds.
             </p>
@@ -91,8 +91,8 @@ export default function Home() {
             <div className="flex justify-center mb-4">
               <Image className="" src={Dinegroup} width={35} height={35} alt="Dine Group Icon" quality={100} />
             </div>
-            <h3 className="font-heading text-dbluew dark:text-dblue mb-6 text-center">Dine Group</h3>
-            <p className="text-sm text-ddarkgrey dark:text-dgrey text-justify font-regular">
+            <h3 className="font-heading text-dbluew dark:text-dlightblue mb-6 text-center">Dine Group</h3>
+            <p className="text-sm text-ddarkgrey dark:text-dgrey font-regular">
               Your culinary community hub within the DineIntel universe, where members share dining narratives, insights, and favorite dining experiences. 
               Engage in lively forums, showcase your dining adventures, and discover hidden gems.
             </p>
@@ -101,8 +101,8 @@ export default function Home() {
             <div className="flex justify-center mb-4">
               <Image className="" src={Epic} width={35} height={35} alt="Epicurean Concierge Icon" quality={100} />
             </div>
-            <h3 className="font-heading text-dbluew dark:text-dblue mb-6 text-center">Epicurean Concierge</h3>
-            <p className="text-sm text-ddarkgrey dark:text-dgrey text-justify font-regular">
+            <h3 className="font-heading text-dbluew dark:text-dlightblue mb-6 text-center">Epicurean Concierge</h3>
+            <p className="text-sm text-ddarkgrey dark:text-dgrey font-regular">
               Step into a world of tailored culinary assistance with our Epicurean Concierge, the epitome of personalized service at DineIntel. 
               This feature is designed to offer customized meal experiences and deep insights into the culinary arts.
             </p>
@@ -113,7 +113,7 @@ export default function Home() {
 
       {/* Pricing Cards */}
       <div className="px-8 md:px-24 py-12 md:py-24 bg-dlightgreen/90 dark:bg-dlightblack/90">
-        <h2 className="text-dbluew dark:text-dblue mb-16 font-heading text-3xl text-center">Choose Your <span className="text-dgreenw dark:text-dgreen">Perfect Plan</span></h2>
+        <h2 className="text-dbluew dark:text-dlightblue mb-16 font-heading text-3xl text-center">Choose Your <span className="text-dgreenw dark:text-dgreen">Perfect Plan</span></h2>
         <div className="flex flex-col lgmd:flex-row justify-center items-center">
 
           {/* Taste Starter Card */}
