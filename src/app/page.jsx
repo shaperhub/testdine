@@ -115,9 +115,9 @@ export default function Home() {
         <div className="flex flex-col lgmd:flex-row justify-center items-center">
 
           {/* Taste Starter Card */}
-          <div className="rounded-[24px] lgmd:max-w-[380px] p-8 mb-8 bg-white dark:bg-dblack font-regular text-black dark:text-dgrey">
-            <p className="mb-4 font-heading text-2xl dark:text-white text-center">Taste Starter</p>
-            <p className="mb-4 text-sm">
+          <div className="rounded-[24px] lgmd:max-w-[380px] lgmd:h-[1500px] p-8 mb-8 bg-white dark:bg-dblack font-regular text-black dark:text-dgrey">
+            <p className="py-4 font-heading text-2xl text-white text-center bg-dgreenw rounded-full">Taste Starter</p>
+            <p className="my-4 text-sm">
               Embark on your culinary journey with Taste Starter&apos;s Complimentary Access. Perfect for enthusiasts from all walks of life, this tier connects you with local 
               dining gems, setting the stage for deeper culinary exploration.
             </p>
@@ -175,9 +175,9 @@ export default function Home() {
           </div>
 
           {/* Epicurean Elite Card */}
-          <div className="rounded-[24px] lgmd:max-w-[400px] border-2 border-dgreenw p-8 mb-8 bg-white dark:bg-dblack font-regular text-black dark:text-dgrey">
-            <p className="mb-4 font-heading text-2xl dark:text-white text-center">Epicurean Elite</p>
-            <p className="mb-4 text-sm">
+          <div className="rounded-[24px] lgmd:max-w-[400px] lgmd:h-[1500px] p-8 mb-8 bg-white dark:bg-dblack font-regular text-black dark:text-dgrey">
+            <p className="py-4 font-heading text-2xl text-white text-center bg-[#B08C36] rounded-full">Epicurean Elite</p>
+            <p className="my-4 text-sm">
               Welcome to Epicurean Elite, Premium All-Access. Experience the pinnacle of culinary indulgence with unlimited meal tracking, personalized guidance from our 
               Epicurean Concierge, and VIP support. Elevate your dining to new heights with the finest in gastronomic excellence.
             </p>
@@ -259,9 +259,9 @@ export default function Home() {
           </div>
 
           {/* Cuisine Crafter Card */}
-          <div className="rounded-[24px] lgmd:max-w-[380px] p-8 mb-8 bg-white dark:bg-dblack font-regular text-black dark:text-dgrey">
-            <p className="mb-4 font-heading text-2xl dark:text-white text-center">Cuisine Crafter</p>
-            <p className="mb-4 text-sm">
+          <div className="rounded-[24px] lgmd:max-w-[380px] lgmd:h-[1500px] p-8 mb-8 bg-white dark:bg-dblack font-regular text-black dark:text-dgrey">
+            <p className="py-4 font-heading text-2xl text-white text-center bg-[#6C6C6C] rounded-full">Cuisine Crafter</p>
+            <p className="my-4 text-sm">
               Discover Cuisine Crafter, the distinguished tier for food connoisseurs. Enjoy personalized dining experiences with enhanced access and innovative tools for 
               dish customization. Elevate your journey and prepare for the ultimate indulgence with Epicurean Elite.
             </p>

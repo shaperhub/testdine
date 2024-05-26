@@ -17,6 +17,9 @@ module.exports = {
       },
     },
     extend: {
+      boxShadow: {
+        'epc': '16px 16px 16px 16px rgba(0, 0, 0, 0.3)',
+      },
       screens: {
         'lg': '950px',
         // => @media (min-width: 950px) { ... }
