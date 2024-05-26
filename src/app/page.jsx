@@ -48,7 +48,7 @@ export default function Home() {
 
 
       {/* Transforming Tradition */}
-      <div className="flex flex-col lg:flex-row-reverse text-black dark:text-dgrey gap-8 py-16 px-8 md:px-24 bg-dlightgreen/90 dark:bg-dlightblack/90">
+      <div className="flex flex-col lg:flex-row-reverse text-black dark:text-dgrey gap-8 py-16 px-8 md:px-24 bg-dlightestgreen dark:bg-dlightblack">
         <div className="lg:w-1/2 lgxl:pr-64 flex flex-col justify-center">
           <h2 className="text-3xl font-heading mb-4 text-dbluew dark:text-dlightblue">Transforming <span className="text-dgreenw dark:text-dgreen">Tradition</span> into <span className="text-dgreenw dark:text-dgreen">Innovation</span></h2>
           <p className="font-regular mb-4">
