@@ -51,10 +51,10 @@ export default function Home() {
       <div className="flex flex-col lg:flex-row-reverse text-black dark:text-dgrey gap-8 py-16 px-8 md:px-24 bg-dlightestgreen dark:bg-dlightblack">
         <div className="lg:w-1/2 lgxl:pr-64 flex flex-col justify-center">
           <h2 className="text-3xl font-heading mb-4 text-dbluew dark:text-dlightblue">Transforming <span className="text-dgreenw dark:text-dgreen">Tradition</span> into <span className="text-dgreenw dark:text-dgreen">Innovation</span></h2>
-          <p className="font-regular mb-4">
+          <p className="font-regular mb-4 text-[#112E51]">
             At DineIntel, culinary tradition meets innovation. Our culinary hub seamlessly blends global flavors with cutting-edge technology, offering personalized dining experiences tailored to your tastes.
           </p>
-          <p className="font-regular mb-6">
+          <p className="font-regular mb-6 text-[#112E51]">
             Join our vibrant community at <span className="font-bold text-dgreenw dark:text-dgreen"><a href="/features#dinegroup">Dine Group</a></span> to share culinary adventures and inspire each other. Let's redefine dining together. Discover the DineIntel experience: a seamless blend of pleasure, health, and discovery.
           </p>
           <Button text="More About DineIntel" url="/about" />
