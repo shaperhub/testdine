@@ -35,10 +35,10 @@ const About = () => {
       </div>
 
       {/* Our Vision */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 place-items-center py-16 px-8 md:px-24 bg-dlightgreen/80 dark:bg-dblack/90">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 place-items-center py-16 px-8 md:px-24 bg-dlightestgreen dark:bg-dblack/90">
         <div className="">
           <h2 className="text-4xl mb-4 font-bold text-center md:text-left">Our Vision</h2>
-          <p className="mb-4 text-ddarkgrey dark:text-dgrey">
+          <p className="mb-4 text-[#112E51] dark:text-dgrey">
             DineIntel envisions a world where every dining decision is informed, every palate is satisfied, and every meal is an expression of personal taste and health consciousness. 
             We aim to be the global leader in personalized dining intelligence, fostering a community where food becomes a bridge between cultures, health, and joyous experiences.
           </p>
@@ -52,7 +52,7 @@ const About = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 place-items-center py-16 px-8 md:px-24 bg-white/80 dark:bg-black/90">
         <div className="">
           <h2 className="text-4xl mb-4 font-bold text-center md:text-left">Our Mission</h2>
-          <p className="mb-4 text-ddarkgrey dark:text-dgrey">
+          <p className="mb-4 text-[#112E51] dark:text-dgrey">
             Our mission is to empower diners with tailored recommendations that align with their unique preferences and nutritional goals, 
             turning each meal into an adventure and every adventure into a celebration of taste.
           </p>
@@ -63,10 +63,10 @@ const About = () => {
       </div>
 
       {/* Our Core Values */}
-      <div className="py-16 px-8 md:px-24 bg-dlightgreen/80 dark:bg-dblack/90">
+      <div className="py-16 px-8 md:px-24 bg-dlightestgreen dark:bg-dblack/90">
         <div className="mb-6">
           <h2 className="font-heading text-4xl mb-8 text-center">Our Core Values</h2>
-          <p className="mb-8 text-ddarkgrey dark:text-dgrey">
+          <p className="mb-8 text-[#112E51] dark:text-dgrey">
             At DineIntel, our values are the heartbeat of our mission and identity. 
             Expressed through the acronym <span className="font-bold">DRIVE</span>, they symbolize our dedication to diversity, inclusivity, and crafting unforgettable dining experiences.
           </p>
@@ -74,7 +74,7 @@ const About = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
           <div className="p-4 rounded-[24px] bg-white dark:bg-black mb-4">
             <p className="font-bold mb-4">Diversity in Dining</p>
-            <p className="mb-4 text-ddarkgrey dark:text-dgrey text-justify">
+            <p className="mb-4 text-[#112E51] dark:text-dgrey text-justify">
               We celebrate the rich tapestry of global cuisines. 
               At DineIntel, our personalized offerings are open for everyone to discover and savour the vast universe of flavours and dishes the world has to offer. 
               DineIntel is dedicated to offering an exceptional, personalized dining experience that honours every culture's culinary tradition.
@@ -82,28 +82,28 @@ const About = () => {
           </div>
           <div className="p-4 rounded-[24px] bg-white dark:bg-black mb-4">
             <p className="font-bold mb-4">Responsiveness to Needs</p>
-            <p className="mb-4 text-ddarkgrey dark:text-dgrey text-justify">
+            <p className="mb-4 text-[#112E51] dark:text-dgrey text-justify">
               Your culinary preferences shape our service. At DineIntel, we are attuned to the unique tastes and health considerations of our diverse user base. 
               We listen carefully and adapt swiftly, ensuring that our recommendations resonate with your individual dietary needs.
             </p>
           </div>
           <div className="p-4 rounded-[24px] bg-white dark:bg-black mb-4">
             <p className="font-bold mb-4">Innovation in Technology</p>
-            <p className="mb-4 text-ddarkgrey dark:text-dgrey text-justify">
+            <p className="mb-4 text-[#112E51] dark:text-dgrey text-justify">
               Innovation is the lifeblood of DineIntel, propelling us to harness state-of-the-art technology to enhance the journey of dining discovery and personalization, delivering a seamless, contemporary experience that sets new industry standards. 
               We are redefining culinary experiences with cutting-edge technology solutions.
             </p>
           </div>
           <div className="p-4 rounded-[24px] bg-white dark:bg-black mb-4">
             <p className="font-bold mb-4">Vibrant Community Engagement</p>
-            <p className="mb-4 text-ddarkgrey dark:text-dgrey text-justify">
+            <p className="mb-4 text-[#112E51] dark:text-dgrey text-justify">
               DineIntel is dedicated to nurturing a lively and engaging community where food enthusiasts can bond over shared passions, exchange culinary insights, and celebrate the joy of food together. 
               Our focus is to create a global table for food lovers to express their dietary experiences and preferences.
             </p>
           </div>
           <div className="p-4 rounded-[24px] bg-white dark:bg-black mb-4">
             <p className="font-bold mb-4">Excellence in Experience</p>
-            <p className="mb-4 text-ddarkgrey dark:text-dgrey text-justify">
+            <p className="mb-4 text-[#112E51] dark:text-dgrey text-justify">
               Excellence is the cornerstone upon which DineIntel is built. Every feature, from tailored recommendations to our interactive Modify Dish feature, 
               is crafted to the highest standard, ensuring an unparalleled user experience. With DineIntel, every meal is an experience.
             </p>

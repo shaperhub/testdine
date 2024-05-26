@@ -13,7 +13,7 @@ const Pricing = () => {
 
 
       {/* Taste Starter */}
-      <div className='px-8 md:px-24 py-24 bg-dlightestgreen/90 dark:bg-dblack/90'>
+      <div className='px-8 md:px-24 py-24 bg-dlightestgreen dark:bg-dblack/90'>
         <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
           <div className='mb-4'>
             <h2 className='font-bold text-3xl mb-6 text-black dark:text-white'>Taste Starter – Complimentary Access</h2>
@@ -121,7 +121,7 @@ const Pricing = () => {
       </div>
 
       {/* Epicurean Concierge */}
-      <div className='px-8 md:px-24 py-24 bg-dlightestgreen/90 dark:bg-dblack/90'>
+      <div className='px-8 md:px-24 py-24 bg-dlightestgreen dark:bg-dblack/90'>
         <div className='mb-4'>
           <div className='mb-4'>
             <h2 className='font-bold text-3xl mb-6 text-black dark:text-white'>Epicurean Elite – Premium All-Access</h2>

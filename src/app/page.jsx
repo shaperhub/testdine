@@ -133,7 +133,7 @@ export default function Home() {
 
 
       {/* Pricing Cards */}
-      <div className="px-8 md:px-24 py-12 md:py-24 bg-dlightgreen/90 dark:bg-dlightblack/90">
+      <div className="px-8 md:px-24 py-12 md:py-24 bg-dlightestgreen dark:bg-dlightblack/90">
         <h2 className="text-dbluew dark:text-dlightblue mb-16 font-heading text-3xl text-center">Choose Your <span className="text-dgreenw dark:text-dgreen">Perfect Plan</span></h2>
         <div className="flex flex-col lgmd:flex-row justify-center items-center">
 

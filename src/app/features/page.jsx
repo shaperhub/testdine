@@ -18,7 +18,7 @@ const Features = () => {
       </div>
 
       {/* For You */}
-      <div className='px-8 md:px-24 py-24 bg-dlightgreen/90 dark:bg-dblack/90' id="foryou">
+      <div className='px-8 md:px-24 py-24 bg-dlightestgreen dark:bg-dblack/90' id="foryou">
         <div className='my-4'>
           <h2 className='font-heading text-3xl mb-6 text-black dark:text-white'>For You: Tailored Culinary Discovery</h2>
           <p className='mb-4'>
@@ -100,7 +100,7 @@ const Features = () => {
               </p>
             </div>
           </div>
-          <p className='italic font-bold text-black dark:text-white'>
+          <p className='italic font-bold text-[#112E51]  dark:text-white'>
             DineIntel encapsulates the essence of modern dining—where technology, health, and taste converge to create an exclusive experience for the discerning diner.
           </p>
         </div>
@@ -111,7 +111,7 @@ const Features = () => {
       </div>
 
       {/* Dine Group */}
-      <div className='px-8 md:px-24 py-24 bg-dlightgreen/90 dark:bg-dblack/90' id="dinegroup">
+      <div className='px-8 md:px-24 py-24 bg-dlightestgreen dark:bg-dblack/90' id="dinegroup">
         <div className='my-4'>
           <h2 className='font-heading text-3xl mb-6 text-black dark:text-white'>Dine Group: Your Culinary Community Platform</h2>
           <p className='mb-4'>
@@ -149,7 +149,7 @@ const Features = () => {
               </p>
             </div>
           </div>
-          <p className='font-bold italic text-black dark:text-white'>
+          <p className='font-bold italic text-[#112E51]  dark:text-white'>
             Dine Group is where culinary culture thrives, connecting gourmets and gourmands in a shared quest for exceptional dining experiences.
           </p>
         </div>
