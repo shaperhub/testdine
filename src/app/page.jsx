@@ -103,7 +103,7 @@ export default function Home() {
               <Image className="" src={Dinegroup} width={35} height={35} alt="Dine Group Icon" quality={100} />
             </div>
             <h3 className="font-heading text-dbluew dark:text-dlightblue mb-6 text-center">Dine Group</h3>
-            <p className="text-sm text-dgrey dark:text-dgrey font-regular mb-6">
+            <p className="text-sm text-dlightblue dark:text-dgrey font-regular mb-6">
               Your culinary community hub within the DineIntel universe, where members share dining narratives, insights, and favorite dining experiences. 
               Engage in lively forums, showcase your dining adventures, and discover hidden gems.
             </p>
@@ -118,7 +118,7 @@ export default function Home() {
               <Image className="" src={Epic} width={35} height={35} alt="Epicurean Concierge Icon" quality={100} />
             </div>
             <h3 className="font-heading text-dbluew dark:text-dlightblue mb-6 text-center">Epicurean Concierge</h3>
-            <p className="text-sm text-dgrey dark:text-dgrey font-regular mb-6">
+            <p className="text-sm text-dlightblue dark:text-dgrey font-regular mb-6">
               Step into a world of tailored culinary assistance with our Epicurean Concierge, the epitome of personalized service at DineIntel. 
               This feature is designed to offer customized meal experiences and deep insights into the culinary arts.
             </p>
