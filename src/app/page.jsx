@@ -69,7 +69,7 @@ export default function Home() {
       <div className="px-8 md:px-24 py-12 md:py-24 bg-white dark:bg-dblack/90">
         <h2 className="text-dbluew dark:text-dlightblue mb-16 font-heading text-3xl text-center">Discover Our Innovative Features for a <span className="text-dgreenw dark:text-dgreen">Modern Dining Experience</span></h2>
         <div className="flex flex-col lgbox:flex-row justify-center items-center gap-4">
-          <div className="rounded-[24px] h-[420px] md:max-w-[300px] p-8 bg-dlightestgreen dark:bg-black border-1 border-dlightgreen shadow-epc">
+          <div className="rounded-[24px] h-[420px] md:max-w-[300px] p-8 bg-dgreen/10 dark:bg-black border-1 border-dlightgreen shadow-epc">
             <div className="flex justify-center mb-4">
               <Image className="" src={Foryou} width={35} height={35} alt="For You Icon" quality={100} />
             </div>
