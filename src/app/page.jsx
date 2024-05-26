@@ -36,7 +36,7 @@ export default function Home() {
           <h1 className="text-4xl xl:text-6xl text-dbluew dark:text-dlightblue font-heading">
             Experience the essence of dining innovation with <span className="text-dgreenw dark:text-dgreen">Dine</span><span className="font-dine text-dgreenw dark:text-dgreen">I</span><span className="text-dgreenw dark:text-dgreen">ntel</span>
           </h1>
-          <p className="font-regular xl:text-xl text-black dark:text-dgrey pb-6 pt-2 xl:pt-8">
+          <p className="font-regular xl:text-xl text-[#112E51]  dark:text-dgrey pb-6 pt-2 xl:pt-8">
             Welcome to DineIntel, where every meal is a journey of discovery. Immerse yourself in culinary creativity, share genuine moments, and savor the satisfaction of unparalleled dining experiences.
           </p>
           <Button text="Explore Features" url="/features"/>
@@ -48,7 +48,7 @@ export default function Home() {
 
 
       {/* Transforming Tradition */}
-      <div className="flex flex-col lg:flex-row-reverse text-black dark:text-dgrey gap-8 py-16 px-8 md:px-24 bg-dlightestgreen dark:bg-dlightblack">
+      <div className="flex flex-col lg:flex-row-reverse text-[#112E51]  dark:text-dgrey gap-8 py-16 px-8 md:px-24 bg-dlightestgreen dark:bg-dlightblack">
         <div className="lg:w-1/2 lgxl:pr-64 flex flex-col justify-center">
           <h2 className="text-3xl font-heading mb-4 text-dbluew dark:text-dlightblue">Transforming <span className="text-dgreenw dark:text-dgreen">Tradition</span> into <span className="text-dgreenw dark:text-dgreen">Innovation</span></h2>
           <p className="font-regular mb-4 text-[#112E51]">
@@ -138,7 +138,7 @@ export default function Home() {
         <div className="flex flex-col lgmd:flex-row justify-center items-center">
 
           {/* Taste Starter Card */}
-          <div className="rounded-[24px] lgmd:max-w-[380px] lgmd:h-[1500px] p-8 mb-8 bg-white dark:bg-dblack font-regular text-black dark:text-dgrey">
+          <div className="rounded-[24px] lgmd:max-w-[380px] lgmd:h-[1500px] p-8 mb-8 bg-white dark:bg-dblack font-regular text-[#112E51]  dark:text-dgrey">
             <p className="py-4 font-heading text-2xl text-white text-center bg-dgreenw rounded-full">Taste Starter</p>
             <p className="my-4 text-sm">
               Embark on your culinary journey with Taste Starter&apos;s Complimentary Access. Perfect for enthusiasts from all walks of life, this tier connects you with local 
@@ -198,7 +198,7 @@ export default function Home() {
           </div>
 
           {/* Epicurean Elite Card */}
-          <div className="rounded-[24px] lgmd:max-w-[400px] lgmd:h-[1500px] p-8 mb-8 bg-white dark:bg-dblack font-regular text-black dark:text-dgrey">
+          <div className="rounded-[24px] lgmd:max-w-[400px] lgmd:h-[1500px] p-8 mb-8 bg-white dark:bg-dblack font-regular text-[#112E51]  dark:text-dgrey">
             <p className="py-4 font-heading text-2xl text-white text-center bg-[#B08C36] rounded-full">Epicurean Elite</p>
             <p className="my-4 text-sm">
               Welcome to Epicurean Elite, Premium All-Access. Experience the pinnacle of culinary indulgence with unlimited meal tracking, personalized guidance from our 
@@ -282,7 +282,7 @@ export default function Home() {
           </div>
 
           {/* Cuisine Crafter Card */}
-          <div className="rounded-[24px] lgmd:max-w-[380px] lgmd:h-[1500px] p-8 mb-8 bg-white dark:bg-dblack font-regular text-black dark:text-dgrey">
+          <div className="rounded-[24px] lgmd:max-w-[380px] lgmd:h-[1500px] p-8 mb-8 bg-white dark:bg-dblack font-regular text-[#112E51]  dark:text-dgrey">
             <p className="py-4 font-heading text-2xl text-white text-center bg-[#6C6C6C] rounded-full">Cuisine Crafter</p>
             <p className="my-4 text-sm">
               Discover Cuisine Crafter, the distinguished tier for food connoisseurs. Enjoy personalized dining experiences with enhanced access and innovative tools for 
