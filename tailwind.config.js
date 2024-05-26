@@ -24,7 +24,9 @@ module.exports = {
         'lg': '950px',
         // => @media (min-width: 950px) { ... }
         'lgmd': '1150px',
-        // => @media (min-width: 950px) { ... }
+        // => @media (min-width: 1150px) { ... }
+        'lgbox': '1380px',
+        // => @media (min-width: 1380px) { ... }
         'lgxl': '1800px',
         // => @media (min-width: 1800px) { ... }
       },
