@@ -134,7 +134,7 @@ export default function Home() {
 
 
       {/* Pricing Cards */}
-      <div className="px-8 md:px-24 py-12 md:py-24 bg-dlightestgreen dark:bg-dlightblack/90">
+      <div className="px-8 md:px-24 py-12 md:py-16 bg-dlightestgreen dark:bg-dlightblack/90">
         <h2 className="text-dbluew dark:text-dlightblue mb-16 font-heading text-3xl text-center">Choose Your <span className="text-dgreenw dark:text-dgreen">Perfect Plan</span></h2>
         <div className="flex flex-col lgmd:flex-row justify-center items-center gap-4">
 
@@ -212,9 +212,13 @@ export default function Home() {
               <div className=""><FaXmark className="text-dred" /></div>
               <p>Flavor Compatibility Analyzer: Find perfect flavor pairings</p>
             </div>
-            <div className="flex gap-2 my-4 items-center text-sm">
+            <div className="flex gap-2 my-4 pb-4 items-center text-sm">
               <div className=""><FaXmark className="text-dred" /></div>
               <p>Ingredient Health Analysis: Analyze the health benefits</p>
+            </div>
+            <div className="flex gap-4 text-dgreenw dark:text-dgreen">
+              <Image className="" src={Epic} width={30} height={30} alt="Epicurean Concierge" />
+              <p className="font-heading mb-2">Epicurean Concierge:</p>
             </div>
             <div className="flex gap-2 my-4 pb-4 items-center text-sm">
               <div className=""><FaXmark className="text-dred" /></div>
@@ -299,9 +303,13 @@ export default function Home() {
               <div className=""><FaCheck className="text-dgreenw" /></div>
               <p>Flavor Compatibility Analyzer: Find perfect flavor pairings</p>
             </div>
-            <div className="flex gap-2 my-4 items-center text-sm">
+            <div className="flex gap-2 my-4 pb-4 items-center text-sm">
               <div className=""><FaCheck className="text-dgreenw" /></div>
               <p>Ingredient Health Analysis: Analyze the health benefits</p>
+            </div>
+            <div className="flex gap-4 text-dgreenw dark:text-dgreen">
+              <Image className="" src={Epic} width={30} height={30} alt="Epicurean Concierge" />
+              <p className="font-heading mb-2">Epicurean Concierge:</p>
             </div>
             <div className="flex gap-2 my-4 pb-4 items-center text-sm">
               <div className=""><FaCheck className="text-dgreenw" /></div>
@@ -390,9 +398,13 @@ export default function Home() {
               <div className=""><FaCheck className="text-dgreenw" /></div>
               <p>Flavor Compatibility Analyzer: Find perfect flavor pairings</p>
             </div>
-            <div className="flex gap-2 my-4 items-center text-sm">
+            <div className="flex gap-2 my-4 pb-4 items-center text-sm">
               <div className=""><FaCheck className="text-dgreenw" /></div>
               <p>Ingredient Health Analysis: Analyze the health benefits</p>
+            </div>
+            <div className="flex gap-4 text-dgreenw dark:text-dgreen">
+              <Image className="" src={Epic} width={30} height={30} alt="Epicurean Concierge" />
+              <p className="font-heading mb-2">Epicurean Concierge:</p>
             </div>
             <div className="flex gap-2 my-4 pb-4 items-center text-sm">
               <div className=""><FaXmark className="text-dred" /></div>
@@ -406,30 +418,30 @@ export default function Home() {
       </div>
 
       {/* Download App */}
-      <div className="py-8 md:py-16 lg:py-24 px-8 md:px-16 lg:px-48 bg-white/80 dark:bg-black/90">
+      <div className="px-8 md:px-36 lg:px-48 bg-white/80 dark:bg-black/90">
         <DownloadApp />
       </div>
 
       {/* FAQS */}
-      <div className="w-full bg-dlightestgreen dark:bg-dblack/90 text-black dark:text-white px-8 md:px-24 py-24">
+      <div className="bg-dlightestgreen dark:bg-dblack/90 text-black dark:text-white px-8 md:px-36 py-16">
         <h1 className="font-heading text-3xl mb-4 text-black dark:text-white">Frequently Asked Questions</h1>
         <Accordion type="single" collapsible className="font-regular">
           <AccordionItem value="item-1">
-            <AccordionTrigger className="px-2 text-left text-sm md:text-base font-bold">What is DineIntel?</AccordionTrigger>
-            <AccordionContent className="px-2 pt-2 text-ddarkgrey dark:text-dgrey">
+            <AccordionTrigger className="text-left text-sm md:text-base font-bold">What is DineIntel?</AccordionTrigger>
+            <AccordionContent className="pt-2 text-ddarkgrey dark:text-dgrey">
               DineIntel is a personalized dining platform blending culinary art with digital innovation.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-2">
-            <AccordionTrigger className="px-2 text-left text-sm md:text-base font-bold">Is DineIntel a Food Delivery App?</AccordionTrigger>
-            <AccordionContent className="px-2 pt-2 text-ddarkgrey dark:text-dgrey">
+            <AccordionTrigger className="text-left text-sm md:text-base font-bold">Is DineIntel a Food Delivery App?</AccordionTrigger>
+            <AccordionContent className="pt-2 text-ddarkgrey dark:text-dgrey">
               No, DineIntel is not a food delivery app. 
               It&apos;s a personalized dining platform that offers recommendations, culinary exploration, and community engagement.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-3">
-            <AccordionTrigger className="px-2 text-left text-sm md:text-base font-bold">How Does DineIntel Work?</AccordionTrigger>
-            <AccordionContent className="px-2 pt-2 text-ddarkgrey dark:text-dgrey">
+            <AccordionTrigger className="text-left text-sm md:text-base font-bold">How Does DineIntel Work?</AccordionTrigger>
+            <AccordionContent className="pt-2 text-ddarkgrey dark:text-dgrey">
               DineIntel works by leveraging advanced technology to provide personalized dining experiences. 
               It uses features like <span className='font-bold text-dgreenw dark:text-dgreen'><a href="/features#foryou">For You</a></span> to offer tailored restaurant recommendations and <span className='font-bold text-dgreenw dark:text-dgreen'><a href="/features#modifydish">Modify Dish</a></span> to customize meals according to individual preferences. 
               Users can also engage with the culinary community through the <span className='font-bold text-dgreenw dark:text-dgreen'><a href='/features#dinegroup'>Dine Group</a></span>, where they can share experiences and discover new dining spots.

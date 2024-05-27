@@ -72,6 +72,13 @@ const About = () => {
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
+          {/* <div className="relative max-w-xl mx-auto mt-20">
+            <Image className="h-64 w-full object-cover rounded-md" src="https://images.unsplash.com/photo-1680725779155-456faadefa26" width={400} height={250} alt="Random image" />
+            <div className="absolute inset-0 bg-gray-700 opacity-60 rounded-md"></div>
+            <div className="absolute inset-0 flex items-center justify-center">
+                <h2 className="text-white text-3xl font-bold">Get Lost in Mountains</h2>
+            </div>
+          </div> */}
           <div className="p-4 rounded-[24px] bg-white dark:bg-black mb-4">
             <p className="font-bold mb-4">Diversity in Dining</p>
             <p className="mb-4 text-[#112E51] dark:text-dgrey ">
