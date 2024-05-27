@@ -16,6 +16,7 @@ import FlavAna from "../../public/flavoranalyzer.png"
 import DownloadApp from "@/components/DownloadApp/DownloadApp";
 import Button from "@/components/Button/Button";
 import { FaCheck } from "react-icons/fa6";
+import { FaXmark } from "react-icons/fa6";
 import { BsArrowRight } from "react-icons/bs";
 
 export default function Home() {
@@ -79,7 +80,7 @@ export default function Home() {
             </p>
             <div className="flex justify-center">
               <Link href="">
-                <button className='bg-transparent rounded-full font-bold text-dgreenw dark:text-dgreen inline-flex items-center font-regular'>Learn More <span className="pl-2"><BsArrowRight /></span></button>
+                <button className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dbluew dark:text-white inline-flex items-center font-regular'>Learn More <span className="pl-2"><BsArrowRight /></span></button>
               </Link>
             </div>
           </div>
@@ -94,7 +95,7 @@ export default function Home() {
             </p>
             <div className="flex justify-center">
               <Link href="">
-                <button className='bg-transparent rounded-full font-bold text-dgreenw dark:text-dgreen inline-flex items-center font-regular'>Learn More <span className="pl-2"><BsArrowRight /></span></button>
+                <button className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dbluew dark:text-white inline-flex items-center font-regular'>Learn More <span className="pl-2"><BsArrowRight /></span></button>
               </Link>
             </div>
           </div>
@@ -109,7 +110,7 @@ export default function Home() {
             </p>
             <div className="flex justify-center">
               <Link href="">
-                <button className='bg-transparent rounded-full font-bold text-dgreenw dark:text-dgreen inline-flex items-center font-regular'>Learn More <span className="pl-2"><BsArrowRight /></span></button>
+                <button className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dbluew dark:text-white inline-flex items-center font-regular'>Learn More <span className="pl-2"><BsArrowRight /></span></button>
               </Link>
             </div>
           </div>
@@ -124,7 +125,7 @@ export default function Home() {
             </p>
             <div className="flex justify-center">
               <Link href="">
-                <button className='bg-transparent rounded-full font-bold text-dgreenw dark:text-dgreen inline-flex items-center font-regular'>Learn More <span className="pl-2"><BsArrowRight /></span></button>
+                <button className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dbluew dark:text-white inline-flex items-center font-regular'>Learn More <span className="pl-2"><BsArrowRight /></span></button>
               </Link>
             </div>
           </div>
@@ -135,17 +136,22 @@ export default function Home() {
       {/* Pricing Cards */}
       <div className="px-8 md:px-24 py-12 md:py-24 bg-dlightestgreen dark:bg-dlightblack/90">
         <h2 className="text-dbluew dark:text-dlightblue mb-16 font-heading text-3xl text-center">Choose Your <span className="text-dgreenw dark:text-dgreen">Perfect Plan</span></h2>
-        <div className="flex flex-col lgmd:flex-row justify-center items-center">
+        <div className="flex flex-col lgmd:flex-row justify-center items-center gap-4">
 
           {/* Taste Starter Card */}
           <div className="rounded-[24px] lgmd:max-w-[380px] lgmd:h-[1500px] p-8 mb-8 bg-white dark:bg-dblack font-regular text-[#112E51]  dark:text-dgrey">
-            <p className="py-4 font-heading text-2xl text-white text-center bg-dgreenw rounded-full">Taste Starter</p>
-            <p className="my-4 text-sm">
-              Embark on your culinary journey with Taste Starter&apos;s Complimentary Access. Perfect for enthusiasts from all walks of life, this tier connects you with local 
-              dining gems, setting the stage for deeper culinary exploration.
-            </p>
+            <div className="bg-dgreenw rounded-xl text-white p-4 mb-4">
+              <p className="py-2 font-heading text-2xl text-center">Taste Starter</p>
+              <p className="my-2 text-sm">
+                Embark on your culinary journey with Taste Starter&apos;s Complimentary Access. Perfect for enthusiasts from all walks of life, this tier connects you with local 
+                dining gems, setting the stage for deeper culinary exploration.
+              </p>
+            </div>
             <p className="text-xl mb-4">Price: <span className="text-lg">Free</span></p>
-            <p className="font-heading mb-2">For You:</p>
+            <div className="flex gap-4 text-dgreenw dark:text-dgreen">
+              <Image className="" src={Foryou} width={30} height={30} alt="For You" />
+              <p className="font-heading mb-2">For You:</p>
+            </div>
             <div className="flex gap-2 my-4 items-center text-sm">
               <div className=""><FaCheck className="text-dgreenw" /></div>
               <p>Tailored Recommendations: Personalized dining suggestions</p>
@@ -170,27 +176,53 @@ export default function Home() {
               <div className=""><FaCheck className="text-dgreenw" /></div>
               <p>Dynamic Search: Easily find the perfect restaurant</p>
             </div>
-            <p className="font-heading mb-2">Dine Group:</p>
-            <div className="flex gap-2 my-4 items-center text-sm">
-              <div className=""><FaCheck className="text-dgreenw" /></div>
-              <p>Public Groups: Create up to 3, join any number</p>
+            <div className="flex gap-4 text-dgreenw dark:text-dgreen">
+              <Image className="" src={Dinegroup} width={30} height={30} alt="Dine Group" />
+              <p className="font-heading mb-2">Dine Group:</p>
             </div>
             <div className="flex gap-2 my-4 items-center text-sm">
               <div className=""><FaCheck className="text-dgreenw" /></div>
-              <p>Private Groups: Not included, can&apos;t join</p>
+              <p>Public Groups: Create up to <span className="font-bold">3</span>, join any number</p>
             </div>
-            <div className="flex gap-2 my-4 pb-4 items-center text-sm">
+            <div className="flex gap-2 my-4 items-center text-sm">
               <div className=""><FaCheck className="text-dgreenw" /></div>
               <p>Community Connect: Engage with food enthusiasts</p>
             </div>
-            <p className="font-heading mb-2">Modify Dish:</p>
             <div className="flex gap-2 my-4 items-center text-sm">
-              <div className=""><FaCheck className="text-dgreenw" /></div>
-              <p>Meal Recommendations: 1 meal recommendation</p>
+              <div className=""><FaXmark className="text-dred" /></div>
+              <p>Private Groups: Not included, can&apos;t join</p>
             </div>
             <div className="flex gap-2 my-4 pb-4 items-center text-sm">
+              <div className=""><FaXmark className="text-dred" /></div>
+              <p>Create Meal Dining Events: Host and join events</p>
+            </div>
+            <div className="flex gap-4 text-dgreenw dark:text-dgreen">
+              <Image className="" src={Modify} width={30} height={30} alt="Modify Dish" />
+              <p className="font-heading mb-2">Modify Dish:</p>
+            </div>
+            <div className="flex gap-2 my-4 items-center text-sm">
               <div className=""><FaCheck className="text-dgreenw" /></div>
-              <p>Culinary Tracker: Track up to 5 meals</p>
+              <p>Meal Recommendations: <span className="font-bold">1</span> meal recommendation</p>
+            </div>
+            <div className="flex gap-2 my-4 items-center text-sm">
+              <div className=""><FaCheck className="text-dgreenw" /></div>
+              <p>Culinary Tracker: Track up to <span className="font-bold">5</span> meals</p>
+            </div>
+            <div className="flex gap-2 my-4 items-center text-sm">
+              <div className=""><FaXmark className="text-dred" /></div>
+              <p>Ingredient Swap: Customize your dishes</p>
+            </div>
+            <div className="flex gap-2 my-4 items-center text-sm">
+              <div className=""><FaXmark className="text-dred" /></div>
+              <p>Flavor Compatibility Analyzer: Find perfect flavor pairings</p>
+            </div>
+            <div className="flex gap-2 my-4 items-center text-sm">
+              <div className=""><FaXmark className="text-dred" /></div>
+              <p>Ingredient Health Analysis: Analyze the health benefits</p>
+            </div>
+            <div className="flex gap-2 my-4 pb-4 items-center text-sm">
+              <div className=""><FaXmark className="text-dred" /></div>
+              <p>Epicurean Concierge: Personalized culinary guidance</p>
             </div>
             <div className="text-center">
               <Button text="Get Started Now" url="/" />
@@ -198,14 +230,19 @@ export default function Home() {
           </div>
 
           {/* Epicurean Elite Card */}
-          <div className="rounded-[24px] lgmd:max-w-[400px] lgmd:h-[1500px] p-8 mb-8 bg-white dark:bg-dblack font-regular text-[#112E51]  dark:text-dgrey">
-            <p className="py-4 font-heading text-2xl text-white text-center bg-[#B08C36] rounded-full">Epicurean Elite</p>
-            <p className="my-4 text-sm">
-              Welcome to Epicurean Elite, Premium All-Access. Experience the pinnacle of culinary indulgence with unlimited meal tracking, personalized guidance from our 
-              Epicurean Concierge, and VIP support. Elevate your dining to new heights with the finest in gastronomic excellence.
-            </p>
+          <div className="rounded-[24px] lgmd:max-w-[420px] lgmd:h-[1500px] p-8 mb-8 bg-white dark:bg-dblack font-regular text-[#112E51]  dark:text-dgrey">
+            <div className="bg-gradient-to-r from-[#B08C36] via-[#D9BD5B] to-[#9B7424] rounded-xl text-white p-4 mb-4">
+              <p className="py-2 font-heading text-2xl text-white text-center">Epicurean Elite</p>
+              <p className="my-2 text-sm">
+                Welcome to Epicurean Elite, Premium All-Access. Experience the pinnacle of culinary indulgence with unlimited meal tracking, personalized guidance from our 
+                Epicurean Concierge, and VIP support. Elevate your dining to new heights with the finest in gastronomic excellence.
+              </p>
+            </div>
             <p className="text-xl mb-4">Price: $50<span className="text-xs">/Month</span></p>
-            <p className="font-heading mb-2">For You:</p>
+            <div className="flex gap-4 text-dgreenw dark:text-dgreen">
+              <Image className="" src={Foryou} width={30} height={30} alt="For You" />
+              <p className="font-heading mb-2">For You:</p>
+            </div>
             <div className="flex gap-2 my-4 items-center text-sm">
               <div className=""><FaCheck className="text-dgreenw" /></div>
               <p>Tailored Recommendations: Personalized dining suggestions</p>
@@ -230,14 +267,13 @@ export default function Home() {
               <div className=""><FaCheck className="text-dgreenw" /></div>
               <p>Dynamic Search: Easily find the perfect restaurant</p>
             </div>
-            <p className="font-heading mb-2">Dine Group:</p>
-            <div className="flex gap-2 my-4 items-center text-sm">
-              <div className=""><FaCheck className="text-dgreenw" /></div>
-              <p>Public Groups: Create up to 50, join any number</p>
+            <div className="flex gap-4 text-dgreenw dark:text-dgreen">
+              <Image className="" src={Dinegroup} width={30} height={30} alt="Dine Group" />
+              <p className="font-heading mb-2">Dine Group:</p>
             </div>
             <div className="flex gap-2 my-4 items-center text-sm">
               <div className=""><FaCheck className="text-dgreenw" /></div>
-              <p>Private Groups: Create up to 50, join any number</p>
+              <p>Public Groups: Create up to <span className="font-bold">50</span>, join any number</p>
             </div>
             <div className="flex gap-2 my-4 items-center text-sm">
               <div className=""><FaCheck className="text-dgreenw" /></div>
@@ -245,16 +281,19 @@ export default function Home() {
             </div>
             <div className="flex gap-2 my-4 items-center text-sm">
               <div className=""><FaCheck className="text-dgreenw" /></div>
-              <p>Create Meal Dining Events: Host and join events</p>
+              <p>Private Groups: Create up to <span className="font-bold">50</span>, join any number</p>
             </div>
             <div className="flex gap-2 my-4 pb-4 items-center text-sm">
               <div className=""><FaCheck className="text-dgreenw" /></div>
-              <p>VIP Support: Priority customer service</p>
+              <p>Create Meal Dining Events: Host and join events</p>
             </div>
-            <p className="font-heading mb-2">Modify Dish:</p>
+            <div className="flex gap-4 text-dgreenw dark:text-dgreen">
+              <Image className="" src={Modify} width={30} height={30} alt="Modify Dish" />
+              <p className="font-heading mb-2">Modify Dish:</p>
+            </div>
             <div className="flex gap-2 my-4 items-center text-sm">
               <div className=""><FaCheck className="text-dgreenw" /></div>
-              <p>Meal Recommendations: Up to 2 meal recommendations</p>
+              <p>Meal Recommendations: Up to <span className="font-bold">2</span> meal recommendations</p>
             </div>
             <div className="flex gap-2 my-4 items-center text-sm">
               <div className=""><FaCheck className="text-dgreenw" /></div>
@@ -276,20 +315,29 @@ export default function Home() {
               <div className=""><FaCheck className="text-dgreenw" /></div>
               <p>Epicurean Concierge: Personalized culinary guidance</p>
             </div>
+            <div className="flex gap-2 my-4 pb-4 items-center text-sm justify-center">
+              {/* <div className=""><FaCheck className="text-dgreenw" /></div> */}
+              <p className="font-bold text-base">VIP Support: Priority customer service</p>
+            </div>
             <div className="text-center">
               <Button text="Get Started Now" url="/" />
             </div>
           </div>
 
           {/* Cuisine Crafter Card */}
-          <div className="rounded-[24px] lgmd:max-w-[380px] lgmd:h-[1500px] p-8 mb-8 bg-white dark:bg-dblack font-regular text-[#112E51]  dark:text-dgrey">
-            <p className="py-4 font-heading text-2xl text-white text-center bg-[#6C6C6C] rounded-full">Cuisine Crafter</p>
-            <p className="my-4 text-sm">
-              Discover Cuisine Crafter, the distinguished tier for food connoisseurs. Enjoy personalized dining experiences with enhanced access and innovative tools for 
-              dish customization. Elevate your journey and prepare for the ultimate indulgence with Epicurean Elite.
-            </p>
+          <div className="rounded-[24px] lgmd:max-w-[410px] lgmd:h-[1500px] p-8 mb-8 bg-white dark:bg-dblack font-regular text-[#112E51]  dark:text-dgrey">
+            <div className="bg-gradient-to-r from-[#6C6C6C] via-[#AAABAB] to-[#6C6C6C] rounded-xl text-white p-4 mb-4">
+              <p className="py-2 font-heading text-2xl text-white text-center">Cuisine Crafter</p>
+              <p className="my-2 text-sm">
+                Discover Cuisine Crafter, the distinguished tier for food connoisseurs. Enjoy personalized dining experiences with enhanced access and innovative tools for 
+                dish customization. Elevate your journey and prepare for the ultimate indulgence with Epicurean Elite.
+              </p>
+            </div>
             <p className="text-xl mb-4">Price: $15<span className="text-xs">/Month</span></p>
-            <p className="font-heading mb-2">For You:</p>
+            <div className="flex gap-4 text-dgreenw dark:text-dgreen">
+              <Image className="" src={Foryou} width={30} height={30} alt="For You" />
+              <p className="font-heading mb-2">For You:</p>
+            </div>
             <div className="flex gap-2 my-4 items-center text-sm">
               <div className=""><FaCheck className="text-dgreenw" /></div>
               <p>Tailored Recommendations: Personalized dining suggestions</p>
@@ -314,31 +362,37 @@ export default function Home() {
               <div className=""><FaCheck className="text-dgreenw" /></div>
               <p>Dynamic Search: Easily find the perfect restaurant</p>
             </div>
-            <p className="font-heading mb-2">Dine Group:</p>
-            <div className="flex gap-2 my-4 items-center text-sm">
-              <div className=""><FaCheck className="text-dgreenw" /></div>
-              <p>Public Groups: Create up to 10, join any number</p>
+            <div className="flex gap-4 text-dgreenw dark:text-dgreen">
+              <Image className="" src={Dinegroup} width={30} height={30} alt="Dine Group" />
+              <p className="font-heading mb-2">Dine Group:</p>
             </div>
             <div className="flex gap-2 my-4 items-center text-sm">
               <div className=""><FaCheck className="text-dgreenw" /></div>
-              <p>Private Groups: Create up to 10, join any number</p>
+              <p>Public Groups: Create up to <span className="font-bold">10</span>, join any number</p>
             </div>
             <div className="flex gap-2 my-4 items-center text-sm">
               <div className=""><FaCheck className="text-dgreenw" /></div>
               <p>Community Connect: Engage with food enthusiasts</p>
             </div>
+            <div className="flex gap-2 my-4 items-center text-sm">
+              <div className=""><FaCheck className="text-dgreenw" /></div>
+              <p>Private Groups: Create up to <span className="font-bold">10</span>, join any number</p>
+            </div>
             <div className="flex gap-2 my-4 pb-4 items-center text-sm">
               <div className=""><FaCheck className="text-dgreenw" /></div>
               <p>Create Meal Dining Events: Host and join events</p>
             </div>
-            <p className="font-heading mb-2">Modify Dish:</p>
-            <div className="flex gap-2 my-4 items-center text-sm">
-              <div className=""><FaCheck className="text-dgreenw" /></div>
-              <p>Meal Recommendations: Up to 2 meal recommendations</p>
+            <div className="flex gap-4 text-dgreenw dark:text-dgreen">
+              <Image className="" src={Modify} width={30} height={30} alt="Modify Dish" />
+              <p className="font-heading mb-2">Modify Dish:</p>
             </div>
             <div className="flex gap-2 my-4 items-center text-sm">
               <div className=""><FaCheck className="text-dgreenw" /></div>
-              <p>Culinary Tracker: Track up to 30 meals</p>
+              <p>Meal Recommendations: Up to <span className="font-bold">2</span> meal recommendations</p>
+            </div>
+            <div className="flex gap-2 my-4 items-center text-sm">
+              <div className=""><FaCheck className="text-dgreenw" /></div>
+              <p>Culinary Tracker: Track up to <span className="font-bold">30</span> meals</p>
             </div>
             <div className="flex gap-2 my-4 items-center text-sm">
               <div className=""><FaCheck className="text-dgreenw" /></div>
@@ -348,9 +402,13 @@ export default function Home() {
               <div className=""><FaCheck className="text-dgreenw" /></div>
               <p>Flavor Compatibility Analyzer: Find perfect flavor pairings</p>
             </div>
-            <div className="flex gap-2 my-4 pb-4 items-center text-sm">
+            <div className="flex gap-2 my-4 items-center text-sm">
               <div className=""><FaCheck className="text-dgreenw" /></div>
               <p>Ingredient Health Analysis: Analyze the health benefits</p>
+            </div>
+            <div className="flex gap-2 my-4 pb-4 items-center text-sm">
+              <div className=""><FaXmark className="text-dred" /></div>
+              <p>Epicurean Concierge: Personalized culinary guidance</p>
             </div>
             <div className="text-center">
               <Button text="Get Started Now" url="/" />
