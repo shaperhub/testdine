@@ -78,7 +78,7 @@ export default function Home() {
             <p className="text-sm text-[#112E51] dark:text-dgrey font-regular mb-6">
               Unlock personalized restaurant recommendations, stay updated with real-time trending spots, and customize your search options to enhance your culinary journey.
             </p>
-            <div className="flex justify-center">
+            <div className="flex justify-center mt-16">
               <Link href="">
                 <button className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dbluew dark:text-white inline-flex items-center font-regular'>Learn More <span className="pl-2"><BsArrowRight /></span></button>
               </Link>
@@ -220,7 +220,7 @@ export default function Home() {
               <div className=""><FaXmark className="text-dred" /></div>
               <p>Epicurean Concierge: Personalized culinary guidance</p>
             </div>
-            <div className="text-center">
+            <div className="text-center mt-12">
               <Button text="Get Started Now" url="/" />
             </div>
           </div>
@@ -398,7 +398,7 @@ export default function Home() {
               <div className=""><FaXmark className="text-dred" /></div>
               <p>Epicurean Concierge: Personalized culinary guidance</p>
             </div>
-            <div className="text-center">
+            <div className="text-center mt-14">
               <Button text="Get Started Now" url="/" />
             </div>
           </div>
