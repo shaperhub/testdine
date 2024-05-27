@@ -158,10 +158,6 @@ export default function Home() {
             </div>
             <div className="flex gap-2 my-4 items-center text-sm">
               <div className=""><FaCheck className="text-dgreenw" /></div>
-              <p>My Dish Insight: Detailed, personalized meal insights</p>
-            </div>
-            <div className="flex gap-2 my-4 items-center text-sm">
-              <div className=""><FaCheck className="text-dgreenw" /></div>
               <p>Enhanced Discovery: Engage with relevant and sophisticated ads</p>
             </div>
             <div className="flex gap-2 my-4 items-center text-sm">
@@ -246,10 +242,6 @@ export default function Home() {
             <div className="flex gap-2 my-4 items-center text-sm">
               <div className=""><FaCheck className="text-dgreenw" /></div>
               <p>Tailored Recommendations: Personalized dining suggestions</p>
-            </div>
-            <div className="flex gap-2 my-4 items-center text-sm">
-              <div className=""><FaCheck className="text-dgreenw" /></div>
-              <p>My Dish Insight: Detailed, personalized meal insights</p>
             </div>
             <div className="flex gap-2 my-4 items-center text-sm">
               <div className=""><FaCheck className="text-dgreenw" /></div>
@@ -341,10 +333,6 @@ export default function Home() {
             <div className="flex gap-2 my-4 items-center text-sm">
               <div className=""><FaCheck className="text-dgreenw" /></div>
               <p>Tailored Recommendations: Personalized dining suggestions</p>
-            </div>
-            <div className="flex gap-2 my-4 items-center text-sm">
-              <div className=""><FaCheck className="text-dgreenw" /></div>
-              <p>My Dish Insight: Detailed, personalized meal insights</p>
             </div>
             <div className="flex gap-2 my-4 items-center text-sm">
               <div className=""><FaCheck className="text-dgreenw" /></div>
