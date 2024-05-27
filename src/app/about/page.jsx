@@ -16,7 +16,7 @@ const About = () => {
       </div>
 
       {/* Our Passion */}
-      <div className="flex justify-center py-4 px-8 md:px-24 lg:px-36 bg-white dark:bg-black/90 rounded-xl shadow-about">
+      <div className="flex justify-center py-4 px-8 md:px-24 lg:px-36 bg-white dark:bg-black/90 rounded-xl shadow-about text-[#112E51]">
         <div className="bg-dlightestgreen text-lg lg:text-2xl max-w-5xl lgxl:max-w-7xl p-20">
           <p className="mb-8">
             At DineIntel, our passion lies in revolutionizing the dining experience. 
