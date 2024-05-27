@@ -64,7 +64,7 @@ const About = () => {
       <div className="py-16 px-8 md:px-32 lgmd:px-64 bg-dlightestgreen dark:bg-dblack/90">
         <div className="mb-6 px-8 flex flex-col justify-center items-center">
           <h2 className="font-heading text-4xl text-dblue dark:text-dlightblue mb-8 text-center">Our Core <span className="text-dgreenw dark:text-dgreen">Values</span></h2>
-          <p className="text-[#112E51] dark:text-dgrey max-w-[600px]">
+          <p className="text-[#112E51] dark:text-dgrey lgxl:max-w-[1280px] lg:text-2xl">
             At DineIntel, our values are the heartbeat of our mission and identity. 
             Expressed through the acronym <span className="font-bold">DRIVE</span>, they symbolize our dedication to diversity, inclusivity, and crafting unforgettable dining experiences.
           </p>
