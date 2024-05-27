@@ -26,7 +26,6 @@ const About = () => {
           <h2 className="text-xl md:text-2xl lg:text-4xl mb-4 font-heading text-center md:text-left text-dblue dark:text-dlightblue lgmd:max-w-xl">
             At DineIntel, we revolutionize dining. Founded by culinary enthusiasts and tech innovators, we merge gastronomy with cutting-edge digital innovation.
           </h2>
-          <p className="italic text-ddarkgrey dark:text-dgrey">Join us to redefine dining, one delightful moment at a time.</p>
         </div>
         <div className="md:w-1/2 mb-4">
           <Image className="rounded-[20px]" src={Topimage} width={400} height={220} alt="About Us Image" />
@@ -63,9 +62,9 @@ const About = () => {
 
       {/* Our Core Values */}
       <div className="py-16 px-8 md:px-32 lgmd:px-64 bg-dlightestgreen dark:bg-dblack/90">
-        <div className="mb-6 px-8">
+        <div className="mb-6 px-8 flex flex-col justify-center items-center">
           <h2 className="font-heading text-4xl text-dblue dark:text-dlightblue mb-8 text-center">Our Core <span className="text-dgreenw dark:text-dgreen">Values</span></h2>
-          <p className="text-[#112E51] dark:text-dgrey">
+          <p className="text-[#112E51] dark:text-dgrey max-w-[600px]">
             At DineIntel, our values are the heartbeat of our mission and identity. 
             Expressed through the acronym <span className="font-bold">DRIVE</span>, they symbolize our dedication to diversity, inclusivity, and crafting unforgettable dining experiences.
           </p>
@@ -92,7 +91,7 @@ const About = () => {
             <div className="absolute inset-0 bg-dblack opacity-70 rounded-md"></div>
             <div className="absolute inset-0 flex flex-col items-center justify-center p-2">
                 <h2 className="text-white text-2xl font-bold text-center mb-2">Innovation in Technology</h2>
-                <p className="text-center text-sm text-white"></p>
+                <p className="text-center text-sm text-white">Harnessing state-of-the-art technology for a seamless, contemporary dining experience.</p>
             </div>
           </div>
           <div className="relative max-w-[400px] mx-auto mt-8">
@@ -100,7 +99,7 @@ const About = () => {
             <div className="absolute inset-0 bg-dblack opacity-70 rounded-md"></div>
             <div className="absolute inset-0 flex flex-col items-center justify-center p-2">
                 <h2 className="text-white text-2xl font-bold text-center mb-2">Vibrant Community Engagement</h2>
-                <p className="text-center text-sm text-white"></p>
+                <p className="text-center text-sm text-white">Nurturing a lively community where food enthusiasts&apos; bond and celebrate the joy of food.</p>
             </div>
           </div>
           <div className="relative max-w-[400px] mx-auto mt-8">
@@ -108,12 +107,12 @@ const About = () => {
             <div className="absolute inset-0 bg-dblack opacity-70 rounded-md"></div>
             <div className="absolute inset-0 flex flex-col items-center justify-center p-2">
                 <h2 className="text-white text-2xl font-bold text-center mb-2">Excellence in Experience</h2>
-                <p className="text-center text-sm text-white"></p>
+                <p className="text-center text-sm text-white">Crafting every feature to the highest standard for an unparalleled user experience.</p>
             </div>
           </div>
         </div>
-        <div className="pt-16 px-8 md:px-16">
-          <p className="text-[#112E51] dark:text-dgrey font-bold text-center text-lg">Join us to redefine dining, one delightful moment at a time.</p>
+        <div className="py-24 px-8 md:px-12">
+          <p className="text-[#112E51] dark:text-dgrey font-heading text-center text-lg md:text-2xl lg:text-3xl">Join us to redefine dining, one delightful moment at a time.</p>
         </div>
       </div>
 
