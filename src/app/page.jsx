@@ -147,7 +147,7 @@ export default function Home() {
                 dining gems, setting the stage for deeper culinary exploration.
               </p>
             </div>
-            <p className="text-xl mb-4">Price: <span className="text-lg">Free</span></p>
+            <p className="text-xl mb-4">Price: $0<span className="text-xs">/Month</span></p>
             <div className="flex gap-4 text-dgreenw dark:text-dgreen">
               <Image className="" src={Foryou} width={30} height={30} alt="For You" />
               <p className="font-heading mb-2">For You:</p>
