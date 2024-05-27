@@ -2,7 +2,6 @@ import Link from 'next/link'
 import Image from 'next/image'
 import IosApp from "../../../public/appstore.png"
 import AndroidApp from "../../../public/googleplay.png"
-import DownPic from "../../../public/DownloadPic.png"
 import Food from "../../../public/togeda.png"
 
 const DownloadApp = () => {
