@@ -16,19 +16,15 @@ const About = () => {
       </div>
 
       {/* Our Passion */}
-      <div className="flex justify-center py-4 px-8 md:px-24 lg:px-36 bg-white dark:bg-black/90 shadow-about text-[#112E51] dark:text-white">
-        <div className="bg-dlightestgreen dark:bg-dlightblack text-lg lg:text-2xl max-w-5xl lgxl:max-w-7xl p-8 md:p-14 lg:p-20 rounded-3xl border-2 border-dgreen">
-          <p className="mb-8">
-            At DineIntel, our passion lies in revolutionizing the dining experience. 
-            Founded by a team of culinary enthusiasts and tech innovators, our mission is to seamlessly merge the art of gastronomy with cutting-edge digital innovation.
-          </p>
-          <p className="mb-8">
-            Our platform serves as a gateway to extraordinary culinary adventures, connecting diners with exceptional experiences. 
-            From personalized recommendations tailored to your dietary preferences and allergies to ground-breaking features like <span className="font-bold text-dgreenw dark:text-dgreen"><a href="/features#modifydish">Modify Dish</a></span> and the <span className="font-bold text-dgreenw dark:text-dgreen"><a href="/features#epicurean">Epicurean Concierge</a></span>, we are committed to empowering you with the ultimate freedom of choice and discovery.
-          </p>
-          <p className="italic text-sm text-ddarkgrey dark:text-dgrey">
-            Join us as we embark on this journey to redefine the essence of dining, one delightful moment at a time.
-          </p>
+      <div className="flex flex-col md:flex-row justify-center items-center gap-4 py-16 px-8 md:px-24 bg-white/80 dark:bg-black/90">
+        <div className="lgmd:pl-36 lgxl:pl-64 md:w-1/2">
+          <h2 className="text-xl md:text-2xl lg:text-4xl mb-4 font-heading text-center md:text-left text-dblue dark:text-dlightblue lgmd:max-w-xl">
+            At DineIntel, we revolutionize dining. Founded by culinary enthusiasts and tech innovators, we merge gastronomy with cutting-edge digital innovation.
+          </h2>
+          <p className="italic text-ddarkgrey dark:text-dgrey">Join us to redefine dining, one delightful moment at a time.</p>
+        </div>
+        <div className="md:w-1/2 mb-4">
+          <Image className="rounded-tr-[50px] rounded-bl-[50px]" src={Mission} width={400} height={220} alt="Dining Image 3" />
         </div>
       </div>
 
