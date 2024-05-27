@@ -17,7 +17,7 @@ const About = () => {
 
       {/* Our Passion */}
       <div className="flex justify-center py-4 px-8 md:px-24 lg:px-36 bg-white dark:bg-black/90 shadow-about text-[#112E51] dark:text-white">
-        <div className="bg-dlightestgreen dark:bg-dlightblack text-lg lg:text-2xl max-w-5xl lgxl:max-w-7xl p-20 rounded-3xl">
+        <div className="bg-dlightestgreen dark:bg-dlightblack text-lg lg:text-2xl max-w-5xl lgxl:max-w-7xl p-8 md:p-14 lg:p-20 rounded-3xl border-2 border-dgreen">
           <p className="mb-8">
             At DineIntel, our passion lies in revolutionizing the dining experience. 
             Founded by a team of culinary enthusiasts and tech innovators, our mission is to seamlessly merge the art of gastronomy with cutting-edge digital innovation.
@@ -26,7 +26,7 @@ const About = () => {
             Our platform serves as a gateway to extraordinary culinary adventures, connecting diners with exceptional experiences. 
             From personalized recommendations tailored to your dietary preferences and allergies to ground-breaking features like <span className="font-bold text-dgreenw dark:text-dgreen"><a href="/features#modifydish">Modify Dish</a></span> and the <span className="font-bold text-dgreenw dark:text-dgreen"><a href="/features#epicurean">Epicurean Concierge</a></span>, we are committed to empowering you with the ultimate freedom of choice and discovery.
           </p>
-          <p className="italic">
+          <p className="italic text-sm text-ddarkgrey dark:text-dgrey">
             Join us as we embark on this journey to redefine the essence of dining, one delightful moment at a time.
           </p>
         </div>
@@ -34,35 +34,35 @@ const About = () => {
 
       {/* Our Vision */}
       <div className="flex flex-col md:flex-row-reverse justify-center items-center gap-4 py-16 px-8 md:px-24 bg-dlightestgreen dark:bg-dblack/90">
-        <div className="w-1/2 lgxl:pr-72">
+        <div className="md:w-1/2 lgxl:pr-72">
           <h2 className="text-4xl mb-4 font-heading text-center md:text-left text-dgreenw dark:text-dgreen">Our Vision</h2>
           <p className="mb-4 text-[#112E51] dark:text-dgrey">
             DineIntel envisions a world where every dining decision is informed, every palate is satisfied, and every meal is an expression of personal taste and health consciousness. 
             We aim to be the global leader in personalized dining intelligence, fostering a community where food becomes a bridge between cultures, health, and joyous experiences.
           </p>
         </div>
-        <div className="flex lg:justify-center w-1/2 mb-4">
+        <div className="flex lg:justify-center md:w-1/2 mb-4">
           <Image className="rounded-tr-[50px] rounded-bl-[50px]" src={Vision} width={400} height={220} alt="Dining Image 2" />
         </div>
       </div>
 
       {/* Our Mission */}
       <div className="flex flex-col md:flex-row justify-center items-center gap-4 py-16 px-8 md:px-24 bg-white/80 dark:bg-black/90">
-        <div className="lgmd:pl-36 lgxl:pl-64 w-1/2">
+        <div className="lgmd:pl-36 lgxl:pl-64 md:w-1/2">
           <h2 className="text-4xl mb-4 font-heading text-center md:text-left text-dblue dark:text-dlightblue">Our Mission</h2>
           <p className="mb-4 text-[#112E51] dark:text-dgrey lgmd:max-w-xl">
             Our mission is to empower diners with tailored recommendations that align with their unique preferences and nutritional goals, 
             turning each meal into an adventure and every adventure into a celebration of taste.
           </p>
         </div>
-        <div className="w-1/2 mb-4">
+        <div className="md:w-1/2 mb-4">
           <Image className="rounded-tr-[50px] rounded-bl-[50px]" src={Mission} width={400} height={220} alt="Dining Image 3" />
         </div>
       </div>
 
       {/* Our Core Values */}
-      <div className="py-16 px-8 md:px-24 bg-dlightestgreen dark:bg-dblack/90">
-        <div className="mb-6 px-8 md:px-24">
+      <div className="py-16 px-8 md:px-16 bg-dlightestgreen dark:bg-dblack/90">
+        <div className="mb-6 px-8">
           <h2 className="font-heading text-4xl mb-8 text-center">Our Core Values</h2>
           <p className="mb-8 text-[#112E51] dark:text-dgrey">
             At DineIntel, our values are the heartbeat of our mission and identity. 
