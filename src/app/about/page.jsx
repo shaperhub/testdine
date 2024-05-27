@@ -16,8 +16,8 @@ const About = () => {
       </div>
 
       {/* Our Passion */}
-      <div className="flex justify-center py-4 px-8 md:px-24 lg:px-36 bg-white dark:bg-black/90 rounded-xl shadow-about text-[#112E51]">
-        <div className="bg-dlightestgreen text-lg lg:text-2xl max-w-5xl lgxl:max-w-7xl p-20">
+      <div className="flex justify-center py-4 px-8 md:px-24 lg:px-36 bg-white dark:bg-black/90 shadow-about text-[#112E51] dark:text-white">
+        <div className="bg-dlightestgreen dark:bg-dlightblack text-lg lg:text-2xl max-w-5xl lgxl:max-w-7xl p-20 rounded-3xl">
           <p className="mb-8">
             At DineIntel, our passion lies in revolutionizing the dining experience. 
             Founded by a team of culinary enthusiasts and tech innovators, our mission is to seamlessly merge the art of gastronomy with cutting-edge digital innovation.
@@ -35,7 +35,7 @@ const About = () => {
       {/* Our Vision */}
       <div className="flex flex-col md:flex-row-reverse justify-center items-center gap-4 py-16 px-8 md:px-24 bg-dlightestgreen dark:bg-dblack/90">
         <div className="w-1/2 lgxl:pr-72">
-          <h2 className="text-4xl mb-4 font-bold text-center md:text-left">Our Vision</h2>
+          <h2 className="text-4xl mb-4 font-heading text-center md:text-left text-dgreenw dark:text-dgreen">Our Vision</h2>
           <p className="mb-4 text-[#112E51] dark:text-dgrey">
             DineIntel envisions a world where every dining decision is informed, every palate is satisfied, and every meal is an expression of personal taste and health consciousness. 
             We aim to be the global leader in personalized dining intelligence, fostering a community where food becomes a bridge between cultures, health, and joyous experiences.
@@ -49,7 +49,7 @@ const About = () => {
       {/* Our Mission */}
       <div className="flex flex-col md:flex-row justify-center items-center gap-4 py-16 px-8 md:px-24 bg-white/80 dark:bg-black/90">
         <div className="lgmd:pl-36 lgxl:pl-64 w-1/2">
-          <h2 className="text-4xl mb-4 font-bold text-center md:text-left">Our Mission</h2>
+          <h2 className="text-4xl mb-4 font-heading text-center md:text-left text-dblue dark:text-dlightblue">Our Mission</h2>
           <p className="mb-4 text-[#112E51] dark:text-dgrey lgmd:max-w-xl">
             Our mission is to empower diners with tailored recommendations that align with their unique preferences and nutritional goals, 
             turning each meal into an adventure and every adventure into a celebration of taste.
