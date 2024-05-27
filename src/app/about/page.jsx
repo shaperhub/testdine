@@ -24,7 +24,7 @@ const About = () => {
           <p className="italic text-ddarkgrey dark:text-dgrey">Join us to redefine dining, one delightful moment at a time.</p>
         </div>
         <div className="md:w-1/2 mb-4">
-          <Image className="rounded-tr-[50px] rounded-bl-[50px]" src={Mission} width={400} height={220} alt="Dining Image 3" />
+          <Image className="" src={Mission} width={400} height={220} alt="Dining Image 3" />
         </div>
       </div>
 
@@ -57,22 +57,50 @@ const About = () => {
       </div>
 
       {/* Our Core Values */}
-      <div className="py-16 px-8 md:px-16 bg-dlightestgreen dark:bg-dblack/90">
+      <div className="py-16 px-8 md:px-32 lgmd:px-64 bg-dlightestgreen dark:bg-dblack/90">
         <div className="mb-6 px-8">
-          <h2 className="font-heading text-4xl mb-8 text-center">Our Core Values</h2>
+          <h2 className="font-heading text-4xl text-dblue dark:text-dlightblue mb-8 text-center">Our Core <span className="text-dgreenw dark:text-dgreen">Values</span></h2>
           <p className="mb-8 text-[#112E51] dark:text-dgrey">
             At DineIntel, our values are the heartbeat of our mission and identity. 
             Expressed through the acronym <span className="font-bold">DRIVE</span>, they symbolize our dedication to diversity, inclusivity, and crafting unforgettable dining experiences.
           </p>
         </div>
-        <div className="flex flex-col md:flex-row flex-wrap gap-4">
-          {/* <div className="relative max-w-xl mx-auto mt-20">
-            <Image className="h-64 w-full object-cover rounded-md" src="https://images.unsplash.com/photo-1680725779155-456faadefa26" width={400} height={250} alt="Random image" />
-            <div className="absolute inset-0 bg-gray-700 opacity-60 rounded-md"></div>
+        <div className="flex flex-col md:flex-row flex-wrap gap-4 justify-center items-center">
+          <div className="relative max-w-md mx-auto mt-20">
+            <Image className="hover:scale-125 w-full object-cover rounded-md" src="https://images.unsplash.com/photo-1680725779155-456faadefa26" width={400} height={250} alt="Random image" />
+            <div className="absolute inset-0 bg-dblack opacity-60 rounded-md"></div>
             <div className="absolute inset-0 flex items-center justify-center">
-                <h2 className="text-white text-3xl font-bold">Get Lost in Mountains</h2>
+                <h2 className="text-white text-3xl font-bold text-center">Diversity in Dining</h2>
             </div>
-          </div> */}
+          </div>
+          <div className="relative max-w-md mx-auto mt-20">
+            <Image className="hover:scale-125 w-full object-cover rounded-md" src={Break} width={400} height={250} alt="Random image" />
+            <div className="absolute inset-0 bg-dblack opacity-60 rounded-md"></div>
+            <div className="absolute inset-0 flex items-center justify-center">
+                <h2 className="text-white text-3xl font-bold text-center">Responsiveness to Needs</h2>
+            </div>
+          </div>
+          <div className="relative max-w-md mx-auto mt-20">
+            <Image className="hover:scale-125 w-full object-cover rounded-md" src={Vision} width={400} height={250} alt="Random image" />
+            <div className="absolute inset-0 bg-dblack opacity-60 rounded-md"></div>
+            <div className="absolute inset-0 flex items-center justify-center">
+                <h2 className="text-white text-3xl font-bold text-center">Innovation in Technology</h2>
+            </div>
+          </div>
+          <div className="relative max-w-md mx-auto mt-20">
+            <Image className="hover:scale-125 w-full object-cover rounded-md" src={Mission} width={400} height={250} alt="Random image" />
+            <div className="absolute inset-0 bg-dblack opacity-60 rounded-md"></div>
+            <div className="absolute inset-0 flex items-center justify-center">
+                <h2 className="text-white text-3xl font-bold text-center">Vibrant Community Engagement</h2>
+            </div>
+          </div>
+          <div className="relative max-w-md mx-auto mt-20">
+            <Image className="hover:scale-125 w-full object-cover rounded-md" src="https://images.unsplash.com/photo-1680725779155-456faadefa26" width={400} height={250} alt="Random image" />
+            <div className="absolute inset-0 bg-dblack opacity-60 rounded-md"></div>
+            <div className="absolute inset-0 flex items-center justify-center">
+                <h2 className="text-white text-3xl font-bold text-center">Excellence in Experience</h2>
+            </div>
+          </div>
           <div className="p-4 rounded-[24px] bg-white dark:bg-black mb-4 max-w-md">
             <p className="font-bold mb-4">Diversity in Dining</p>
             <p className="mb-4 text-[#112E51] dark:text-dgrey ">
