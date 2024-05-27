@@ -74,7 +74,7 @@ const About = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8">
           <div className="p-4 rounded-[24px] bg-white dark:bg-black mb-4">
             <p className="font-bold mb-4">Diversity in Dining</p>
-            <p className="mb-4 text-[#112E51] dark:text-dgrey text-justify">
+            <p className="mb-4 text-[#112E51] dark:text-dgrey ">
               We celebrate the rich tapestry of global cuisines. 
               At DineIntel, our personalized offerings are open for everyone to discover and savour the vast universe of flavours and dishes the world has to offer. 
               DineIntel is dedicated to offering an exceptional, personalized dining experience that honours every culture's culinary tradition.
@@ -82,28 +82,28 @@ const About = () => {
           </div>
           <div className="p-4 rounded-[24px] bg-white dark:bg-black mb-4">
             <p className="font-bold mb-4">Responsiveness to Needs</p>
-            <p className="mb-4 text-[#112E51] dark:text-dgrey text-justify">
+            <p className="mb-4 text-[#112E51] dark:text-dgrey ">
               Your culinary preferences shape our service. At DineIntel, we are attuned to the unique tastes and health considerations of our diverse user base. 
               We listen carefully and adapt swiftly, ensuring that our recommendations resonate with your individual dietary needs.
             </p>
           </div>
           <div className="p-4 rounded-[24px] bg-white dark:bg-black mb-4">
             <p className="font-bold mb-4">Innovation in Technology</p>
-            <p className="mb-4 text-[#112E51] dark:text-dgrey text-justify">
+            <p className="mb-4 text-[#112E51] dark:text-dgrey ">
               Innovation is the lifeblood of DineIntel, propelling us to harness state-of-the-art technology to enhance the journey of dining discovery and personalization, delivering a seamless, contemporary experience that sets new industry standards. 
               We are redefining culinary experiences with cutting-edge technology solutions.
             </p>
           </div>
           <div className="p-4 rounded-[24px] bg-white dark:bg-black mb-4">
             <p className="font-bold mb-4">Vibrant Community Engagement</p>
-            <p className="mb-4 text-[#112E51] dark:text-dgrey text-justify">
+            <p className="mb-4 text-[#112E51] dark:text-dgrey ">
               DineIntel is dedicated to nurturing a lively and engaging community where food enthusiasts can bond over shared passions, exchange culinary insights, and celebrate the joy of food together. 
               Our focus is to create a global table for food lovers to express their dietary experiences and preferences.
             </p>
           </div>
           <div className="p-4 rounded-[24px] bg-white dark:bg-black mb-4">
             <p className="font-bold mb-4">Excellence in Experience</p>
-            <p className="mb-4 text-[#112E51] dark:text-dgrey text-justify">
+            <p className="mb-4 text-[#112E51] dark:text-dgrey ">
               Excellence is the cornerstone upon which DineIntel is built. Every feature, from tailored recommendations to our interactive Modify Dish feature, 
               is crafted to the highest standard, ensuring an unparalleled user experience. With DineIntel, every meal is an experience.
             </p>

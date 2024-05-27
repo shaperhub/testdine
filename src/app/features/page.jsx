@@ -28,21 +28,21 @@ const Features = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-4">
             <div className="mb-4 p-4 rounded-[24px] bg-white dark:bg-black">
               <h4 className='font-bold mb-4 text-dgreenw dark:text-dgreen'>Personalized Restaurant Recommendations</h4>
-              <p className='mb-4 text-justify'>
+              <p className='mb-4 '>
                 We delve into the nuances of your palate, curating restaurant selections that resonate with your specific dietary preferences. 
                 It&apos;s about delivering a selection of eateries that align seamlessly with your culinary desires.
               </p>
             </div>
             <div className="mb-4 p-4 rounded-[24px] bg-white dark:bg-black">
               <h4 className='font-bold mb-4 text-dgreenw dark:text-dgreen'>Location-Based Trending Options</h4>
-              <p className='mb-4 text-justify'>
+              <p className='mb-4 '>
                 Immerse yourself in the local dining scene with real-time updates on trending eateries. 
                 DineIntel brings the culinary pulse of your locale to your fingertips, ensuring you&apos;re always connected to the best dining experiences around you.
               </p>
             </div>
             <div className="mb-4 p-4 rounded-[24px] bg-white dark:bg-black">
               <h4 className='font-bold mb-4 text-dgreenw dark:text-dgreen'>Customizable Search Dynamics</h4>
-              <p className='mb-4 text-justify'>
+              <p className='mb-4 '>
                 With DineIntel, you command the search. Our platform molds to your needs, 
                 offering flexible search options that adapt whether you're seeking a local bite or an exotic feast far from home.
               </p>
@@ -66,35 +66,35 @@ const Features = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8 mb-4">
             <div className="mb-4 p-4 rounded-[24px] bg-dlightgreen dark:bg-dlightblack">
               <h4 className='font-bold mb-4 text-dgreenw dark:text-dgreen'>Ingredient Analysis</h4>
-              <p className='mb-4 text-justify'>
+              <p className='mb-4 '>
                 Delve into the health profile of any ingredient or its alternatives with our comprehensive analysis tool. 
                 It's designed to enlighten and guide you towards making healthier, informed food choices.
               </p>
             </div>
             <div className="mb-4 p-4 rounded-[24px] bg-dlightgreen dark:bg-dlightblack">
               <h4 className='font-bold mb-4 text-dgreenw dark:text-dgreen'>Ingredient Swap Suggester</h4>
-              <p className='mb-4 text-justify'>
+              <p className='mb-4 '>
                 Adapt your meal effortlessly with a tool that thoughtfully suggests ingredient substitutions that align with your dietary needs, allergies, and nutritional preferences. 
                 It's a seamless way to tailor any dish to meet your specific dietary requirements without compromising on taste.
               </p>
             </div>
             <div className="mb-4 p-4 rounded-[24px] bg-dlightgreen dark:bg-dlightblack">
               <h4 className='font-bold mb-4 text-dgreenw dark:text-dgreen'>Flavor Compatibility Analyzer</h4>
-              <p className='mb-4 text-justify'>
+              <p className='mb-4 '>
                 This sophisticated feature analyzes and suggests flavor pairings that enhance your meal, 
                 considering your personal taste, dietary restrictions, and nutritional profile. It's the science of taste, simplified for your culinary pleasure.
               </p>
             </div>
             <div className="mb-4 p-4 rounded-[24px] bg-dlightgreen dark:bg-dlightblack">
               <h4 className='font-bold mb-4 text-dgreenw dark:text-dgreen'>Epicurean Concierge</h4>
-              <p className='mb-4 text-justify'>
+              <p className='mb-4 '>
                 Experience the luxury of a virtual dietician with our Epicurean Concierge. This interactive guide is personalized to understand your dietary preferences and restrictions, 
                 offering expert advice to help you craft a menu that&apos;s as unique as your palate. It provides an unmatched level of customized dish experience, making every meal an adventure tailored specifically for you.
               </p>
             </div>
             <div className="mb-4 p-4 rounded-[24px] bg-dlightgreen dark:bg-dlightblack">
               <h4 className='font-bold mb-4 text-dgreenw dark:text-dgreen'>Nutritional Insights</h4>
-              <p className='mb-4 text-justify'>
+              <p className='mb-4 '>
                 With Modify Dish, you're equipped with real-time nutritional insights, offering a clear view of calorie counts and nutritional information. 
                 This feature ensures that every meal choice is an informed one, helping you maintain a balanced diet with ease.
               </p>
@@ -122,28 +122,28 @@ const Features = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8 mb-4">
             <div className="mb-4 p-4 rounded-[24px] bg-white dark:bg-black">
               <h4 className='font-bold mb-4 text-dgreenw dark:text-dgreen'>Community Engagement</h4>
-              <p className='mb-4 text-justify'>
+              <p className='mb-4 '>
                 Immerse yourself in a spirited community where you can share and relive your culinary journeys. 
                 Showcase your dining experiences, share snapshots of your delectable meals, and highlight your culinary exploits, shining a spotlight on your top picks for cuisine and dining venues.
               </p>
             </div>
             <div className="mb-4 p-4 rounded-[24px] bg-white dark:bg-black">
               <h4 className='font-bold mb-4 text-dgreenw dark:text-dgreen'>Celebration of Favorites</h4>
-              <p className='mb-4 text-justify'>
+              <p className='mb-4 '>
                 Empowering you to share your most cherished dining experiences, from memorable meals to the thrill of discovering new restaurants. 
                 Your contributions enrich our tapestry of collective food appreciation and discovery.
               </p>
             </div>
             <div className="mb-4 p-4 rounded-[24px] bg-white dark:bg-black">
               <h4 className='font-bold mb-4 text-dgreenw dark:text-dgreen'>Dialogue and Discovery</h4>
-              <p className='mb-4 text-justify'>
+              <p className='mb-4 '>
                 Engage in lively forums where culinary opinions, reviews, and recommendations are exchanged. 
                 Enter discussions that spark curiosity, share knowledge of hidden gems, and inspire with tales from your dining experiences. It&apos;s a platform designed to broaden horizons and deepen appreciation for the culinary arts.
               </p>
             </div>
             <div className="mb-4 p-4 rounded-[24px] bg-white dark:bg-black">
               <h4 className='font-bold mb-4 text-dgreenw dark:text-dgreen'>Meal Planning Events</h4>
-              <p className='mb-4 text-justify'>
+              <p className='mb-4 '>
                 Elevate your culinary journey with our Meal Planning Events feature, available exclusively to members of the Dine Group private group. 
                 Collaborate with fellow food enthusiasts to create and vote on upcoming dining experiences, ensuring memorable gatherings centered around exceptional cuisine.
               </p>
