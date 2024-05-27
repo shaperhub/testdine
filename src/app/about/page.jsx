@@ -1,7 +1,12 @@
 import Image from "next/image";
-import Break from "../../../public/breakfast.jpg"
 import Vision from "../../../public/cheers.jpg"
-import Mission from "../../../public/oldpeople.jpg"
+import Mission from "../../../public/mission.png"
+import Topimage from "../../../public/aboutus.png"
+import Dimage from "../../../public/foodbasket.png"
+import Rimage from "../../../public/response.png"
+import Inimage from "../../../public/innotech.png"
+import Vimage from "../../../public/vibrant.png"
+import Eimage from "../../../public/excellence.png"
 
 const About = () => {
   return (
@@ -24,7 +29,7 @@ const About = () => {
           <p className="italic text-ddarkgrey dark:text-dgrey">Join us to redefine dining, one delightful moment at a time.</p>
         </div>
         <div className="md:w-1/2 mb-4">
-          <Image className="" src={Mission} width={400} height={220} alt="Dining Image 3" />
+          <Image className="rounded-[20px]" src={Topimage} width={400} height={220} alt="About Us Image" />
         </div>
       </div>
 
@@ -38,7 +43,7 @@ const About = () => {
           </p>
         </div>
         <div className="flex lg:justify-center md:w-1/2 mb-4">
-          <Image className="rounded-tr-[50px] rounded-bl-[50px]" src={Vision} width={400} height={220} alt="Dining Image 2" />
+          <Image className="rounded-tr-[50px] rounded-bl-[50px]" src={Vision} width={400} height={220} alt="Our Vision Image" />
         </div>
       </div>
 
@@ -52,7 +57,7 @@ const About = () => {
           </p>
         </div>
         <div className="md:w-1/2 mb-4">
-          <Image className="rounded-tr-[50px] rounded-bl-[50px]" src={Mission} width={400} height={220} alt="Dining Image 3" />
+          <Image className="rounded-tr-[50px] rounded-bl-[50px]" src={Mission} width={400} height={220} alt="Our Mission Image" />
         </div>
       </div>
 
@@ -60,83 +65,55 @@ const About = () => {
       <div className="py-16 px-8 md:px-32 lgmd:px-64 bg-dlightestgreen dark:bg-dblack/90">
         <div className="mb-6 px-8">
           <h2 className="font-heading text-4xl text-dblue dark:text-dlightblue mb-8 text-center">Our Core <span className="text-dgreenw dark:text-dgreen">Values</span></h2>
-          <p className="mb-8 text-[#112E51] dark:text-dgrey">
+          <p className="text-[#112E51] dark:text-dgrey">
             At DineIntel, our values are the heartbeat of our mission and identity. 
             Expressed through the acronym <span className="font-bold">DRIVE</span>, they symbolize our dedication to diversity, inclusivity, and crafting unforgettable dining experiences.
           </p>
         </div>
-        <div className="flex flex-col md:flex-row flex-wrap gap-4 justify-center items-center">
-          <div className="relative max-w-md mx-auto mt-20">
-            <Image className="hover:scale-125 w-full object-cover rounded-md" src="https://images.unsplash.com/photo-1680725779155-456faadefa26" width={400} height={250} alt="Random image" />
-            <div className="absolute inset-0 bg-dblack opacity-60 rounded-md"></div>
-            <div className="absolute inset-0 flex items-center justify-center">
-                <h2 className="text-white text-3xl font-bold text-center">Diversity in Dining</h2>
+        <div className="grid grid-cols-1 lg:grid-cols-2 lgxl:grid-cols-3 gap-8 place-content-center">
+          <div className="relative max-w-[400px] mx-auto mt-8">
+            <Image className="w-[400px] object-cover h-[350px] rounded-md" src={Dimage} width={400} height={350} alt="Diversity in Dining Image" />
+            <div className="absolute inset-0 bg-dblack opacity-70 rounded-md"></div>
+            <div className="absolute inset-0 flex flex-col items-center justify-center p-2">
+                <h2 className="text-white text-2xl font-bold text-center mb-2">Diversity in Dining</h2>
+                <p className="text-center text-sm text-white">Celebrating the rich tapestry of global cuisines. Personalized offerings for everyone to discover and savor.</p>
             </div>
           </div>
-          <div className="relative max-w-md mx-auto mt-20">
-            <Image className="hover:scale-125 w-full object-cover rounded-md" src={Break} width={400} height={250} alt="Random image" />
-            <div className="absolute inset-0 bg-dblack opacity-60 rounded-md"></div>
-            <div className="absolute inset-0 flex items-center justify-center">
-                <h2 className="text-white text-3xl font-bold text-center">Responsiveness to Needs</h2>
+          <div className="relative max-w-[400px] mx-auto mt-8">
+            <Image className="w-full object-cover h-[350px] rounded-md" src={Rimage} width={400} height={350} alt="Responsiveness to Needs Image" />
+            <div className="absolute inset-0 bg-dblack opacity-70 rounded-md"></div>
+            <div className="absolute inset-0 flex flex-col items-center justify-center p-2">
+                <h2 className="text-white text-2xl font-bold text-center mb-2">Responsiveness to Needs</h2>
+                <p className="text-center text-sm text-white">Your culinary preferences shape our service. We listen carefully and adapt swiftly to your dietary needs.</p>
             </div>
           </div>
-          <div className="relative max-w-md mx-auto mt-20">
-            <Image className="hover:scale-125 w-full object-cover rounded-md" src={Vision} width={400} height={250} alt="Random image" />
-            <div className="absolute inset-0 bg-dblack opacity-60 rounded-md"></div>
-            <div className="absolute inset-0 flex items-center justify-center">
-                <h2 className="text-white text-3xl font-bold text-center">Innovation in Technology</h2>
+          <div className="relative max-w-[400px] mx-auto mt-8">
+            <Image className="w-full object-cover h-[350px] rounded-md" src={Inimage} width={400} height={350} alt="Innovation in Technology Image" />
+            <div className="absolute inset-0 bg-dblack opacity-70 rounded-md"></div>
+            <div className="absolute inset-0 flex flex-col items-center justify-center p-2">
+                <h2 className="text-white text-2xl font-bold text-center mb-2">Innovation in Technology</h2>
+                <p className="text-center text-sm text-white"></p>
             </div>
           </div>
-          <div className="relative max-w-md mx-auto mt-20">
-            <Image className="hover:scale-125 w-full object-cover rounded-md" src={Mission} width={400} height={250} alt="Random image" />
-            <div className="absolute inset-0 bg-dblack opacity-60 rounded-md"></div>
-            <div className="absolute inset-0 flex items-center justify-center">
-                <h2 className="text-white text-3xl font-bold text-center">Vibrant Community Engagement</h2>
+          <div className="relative max-w-[400px] mx-auto mt-8">
+            <Image className="w-full object-cover h-[350px] rounded-md" src={Vimage} width={400} height={350} alt="Vibrant Community Engagement Image" />
+            <div className="absolute inset-0 bg-dblack opacity-70 rounded-md"></div>
+            <div className="absolute inset-0 flex flex-col items-center justify-center p-2">
+                <h2 className="text-white text-2xl font-bold text-center mb-2">Vibrant Community Engagement</h2>
+                <p className="text-center text-sm text-white"></p>
             </div>
           </div>
-          <div className="relative max-w-md mx-auto mt-20">
-            <Image className="hover:scale-125 w-full object-cover rounded-md" src="https://images.unsplash.com/photo-1680725779155-456faadefa26" width={400} height={250} alt="Random image" />
-            <div className="absolute inset-0 bg-dblack opacity-60 rounded-md"></div>
-            <div className="absolute inset-0 flex items-center justify-center">
-                <h2 className="text-white text-3xl font-bold text-center">Excellence in Experience</h2>
+          <div className="relative max-w-[400px] mx-auto mt-8">
+            <Image className="w-full object-cover h-[350px] rounded-md" src={Eimage} width={400} height={350} alt="Excellence in Experience Image" />
+            <div className="absolute inset-0 bg-dblack opacity-70 rounded-md"></div>
+            <div className="absolute inset-0 flex flex-col items-center justify-center p-2">
+                <h2 className="text-white text-2xl font-bold text-center mb-2">Excellence in Experience</h2>
+                <p className="text-center text-sm text-white"></p>
             </div>
           </div>
-          <div className="p-4 rounded-[24px] bg-white dark:bg-black mb-4 max-w-md">
-            <p className="font-bold mb-4">Diversity in Dining</p>
-            <p className="mb-4 text-[#112E51] dark:text-dgrey ">
-              We celebrate the rich tapestry of global cuisines. 
-              At DineIntel, our personalized offerings are open for everyone to discover and savour the vast universe of flavours and dishes the world has to offer. 
-              DineIntel is dedicated to offering an exceptional, personalized dining experience that honours every culture's culinary tradition.
-            </p>
-          </div>
-          <div className="p-4 rounded-[24px] bg-white dark:bg-black mb-4 max-w-md">
-            <p className="font-bold mb-4">Responsiveness to Needs</p>
-            <p className="mb-4 text-[#112E51] dark:text-dgrey ">
-              Your culinary preferences shape our service. At DineIntel, we are attuned to the unique tastes and health considerations of our diverse user base. 
-              We listen carefully and adapt swiftly, ensuring that our recommendations resonate with your individual dietary needs.
-            </p>
-          </div>
-          <div className="p-4 rounded-[24px] bg-white dark:bg-black mb-4 max-w-md">
-            <p className="font-bold mb-4">Innovation in Technology</p>
-            <p className="mb-4 text-[#112E51] dark:text-dgrey ">
-              Innovation is the lifeblood of DineIntel, propelling us to harness state-of-the-art technology to enhance the journey of dining discovery and personalization, delivering a seamless, contemporary experience that sets new industry standards. 
-              We are redefining culinary experiences with cutting-edge technology solutions.
-            </p>
-          </div>
-          <div className="p-4 rounded-[24px] bg-white dark:bg-black mb-4 max-w-md">
-            <p className="font-bold mb-4">Vibrant Community Engagement</p>
-            <p className="mb-4 text-[#112E51] dark:text-dgrey ">
-              DineIntel is dedicated to nurturing a lively and engaging community where food enthusiasts can bond over shared passions, exchange culinary insights, and celebrate the joy of food together. 
-              Our focus is to create a global table for food lovers to express their dietary experiences and preferences.
-            </p>
-          </div>
-          <div className="p-4 rounded-[24px] bg-white dark:bg-black mb-4 max-w-md">
-            <p className="font-bold mb-4">Excellence in Experience</p>
-            <p className="mb-4 text-[#112E51] dark:text-dgrey ">
-              Excellence is the cornerstone upon which DineIntel is built. Every feature, from tailored recommendations to our interactive Modify Dish feature, 
-              is crafted to the highest standard, ensuring an unparalleled user experience. With DineIntel, every meal is an experience.
-            </p>
-          </div>
+        </div>
+        <div className="pt-16 px-8 md:px-16">
+          <p className="text-[#112E51] dark:text-dgrey font-bold text-center text-lg">Join us to redefine dining, one delightful moment at a time.</p>
         </div>
       </div>
 
