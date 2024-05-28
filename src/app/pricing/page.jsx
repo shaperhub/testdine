@@ -7,11 +7,12 @@ import Foryou from "../../../public/foryou.png"
 import Epic from "../../../public/epicconc.png"
 import Modify from "../../../public/modifydish.png"
 import Dinegroup from "../../../public/dinegroup.png"
-import Button from "@/components/Button/Button";
 import { FaCheck } from "react-icons/fa6";
 import { FaXmark } from "react-icons/fa6";
 
 const Pricing = () => {
+  const [tier, setTier] = useState('')
+
   return (
     <div className='text-ddarkgrey dark:text-dgrey font-regular'>
 
@@ -113,11 +114,11 @@ const Pricing = () => {
               <div className=""><FaXmark className="text-dred" /></div>
               <p>Epicurean Concierge: Personalized culinary guidance</p>
             </div>
-            <div className="text-center mt-12">
-              <Button text="Get Started Now" url="/" />
-              <br></br>
-              <br></br>
-              <Button text="Learn More" url="/" />
+            <div className="flex justify-center text-center py-12 gap-2">
+              <Link href="">
+                <button className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dbluew dark:text-white inline-flex items-center font-regular'>Get Started</button>
+              </Link>
+              <button onClick={(e) => setTier('taste')} className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dbluew dark:text-white inline-flex items-center font-regular'>Learn More</button>
             </div>
           </div>
 
@@ -207,15 +208,15 @@ const Pricing = () => {
               <div className=""><FaCheck className="text-dgreenw" /></div>
               <p>Epicurean Concierge: Personalized culinary guidance</p>
             </div>
-            <div className="flex gap-2 my-4 pb-4 items-center text-sm justify-center">
+            <div className="flex gap-2 my-4 items-center text-sm justify-center">
               {/* <div className=""><FaCheck className="text-dgreenw" /></div> */}
               <p className="font-bold text-base">VIP Support: Priority customer service</p>
             </div>
-            <div className="text-center">
-              <Button text="Get Started Now" url="/" />
-              <br></br>
-              <br></br>
-              <Button text="Learn More" url="/" />
+            <div className="flex justify-center text-center py-12 gap-2">
+              <Link href="">
+                <button className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dbluew dark:text-white inline-flex items-center font-regular'>Get Started</button>
+              </Link>
+              <button onClick={(e) => setTier('epicurean')} className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dbluew dark:text-white inline-flex items-center font-regular'>Learn More</button>
             </div>
           </div>
 
@@ -305,137 +306,165 @@ const Pricing = () => {
               <div className=""><FaXmark className="text-dred" /></div>
               <p>Epicurean Concierge: Personalized culinary guidance</p>
             </div>
-            <div className="text-center mt-14">
-              <Button text="Get Started Now" url="/" />
-              <br></br>
-              <br></br>
-              <Button text="Learn More" url="/" />
+            <div className="flex justify-center text-center py-12 gap-2">
+              <Link href="">
+                <button className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dbluew dark:text-white inline-flex items-center font-regular'>Get Started</button>
+              </Link>
+              <button onClick={(e) => setTier('cuisine')} className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dbluew dark:text-white inline-flex items-center font-regular'>Learn More</button>
             </div>
           </div>
         </div>
       </div>
 
 
-
+      {/* Cards For Each Section */}
 
       {/* Taste Starter */}
-      <div className='px-8 md:px-24 py-24 bg-dgreen dark:bg-dblack/90'>
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8'>
-          <div className='rounded-[24px] h-[420px] md:max-w-[300px] p-8 bg-dlightestgreen dark:bg-black border-1 border-dlightgreen hover:shadow-price'>
-            <h4 className='font-heading text-dbluew dark:text-dlightblue mb-6 text-center'>Tailored Recommendations</h4>
-            <p className='text-sm text-dbluew dark:text-dgrey font-regular mb-6'>
+      {tier == 'taste' && (
+      <div className='px-8 md:px-24 py-16 bg-white dark:bg-black'>
+        <h2 className='font-heading text-dbluew dark:text-dlightblue text-2xl lg:text-3xl text-center mb-12'>Taste Starter</h2>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lgxl:grid-cols-5 gap-8 place-items-center'>
+          <div className='rounded-[24px] md:h-[420px] lgxl:h-[340px] md:max-w-[300px] p-8 bg-dgreen border-1 border-dlightgreen hover:shadow-price'>
+            <h4 className='font-heading text-white mb-6 text-center'>Tailored Recommendations</h4>
+            <p className='text-sm text-white font-regular mb-6'>
               Delve into a world where every dining recommendation aligns perfectly with your palate. 
               Our tailored suggestions serve as a preview of the personalized dining narrative you can further develop with our premium tiers.
             </p>
           </div>
-          <div className='rounded-[24px] h-[420px] md:max-w-[300px] p-8 bg-dlightestgreen dark:bg-black border-1 border-dlightgreen hover:shadow-price'>
-            <h4 className='font-heading text-dbluew dark:text-dlightblue mb-6 text-center'>My Dish Insight</h4>
-            <p className='text-sm text-dbluew dark:text-dgrey font-regular mb-6'>
+          <div className='rounded-[24px] md:h-[420px] lgxl:h-[340px] md:max-w-[300px] p-8 bg-dgreen border-1 border-dlightgreen hover:shadow-price'>
+            <h4 className='font-heading text-white mb-6 text-center'>My Dish Insight</h4>
+            <p className='text-sm text-white font-regular mb-6'>
               Enjoy a taste of the detailed, personalized dish insights that come standard with Taste Starter. 
               As you savor each meal, imagine the possibilities with even more comprehensive data and customization options available when you step up to Cuisine Crafter or Epicurean Elite.
             </p>
           </div>
-          <div className='rounded-[24px] h-[420px] md:max-w-[300px] p-8 bg-dlightestgreen dark:bg-black border-1 border-dlightgreen hover:shadow-price'>
-            <h4 className='font-heading text-dbluew dark:text-dlightblue mb-6 text-center'>Community Connect</h4>
-            <p className='text-sm text-dbluew dark:text-dgrey font-regular mb-6'>
-              Become a part of the vibrant <span className='font-bold text-dgreenw dark:text-dgreen'><a href='/features#dinegroup'>Dine Group</a></span>, where food enthusiasts gather to exchange culinary experiences, discover hidden gems, and forge new favorites. 
-              Immerse yourself in our lively public and private group, where food lovers from all walks of life come together to share their passion for gastronomy.
+          <div className='rounded-[24px] md:h-[420px] lgxl:h-[340px] md:max-w-[300px] p-8 bg-dgreen border-1 border-dlightgreen hover:shadow-price'>
+            <h4 className='font-heading text-white mb-6 text-center'>Community Connect</h4>
+            <p className='text-sm text-white font-regular mb-6'>
+              Become a part of the vibrant <span className='font-bold text-white'><a href='/features#dinegroup'>Dine Group</a></span>, where food enthusiasts gather to exchange culinary experiences, discover hidden gems, and forge new favorites. 
+              Immerse yourself in our lively public, where food lovers from all walks of life come together to share their passion for gastronomy.
             </p>
           </div>
-          <div className='rounded-[24px] h-[420px] md:max-w-[300px] p-8 bg-dlightestgreen dark:bg-black border-1 border-dlightgreen hover:shadow-price'>
-            <h4 className='font-heading text-dbluew dark:text-dlightblue mb-6 text-center'>Culinary Tracker</h4>
-            <p className='text-sm text-dbluew dark:text-dgrey font-regular mb-6'>
+          <div className='rounded-[24px] md:h-[420px] lgxl:h-[340px] md:max-w-[300px] p-8 bg-dgreen border-1 border-dlightgreen hover:shadow-price'>
+            <h4 className='font-heading text-white mb-6 text-center'>Culinary Tracker</h4>
+            <p className='text-sm text-white font-regular mb-6'>
               Begin tracking your dietary habits with up to 5 meals with comprehensive nutritional insights to enhance your commitment to mindful eating 
               and consider the benefits of unlimited tracking and deeper dietary analysis that come with an upgrade to our enhanced tiers.
             </p>
           </div>
-          <div className='rounded-[24px] h-[420px] md:max-w-[300px] p-8 bg-dlightestgreen dark:bg-black border-1 border-dlightgreen hover:shadow-price'>
-            <h4 className='font-heading text-dbluew dark:text-dlightblue mb-6 text-center'>Enhanced Discovery</h4>
-            <p className='text-sm text-dbluew dark:text-dgrey font-regular mb-6'>
+          <div className='rounded-[24px] md:h-[420px] lgxl:h-[340px] md:max-w-[300px] p-8 bg-dgreen border-1 border-dlightgreen hover:shadow-price'>
+            <h4 className='font-heading text-white mb-6 text-center'>Enhanced Discovery</h4>
+            <p className='text-sm text-white font-regular mb-6'>
               Discover a world of relevance and sophistication as you engage with selected ads that resonate with the refined palate of your next gastronomic adventure. 
               Immerse yourself in a realm where each ad mirrors the delectable allure of your impending dining experiences.
             </p>
           </div>
         </div>
+        <div className='pt-16 px-8 md:px-16 lg:px-32 lgxl:px-64 flex flex-col justify-center items-center'>
+          <p className='font-bold text-dbluew dark:text-dlightblue text-center text-xl mb-2'>As You Enjoy Taste Starter, Imagine More:</p>
+          <p className='text-dbluew dark:text-dgrey text-center font-bold text-lg'>
+            With every feature in the Taste Starter tier, envision the expanded choices and exclusive benefits that await with Cuisine Crafter and Epicurean Elite. 
+            Picture unlimited customization, comprehensive meal chronicles, and personalized guidance from the Epicurean Concierge; all designed to transform your dining from routine to remarkable.
+        </p>
+        </div>
       </div>
+      )}
 
       {/* Cuisine Crafter */}
-      <div className='px-8 md:px-24 py-24 bg-gradient-to-r from-[#6C6C6C] via-[#AAABAB] to-[#6C6C6C]'>
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8'>
-          <div className='rounded-[24px] h-[420px] md:max-w-[300px] p-8 bg-dlightestgreen dark:bg-black border-1 border-dlightgreen hover:shadow-price'>
-            <h4 className='font-heading text-dbluew dark:text-dlightblue mb-6 text-center'>Expanded Choices</h4>
-            <p className='text-sm text-dbluew dark:text-dgrey font-regular mb-6'>
-              Indulge in the pleasure of exploring up to 2 enticing meal recommendations from our <span className='font-bold text-dgreenw dark:text-dgreen'><a href="/features#modifydish">Modify Dish</a></span> feature to enhance and personalize your dining experience at every meal. 
+      {tier == 'cuisine' && (
+      <div className='px-8 md:px-24 py-16 bg-white dark:bg-black'>
+        <h2 className='font-heading text-dbluew dark:text-dlightblue text-2xl lg:text-3xl text-center mb-12'>Cuisine Crafter</h2>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lgxl:grid-cols-5 gap-8 place-items-center'>
+          <div className='rounded-[24px] md:h-[420px] lgxl:h-[340px] md:max-w-[300px] p-8 bg-gradient-to-r from-[#6C6C6C] via-[#AAABAB] to-[#6C6C6C] border-1 border-dlightgreen hover:shadow-price'>
+            <h4 className='font-heading text-white mb-6 text-center'>Expanded Choices</h4>
+            <p className='text-sm text-white font-regular mb-6'>
+              Indulge in the pleasure of exploring up to 2 enticing meal recommendations from our <span className='font-bold text-white'><a href="/features#modifydish">Modify Dish</a></span> feature to enhance and personalize your dining experience at every meal. 
               These curated modifications ensure that your culinary journey is a delightful fusion of class and taste.
             </p>
           </div>
-          <div className='rounded-[24px] h-[420px] md:max-w-[300px] p-8 bg-dlightestgreen dark:bg-black border-1 border-dlightgreen hover:shadow-price'>
-            <h4 className='font-heading text-dbluew dark:text-dlightblue mb-6 text-center'>Dish Customization</h4>
-            <p className='text-sm text-dbluew dark:text-dgrey font-regular mb-6'>
+          <div className='rounded-[24px] md:h-[420px] lgxl:h-[340px] md:max-w-[300px] p-8 bg-gradient-to-r from-[#6C6C6C] via-[#AAABAB] to-[#6C6C6C] border-1 border-dlightgreen hover:shadow-price'>
+            <h4 className='font-heading text-white mb-6 text-center'>Dish Customization</h4>
+            <p className='text-sm text-white font-regular mb-6'>
               With our cutting-edge tools like the Ingredient Swap and Flavor Compatibility Analyzer you can experiment with diverse elements, tailor dishes to your taste, and achieve harmonious flavor blends.
             </p>
           </div>
-          <div className='rounded-[24px] h-[420px] md:max-w-[300px] p-8 bg-dlightestgreen dark:bg-black border-1 border-dlightgreen hover:shadow-price'>
-            <h4 className='font-heading text-dbluew dark:text-dlightblue mb-6 text-center'>Exclusive Groups</h4>
-            <p className='text-sm text-dbluew dark:text-dgrey font-regular mb-6'>
+          <div className='rounded-[24px] md:h-[420px] lgxl:h-[340px] md:max-w-[300px] p-8 bg-gradient-to-r from-[#6C6C6C] via-[#AAABAB] to-[#6C6C6C] border-1 border-dlightgreen hover:shadow-price'>
+            <h4 className='font-heading text-white mb-6 text-center'>Exclusive Groups</h4>
+            <p className='text-sm text-white font-regular mb-6'>
               Elevate your connections within the vibrant Dine Group community, where members can forge even deeper bonds. 
               With the ability to create private groups, organize meal events, or effortlessly join existing ones, the platform fosters a more personalized and engaging social experience.
             </p>
           </div>
-          <div className='rounded-[24px] h-[420px] md:max-w-[300px] p-8 bg-dlightestgreen dark:bg-black border-1 border-dlightgreen hover:shadow-price'>
-            <h4 className='font-heading text-dbluew dark:text-dlightblue mb-6 text-center'>Dining Diary</h4>
-            <p className='text-sm text-dbluew dark:text-dgrey font-regular mb-6'>
+          <div className='rounded-[24px] md:h-[420px] lgxl:h-[340px] md:max-w-[300px] p-8 bg-gradient-to-r from-[#6C6C6C] via-[#AAABAB] to-[#6C6C6C] border-1 border-dlightgreen hover:shadow-price'>
+            <h4 className='font-heading text-white mb-6 text-center'>Dining Diary</h4>
+            <p className='text-sm text-white font-regular mb-6'>
               Embark on a gastronomic journey through a meticulously curated collection of up to 30 meal records, each accompanied by a wealth of nutritional insights. 
               Delve into the intricacies of diverse meals, where flavor unites with health in a delectable culinary excellence.
             </p>
           </div>
-          <div className='rounded-[24px] h-[420px] md:max-w-[300px] p-8 bg-dlightestgreen dark:bg-black border-1 border-dlightgreen hover:shadow-price'>
-            <h4 className='font-heading text-dbluew dark:text-dlightblue mb-6 text-center'>No More Guesswork</h4>
-            <p className='text-sm text-dbluew dark:text-dgrey font-regular mb-6'>
+          <div className='rounded-[24px] md:h-[420px] lgxl:h-[340px] md:max-w-[300px] p-8 bg-gradient-to-r from-[#6C6C6C] via-[#AAABAB] to-[#6C6C6C] border-1 border-dlightgreen hover:shadow-price'>
+            <h4 className='font-heading text-white mb-6 text-center'>No More Guesswork</h4>
+            <p className='text-sm text-white font-regular mb-6'>
               Each culinary creation is accompanied by a comprehensible and user-friendly nutritional profile, 
               providing you with the knowledge and empowerment to make informed choices aligning with your health objectives and culinary preferences.
             </p>
           </div>
         </div>
+        <div className='pt-16 px-8 md:px-16 lg:px-32 lgxl:px-64 flex flex-col justify-center items-center'>
+          <p className='text-dbluew dark:text-dgrey text-center font-bold text-lg'>
+            While Cuisine Crafter provides an exceptional foray into the art of personalized dining, it serves as the gateway to the ultimate dining echelon: Epicurean Elite – Premium All-Access. 
+            This prestigious tier awaits those who seek the zenith of culinary privilege, extending beyond Cuisine Crafter&apos;s offerings to an all-encompassing realm of gastronomic indulgence.
+        </p>
+        </div>
       </div>
+      )}
 
       {/* Epicurean Elite */}
-      <div className='px-8 md:px-24 py-24 bg-gradient-to-r from-[#B08C36] via-[#D9BD5B] to-[#9B7424]'>
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-8'>
-          <div className='rounded-[24px] h-[420px] md:max-w-[300px] p-8 bg-dlightestgreen dark:bg-black border-1 border-dlightgreen hover:shadow-price'>
-            <h4 className='font-heading text-dbluew dark:text-dlightblue mb-6 text-center'>Unlimited Personalization</h4>
-            <p className='text-sm text-dbluew dark:text-dgrey font-regular mb-6'>
-              Experience the limitless possibilities of DineIntel as you explore the unrestricted <span className='font-bold text-dgreenw dark:text-dgreen'><a href="/features#modifydish">Modify Dish</a></span> recommendations, 
+      {tier == 'epicurean' && (
+      <div className='px-8 md:px-24 py-16 bg-white dark:bg-black'>
+        <h2 className='font-heading text-dbluew dark:text-dlightblue text-2xl lg:text-3xl text-center mb-12'>Epicurean Elite</h2>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lgxl:grid-cols-5 gap-8 place-items-center'>
+          <div className='rounded-[24px] md:h-[420px] lgxl:h-[340px] md:max-w-[300px] p-8 bg-gradient-to-r from-[#B08C36] via-[#D9BD5B] to-[#9B7424] border-1 border-dlightgreen hover:shadow-price'>
+            <h4 className='font-heading text-white mb-6 text-center'>Unlimited Personalization</h4>
+            <p className='text-sm text-white font-regular mb-6'>
+              Experience the limitless possibilities of DineIntel as you explore the unrestricted <span className='font-bold text-white'><a href="/features#modifydish">Modify Dish</a></span> recommendations, 
               allowing you to customize your dining experience to your heart's content with the freedom to mix and match.
             </p>
           </div>
-          <div className='rounded-[24px] h-[420px] md:max-w-[300px] p-8 bg-dlightestgreen dark:bg-black border-1 border-dlightgreen hover:shadow-price'>
-            <h4 className='font-heading text-dbluew dark:text-dlightblue mb-6 text-center'>Epicurean Concierge</h4>
-            <p className='text-sm text-dbluew dark:text-dgrey font-regular mb-6'>
+          <div className='rounded-[24px] md:h-[420px] lgxl:h-[340px] md:max-w-[300px] p-8 bg-gradient-to-r from-[#B08C36] via-[#D9BD5B] to-[#9B7424] border-1 border-dlightgreen hover:shadow-price'>
+            <h4 className='font-heading text-white mb-6 text-center'>Epicurean Concierge</h4>
+            <p className='text-sm text-white font-regular mb-6'>
               At your service is the Epicurean Concierge, your all-encompassing culinary guide within the DineIntel ecosystem. 
               This sophisticated agent is meticulously crafted to deliver a comprehensive array of food-related insights.
             </p>
           </div>
-          <div className='rounded-[24px] h-[420px] md:max-w-[300px] p-8 bg-dlightestgreen dark:bg-black border-1 border-dlightgreen hover:shadow-price'>
-            <h4 className='font-heading text-dbluew dark:text-dlightblue mb-6 text-center'>In-Depth Health Insights</h4>
-            <p className='text-sm text-dbluew dark:text-dgrey font-regular mb-6'>
+          <div className='rounded-[24px] md:h-[420px] lgxl:h-[340px] md:max-w-[300px] p-8 bg-gradient-to-r from-[#B08C36] via-[#D9BD5B] to-[#9B7424] border-1 border-dlightgreen hover:shadow-price'>
+            <h4 className='font-heading text-white mb-6 text-center'>In-Depth Health Insights</h4>
+            <p className='text-sm text-white font-regular mb-6'>
               Enhance your health consciousness through our Health-Focused Ingredient Analysis, elevating your culinary journey with each delectable dish.
             </p>
           </div>
-          <div className='rounded-[24px] h-[420px] md:max-w-[300px] p-8 bg-dlightestgreen dark:bg-black border-1 border-dlightgreen hover:shadow-price'>
-            <h4 className='font-heading text-dbluew dark:text-dlightblue mb-6 text-center'>Comprehensive Meal Chronicles</h4>
-            <p className='text-sm text-dbluew dark:text-dgrey font-regular mb-6'>
+          <div className='rounded-[24px] md:h-[420px] lgxl:h-[340px] md:max-w-[300px] p-8 bg-gradient-to-r from-[#B08C36] via-[#D9BD5B] to-[#9B7424] border-1 border-dlightgreen hover:shadow-price'>
+            <h4 className='font-heading text-white mb-6 text-center'>Comprehensive Meal Chronicles</h4>
+            <p className='text-sm text-white font-regular mb-6'>
               Revel in the assurance and joy that comes with dining confidently, armed with a wealth of information to enhance your epicurean experiences with an unlimited archive of culinary discoveries.
             </p>
           </div>
-          <div className='rounded-[24px] h-[420px] md:max-w-[300px] p-8 bg-dlightestgreen dark:bg-black border-1 border-dlightgreen hover:shadow-price'>
-            <h4 className='font-heading text-dbluew dark:text-dlightblue mb-6 text-center'>First-Class Support</h4>
-            <p className='text-sm text-dbluew dark:text-dgrey font-regular mb-6'>
+          <div className='rounded-[24px] md:h-[420px] lgxl:h-[340px] md:max-w-[300px] p-8 bg-gradient-to-r from-[#B08C36] via-[#D9BD5B] to-[#9B7424] border-1 border-dlightgreen hover:shadow-price'>
+            <h4 className='font-heading text-white mb-6 text-center'>First-Class Support</h4>
+            <p className='text-sm text-white font-regular mb-6'>
               Receive unparalleled customer service with priority response times and personalized attention from our dedicated support team.
             </p>
           </div>
         </div>
+        <div className='pt-16 px-8 md:px-16 lg:px-32 lgxl:px-64 flex flex-col justify-center items-center'>
+          <p className='text-dbluew dark:text-dgrey text-center font-bold text-lg'>
+            The Epicurean Elite tier is a testament to the art of fine dining, offering a service that is as discerning and selective as you are. 
+            With these enhanced features and our commitment to excellence, every meal becomes a curated event, a narrative in your journey of culinary exploration and indulgence.
+        </p>
+        </div>
       </div>
+      )}
 
     </div>
   )
