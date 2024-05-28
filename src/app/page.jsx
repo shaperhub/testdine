@@ -75,7 +75,7 @@ export default function Home() {
               Unlock personalized restaurant recommendations, stay updated with real-time trending spots, and customize your search options to enhance your culinary journey.
             </p>
             <div className="flex justify-center mt-16">
-              <Link href="">
+              <Link href="/features#foryou">
                 <button className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dbluew dark:text-white inline-flex items-center font-regular'>Learn More <span className="pl-2"><BsArrowRight /></span></button>
               </Link>
             </div>
@@ -90,7 +90,7 @@ export default function Home() {
               Explore personalized ingredient analysis, seamless swaps, and expert flavor pairings tailored to your taste buds.
             </p>
             <div className="flex justify-center">
-              <Link href="">
+              <Link href="/features#modifydish">
                 <button className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dbluew dark:text-white inline-flex items-center font-regular'>Learn More <span className="pl-2"><BsArrowRight /></span></button>
               </Link>
             </div>
@@ -105,7 +105,7 @@ export default function Home() {
               Engage in lively forums, showcase your dining adventures, and discover hidden gems.
             </p>
             <div className="flex justify-center">
-              <Link href="">
+              <Link href="/features#dinegroup">
                 <button className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dbluew dark:text-white inline-flex items-center font-regular'>Learn More <span className="pl-2"><BsArrowRight /></span></button>
               </Link>
             </div>
@@ -120,7 +120,7 @@ export default function Home() {
               This feature is designed to offer customized meal experiences and deep insights into the culinary arts.
             </p>
             <div className="flex justify-center">
-              <Link href="">
+              <Link href="/features#epicureanconcierge">
                 <button className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dbluew dark:text-white inline-flex items-center font-regular'>Learn More <span className="pl-2"><BsArrowRight /></span></button>
               </Link>
             </div>
