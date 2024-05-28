@@ -9,10 +9,6 @@ import Modify from "../../public/modifydish.png"
 import Dinegroup from "../../public/dinegroup.png"
 import HeroPic from "../../public/restaurant.jpg"
 import TransformPic from "../../public/trad2inno.png"
-import IngSwap from "../../public/ingredientswap.png"
-import NutIns from "../../public/nutritionalinsights.png"
-import IngAna from "../../public/ingredientanalysis.png"
-import FlavAna from "../../public/flavoranalyzer.png"
 import DownloadApp from "@/components/DownloadApp/DownloadApp";
 import Button from "@/components/Button/Button";
 import { FaCheck } from "react-icons/fa6";

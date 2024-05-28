@@ -11,7 +11,7 @@ const Features = () => {
     <div className='text-ddarkgrey dark:text-dgrey font-regular'>
       
       {/* Hero */}
-      <div className="bg-featbg bg-cover bg-center">
+      <div className="bg-aboutbg bg-cover bg-center">
         <div className="flex flex-col text-center items-center px-4 md:px-36 xl:px-48 pt-40 pb-16 md:pt-60 md:pb-40 backdrop-brightness-50 backdrop-blur-sm">
           <h1 className="font-heading text-2xl md:text-4xl text-center text-white">Embark on a Culinary Adventure with DineIntel</h1>
         </div>

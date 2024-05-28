@@ -32,20 +32,9 @@ module.exports = {
         // => @media (min-width: 1800px) { ... }
       },
       backgroundImage: {
-        'taste': "url('/TasteStarterBg.png')",
-        'cuisine': "url('/CuisineCrafterBg.png')",
-        'epicurean': "url('/EpicureanBg.png')",
         'lightbg': "url('/LightThemeBg.png')",
         'darkbg': "url('/DarkThemeBg.png')",
-        'aboutbg': "url('/glassesonly.jpg')",
-        'featbg': "url('/friesburger.jpg')",
-        'pricebg': "url('/afamgirl.jpg')",
-        'faqbg': "url('/cheers.jpg')",
-        'coreone': "url('/cheers.jpg')",
-        'coretwo': "url('/cheers.jpg')",
-        'corethree': "url('/cheers.jpg')",
-        'corefour': "url('/cheers.jpg')",
-        'corefive': "url('/cheers.jpg')",
+        'aboutbg': "url('/aboutus.png')",
       },
       fontFamily: {
         heading: ["var(--font-poppins-big)"],
