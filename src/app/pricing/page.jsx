@@ -467,7 +467,9 @@ const Pricing = () => {
 
       <div className='flex flex-col justify-center items-center gap-8 px-8 md:px-16 lg:px-32 lgxl:px-64 py-12 bg-white dark:bg-black'>
         <div className='mb-2'>
-          <p className='text-dbluew dark:text-white text-lg text-center font-bold'>Connect with fellow enthusiasts, share experiences, and explore innovative dining together by creating memorable dining events within our culinary community at DineIntel.</p>
+          <p className='text-dbluew dark:text-dgrey font-heading text-center text-lg md:text-2xl lg:text-3xl'>
+            Connect with fellow enthusiasts, share experiences, and explore innovative dining together by creating memorable dining events within our culinary community at DineIntel.
+          </p>
         </div>
         <div className='flex flex-col md:flex-row'>
           <Link href="" className='mb-4 mr-4'>
