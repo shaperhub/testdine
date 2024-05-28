@@ -20,6 +20,7 @@ module.exports = {
       boxShadow: {
         'epc': '0 4px 6px rgba(0, 0, 0, 0.1)',
         'about': '0 4px 8px rgba(0, 0, 0, 0.1)',
+        'price': '0 4px 8px rgba(0, 0, 0, 0.2)',
       },
       screens: {
         'lg': '950px',

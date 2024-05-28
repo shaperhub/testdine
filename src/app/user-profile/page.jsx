@@ -7,7 +7,6 @@ import { redirect, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { getCheckoutUrl, getPortalUrl } from "./payment";
 import Image from 'next/image';
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/alert-dialog"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"

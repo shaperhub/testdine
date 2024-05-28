@@ -100,7 +100,7 @@ const Features = () => {
               </p>
             </div>
           </div>
-          <p className='italic font-bold text-[#112E51]  dark:text-white'>
+          <p className='italic font-bold text-dbluew  dark:text-white'>
             DineIntel encapsulates the essence of modern dining—where technology, health, and taste converge to create an exclusive experience for the discerning diner.
           </p>
         </div>
@@ -149,7 +149,7 @@ const Features = () => {
               </p>
             </div>
           </div>
-          <p className='font-bold italic text-[#112E51]  dark:text-white'>
+          <p className='font-bold italic text-dbluew  dark:text-white'>
             Dine Group is where culinary culture thrives, connecting gourmets and gourmands in a shared quest for exceptional dining experiences.
           </p>
         </div>

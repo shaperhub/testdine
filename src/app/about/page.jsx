@@ -36,7 +36,7 @@ const About = () => {
       <div className="flex flex-col md:flex-row-reverse justify-center items-center gap-4 py-16 px-8 md:px-24 bg-dlightestgreen dark:bg-dblack/90">
         <div className="md:w-1/2 lgxl:pr-72">
           <h2 className="text-4xl mb-4 font-heading text-center md:text-left text-dgreenw dark:text-dgreen">Our Vision</h2>
-          <p className="mb-4 text-[#112E51] dark:text-dgrey">
+          <p className="mb-4 text-dbluew dark:text-dgrey">
             DineIntel envisions a world where every dining decision is informed, every palate is satisfied, and every meal is an expression of personal taste and health consciousness. 
             We aim to be the global leader in personalized dining intelligence, fostering a community where food becomes a bridge between cultures, health, and joyous experiences.
           </p>
@@ -50,7 +50,7 @@ const About = () => {
       <div className="flex flex-col md:flex-row justify-center items-center gap-4 py-16 px-8 md:px-24 bg-white/80 dark:bg-black/90">
         <div className="lgmd:pl-36 lgxl:pl-64 md:w-1/2">
           <h2 className="text-4xl mb-4 font-heading text-center md:text-left text-dblue dark:text-dlightblue">Our Mission</h2>
-          <p className="mb-4 text-[#112E51] dark:text-dgrey lgmd:max-w-xl">
+          <p className="mb-4 text-dbluew dark:text-dgrey lgmd:max-w-xl">
             Our mission is to empower diners with tailored recommendations that align with their unique preferences and nutritional goals, 
             turning each meal into an adventure and every adventure into a celebration of taste.
           </p>
@@ -64,7 +64,7 @@ const About = () => {
       <div className="py-16 px-8 md:px-32 lgmd:px-64 bg-dlightestgreen dark:bg-dblack/90">
         <div className="mb-6 px-8 flex flex-col justify-center items-center">
           <h2 className="font-heading text-4xl text-dblue dark:text-dlightblue mb-8 text-center">Our Core <span className="text-dgreenw dark:text-dgreen">Values</span></h2>
-          <p className="text-[#112E51] dark:text-dgrey lgxl:max-w-[1280px] lg:text-2xl">
+          <p className="text-dbluew dark:text-dgrey lgxl:max-w-[1280px] lg:text-2xl">
             At DineIntel, our values are the heartbeat of our mission and identity. 
             Expressed through the acronym <span className="font-bold">DRIVE</span>, they symbolize our dedication to diversity, inclusivity, and crafting unforgettable dining experiences.
           </p>
@@ -112,7 +112,7 @@ const About = () => {
           </div>
         </div>
         <div className="py-24 px-8 md:px-12">
-          <p className="text-[#112E51] dark:text-dgrey font-heading text-center text-lg md:text-2xl lg:text-3xl">Join us to redefine dining, one delightful moment at a time.</p>
+          <p className="text-dbluew dark:text-dgrey font-heading text-center text-lg md:text-2xl lg:text-3xl">Join us to redefine dining, one delightful moment at a time.</p>
         </div>
       </div>
 

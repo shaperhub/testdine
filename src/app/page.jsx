@@ -33,7 +33,7 @@ export default function Home() {
           <h1 className="text-4xl xl:text-6xl text-dbluew dark:text-dlightblue font-heading">
             Experience the essence of dining innovation with <span className="text-dgreenw dark:text-dgreen">Dine</span><span className="font-dine text-dgreenw dark:text-dgreen">I</span><span className="text-dgreenw dark:text-dgreen">ntel</span>
           </h1>
-          <p className="font-regular xl:text-xl text-[#112E51]  dark:text-dgrey pb-6 pt-2 xl:pt-8">
+          <p className="font-regular xl:text-xl text-dbluew  dark:text-dgrey pb-6 pt-2 xl:pt-8">
             Welcome to DineIntel, where every meal is a journey of discovery. Immerse yourself in culinary creativity, share genuine moments, and savor the satisfaction of unparalleled dining experiences.
           </p>
           <Button text="Explore Features" url="/features"/>
@@ -45,13 +45,13 @@ export default function Home() {
 
 
       {/* Transforming Tradition */}
-      <div className="flex flex-col lg:flex-row-reverse text-[#112E51]  dark:text-dgrey gap-8 py-16 px-8 md:px-24 bg-dlightestgreen dark:bg-dlightblack">
+      <div className="flex flex-col lg:flex-row-reverse text-dbluew  dark:text-dgrey gap-8 py-16 px-8 md:px-24 bg-dlightestgreen dark:bg-dlightblack">
         <div className="lg:w-1/2 lgxl:pr-64 flex flex-col justify-center">
           <h2 className="text-3xl font-heading mb-4 text-dbluew dark:text-dlightblue">Transforming <span className="text-dgreenw dark:text-dgreen">Tradition</span> into <span className="text-dgreenw dark:text-dgreen">Innovation</span></h2>
-          <p className="font-regular mb-4 text-[#112E51] dark:text-dgrey">
+          <p className="font-regular mb-4 text-dbluew dark:text-dgrey">
             At DineIntel, culinary tradition meets innovation. Our culinary hub seamlessly blends global flavors with cutting-edge technology, offering personalized dining experiences tailored to your tastes.
           </p>
-          <p className="font-regular mb-6 text-[#112E51] dark:text-dgrey">
+          <p className="font-regular mb-6 text-dbluew dark:text-dgrey">
             Join our vibrant community at <span className="font-bold text-dgreenw dark:text-dgreen"><a href="/features#dinegroup">Dine Group</a></span> to share culinary adventures and inspire each other. Let's redefine dining together. Discover the DineIntel experience: a seamless blend of pleasure, health, and discovery.
           </p>
           <Button text="More About DineIntel" url="/about" />
@@ -71,7 +71,7 @@ export default function Home() {
               <Image className="" src={Foryou} width={35} height={35} alt="For You Icon" quality={100} />
             </div>
             <h3 className="font-heading text-dbluew dark:text-dlightblue mb-6 text-center">For You</h3>
-            <p className="text-sm text-[#112E51] dark:text-dgrey font-regular mb-6">
+            <p className="text-sm text-dbluew dark:text-dgrey font-regular mb-6">
               Unlock personalized restaurant recommendations, stay updated with real-time trending spots, and customize your search options to enhance your culinary journey.
             </p>
             <div className="flex justify-center mt-16">
@@ -85,7 +85,7 @@ export default function Home() {
               <Image className="" src={Modify} width={35} height={35} alt="Modify Dish Icon" quality={100} />
             </div>
             <h3 className="font-heading text-dbluew dark:text-dlightblue mb-6 text-center">Modify Dish</h3>
-            <p className="text-sm text-[#112E51] dark:text-dgrey font-regular mb-6">
+            <p className="text-sm text-dbluew dark:text-dgrey font-regular mb-6">
               A game-changer in personalized dining. Say goodbye to one-size-fits-all meals and hello to a world of culinary customization at your fingertips. 
               Explore personalized ingredient analysis, seamless swaps, and expert flavor pairings tailored to your taste buds.
             </p>
@@ -100,7 +100,7 @@ export default function Home() {
               <Image className="" src={Dinegroup} width={35} height={35} alt="Dine Group Icon" quality={100} />
             </div>
             <h3 className="font-heading text-dbluew dark:text-dlightblue mb-6 text-center">Dine Group</h3>
-            <p className="text-sm text-[#112E51] dark:text-dgrey font-regular mb-6">
+            <p className="text-sm text-dbluew dark:text-dgrey font-regular mb-6">
               Your culinary community hub within the DineIntel universe, where members share dining narratives, insights, and favorite dining experiences. 
               Engage in lively forums, showcase your dining adventures, and discover hidden gems.
             </p>
@@ -115,7 +115,7 @@ export default function Home() {
               <Image className="" src={Epic} width={35} height={35} alt="Epicurean Concierge Icon" quality={100} />
             </div>
             <h3 className="font-heading text-dbluew dark:text-dlightblue mb-6 text-center">Epicurean Concierge</h3>
-            <p className="text-sm text-[#112E51] dark:text-dgrey font-regular mb-6">
+            <p className="text-sm text-dbluew dark:text-dgrey font-regular mb-6">
               Step into a world of tailored culinary assistance with our Epicurean Concierge, the epitome of personalized service at DineIntel. 
               This feature is designed to offer customized meal experiences and deep insights into the culinary arts.
             </p>
@@ -135,7 +135,7 @@ export default function Home() {
         <div className="flex flex-col lgmd:flex-row justify-center items-center gap-4">
 
           {/* Taste Starter Card */}
-          <div className="rounded-[24px] lgmd:max-w-[380px] lgmd:h-[1500px] p-8 mb-8 bg-white dark:bg-dblack font-regular text-[#112E51]  dark:text-dgrey">
+          <div className="rounded-[24px] lgmd:max-w-[380px] lgmd:flex-1 p-8 mb-8 bg-white dark:bg-dblack font-regular text-dbluew  dark:text-dgrey">
             <div className="bg-dgreenw rounded-xl text-white p-4 mb-4">
               <p className="py-2 font-heading text-2xl text-center">Taste Starter</p>
               <p className="my-2 text-sm">
@@ -221,12 +221,12 @@ export default function Home() {
               <p>Epicurean Concierge: Personalized culinary guidance</p>
             </div>
             <div className="text-center mt-12">
-              <Button text="Get Started Now" url="/" />
+              <Button text="Get Started Now" url="/pricing#tastestarter" />
             </div>
           </div>
 
           {/* Epicurean Elite Card */}
-          <div className="rounded-[24px] lgmd:max-w-[420px] lgmd:h-[1500px] p-8 mb-8 bg-white dark:bg-dblack font-regular text-[#112E51]  dark:text-dgrey">
+          <div className="rounded-[24px] lgmd:max-w-[420px] lgmd:flex-1 p-8 mb-8 bg-white dark:bg-dblack font-regular text-dbluew  dark:text-dgrey">
             <div className="bg-gradient-to-r from-[#B08C36] via-[#D9BD5B] to-[#9B7424] rounded-xl text-white p-4 mb-4">
               <p className="py-2 font-heading text-2xl text-white text-center">Epicurean Elite</p>
               <p className="my-2 text-sm">
@@ -316,12 +316,12 @@ export default function Home() {
               <p className="font-bold text-base">VIP Support: Priority customer service</p>
             </div>
             <div className="text-center">
-              <Button text="Get Started Now" url="/" />
+              <Button text="Get Started Now" url="/pricing#cuisinecrafter" />
             </div>
           </div>
 
           {/* Cuisine Crafter Card */}
-          <div className="rounded-[24px] lgmd:max-w-[410px] lgmd:h-[1500px] p-8 mb-8 bg-white dark:bg-dblack font-regular text-[#112E51]  dark:text-dgrey">
+          <div className="rounded-[24px] lgmd:max-w-[410px] lgmd:flex-1 p-8 mb-8 bg-white dark:bg-dblack font-regular text-dbluew  dark:text-dgrey">
             <div className="bg-gradient-to-r from-[#6C6C6C] via-[#AAABAB] to-[#6C6C6C] rounded-xl text-white p-4 mb-4">
               <p className="py-2 font-heading text-2xl text-white text-center">Cuisine Crafter</p>
               <p className="my-2 text-sm">
@@ -407,7 +407,7 @@ export default function Home() {
               <p>Epicurean Concierge: Personalized culinary guidance</p>
             </div>
             <div className="text-center mt-14">
-              <Button text="Get Started Now" url="/" />
+              <Button text="Get Started Now" url="/pricing#epicureanelite" />
             </div>
           </div>
         </div>
