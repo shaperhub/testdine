@@ -198,7 +198,7 @@ export default function Home() {
             </div>
             <div className="flex gap-2 my-4 items-center text-sm">
               <div className=""><FaCheck className="text-dgreenw" /></div>
-              <p>Culinary Tracker: Track up to <span className="font-bold">5</span> meals</p>
+              <p>Culinary Tracker: Track up to <span className="font-bold">3</span> meals</p>
             </div>
             <div className="flex gap-2 my-4 items-center text-sm">
               <div className=""><FaXmark className="text-dred" /></div>

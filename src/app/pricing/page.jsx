@@ -7,6 +7,8 @@ import Foryou from "../../../public/foryou.png"
 import Epic from "../../../public/epicconc.png"
 import Modify from "../../../public/modifydish.png"
 import Dinegroup from "../../../public/dinegroup.png"
+import IosApp from "../../../public/appstore.png"
+import AndroidApp from "../../../public/googleplay.png"
 import { FaCheck } from "react-icons/fa6";
 import { FaXmark } from "react-icons/fa6";
 
@@ -92,7 +94,7 @@ const Pricing = () => {
             </div>
             <div className="flex gap-2 my-4 items-center text-sm">
               <div className=""><FaCheck className="text-dgreenw" /></div>
-              <p>Culinary Tracker: Track up to <span className="font-bold">5</span> meals</p>
+              <p>Culinary Tracker: Track up to <span className="font-bold">3</span> meals</p>
             </div>
             <div className="flex gap-2 my-4 items-center text-sm">
               <div className=""><FaXmark className="text-dred" /></div>
@@ -209,7 +211,6 @@ const Pricing = () => {
               <p>Epicurean Concierge: Personalized culinary guidance</p>
             </div>
             <div className="flex gap-2 my-4 items-center text-sm justify-center">
-              {/* <div className=""><FaCheck className="text-dgreenw" /></div> */}
               <p className="font-bold text-base">VIP Support: Priority customer service</p>
             </div>
             <div className="flex justify-center text-center py-12 gap-2">
@@ -323,7 +324,7 @@ const Pricing = () => {
       {tier == 'taste' && (
       <div className='px-8 md:px-24 py-16 bg-white dark:bg-black'>
         <h2 className='font-heading text-dbluew dark:text-dlightblue text-2xl lg:text-3xl text-center mb-12'>Taste Starter</h2>
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lgxl:grid-cols-5 gap-8 place-items-center'>
+        <div className='grid grid-cols-1 md:grid-cols-2 lgmd:grid-cols-3 lgxl:grid-cols-5 gap-8 place-items-center'>
           <div className='rounded-[24px] md:h-[420px] lgxl:h-[340px] md:max-w-[300px] p-8 bg-dgreen border-1 border-dlightgreen hover:shadow-price'>
             <h4 className='font-heading text-white mb-6 text-center'>Tailored Recommendations</h4>
             <p className='text-sm text-white font-regular mb-6'>
@@ -348,7 +349,7 @@ const Pricing = () => {
           <div className='rounded-[24px] md:h-[420px] lgxl:h-[340px] md:max-w-[300px] p-8 bg-dgreen border-1 border-dlightgreen hover:shadow-price'>
             <h4 className='font-heading text-white mb-6 text-center'>Culinary Tracker</h4>
             <p className='text-sm text-white font-regular mb-6'>
-              Begin tracking your dietary habits with up to 5 meals with comprehensive nutritional insights to enhance your commitment to mindful eating 
+              Begin tracking your dietary habits with up to 3 meals with comprehensive nutritional insights to enhance your commitment to mindful eating 
               and consider the benefits of unlimited tracking and deeper dietary analysis that come with an upgrade to our enhanced tiers.
             </p>
           </div>
@@ -374,7 +375,7 @@ const Pricing = () => {
       {tier == 'cuisine' && (
       <div className='px-8 md:px-24 py-16 bg-white dark:bg-black'>
         <h2 className='font-heading text-dbluew dark:text-dlightblue text-2xl lg:text-3xl text-center mb-12'>Cuisine Crafter</h2>
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lgxl:grid-cols-5 gap-8 place-items-center'>
+        <div className='grid grid-cols-1 md:grid-cols-2 lgmd:grid-cols-3 lgxl:grid-cols-5 gap-8 place-items-center'>
           <div className='rounded-[24px] md:h-[420px] lgxl:h-[340px] md:max-w-[300px] p-8 bg-gradient-to-r from-[#6C6C6C] via-[#AAABAB] to-[#6C6C6C] border-1 border-dlightgreen hover:shadow-price'>
             <h4 className='font-heading text-white mb-6 text-center'>Expanded Choices</h4>
             <p className='text-sm text-white font-regular mb-6'>
@@ -385,21 +386,19 @@ const Pricing = () => {
           <div className='rounded-[24px] md:h-[420px] lgxl:h-[340px] md:max-w-[300px] p-8 bg-gradient-to-r from-[#6C6C6C] via-[#AAABAB] to-[#6C6C6C] border-1 border-dlightgreen hover:shadow-price'>
             <h4 className='font-heading text-white mb-6 text-center'>Dish Customization</h4>
             <p className='text-sm text-white font-regular mb-6'>
-              With our cutting-edge tools like the Ingredient Swap and Flavor Compatibility Analyzer you can experiment with diverse elements, tailor dishes to your taste, and achieve harmonious flavor blends.
+              Enhance your culinary creations with our Ingredient Swap and Flavor Compatibility Analyzer, offering detailed meal insights and nutritional information. Tailor dishes to your taste while achieving your health goals with our advanced tools.
             </p>
           </div>
           <div className='rounded-[24px] md:h-[420px] lgxl:h-[340px] md:max-w-[300px] p-8 bg-gradient-to-r from-[#6C6C6C] via-[#AAABAB] to-[#6C6C6C] border-1 border-dlightgreen hover:shadow-price'>
             <h4 className='font-heading text-white mb-6 text-center'>Exclusive Groups</h4>
             <p className='text-sm text-white font-regular mb-6'>
-              Elevate your connections within the vibrant Dine Group community, where members can forge even deeper bonds. 
-              With the ability to create private groups, organize meal events, or effortlessly join existing ones, the platform fosters a more personalized and engaging social experience.
+              Elevate your connections with Dine Group's Exclusive Groups feature. Create private groups or join existing ones to plan meals, organize events, and connect with like-minded food enthusiasts, fostering a personalized and engaging social experience.
             </p>
           </div>
           <div className='rounded-[24px] md:h-[420px] lgxl:h-[340px] md:max-w-[300px] p-8 bg-gradient-to-r from-[#6C6C6C] via-[#AAABAB] to-[#6C6C6C] border-1 border-dlightgreen hover:shadow-price'>
             <h4 className='font-heading text-white mb-6 text-center'>Dining Diary</h4>
             <p className='text-sm text-white font-regular mb-6'>
-              Embark on a gastronomic journey through a meticulously curated collection of up to 30 meal records, each accompanied by a wealth of nutritional insights. 
-              Delve into the intricacies of diverse meals, where flavor unites with health in a delectable culinary excellence.
+              Transform your meals with 30 dining records, offering precise insights into calories, macronutrients, and micronutrients. DineIntel empowers you to make informed, delightful choices, blending culinary enjoyment with health. Elevate your epicurean journey with every bite.
             </p>
           </div>
           <div className='rounded-[24px] md:h-[420px] lgxl:h-[340px] md:max-w-[300px] p-8 bg-gradient-to-r from-[#6C6C6C] via-[#AAABAB] to-[#6C6C6C] border-1 border-dlightgreen hover:shadow-price'>
@@ -423,7 +422,7 @@ const Pricing = () => {
       {tier == 'epicurean' && (
       <div className='px-8 md:px-24 py-16 bg-white dark:bg-black'>
         <h2 className='font-heading text-dbluew dark:text-dlightblue text-2xl lg:text-3xl text-center mb-12'>Epicurean Elite</h2>
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lgxl:grid-cols-5 gap-8 place-items-center'>
+        <div className='grid grid-cols-1 md:grid-cols-2 lgmd:grid-cols-3 lgxl:grid-cols-5 gap-8 place-items-center'>
           <div className='rounded-[24px] md:h-[420px] lgxl:h-[340px] md:max-w-[300px] p-8 bg-gradient-to-r from-[#B08C36] via-[#D9BD5B] to-[#9B7424] border-1 border-dlightgreen hover:shadow-price'>
             <h4 className='font-heading text-white mb-6 text-center'>Unlimited Personalization</h4>
             <p className='text-sm text-white font-regular mb-6'>
@@ -434,8 +433,8 @@ const Pricing = () => {
           <div className='rounded-[24px] md:h-[420px] lgxl:h-[340px] md:max-w-[300px] p-8 bg-gradient-to-r from-[#B08C36] via-[#D9BD5B] to-[#9B7424] border-1 border-dlightgreen hover:shadow-price'>
             <h4 className='font-heading text-white mb-6 text-center'>Epicurean Concierge</h4>
             <p className='text-sm text-white font-regular mb-6'>
-              At your service is the Epicurean Concierge, your all-encompassing culinary guide within the DineIntel ecosystem. 
-              This sophisticated agent is meticulously crafted to deliver a comprehensive array of food-related insights.
+              At your service is the Epicurean Concierge, your ultimate culinary guide within the DineIntel ecosystem, offering personalized meal recommendations, creating exclusive dining events, 
+              suggesting private groups tailored to your preferences, analyzing your dining history for insightful advice, and providing unmatched customization for an unforgettable gourmet journey.
             </p>
           </div>
           <div className='rounded-[24px] md:h-[420px] lgxl:h-[340px] md:max-w-[300px] p-8 bg-gradient-to-r from-[#B08C36] via-[#D9BD5B] to-[#9B7424] border-1 border-dlightgreen hover:shadow-price'>
@@ -447,7 +446,7 @@ const Pricing = () => {
           <div className='rounded-[24px] md:h-[420px] lgxl:h-[340px] md:max-w-[300px] p-8 bg-gradient-to-r from-[#B08C36] via-[#D9BD5B] to-[#9B7424] border-1 border-dlightgreen hover:shadow-price'>
             <h4 className='font-heading text-white mb-6 text-center'>Comprehensive Meal Chronicles</h4>
             <p className='text-sm text-white font-regular mb-6'>
-              Revel in the assurance and joy that comes with dining confidently, armed with a wealth of information to enhance your epicurean experiences with an unlimited archive of culinary discoveries.
+            Transform your meals with unlimited dining records, offering precise insights into calories, macronutrients, and micronutrients. DineIntel empowers you to make informed, delightful choices, blending culinary enjoyment with health. Elevate your epicurean journey with every bite.
             </p>
           </div>
           <div className='rounded-[24px] md:h-[420px] lgxl:h-[340px] md:max-w-[300px] p-8 bg-gradient-to-r from-[#B08C36] via-[#D9BD5B] to-[#9B7424] border-1 border-dlightgreen hover:shadow-price'>
@@ -465,6 +464,20 @@ const Pricing = () => {
         </div>
       </div>
       )}
+
+      <div className='flex flex-col justify-center items-center gap-8 px-8 md:px-16 lg:px-32 lgxl:px-64 py-12 bg-white dark:bg-black'>
+        <div className='mb-2'>
+          <p className='text-dbluew dark:text-white text-lg text-center font-bold'>Connect with fellow enthusiasts, share experiences, and explore innovative dining together by creating memorable dining events within our culinary community at DineIntel.</p>
+        </div>
+        <div className='flex flex-col md:flex-row'>
+          <Link href="" className='mb-4 mr-4'>
+            <Image className='' src={IosApp} width={120} height={30} alt='IOS App Download Icon' quality={100} />
+          </Link>
+          <Link href="" className='mb-4'>
+            <Image className='' src={AndroidApp} width={135} height={40} alt='Android App Download Icon' quality={100} />
+          </Link>
+        </div>
+      </div>
 
     </div>
   )
