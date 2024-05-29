@@ -13,8 +13,8 @@ const Faqs = () => {
       </div>
 
       {/* FAQs */}
-      <div className='pt-28 pb-16 px-8 md:px-36'>
-        <p className='text-2xl mb-12 text-center dark:text-dgrey'>We&apos;ve got all the answers</p>
+      <div className='pt-20 pb-16 px-8 md:px-36'>
+        <p className='text-2xl lg:text-3xl mb-12 font-heading text-center text-dbluew dark:text-dgrey'>We&apos;ve got all the answers</p>
         <Accordion type="single" collapsible className="font-regular">
           <AccordionItem value="item-1">
             <AccordionTrigger className="px-2 lg:px-16 text-left text-sm md:text-base font-bold">What is DineIntel?</AccordionTrigger>
@@ -106,7 +106,7 @@ const Faqs = () => {
           </AccordionItem>
         </Accordion>
         <div className='flex flex-col items-center py-4'>
-          <p className='font-regular font-bold text-2xl py-8 dark:text-dgrey'>Got More Questions?</p>
+          <p className='font-regular font-bold text-2xl py-8 text-dbluew dark:text-dgrey'>Got More Questions?</p>
           <Button text="Contact Us" url="/" />
         </div>
       </div>

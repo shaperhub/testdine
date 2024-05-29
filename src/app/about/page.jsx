@@ -111,7 +111,7 @@ const About = () => {
             </div>
           </div>
         </div>
-        <div className="pt-24 pb-8 px-8 md:px-12">
+        <div className="pt-12 md:pt-24 pb-8 px-8 md:px-12">
           <p className="text-dbluew dark:text-dgrey font-heading text-center text-lg md:text-2xl lg:text-3xl">Join us to redefine dining, one delightful moment at a time.</p>
         </div>
       </div>
