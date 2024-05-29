@@ -28,7 +28,7 @@ export default function Home() {
     <div className="font-regular">
 
       {/* Hero */}
-      <div className="bg-white/80 dark:bg-dblack/90 flex flex-col lg:flex-row gap-8 px-8 md:px-24 py-32 md:py-40">
+      <div className="bg-white/80 dark:bg-dblack/90 flex flex-col lg:flex-row gap-8 px-8 md:px-24 pt-40 pb-28">
         <div className="lg:w-1/2 lgxl:pl-64 flex flex-col place-content-center">
           <h1 className="text-4xl xl:text-6xl text-dbluew dark:text-dlightblue font-heading">
             Experience the essence of dining innovation with <span className="text-dgreenw dark:text-dgreen">Dine</span><span className="font-dine text-dgreenw dark:text-dgreen">I</span><span className="text-dgreenw dark:text-dgreen">ntel</span>
