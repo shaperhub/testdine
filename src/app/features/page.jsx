@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import Foryou from "../../../public/forYouLightMode.png"
 import ForyouDark from "../../../public/forYouDark.png"
 import Modify from "../../../public/ni2.png"
@@ -10,7 +11,8 @@ import ForyouIcon from "../../../public/foryou.png"
 import EpicIcon from "../../../public/epicconc.png"
 import ModifyIcon from "../../../public/modifydish.png"
 import DineIcon from "../../../public/dinegroup.png"
-
+import IosApp from "../../../public/appstore.png"
+import AndroidApp from "../../../public/googleplay.png"
 
 const Features = () => {
   return (
@@ -221,9 +223,26 @@ const Features = () => {
             </div>
           </div>
           <div className='lg:w-1/2 my-4 flex justify-center'>
-            <Image className="" src={Epic} width={420} height={400} alt="Epicurean Concierge Image" />
+            <Image className="border-2 border-dblue rounded-2xl" src={Epic} width={420} height={400} alt="Epicurean Concierge Image" />
           </div>
         </div>
+        {/* Download Our App */}
+        <div className='flex flex-col justify-center items-center gap-8 px-8 md:px-16 lg:px-32 lgxl:px-64 py-12 bg-white dark:bg-black'>
+          <div className='mb-2'>
+            <p className='text-dbluew dark:text-dgrey font-heading text-center text-lg md:text-2xl lg:text-3xl'>
+              Download Our App Today
+            </p>
+          </div>
+          <div className='flex flex-col md:flex-row'>
+            <Link href="" className='mb-4 mr-4'>
+              <Image className='' src={IosApp} width={120} height={30} alt='IOS App Download Icon' quality={100} />
+            </Link>
+            <Link href="" className='mb-4'>
+              <Image className='' src={AndroidApp} width={135} height={40} alt='Android App Download Icon' quality={100} />
+            </Link>
+          </div>
+        </div>
+
       </div>
 
     </div>

@@ -2,7 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import IosApp from "../../../public/appstore.png"
 import AndroidApp from "../../../public/googleplay.png"
-import Food from "../../../public/togeda.png"
+import AppShot from "../../../public/mm2.png"
 
 const DownloadApp = () => {
   return (
@@ -21,7 +21,7 @@ const DownloadApp = () => {
             </div>
         </div>
         <div className='lg:flex justify-end'>
-            <Image className='' src={Food} width={500} height={500} alt='Download the app today' />
+            <Image className='' src={AppShot} width={400} height={300} alt='Download the app today' />
         </div>
     </div>
   )

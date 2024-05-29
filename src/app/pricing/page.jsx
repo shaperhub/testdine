@@ -13,7 +13,25 @@ import { FaCheck } from "react-icons/fa6";
 import { FaXmark } from "react-icons/fa6";
 
 const Pricing = () => {
-  const [tier, setTier] = useState('')
+  const [ttier, setTtier] = useState(false)
+  const [etier, setEtier] = useState(false)
+  const [ctier, setCtier] = useState(false)
+
+  const tastefunc = () => {
+    setTtier(true)
+    setEtier(false)
+    setCtier(false)
+  }
+  const cuisinefunc = () => {
+    setTtier(false)
+    setEtier(false)
+    setCtier(true)
+  }
+  const epicfunc = () => {
+    setTtier(false)
+    setEtier(true)
+    setCtier(false)
+  }
 
   return (
     <div className='text-ddarkgrey dark:text-dgrey font-regular'>
@@ -27,7 +45,7 @@ const Pricing = () => {
 
 
       {/* Pricing Cards */}
-      <div className="px-8 md:px-24 py-12 md:py-16 bg-dlightestgreen dark:bg-dlightblack/90" id="tastestarter">
+      <div className="px-8 md:px-24 py-4 md:py-8 bg-dlightestgreen dark:bg-dlightblack/90" id="tastestarter">
         <div className="flex flex-col lgmd:flex-row justify-center items-center gap-4">
 
           {/* Taste Starter Card */}
@@ -120,7 +138,8 @@ const Pricing = () => {
               <Link href="">
                 <button className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dbluew dark:text-white inline-flex items-center font-regular'>Get Started</button>
               </Link>
-              <button onClick={(e) => setTier('taste')} className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dbluew dark:text-white inline-flex items-center font-regular'>Learn More</button>
+              {!ttier && (<button onClick={tastefunc} className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dbluew dark:text-white inline-flex items-center font-regular'>Learn More</button>)}
+              {ttier && (<button onClick={(e) => setTtier(false)} className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dred dark:text-white inline-flex items-center font-regular'>Show Less</button>)}
             </div>
           </div>
 
@@ -217,7 +236,8 @@ const Pricing = () => {
               <Link href="">
                 <button className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dbluew dark:text-white inline-flex items-center font-regular'>Get Started</button>
               </Link>
-              <button onClick={(e) => setTier('epicurean')} className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dbluew dark:text-white inline-flex items-center font-regular'>Learn More</button>
+              {!etier && (<button onClick={epicfunc} className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dbluew dark:text-white inline-flex items-center font-regular'>Learn More</button>)}
+              {etier && (<button onClick={(e) => setEtier(false)} className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dred dark:text-white inline-flex items-center font-regular'>Show Less</button>)}
             </div>
           </div>
 
@@ -311,7 +331,8 @@ const Pricing = () => {
               <Link href="">
                 <button className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dbluew dark:text-white inline-flex items-center font-regular'>Get Started</button>
               </Link>
-              <button onClick={(e) => setTier('cuisine')} className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dbluew dark:text-white inline-flex items-center font-regular'>Learn More</button>
+              {!ctier && (<button onClick={cuisinefunc} className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dbluew dark:text-white inline-flex items-center font-regular'>Learn More</button>)}
+              {ctier && (<button onClick={(e) => setCtier(false)} className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dred dark:text-white inline-flex items-center font-regular'>Show Less</button>)}
             </div>
           </div>
         </div>
@@ -321,8 +342,8 @@ const Pricing = () => {
       {/* Cards For Each Section */}
 
       {/* Taste Starter */}
-      {tier == 'taste' && (
-      <div className='px-8 md:px-24 py-16 bg-white dark:bg-black'>
+      {ttier && (
+      <div className='px-8 md:px-24 pb-16 bg-white dark:bg-black'>
         <h2 className='font-heading text-dbluew dark:text-dlightblue text-2xl lg:text-3xl text-center mb-12'>Taste Starter</h2>
         <div className='grid grid-cols-1 md:grid-cols-2 lgmd:grid-cols-3 lgxl:grid-cols-5 gap-8 place-items-center'>
           <div className='rounded-[24px] md:h-[420px] lgxl:h-[340px] md:max-w-[300px] p-8 bg-dgreen border-1 border-dlightgreen hover:shadow-price'>
@@ -372,8 +393,8 @@ const Pricing = () => {
       )}
 
       {/* Cuisine Crafter */}
-      {tier == 'cuisine' && (
-      <div className='px-8 md:px-24 py-16 bg-white dark:bg-black'>
+      {ctier && (
+      <div className='px-8 md:px-24 pb-16 bg-white dark:bg-black'>
         <h2 className='font-heading text-dbluew dark:text-dlightblue text-2xl lg:text-3xl text-center mb-12'>Cuisine Crafter</h2>
         <div className='grid grid-cols-1 md:grid-cols-2 lgmd:grid-cols-3 lgxl:grid-cols-5 gap-8 place-items-center'>
           <div className='rounded-[24px] md:h-[420px] lgxl:h-[340px] md:max-w-[300px] p-8 bg-gradient-to-r from-[#6C6C6C] via-[#AAABAB] to-[#6C6C6C] border-1 border-dlightgreen hover:shadow-price'>
@@ -419,8 +440,8 @@ const Pricing = () => {
       )}
 
       {/* Epicurean Elite */}
-      {tier == 'epicurean' && (
-      <div className='px-8 md:px-24 py-16 bg-white dark:bg-black'>
+      {etier && (
+      <div className='px-8 md:px-24 pb-16 bg-white dark:bg-black'>
         <h2 className='font-heading text-dbluew dark:text-dlightblue text-2xl lg:text-3xl text-center mb-12'>Epicurean Elite</h2>
         <div className='grid grid-cols-1 md:grid-cols-2 lgmd:grid-cols-3 lgxl:grid-cols-5 gap-8 place-items-center'>
           <div className='rounded-[24px] md:h-[420px] lgxl:h-[340px] md:max-w-[300px] p-8 bg-gradient-to-r from-[#B08C36] via-[#D9BD5B] to-[#9B7424] border-1 border-dlightgreen hover:shadow-price'>
