@@ -76,7 +76,7 @@ export default function Home() {
             </p>
             <div className="flex justify-center mt-16">
               <Link href="/features#foryou">
-                <button className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dbluew dark:text-white inline-flex items-center font-regular'>Learn More <span className="pl-2"><BsArrowRight /></span></button>
+                <button className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-2 text-dbluew dark:text-white inline-flex items-center font-bold'>Learn More <span className="pl-2"><BsArrowRight /></span></button>
               </Link>
             </div>
           </div>
@@ -91,7 +91,7 @@ export default function Home() {
             </p>
             <div className="flex justify-center">
               <Link href="/features#modifydish">
-                <button className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dbluew dark:text-white inline-flex items-center font-regular'>Learn More <span className="pl-2"><BsArrowRight /></span></button>
+                <button className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-2 text-dbluew dark:text-white inline-flex items-center font-bold'>Learn More <span className="pl-2"><BsArrowRight /></span></button>
               </Link>
             </div>
           </div>
@@ -106,7 +106,7 @@ export default function Home() {
             </p>
             <div className="flex justify-center">
               <Link href="/features#dinegroup">
-                <button className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dbluew dark:text-white inline-flex items-center font-regular'>Learn More <span className="pl-2"><BsArrowRight /></span></button>
+                <button className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-2 text-dbluew dark:text-white inline-flex items-center font-bold'>Learn More <span className="pl-2"><BsArrowRight /></span></button>
               </Link>
             </div>
           </div>
@@ -121,7 +121,7 @@ export default function Home() {
             </p>
             <div className="flex justify-center">
               <Link href="/features#epicureanconcierge">
-                <button className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dbluew dark:text-white inline-flex items-center font-regular'>Learn More <span className="pl-2"><BsArrowRight /></span></button>
+                <button className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-2 text-dbluew dark:text-white inline-flex items-center font-bold'>Learn More <span className="pl-2"><BsArrowRight /></span></button>
               </Link>
             </div>
           </div>

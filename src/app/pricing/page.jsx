@@ -136,12 +136,64 @@ const Pricing = () => {
             </div>
             <div className="flex justify-center text-center py-12 gap-2">
               <Link href="">
-                <button className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dbluew dark:text-white inline-flex items-center font-regular'>Get Started</button>
+                <button className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-2 text-dbluew dark:text-white inline-flex items-center font-bold'>Get Started</button>
               </Link>
-              {!ttier && (<button onClick={tastefunc} className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dbluew dark:text-white inline-flex items-center font-regular'>Learn More</button>)}
-              {ttier && (<button onClick={(e) => setTtier(false)} className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dred dark:text-white inline-flex items-center font-regular'>Show Less</button>)}
+              {!ttier && (<button onClick={tastefunc} className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-2 text-dbluew dark:text-white inline-flex items-center font-bold'>Learn More</button>)}
+              {ttier && (<button onClick={(e) => setTtier(false)} className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-2 text-dred dark:text-white inline-flex items-center font-bold'>Show Less</button>)}
             </div>
+
+            {/* Mobile Taste Starter */}
+            {ttier && (
+            <div className='lgmd:hidden px-8 md:px-24 pt-8 pb-16 bg-white dark:bg-black'>
+              <h2 className='font-heading text-dbluew dark:text-dlightblue text-2xl lg:text-3xl text-center mb-12'>Taste Starter</h2>
+              <div className='grid grid-cols-1 lg:grid-cols-2 lgmd:grid-cols-3 lgxl:grid-cols-5 gap-8 place-items-center'>
+                <div className='rounded-[24px] md:h-[420px] lgxl:h-[340px] md:max-w-[300px] p-8 bg-dgreen border-1 border-dlightgreen hover:shadow-price'>
+                  <h4 className='font-heading text-white mb-6 text-center'>Tailored Recommendations</h4>
+                  <p className='text-sm text-white font-regular mb-6'>
+                    Delve into a world where every dining recommendation aligns perfectly with your palate. 
+                    Our tailored suggestions serve as a preview of the personalized dining narrative you can further develop with our premium tiers.
+                  </p>
+                </div>
+                <div className='rounded-[24px] md:h-[420px] lgxl:h-[340px] md:max-w-[300px] p-8 bg-dgreen border-1 border-dlightgreen hover:shadow-price'>
+                  <h4 className='font-heading text-white mb-6 text-center'>My Dish Insight</h4>
+                  <p className='text-sm text-white font-regular mb-6'>
+                    Enjoy a taste of the detailed, personalized dish insights that come standard with Taste Starter. 
+                    As you savor each meal, imagine the possibilities with even more comprehensive data and customization options available when you step up to Cuisine Crafter or Epicurean Elite.
+                  </p>
+                </div>
+                <div className='rounded-[24px] md:h-[420px] lgxl:h-[340px] md:max-w-[300px] p-8 bg-dgreen border-1 border-dlightgreen hover:shadow-price'>
+                  <h4 className='font-heading text-white mb-6 text-center'>Community Connect</h4>
+                  <p className='text-sm text-white font-regular mb-6'>
+                    Become a part of the vibrant <span className='font-bold text-white'><a href='/features#dinegroup'>Dine Group</a></span>, where food enthusiasts gather to exchange culinary experiences, discover hidden gems, and forge new favorites. 
+                    Immerse yourself in our lively public, where food lovers from all walks of life come together to share their passion for gastronomy.
+                  </p>
+                </div>
+                <div className='rounded-[24px] md:h-[420px] lgxl:h-[340px] md:max-w-[300px] p-8 bg-dgreen border-1 border-dlightgreen hover:shadow-price'>
+                  <h4 className='font-heading text-white mb-6 text-center'>Culinary Tracker</h4>
+                  <p className='text-sm text-white font-regular mb-6'>
+                    Begin tracking your dietary habits with up to 3 meals with comprehensive nutritional insights to enhance your commitment to mindful eating 
+                    and consider the benefits of unlimited tracking and deeper dietary analysis that come with an upgrade to our enhanced tiers.
+                  </p>
+                </div>
+                <div className='rounded-[24px] md:h-[420px] lgxl:h-[340px] md:max-w-[300px] p-8 bg-dgreen border-1 border-dlightgreen hover:shadow-price'>
+                  <h4 className='font-heading text-white mb-6 text-center'>Enhanced Discovery</h4>
+                  <p className='text-sm text-white font-regular mb-6'>
+                    Discover a world of relevance and sophistication as you engage with selected ads that resonate with the refined palate of your next gastronomic adventure. 
+                    Immerse yourself in a realm where each ad mirrors the delectable allure of your impending dining experiences.
+                  </p>
+                </div>
+              </div>
+              <div className='pt-16 px-8 lg:px-16 lgxl:px-64 flex flex-col justify-center items-center'>
+                <p className='font-bold text-dbluew dark:text-dlightblue text-center text-xl mb-2'>As You Enjoy Taste Starter, Imagine More:</p>
+                <p className='text-dbluew dark:text-dgrey text-center font-bold text-lg'>
+                  With every feature in the Taste Starter tier, envision the expanded choices and exclusive benefits that await with Cuisine Crafter and Epicurean Elite. 
+                  Picture unlimited customization, comprehensive meal chronicles, and personalized guidance from the Epicurean Concierge; all designed to transform your dining from routine to remarkable.
+              </p>
+              </div>
+            </div>
+            )}
           </div>
+
 
           {/* Epicurean Elite Card */}
           <div className="rounded-[24px] lgmd:max-w-[420px] lgmd:flex-1 p-8 mb-8 bg-white dark:bg-dblack font-regular text-dbluew  dark:text-dgrey" id="epicureanelite">
@@ -234,13 +286,61 @@ const Pricing = () => {
             </div>
             <div className="flex justify-center text-center py-12 gap-2">
               <Link href="">
-                <button className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dbluew dark:text-white inline-flex items-center font-regular'>Get Started</button>
+                <button className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-2 text-dbluew dark:text-white inline-flex items-center font-bold'>Get Started</button>
               </Link>
-              {!etier && (<button onClick={epicfunc} className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dbluew dark:text-white inline-flex items-center font-regular'>Learn More</button>)}
-              {etier && (<button onClick={(e) => setEtier(false)} className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dred dark:text-white inline-flex items-center font-regular'>Show Less</button>)}
+              {!etier && (<button onClick={epicfunc} className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-2 text-dbluew dark:text-white inline-flex items-center font-bold'>Learn More</button>)}
+              {etier && (<button onClick={(e) => setEtier(false)} className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-2 text-dred dark:text-white inline-flex items-center font-bold'>Show Less</button>)}
             </div>
+
+            {/* Mobile Epicurean Elite */}
+            {etier && (
+            <div className='lgmd:hidden px-8 md:px-24 pb-16 pt-8 bg-white dark:bg-black'>
+              <h2 className='font-heading text-dbluew dark:text-dlightblue text-2xl lg:text-3xl text-center mb-12'>Epicurean Elite</h2>
+              <div className='grid grid-cols-1 lg:grid-cols-2 lgmd:grid-cols-3 lgxl:grid-cols-5 gap-8 place-items-center'>
+                <div className='rounded-[24px] md:h-[420px] lgxl:h-[340px] md:max-w-[300px] p-8 bg-gradient-to-r from-[#B08C36] via-[#D9BD5B] to-[#9B7424] border-1 border-dlightgreen hover:shadow-price'>
+                  <h4 className='font-heading text-white mb-6 text-center'>Unlimited Personalization</h4>
+                  <p className='text-sm text-white font-regular mb-6'>
+                    Experience the limitless possibilities of DineIntel as you explore the unrestricted <span className='font-bold text-white'><a href="/features#modifydish">Modify Dish</a></span> recommendations, 
+                    allowing you to customize your dining experience to your heart's content with the freedom to mix and match.
+                  </p>
+                </div>
+                <div className='rounded-[24px] md:h-[420px] lgxl:h-[340px] md:max-w-[300px] p-8 bg-gradient-to-r from-[#B08C36] via-[#D9BD5B] to-[#9B7424] border-1 border-dlightgreen hover:shadow-price'>
+                  <h4 className='font-heading text-white mb-6 text-center'>Epicurean Concierge</h4>
+                  <p className='text-sm text-white font-regular mb-6'>
+                    At your service is the Epicurean Concierge, your ultimate culinary guide within the DineIntel ecosystem, offering personalized meal recommendations, creating exclusive dining events, 
+                    suggesting private groups tailored to your preferences, analyzing your dining history for insightful advice, and providing unmatched customization for an unforgettable gourmet journey.
+                  </p>
+                </div>
+                <div className='rounded-[24px] md:h-[420px] lgxl:h-[340px] md:max-w-[300px] p-8 bg-gradient-to-r from-[#B08C36] via-[#D9BD5B] to-[#9B7424] border-1 border-dlightgreen hover:shadow-price'>
+                  <h4 className='font-heading text-white mb-6 text-center'>In-Depth Health Insights</h4>
+                  <p className='text-sm text-white font-regular mb-6'>
+                    Enhance your health consciousness through our Health-Focused Ingredient Analysis, elevating your culinary journey with each delectable dish.
+                  </p>
+                </div>
+                <div className='rounded-[24px] md:h-[420px] lgxl:h-[340px] md:max-w-[300px] p-8 bg-gradient-to-r from-[#B08C36] via-[#D9BD5B] to-[#9B7424] border-1 border-dlightgreen hover:shadow-price'>
+                  <h4 className='font-heading text-white mb-6 text-center'>Comprehensive Meal Chronicles</h4>
+                  <p className='text-sm text-white font-regular mb-6'>
+                  Transform your meals with unlimited dining records, offering precise insights into calories, macronutrients, and micronutrients. DineIntel empowers you to make informed, delightful choices, blending culinary enjoyment with health. Elevate your epicurean journey with every bite.
+                  </p>
+                </div>
+                <div className='rounded-[24px] md:h-[420px] lgxl:h-[340px] md:max-w-[300px] p-8 bg-gradient-to-r from-[#B08C36] via-[#D9BD5B] to-[#9B7424] border-1 border-dlightgreen hover:shadow-price'>
+                  <h4 className='font-heading text-white mb-6 text-center'>First-Class Support</h4>
+                  <p className='text-sm text-white font-regular mb-6'>
+                    Receive unparalleled customer service with priority response times and personalized attention from our dedicated support team.
+                  </p>
+                </div>
+              </div>
+              <div className='pt-16 px-8 lg:px-16 lgxl:px-64 flex flex-col justify-center items-center'>
+                <p className='text-dbluew dark:text-dgrey text-center font-bold text-lg'>
+                  The Epicurean Elite tier is a testament to the art of fine dining, offering a service that is as discerning and selective as you are. 
+                  With these enhanced features and our commitment to excellence, every meal becomes a curated event, a narrative in your journey of culinary exploration and indulgence.
+              </p>
+              </div>
+            </div>
+            )}
           </div>
 
+      
           {/* Cuisine Crafter Card */}
           <div className="rounded-[24px] lgmd:max-w-[410px] lgmd:flex-1 p-8 mb-8 bg-white dark:bg-dblack font-regular text-dbluew  dark:text-dgrey" id="cuisinecrafter">
             <div className="bg-gradient-to-r from-[#6C6C6C] via-[#AAABAB] to-[#6C6C6C] rounded-xl text-white p-4 mb-4">
@@ -329,11 +429,58 @@ const Pricing = () => {
             </div>
             <div className="flex justify-center text-center py-12 gap-2">
               <Link href="">
-                <button className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dbluew dark:text-white inline-flex items-center font-regular'>Get Started</button>
+                <button className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-2 text-dbluew dark:text-white inline-flex items-center font-bold'>Get Started</button>
               </Link>
-              {!ctier && (<button onClick={cuisinefunc} className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dbluew dark:text-white inline-flex items-center font-regular'>Learn More</button>)}
-              {ctier && (<button onClick={(e) => setCtier(false)} className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dred dark:text-white inline-flex items-center font-regular'>Show Less</button>)}
+              {!ctier && (<button onClick={cuisinefunc} className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-2 text-dbluew dark:text-white inline-flex items-center font-bold'>Learn More</button>)}
+              {ctier && (<button onClick={(e) => setCtier(false)} className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-2 text-dred dark:text-white inline-flex items-center font-bold'>Show Less</button>)}
             </div>
+
+            {/* Mobile Cuisine Crafter */}
+            {ctier && (
+            <div className='lgmd:hidden px-8 md:px-24 pb-16 pt-8 bg-white dark:bg-black'>
+              <h2 className='font-heading text-dbluew dark:text-dlightblue text-2xl lg:text-3xl text-center mb-12'>Cuisine Crafter</h2>
+              <div className='grid grid-cols-1 lg:grid-cols-2 lgmd:grid-cols-3 lgxl:grid-cols-5 gap-8 place-items-center'>
+                <div className='rounded-[24px] md:h-[420px] lgxl:h-[340px] md:max-w-[300px] p-8 bg-gradient-to-r from-[#6C6C6C] via-[#AAABAB] to-[#6C6C6C] border-1 border-dlightgreen hover:shadow-price'>
+                  <h4 className='font-heading text-white mb-6 text-center'>Expanded Choices</h4>
+                  <p className='text-sm text-white font-regular mb-6'>
+                    Indulge in the pleasure of exploring up to 2 enticing meal recommendations from our <span className='font-bold text-white'><a href="/features#modifydish">Modify Dish</a></span> feature to enhance and personalize your dining experience at every meal. 
+                    These curated modifications ensure that your culinary journey is a delightful fusion of class and taste.
+                  </p>
+                </div>
+                <div className='rounded-[24px] md:h-[420px] lgxl:h-[340px] md:max-w-[300px] p-8 bg-gradient-to-r from-[#6C6C6C] via-[#AAABAB] to-[#6C6C6C] border-1 border-dlightgreen hover:shadow-price'>
+                  <h4 className='font-heading text-white mb-6 text-center'>Dish Customization</h4>
+                  <p className='text-sm text-white font-regular mb-6'>
+                    Enhance your culinary creations with our Ingredient Swap and Flavor Compatibility Analyzer, offering detailed meal insights and nutritional information. Tailor dishes to your taste while achieving your health goals with our advanced tools.
+                  </p>
+                </div>
+                <div className='rounded-[24px] md:h-[420px] lgxl:h-[340px] md:max-w-[300px] p-8 bg-gradient-to-r from-[#6C6C6C] via-[#AAABAB] to-[#6C6C6C] border-1 border-dlightgreen hover:shadow-price'>
+                  <h4 className='font-heading text-white mb-6 text-center'>Exclusive Groups</h4>
+                  <p className='text-sm text-white font-regular mb-6'>
+                    Elevate your connections with Dine Group's Exclusive Groups feature. Create private groups or join existing ones to plan meals, organize events, and connect with like-minded food enthusiasts, fostering a personalized and engaging social experience.
+                  </p>
+                </div>
+                <div className='rounded-[24px] md:h-[420px] lgxl:h-[340px] md:max-w-[300px] p-8 bg-gradient-to-r from-[#6C6C6C] via-[#AAABAB] to-[#6C6C6C] border-1 border-dlightgreen hover:shadow-price'>
+                  <h4 className='font-heading text-white mb-6 text-center'>Dining Diary</h4>
+                  <p className='text-sm text-white font-regular mb-6'>
+                    Transform your meals with 30 dining records, offering precise insights into calories, macronutrients, and micronutrients. DineIntel empowers you to make informed, delightful choices, blending culinary enjoyment with health. Elevate your epicurean journey with every bite.
+                  </p>
+                </div>
+                <div className='rounded-[24px] md:h-[420px] lgxl:h-[340px] md:max-w-[300px] p-8 bg-gradient-to-r from-[#6C6C6C] via-[#AAABAB] to-[#6C6C6C] border-1 border-dlightgreen hover:shadow-price'>
+                  <h4 className='font-heading text-white mb-6 text-center'>No More Guesswork</h4>
+                  <p className='text-sm text-white font-regular mb-6'>
+                    Each culinary creation is accompanied by a comprehensible and user-friendly nutritional profile, 
+                    providing you with the knowledge and empowerment to make informed choices aligning with your health objectives and culinary preferences.
+                  </p>
+                </div>
+              </div>
+              <div className='pt-16 px-8 lg:px-16 lgxl:px-64 flex flex-col justify-center items-center'>
+                <p className='text-dbluew dark:text-dgrey text-center font-bold text-lg'>
+                  While Cuisine Crafter provides an exceptional foray into the art of personalized dining, it serves as the gateway to the ultimate dining echelon: Epicurean Elite – Premium All-Access. 
+                  This prestigious tier awaits those who seek the zenith of culinary privilege, extending beyond Cuisine Crafter&apos;s offerings to an all-encompassing realm of gastronomic indulgence.
+              </p>
+              </div>
+            </div>
+            )}
           </div>
         </div>
       </div>
@@ -343,7 +490,7 @@ const Pricing = () => {
 
       {/* Taste Starter */}
       {ttier && (
-      <div className='px-8 md:px-24 pb-16 bg-white dark:bg-black'>
+      <div className='hidden lgmd:block px-8 md:px-24 pt-8 pb-16 bg-white dark:bg-black'>
         <h2 className='font-heading text-dbluew dark:text-dlightblue text-2xl lg:text-3xl text-center mb-12'>Taste Starter</h2>
         <div className='grid grid-cols-1 md:grid-cols-2 lgmd:grid-cols-3 lgxl:grid-cols-5 gap-8 place-items-center'>
           <div className='rounded-[24px] md:h-[420px] lgxl:h-[340px] md:max-w-[300px] p-8 bg-dgreen border-1 border-dlightgreen hover:shadow-price'>
@@ -394,7 +541,7 @@ const Pricing = () => {
 
       {/* Cuisine Crafter */}
       {ctier && (
-      <div className='px-8 md:px-24 pb-16 bg-white dark:bg-black'>
+      <div className='hidden lgmd:block px-8 md:px-24 pb-16 pt-8 bg-white dark:bg-black'>
         <h2 className='font-heading text-dbluew dark:text-dlightblue text-2xl lg:text-3xl text-center mb-12'>Cuisine Crafter</h2>
         <div className='grid grid-cols-1 md:grid-cols-2 lgmd:grid-cols-3 lgxl:grid-cols-5 gap-8 place-items-center'>
           <div className='rounded-[24px] md:h-[420px] lgxl:h-[340px] md:max-w-[300px] p-8 bg-gradient-to-r from-[#6C6C6C] via-[#AAABAB] to-[#6C6C6C] border-1 border-dlightgreen hover:shadow-price'>
@@ -441,7 +588,7 @@ const Pricing = () => {
 
       {/* Epicurean Elite */}
       {etier && (
-      <div className='px-8 md:px-24 pb-16 bg-white dark:bg-black'>
+      <div className='hidden lgmd:block px-8 md:px-24 pb-16 pt-8 bg-white dark:bg-black'>
         <h2 className='font-heading text-dbluew dark:text-dlightblue text-2xl lg:text-3xl text-center mb-12'>Epicurean Elite</h2>
         <div className='grid grid-cols-1 md:grid-cols-2 lgmd:grid-cols-3 lgxl:grid-cols-5 gap-8 place-items-center'>
           <div className='rounded-[24px] md:h-[420px] lgxl:h-[340px] md:max-w-[300px] p-8 bg-gradient-to-r from-[#B08C36] via-[#D9BD5B] to-[#9B7424] border-1 border-dlightgreen hover:shadow-price'>

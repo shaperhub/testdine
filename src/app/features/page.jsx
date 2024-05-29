@@ -27,7 +27,7 @@ const Features = () => {
 
       {/* For You */}
       <div className="h-16 bg-white dark:bg-dblack/90" id="foryou"></div>
-      <div className='px-8 md:px-24 py-8 md:py-16 lg:py-24 bg-white dark:bg-dblack/90'>
+      <div className='px-8 md:px-24 py-12 md:py-16 lg:py-24 bg-white dark:bg-dblack/90'>
         <div className="mb-8">
           <div className="flex justify-center items-center gap-4">
             <Image className="-mt-6" src={ForyouIcon} width={30} height={30} alt="For You Icon" quality={100} />
