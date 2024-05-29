@@ -70,7 +70,7 @@ const Features = () => {
       </div>
 
       {/* Modify Dish */}
-      <div className="h-16 bg-white dark:bg-dblack/90" id="modifydish"></div>
+      <div className="h-6 md:h-16 bg-white dark:bg-dblack/90" id="modifydish"></div>
       <div className='px-8 md:px-24 py-24 bg-white dark:bg-dblack/90'>
         <div className='mb-8'>
           <div className="flex justify-center items-center gap-4">
@@ -124,7 +124,7 @@ const Features = () => {
       </div>
 
       {/* Dine Group */}
-      <div className="h-16 bg-white dark:bg-dblack/90" id="dinegroup"></div>
+      <div className="h-6 md:h-16 bg-white dark:bg-dblack/90" id="dinegroup"></div>
       <div className='px-8 md:px-24 py-24 bg-white dark:bg-dblack/90'>
         <div className='mb-8'>
           <div className="flex justify-center items-center gap-4">
@@ -179,7 +179,7 @@ const Features = () => {
       </div>
 
       {/* Epicurean Concierge */}
-      <div className="h-16 bg-white dark:bg-dblack/90" id="epicureanconcierge"></div>
+      <div className="h-6 md:h-16 bg-white dark:bg-dblack/90" id="epicureanconcierge"></div>
       <div className='px-8 md:px-24 py-24 bg-white dark:bg-dblack/90'>
         <div className='mb-8'>
           <div className="flex justify-center items-center gap-4">

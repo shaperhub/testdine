@@ -29,8 +29,12 @@ module.exports = {
         // => @media (min-width: 1150px) { ... }
         'lgbox': '1380px',
         // => @media (min-width: 1380px) { ... }
+        'lg1440': '1440px',
+        // => @media (min-width: 1440px) { ... }
         'lgxl': '1800px',
         // => @media (min-width: 1800px) { ... }
+        'lg2100': '2100px',
+        // => @media (min-width: 2100px) { ... }
       },
       backgroundImage: {
         'lightbg': "url('/LightThemeBg.png')",

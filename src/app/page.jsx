@@ -47,7 +47,7 @@ export default function Home() {
       {/* Transforming Tradition */}
       <div className="flex flex-col lg:flex-row-reverse text-dbluew  dark:text-dgrey gap-8 py-16 px-8 md:px-24 bg-dlightestgreen dark:bg-dlightblack">
         <div className="lg:w-1/2 lgxl:pr-64 flex flex-col justify-center">
-          <h2 className="text-3xl font-heading mb-4 text-dbluew dark:text-dlightblue">Transforming <span className="text-dgreenw dark:text-dgreen">Tradition</span> into <span className="text-dgreenw dark:text-dgreen">Innovation</span></h2>
+          <h2 className="text-3xl font-heading mb-4 text-dbluew dark:text-dlightblue text-center lg:text-left">Transforming <span className="text-dgreenw dark:text-dgreen">Tradition</span> into <span className="text-dgreenw dark:text-dgreen">Innovation</span></h2>
           <p className="font-regular mb-4 text-dbluew dark:text-dgrey">
             At DineIntel, culinary tradition meets innovation. Our culinary hub seamlessly blends global flavors with cutting-edge technology, offering personalized dining experiences tailored to your tastes.
           </p>
@@ -65,7 +65,7 @@ export default function Home() {
       {/* Igniting Joy */}
       <div className="px-8 md:px-24 py-12 md:py-24 bg-white dark:bg-dblack/90">
         <h2 className="text-dbluew dark:text-dlightblue mb-16 font-heading text-3xl text-center">Discover Our Innovative Features for a <span className="text-dgreenw dark:text-dgreen">Modern Dining Experience</span></h2>
-        <div className="flex flex-col lgbox:flex-row justify-center items-center gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg1440:grid-cols-4 place-items-center gap-4 lg2100:px-72">
           <div className="rounded-[24px] h-[420px] md:max-w-[300px] p-8 bg-dlightestgreen dark:bg-black border-1 border-dlightgreen shadow-epc">
             <div className="flex justify-center mb-4">
               <Image className="" src={Foryou} width={35} height={35} alt="For You Icon" quality={100} />
@@ -221,7 +221,7 @@ export default function Home() {
               <p>Epicurean Concierge: Personalized culinary guidance</p>
             </div>
             <div className="text-center mt-12">
-              <Button text="Get Started Now" url="/pricing#tastestarter" />
+              <Button text="Get Started Now" url="/pricing" />
             </div>
           </div>
 
@@ -312,11 +312,10 @@ export default function Home() {
               <p>Epicurean Concierge: Personalized culinary guidance</p>
             </div>
             <div className="flex gap-2 my-4 pb-4 items-center text-sm justify-center">
-              {/* <div className=""><FaCheck className="text-dgreenw" /></div> */}
               <p className="font-bold text-base">VIP Support: Priority customer service</p>
             </div>
             <div className="text-center">
-              <Button text="Get Started Now" url="/pricing#cuisinecrafter" />
+              <Button text="Get Started Now" url="/pricing" />
             </div>
           </div>
 
@@ -407,7 +406,7 @@ export default function Home() {
               <p>Epicurean Concierge: Personalized culinary guidance</p>
             </div>
             <div className="text-center mt-14">
-              <Button text="Get Started Now" url="/pricing#epicureanelite" />
+              <Button text="Get Started Now" url="/pricing" />
             </div>
           </div>
         </div>
@@ -420,7 +419,7 @@ export default function Home() {
 
       {/* FAQS */}
       <div className="bg-dlightestgreen dark:bg-dblack/90 text-black dark:text-white px-8 md:px-36 py-16">
-        <h1 className="font-heading text-3xl mb-4 text-black dark:text-white">Frequently Asked Questions</h1>
+        <h1 className="font-heading text-3xl mb-4 text-dbluew dark:text-dgrey text-center md:text-left">Frequently Asked Questions</h1>
         <Accordion type="single" collapsible className="font-regular">
           <AccordionItem value="item-1">
             <AccordionTrigger className="text-left text-sm md:text-base font-bold">What is DineIntel?</AccordionTrigger>

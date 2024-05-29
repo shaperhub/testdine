@@ -107,7 +107,7 @@ const Faqs = () => {
         </Accordion>
         <div className='flex flex-col items-center py-4'>
           <p className='font-regular font-bold text-2xl py-8 dark:text-dgrey'>Got More Questions?</p>
-          <Button text="Contact Us" url="/contact" />
+          <Button text="Contact Us" url="/" />
         </div>
       </div>
 

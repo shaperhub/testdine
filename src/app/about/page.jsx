@@ -79,7 +79,7 @@ const About = () => {
             </div>
           </div>
           <div className="relative max-w-[400px] mx-auto mt-8">
-            <Image className="w-full object-cover h-[350px] rounded-md" src={Rimage} width={400} height={350} alt="Responsiveness to Needs Image" />
+            <Image className="w-[400px] object-cover h-[350px] rounded-md" src={Rimage} width={400} height={350} alt="Responsiveness to Needs Image" />
             <div className="absolute inset-0 bg-dblack opacity-70 rounded-md"></div>
             <div className="absolute inset-0 flex flex-col items-center justify-center p-2">
                 <h2 className="text-white text-2xl font-bold text-center mb-2">Responsiveness to Needs</h2>
@@ -87,7 +87,7 @@ const About = () => {
             </div>
           </div>
           <div className="relative max-w-[400px] mx-auto mt-8">
-            <Image className="w-full object-cover h-[350px] rounded-md" src={Inimage} width={400} height={350} alt="Innovation in Technology Image" />
+            <Image className="w-[400px] object-cover h-[350px] rounded-md" src={Inimage} width={400} height={350} alt="Innovation in Technology Image" />
             <div className="absolute inset-0 bg-dblack opacity-70 rounded-md"></div>
             <div className="absolute inset-0 flex flex-col items-center justify-center p-2">
                 <h2 className="text-white text-2xl font-bold text-center mb-2">Innovation in Technology</h2>
@@ -95,7 +95,7 @@ const About = () => {
             </div>
           </div>
           <div className="relative max-w-[400px] mx-auto mt-8">
-            <Image className="w-full object-cover h-[350px] rounded-md" src={Vimage} width={400} height={350} alt="Vibrant Community Engagement Image" />
+            <Image className="w-[400px] object-cover h-[350px] rounded-md" src={Vimage} width={400} height={350} alt="Vibrant Community Engagement Image" />
             <div className="absolute inset-0 bg-dblack opacity-70 rounded-md"></div>
             <div className="absolute inset-0 flex flex-col items-center justify-center p-2">
                 <h2 className="text-white text-2xl font-bold text-center mb-2">Vibrant Community Engagement</h2>
@@ -103,7 +103,7 @@ const About = () => {
             </div>
           </div>
           <div className="relative max-w-[400px] mx-auto mt-8">
-            <Image className="w-full object-cover h-[350px] rounded-md" src={Eimage} width={400} height={350} alt="Excellence in Experience Image" />
+            <Image className="w-[400px] object-cover h-[350px] rounded-md" src={Eimage} width={400} height={350} alt="Excellence in Experience Image" />
             <div className="absolute inset-0 bg-dblack opacity-70 rounded-md"></div>
             <div className="absolute inset-0 flex flex-col items-center justify-center p-2">
                 <h2 className="text-white text-2xl font-bold text-center mb-2">Excellence in Experience</h2>
@@ -111,7 +111,7 @@ const About = () => {
             </div>
           </div>
         </div>
-        <div className="py-24 px-8 md:px-12">
+        <div className="pt-24 pb-8 px-8 md:px-12">
           <p className="text-dbluew dark:text-dgrey font-heading text-center text-lg md:text-2xl lg:text-3xl">Join us to redefine dining, one delightful moment at a time.</p>
         </div>
       </div>
