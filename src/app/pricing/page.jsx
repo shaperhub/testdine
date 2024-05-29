@@ -136,10 +136,10 @@ const Pricing = () => {
             </div>
             <div className="flex justify-center text-center py-12 gap-2">
               <Link href="">
-                <button className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-2 text-dbluew dark:text-white inline-flex items-center font-bold'>Get Started</button>
+                <button className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dbluew dark:text-white inline-flex items-center font-regular'>Get Started</button>
               </Link>
-              {!ttier && (<button onClick={tastefunc} className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-2 text-dbluew dark:text-white inline-flex items-center font-bold'>Learn More</button>)}
-              {ttier && (<button onClick={(e) => setTtier(false)} className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-2 text-dred dark:text-white inline-flex items-center font-bold'>Show Less</button>)}
+              {!ttier && (<button onClick={tastefunc} className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dbluew dark:text-white inline-flex items-center font-regular'>Learn More</button>)}
+              {ttier && (<button onClick={(e) => setTtier(false)} className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dred dark:text-white inline-flex items-center font-regular'>Show Less</button>)}
             </div>
 
             {/* Mobile Taste Starter */}
@@ -286,10 +286,10 @@ const Pricing = () => {
             </div>
             <div className="flex justify-center text-center py-12 gap-2">
               <Link href="">
-                <button className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-2 text-dbluew dark:text-white inline-flex items-center font-bold'>Get Started</button>
+                <button className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dbluew dark:text-white inline-flex items-center font-regular'>Get Started</button>
               </Link>
-              {!etier && (<button onClick={epicfunc} className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-2 text-dbluew dark:text-white inline-flex items-center font-bold'>Learn More</button>)}
-              {etier && (<button onClick={(e) => setEtier(false)} className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-2 text-dred dark:text-white inline-flex items-center font-bold'>Show Less</button>)}
+              {!etier && (<button onClick={epicfunc} className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dbluew dark:text-white inline-flex items-center font-regular'>Learn More</button>)}
+              {etier && (<button onClick={(e) => setEtier(false)} className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dred dark:text-white inline-flex items-center font-regular'>Show Less</button>)}
             </div>
 
             {/* Mobile Epicurean Elite */}
@@ -429,10 +429,10 @@ const Pricing = () => {
             </div>
             <div className="flex justify-center text-center py-12 gap-2">
               <Link href="">
-                <button className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-2 text-dbluew dark:text-white inline-flex items-center font-bold'>Get Started</button>
+                <button className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dbluew dark:text-white inline-flex items-center font-regular'>Get Started</button>
               </Link>
-              {!ctier && (<button onClick={cuisinefunc} className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-2 text-dbluew dark:text-white inline-flex items-center font-bold'>Learn More</button>)}
-              {ctier && (<button onClick={(e) => setCtier(false)} className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-2 text-dred dark:text-white inline-flex items-center font-bold'>Show Less</button>)}
+              {!ctier && (<button onClick={cuisinefunc} className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dbluew dark:text-white inline-flex items-center font-regular'>Learn More</button>)}
+              {ctier && (<button onClick={(e) => setCtier(false)} className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dred dark:text-white inline-flex items-center font-regular'>Show Less</button>)}
             </div>
 
             {/* Mobile Cuisine Crafter */}

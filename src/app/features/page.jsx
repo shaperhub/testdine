@@ -1,18 +1,22 @@
 import Image from "next/image";
 import Link from "next/link";
-import Foryou from "../../../public/forYouLightMode.png"
-import ForyouDark from "../../../public/forYouDark.png"
-import Modify from "../../../public/ni2.png"
-import ModifyDark from "../../../public/ni2d.png"
-import Dine from "../../../public/light1.png"
-import DineDark from "../../../public/dark1.png"
-import Epic from "../../../public/newchat.png"
+// import Foryou from "../../../public/forYouLightMode.png"
+// import ForyouDark from "../../../public/forYouDark.png"
+// import Modify from "../../../public/ni2.png"
+// import ModifyDark from "../../../public/ni2d.png"
+// import Dine from "../../../public/light1.png"
+// import DineDark from "../../../public/dark1.png"
+// import Epic from "../../../public/newchat.png"
 import ForyouIcon from "../../../public/foryou.png"
 import EpicIcon from "../../../public/epicconc.png"
 import ModifyIcon from "../../../public/modifydish.png"
 import DineIcon from "../../../public/dinegroup.png"
 import IosApp from "../../../public/appstore.png"
 import AndroidApp from "../../../public/googleplay.png"
+import AppForYou from "../../../public/AppForYouPage.png"
+import AppModify from "../../../public/AppNutritionalInsight.png"
+import AppDine from "../../../public/AppGroupPage.png"
+import AppEpic from "../../../public/AppEpicureanConciergeChat.png"
 
 const Features = () => {
   return (
@@ -62,9 +66,8 @@ const Features = () => {
               </p>
             </div>
           </div>
-          <div className='lg:w-1/2 my-4 flex justify-center'>
-            <Image className="dark:hidden" src={Foryou} width={320} height={400} alt="For You Image" />
-            <Image className="hidden dark:flex" src={ForyouDark} width={320} height={400} alt="For You Image Darkmode" />
+          <div className='lg:w-1/2 my-4 flex justify-center max-h-[400px] lg1440:max-h-[500px]'>
+            <Image className="" src={AppForYou} width={460} height={400} alt="For You Image" />
           </div>
         </div>
       </div>
@@ -113,9 +116,8 @@ const Features = () => {
                 </p>
               </div>
           </div>
-          <div className='lg:w-1/2 my-4 flex justify-center'>
-            <Image className="dark:hidden" src={Modify} width={420} height={400} alt="Modify Dish Image" />
-            <Image className="hidden dark:flex" src={ModifyDark} width={420} height={400} alt="Modify Dish Image Darkmode" />
+          <div className='lg:w-1/2 my-4 flex justify-center max-h-[350px] lg1440:max-h-[500px]'>
+            <Image className="" src={AppModify} width={520} height={400} alt="Modify Dish Image" />
           </div>
         </div>
         <p className='italic font-bold text-dbluew dark:text-dgrey lg:px-36 lgxl:px-72 mt-12 text-center lg:text-2xl'>
@@ -168,9 +170,8 @@ const Features = () => {
               </p>
             </div>
           </div>
-          <div className='lg:w-1/2 my-4 flex justify-center'>
-            <Image className="dark:hidden" src={Dine} width={420} height={400} alt="Dine Group Image" />
-            <Image className="hidden dark:flex" src={DineDark} width={420} height={400} alt="Dine Group Image Darkmode" />
+          <div className='lg:w-1/2 my-4 flex justify-center max-h-[350px] lg1440:max-h-[500px]'>
+            <Image className="" src={AppDine} width={520} height={400} alt="Dine Group Image" />
           </div>
         </div>
         <p className='font-bold italic text-dbluew dark:text-dgrey lg:px-36 lgxl:px-72 mt-12 text-center lg:text-2xl'>
@@ -222,10 +223,11 @@ const Features = () => {
               </p>
             </div>
           </div>
-          <div className='lg:w-1/2 my-4 flex justify-center'>
-            <Image className="border-2 border-dblue rounded-2xl" src={Epic} width={420} height={400} alt="Epicurean Concierge Image" />
+          <div className='lg:w-1/2 my-4 flex justify-center max-h-[400px] lg1440:max-h-[500px]'>
+            <Image className="" src={AppEpic} width={460} height={400} alt="Epicurean Concierge Image" />
           </div>
         </div>
+
         {/* Download Our App */}
         <div className='flex flex-col justify-center items-center gap-8 px-8 md:px-16 lg:px-32 lgxl:px-64 py-12 bg-white dark:bg-black'>
           <div className='mb-2'>

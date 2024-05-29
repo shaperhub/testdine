@@ -418,7 +418,7 @@ export default function Home() {
       </div>
 
       {/* FAQS */}
-      <div className="bg-dlightestgreen dark:bg-dblack/90 text-black dark:text-white px-8 md:px-36 py-16">
+      <div className="bg-dlightestgreen dark:bg-dblack text-black dark:text-white px-8 md:px-36 py-16">
         <h1 className="font-heading text-3xl mb-4 text-dbluew dark:text-dgrey text-center md:text-left">Frequently Asked Questions</h1>
         <Accordion type="single" collapsible className="font-regular">
           <AccordionItem value="item-1">
