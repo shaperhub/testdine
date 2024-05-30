@@ -139,7 +139,7 @@ const Pricing = () => {
                 <button className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dbluew dark:text-white inline-flex items-center font-regular'>Get Started</button>
               </Link>
               {!ttier && (<button onClick={tastefunc} className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dbluew dark:text-white inline-flex items-center font-regular'>Learn More</button>)}
-              {ttier && (<button onClick={(e) => setTtier(false)} className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dred dark:text-white inline-flex items-center font-regular'>Show Less</button>)}
+              {ttier && (<button onClick={(e) => setTtier(false)} className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dred inline-flex items-center font-regular'>Show Less</button>)}
             </div>
 
             {/* Mobile Taste Starter */}
@@ -289,7 +289,7 @@ const Pricing = () => {
                 <button className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dbluew dark:text-white inline-flex items-center font-regular'>Get Started</button>
               </Link>
               {!etier && (<button onClick={epicfunc} className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dbluew dark:text-white inline-flex items-center font-regular'>Learn More</button>)}
-              {etier && (<button onClick={(e) => setEtier(false)} className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dred dark:text-white inline-flex items-center font-regular'>Show Less</button>)}
+              {etier && (<button onClick={(e) => setEtier(false)} className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dred inline-flex items-center font-regular'>Show Less</button>)}
             </div>
 
             {/* Mobile Epicurean Elite */}
@@ -432,7 +432,7 @@ const Pricing = () => {
                 <button className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dbluew dark:text-white inline-flex items-center font-regular'>Get Started</button>
               </Link>
               {!ctier && (<button onClick={cuisinefunc} className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dbluew dark:text-white inline-flex items-center font-regular'>Learn More</button>)}
-              {ctier && (<button onClick={(e) => setCtier(false)} className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dred dark:text-white inline-flex items-center font-regular'>Show Less</button>)}
+              {ctier && (<button onClick={(e) => setCtier(false)} className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-1 text-dred inline-flex items-center font-regular'>Show Less</button>)}
             </div>
 
             {/* Mobile Cuisine Crafter */}
