@@ -5,6 +5,7 @@ import Footer from "@/components/footer/Footer";
 import { ThemeProvider } from "@/context/ThemeContext";
 import {auth} from '@/app/firebase/config'
 import ScrollToTop from "@/components/ScrollToTop/ScrollToTop";
+import Script from "next/script";
 
 const merry = Merriweather({ subsets: ['latin'], weight: "900", variable: "--font-merriweather-regular"});
 const poppins = Poppins({ subsets: ['latin'], weight: "400", variable: "--font-poppins-regular"});
@@ -28,6 +29,18 @@ export default function RootLayout({ children }) {
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="manifest" href="/site.webmanifest" />
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=G-4BVCQTESPN"></Script>
+        <Script id="google-analytics">
+          {
+            `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-4BVCQTESPN');
+            
+            `
+          }
+        </Script>
       </head>
       <body className={`${poppins.variable} ${poppinsbig.variable} ${merry.variable}`}>
         <ThemeProvider>
