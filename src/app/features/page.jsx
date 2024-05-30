@@ -62,9 +62,9 @@ const Features = () => {
               </p>
             </div>
           </div>
-          <div className='lg:w-1/2 my-4 flex justify-center'>
-            <Image className="dark:hidden" src={Foryou} width={420} height={400} alt="For You Image" priority />
-            <Image className="hidden dark:flex" src={ForyouDark} width={420} height={400} alt="For You Image Dark" priority />
+          <div className='lg:w-1/2 my-4 flex justify-center max-h-[420px] lg1440:max-h-[460px]'>
+            <Image className="dark:hidden" src={Foryou} width={220} height={400} alt="For You Image" priority />
+            <Image className="hidden dark:flex" src={ForyouDark} width={220} height={400} alt="For You Image Dark" priority />
           </div>
           {/* <div className='lg:w-1/2 my-4 flex justify-center max-h-[400px] lg1440:max-h-[500px]'>
             <Image className="" src={AppForYou} width={460} height={400} alt="For You Image" />
@@ -118,10 +118,9 @@ const Features = () => {
                 </p>
               </div>
           </div>
-          <div className='lg:w-1/2 my-4 flex justify-center'>
-            {/* <Image className="" src={AppModify} width={520} height={400} alt="Modify Dish Image" /> */}
-            <Image className="dark:hidden" src={Modify} width={420} height={400} alt="Modify Dish Image" />
-            <Image className="hidden dark:flex" src={ModifyDark} width={420} height={400} alt="Modify Dish Image Dark" />
+          <div className='lg:w-1/2 my-4 flex justify-center max-h-[420px] lg1440:max-h-[460px]'>
+            <Image className="dark:hidden" src={Modify} width={220} height={400} alt="Modify Dish Image" />
+            <Image className="hidden dark:flex" src={ModifyDark} width={220} height={400} alt="Modify Dish Image Dark" />
           </div>
           {/* <div className='lg:w-1/2 my-4 flex justify-center max-h-[350px] lg1440:max-h-[500px]'>
             <Image className="" src={AppModify} width={520} height={400} alt="Modify Dish Image" />
@@ -179,10 +178,9 @@ const Features = () => {
               </p>
             </div>
           </div>
-          <div className='lg:w-1/2 my-4 flex justify-center'>
-            {/* <Image className="" src={AppDine} width={520} height={400} alt="Dine Group Image" /> */}
-            <Image className="dark:hidden" src={Dine} width={420} height={400} alt="Dine Group Image" />
-            <Image className="hidden dark:flex" src={DineDark} width={420} height={400} alt="Dine Group Image Dark" />
+          <div className='lg:w-1/2 my-4 flex justify-center max-h-[420px] lg1440:max-h-[460px]'>
+            <Image className="dark:hidden" src={Dine} width={220} height={400} alt="Dine Group Image" />
+            <Image className="hidden dark:flex" src={DineDark} width={220} height={400} alt="Dine Group Image Dark" />
           </div>
         </div>
         <p className='font-bold italic text-dbluew dark:text-dgrey lg:px-36 lgxl:px-72 mt-12 text-center lg:text-2xl'>
@@ -203,7 +201,7 @@ const Features = () => {
             ensuring every dish meets your exact preferences and elevates your dining experiences with personalized, insightful, and sophisticated guidance:
           </p>
         </div>
-        <div className="flex flex-col lg:flex-row gap-4">
+        <div className="flex flex-col lg:flex-row gap-4 pb-12">
           <div className="flex flex-col justify-center items-center gap-4 lg:w-1/2 my-4 lgmd:pl-36 lgxl:pl-64">
             <div className="rounded-[24px] p-8 bg-dlightestgreen dark:bg-black border-1 border-dlightgreen shadow-epc">
               <h4 className='font-heading text-dbluew dark:text-dlightblue mb-6 text-center'>Personalized Dining Experiences</h4>
@@ -234,8 +232,8 @@ const Features = () => {
               </p>
             </div>
           </div>
-          <div className='lg:w-1/2 my-4 flex justify-center'>
-            <Image className="" src={Epic} width={420} height={400} alt="Epicurean Concierge Image" />
+          <div className='lg:w-1/2 my-4 flex justify-center max-h-[420px] lg1440:max-h-[460px]'>
+            <Image className="" src={Epic} width={220} height={400} alt="Epicurean Concierge Image" />
           </div>
         </div>
 
