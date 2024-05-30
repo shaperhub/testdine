@@ -1,22 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
-import Foryou from "../../../public/forYouLightMode.png"
-import ForyouDark from "../../../public/forYouDark.png"
-import Modify from "../../../public/ni2.png"
-import ModifyDark from "../../../public/ni2d.png"
-import Dine from "../../../public/light1.png"
-import DineDark from "../../../public/dark1.png"
-import Epic from "../../../public/newchat.png"
+import Foryou from "../../../public/newforyou.png"
+import ForyouDark from "../../../public/newforyoudark.png"
+import Modify from "../../../public/newmodify.png"
+import ModifyDark from "../../../public/newmodifydark.png"
+import Dine from "../../../public/newdine.png"
+import DineDark from "../../../public/newdinedark.png"
+import Epic from "../../../public/newepic.png"
 import ForyouIcon from "../../../public/foryou.png"
 import EpicIcon from "../../../public/epicconc.png"
 import ModifyIcon from "../../../public/modifydish.png"
 import DineIcon from "../../../public/dinegroup.png"
 import IosApp from "../../../public/appstore.png"
 import AndroidApp from "../../../public/googleplay.png"
-import AppForYou from "../../../public/AppForYouPage.png"
-import AppModify from "../../../public/AppNutritionalInsight.png"
-import AppDine from "../../../public/AppGroupPage.png"
-// import AppEpic from "../../../public/AppEpicureanConciergeChat.png"
 
 const Features = () => {
   return (
@@ -67,8 +63,8 @@ const Features = () => {
             </div>
           </div>
           <div className='lg:w-1/2 my-4 flex justify-center'>
-            <Image className="dark:hidden" src={Foryou} width={420} height={400} alt="For You Image" />
-            <Image className="hidden dark:flex" src={ForyouDark} width={420} height={400} alt="For You Image Dark" />
+            <Image className="dark:hidden" src={Foryou} width={420} height={400} alt="For You Image" priority />
+            <Image className="hidden dark:flex" src={ForyouDark} width={420} height={400} alt="For You Image Dark" priority />
           </div>
           {/* <div className='lg:w-1/2 my-4 flex justify-center max-h-[400px] lg1440:max-h-[500px]'>
             <Image className="" src={AppForYou} width={460} height={400} alt="For You Image" />
@@ -239,7 +235,7 @@ const Features = () => {
             </div>
           </div>
           <div className='lg:w-1/2 my-4 flex justify-center'>
-            <Image className="border-2 border-dbluew rounded-3xl" src={Epic} width={420} height={400} alt="Epicurean Concierge Image" />
+            <Image className="" src={Epic} width={420} height={400} alt="Epicurean Concierge Image" />
           </div>
         </div>
 
