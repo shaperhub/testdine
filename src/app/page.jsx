@@ -65,8 +65,8 @@ export default function Home() {
       {/* Igniting Joy */}
       <div className="px-8 md:px-24 py-12 md:py-24 bg-white dark:bg-dblack/90">
         <h2 className="text-dbluew dark:text-dlightblue mb-16 font-heading text-3xl text-center">Discover Our Innovative Features for a <span className="text-dgreenw dark:text-dgreen">Modern Dining Experience</span></h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg1440:grid-cols-4 place-items-center gap-4 lg2100:px-72">
-          <div className="rounded-[24px] h-[420px] md:max-w-[300px] p-8 bg-dlightestgreen dark:bg-black border-1 border-dlightgreen shadow-epc">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg1440:grid-cols-4 place-items-center place-content-center gap-4 lg2100:px-72">
+          <div className="rounded-[24px] h-[420px] lg1440:max-w-[300px] p-8 bg-dlightestgreen dark:bg-black border-1 border-dlightgreen shadow-epc">
             <div className="flex justify-center mb-4">
               <Image className="" src={Foryou} width={35} height={35} alt="For You Icon" quality={100} />
             </div>
@@ -80,7 +80,7 @@ export default function Home() {
               </Link>
             </div>
           </div>
-          <div className="rounded-[24px] h-[420px] md:max-w-[300px] p-8 bg-dlightestgreen dark:bg-black border-1 border-dlightgreen shadow-epc">
+          <div className="rounded-[24px] h-[420px] lg1440:max-w-[300px] p-8 bg-dlightestgreen dark:bg-black border-1 border-dlightgreen shadow-epc">
             <div className="flex justify-center mb-4">
               <Image className="" src={Modify} width={35} height={35} alt="Modify Dish Icon" quality={100} />
             </div>
@@ -95,7 +95,7 @@ export default function Home() {
               </Link>
             </div>
           </div>
-          <div className="rounded-[24px] h-[420px] md:max-w-[300px] p-8 bg-dlightestgreen dark:bg-black border-1 border-dlightgreen shadow-epc">
+          <div className="rounded-[24px] h-[420px] lg1440:max-w-[300px] p-8 bg-dlightestgreen dark:bg-black border-1 border-dlightgreen shadow-epc">
             <div className="flex justify-center mb-4">
               <Image className="" src={Dinegroup} width={35} height={35} alt="Dine Group Icon" quality={100} />
             </div>
@@ -110,7 +110,7 @@ export default function Home() {
               </Link>
             </div>
           </div>
-          <div className="rounded-[24px] h-[420px] md:max-w-[300px] p-8 bg-dlightestgreen dark:bg-black border-1 border-dlightgreen shadow-epc">
+          <div className="rounded-[24px] h-[420px] lg1440:max-w-[300px] p-8 bg-dlightestgreen dark:bg-black border-1 border-dlightgreen shadow-epc">
             <div className="flex justify-center mb-4">
               <Image className="" src={Epic} width={35} height={35} alt="Epicurean Concierge Icon" quality={100} />
             </div>
