@@ -4,15 +4,29 @@ import Link from 'next/link'
 import Image from 'next/image';
 import Forgotpic from '../../../public/ForgotPassword.png'
 import {auth} from '@/app/firebase/config'
+import {sendPasswordResetEmail} from 'firebase/auth'
 import { useRouter } from 'next/navigation';
 
 
 const PasswordReset = () => {
+
   const [email, setEmail] = useState('');
-  // const router = useRouter()
+  const router = useRouter()
+
+  const resetPassword = () => {
+    sendPasswordResetEmail(auth, email).then(() => {
+    // Password reset email sent!
+      router.push('/')
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // ..
+    });
+  }
 
   return (
-    <div data-aos="fade-up" className="min-h-screen flex items-center justify-center pt-36 pb-16 bg-white dark:bg-dblack text-sm font-regular">
+    <div className="min-h-screen flex items-center justify-center pt-36 pb-16 bg-white dark:bg-dblack text-sm font-regular">
       <div className="bg-dlightgreen dark:bg-dlightblack p-10 rounded-lg shadow-xl w-96">
         <h1 className="text-black dark:text-white text-center text-2xl mb-4 font-heading">Forgot Password?</h1>
         <p className='mb-4 text-black dark:text-white text-center'>Enter your registered email below to receive password reset instructions.</p>
@@ -25,7 +39,8 @@ const PasswordReset = () => {
           className="w-full p-3 my-4 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey"
         />
         <button 
-          className="w-full px-8 py-4 bg-dbluew dark:bg-dgreen/20 hover:bg-dbluew/80 dark:hover:bg-dgreen/30 rounded-full font-bold text-white dark:text-dgreen"
+          onClick={resetPassword}
+          className="w-full bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-2 text-dbluew dark:text-white text-center font-bold"
         >
           Submit
         </button>

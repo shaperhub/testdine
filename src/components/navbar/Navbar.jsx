@@ -10,6 +10,9 @@ import { useRouter, useSelectedLayoutSegment } from 'next/navigation'
 import {onAuthStateChanged} from "firebase/auth"
 import {auth} from "@/app/firebase/config"
 import ComingSoon from '../ComingSoon/ComingSoon'
+import { cn } from "@/lib/utils"
+// import { Icons } from "@/components/icons"
+import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle } from "@/components/ui/navigation-menu"
 
 function useUserSession(initialUser) {
 	// The initialUser comes from the server via a server component
@@ -59,7 +62,7 @@ export default function Navbar({initialUser}) {
   }
 
   return (
-    <div className='fixed w-full h-28 bg-dlightgreen dark:bg-dblue shadow-xl z-[100] font-regular'>
+    <nav className='fixed w-full h-28 bg-dlightgreen dark:bg-dblue shadow-xl z-[100] font-regular'>
         <div className=''><ComingSoon /></div>
         <div className='flex justify-between items-center w-full h-full px-8 2xl:px-16 mb-40 -mt-6'>
             <Link className='dark:hidden' href='/'>
@@ -69,103 +72,90 @@ export default function Navbar({initialUser}) {
                 <Image className="" src={NavlogDark} alt="DineIntel Logo Darkmode" width='150' height='70' priority />
             </Link>
             <div>
-              <ul className='hidden min-[950px]:flex pr-4 text-black dark:text-dlightgreen'>
-                <Link href='/about'>
-                  <li id='about' 
-                  className={segment == 'about' 
-                  ? 'border-b-dgreenw border-b-2 ml-10 p-0.5 text-sm' 
-                  : 'ml-10 p-0.5 text-sm group transition duration-300'}
-                  >About
-                  <span className='block max-w-0 group-hover:max-w-full transition-all duration-200 h-0.5 bg-dgreenw'></span>
-                  </li>
-                </Link>
-                <Link href='/features'>
-                  <li id='features' 
-                  className={segment == 'features' 
-                  ? 'border-b-dgreenw border-b-2 ml-10 p-0.5 text-sm' 
-                  : 'ml-10 p-0.5 text-sm group transition duration-300'}
-                  >Features
-                  <span className='block max-w-0 group-hover:max-w-full transition-all duration-200 h-0.5 bg-dgreenw'></span>
-                  </li>
-                </Link>
-                <Link href='/pricing'>
-                  <li id='pricing' 
-                  className={segment == 'pricing' 
-                  ? 'border-b-dgreenw border-b-2 ml-10 p-0.5 text-sm' 
-                  : 'ml-10 p-0.5 text-sm group transition duration-300'}
-                  >Pricing
-                  <span className='block max-w-0 group-hover:max-w-full transition-all duration-200 h-0.5 bg-dgreenw'></span>
-                  </li>
-                </Link>
-                <Link href='/faqs'>
-                  <li id='faqs' 
-                  className={segment == 'faqs' 
-                  ? 'border-b-dgreenw border-b-2 ml-10 p-0.5 text-sm' 
-                  : 'ml-10 p-0.5 text-sm group transition duration-300'}
-                  >FAQs
-                  <span className='block max-w-0 group-hover:max-w-full transition-all duration-200 h-0.5 bg-dgreenw'></span>
-                  </li>
-                </Link>
-                {/* <Link href='/blog'>
-                  <li id='blog' 
-                  className={segment == 'blog' 
-                  ? 'border-b-dgreenw border-b-2 ml-10 p-0.5 text-sm' 
-                  : 'ml-10 p-0.5 text-sm group transition duration-300'}
-                  >Blog
-                  <span className='block max-w-0 group-hover:max-w-full transition-all duration-200 h-0.5 bg-dgreenw'></span>
-                  </li>
-                </Link> */}
-                {/*<Link href='/contact'>
-                  <li id='contact' 
-                  className={segment == 'contact' 
-                  ? 'border-b-dgreenw border-b-2 ml-10 p-0.5 text-sm' 
-                  : 'ml-10 p-0.5 text-sm group transition duration-300'}
-                  >Contact
-                  <span className='block max-w-0 group-hover:max-w-full transition-all duration-200 h-0.5 bg-dgreenw'></span>
-                  </li>
-                </Link>
-                
+              <ul className='hidden min-[950px]:flex text-black dark:text-dlightgreen'>
+                <li id='about' 
+                className={segment == 'about' 
+                ? 'border-b-dgreenw border-b-2 ml-10 p-0.5 text-sm' 
+                : 'ml-10 p-0.5 text-sm group transition duration-300'}
+                ><Link href='/about' aria-labelledby='DineIntel About Page Link'>About</Link>
+                <span className='block max-w-0 group-hover:max-w-full transition-all duration-200 h-0.5 bg-dgreenw'></span>
+                </li>
+
+                <li id='features' 
+                className={segment == 'features' 
+                ? 'border-b-dgreenw border-b-2 ml-10 p-0.5 text-sm' 
+                : 'ml-10 p-0.5 text-sm group transition duration-300'}
+                ><Link href='/features' aria-labelledby='DineIntel Features Page Link'>Features</Link>
+                <span className='block max-w-0 group-hover:max-w-full transition-all duration-200 h-0.5 bg-dgreenw'></span>
+                </li>
+
+                <li id='pricing' 
+                className={segment == 'pricing' 
+                ? 'border-b-dgreenw border-b-2 ml-10 p-0.5 text-sm' 
+                : 'ml-10 p-0.5 text-sm group transition duration-300'}
+                ><Link href='/pricing' aria-labelledby='DineIntel Tiers and Pricing Link'>Pricing</Link>
+                <span className='block max-w-0 group-hover:max-w-full transition-all duration-200 h-0.5 bg-dgreenw'></span>
+                </li>
+
+                <li id='faqs' 
+                className={segment == 'faqs' 
+                ? 'border-b-dgreenw border-b-2 ml-10 p-0.5 text-sm' 
+                : 'ml-10 p-0.5 text-sm group transition duration-300'}
+                ><Link href='/faqs' aria-labelledby='DineIntel Frequently Asked Questions Page Link'>FAQs</Link>
+                <span className='block max-w-0 group-hover:max-w-full transition-all duration-200 h-0.5 bg-dgreenw'></span>
+                </li>
+
+              {/* <li id='blog' 
+                className={segment == 'blog' 
+                ? 'border-b-dgreenw border-b-2 ml-10 p-0.5 text-sm' 
+                : 'ml-10 p-0.5 text-sm group transition duration-300'}
+                ><Link href='/blog' aria-labelledby='DineIntel Blog Page Link'>Blog</Link>
+                <span className='block max-w-0 group-hover:max-w-full transition-all duration-200 h-0.5 bg-dgreenw'></span>
+                </li> */}
+
+                <li id='contact' 
+                className={segment == 'contact' 
+                ? 'border-b-dgreenw border-b-2 ml-10 p-0.5 text-sm' 
+                : 'ml-10 p-0.5 text-sm group transition duration-300'}
+                ><Link href='/contact' aria-labelledby='DineIntel Contact Page Link'>Contact</Link>
+                <span className='block max-w-0 group-hover:max-w-full transition-all duration-200 h-0.5 bg-dgreenw'></span>
+                </li>
+              
                  {user ? (
                     <>
-                        <Link href='' onClick={handleSignOut}>
-                        <li id='signout' 
-                        className='ml-10 p-0.5 text-sm group transition duration-300'
-                        >Sign Out
-                        <span className='block max-w-0 group-hover:max-w-full transition-all duration-200 h-0.5 bg-dgreenw'></span>
-                        </li>
-                        </Link>
-                        <Link href='/user-profile'>
-                        <li id='profile' 
-                        className={segment == 'user-profile' 
-                        ? 'border-b-dgreenw border-b-2 ml-10 p-0.5 text-sm' 
-                        : 'ml-10 p-0.5 text-sm group transition duration-300'}
-                        >My Profile
-                        <span className='block max-w-0 group-hover:max-w-full transition-all duration-200 h-0.5 bg-dgreenw'></span>
-                        </li>
-                        </Link>
+                      <li id='signout' onClick={handleSignOut}
+                      className='ml-10 p-0.5 text-sm group transition duration-300'
+                      ><Link href='' aria-labelledby='DineIntel Sign Out Button'>Sign Out</Link>
+                      <span className='block max-w-0 group-hover:max-w-full transition-all duration-200 h-0.5 bg-dgreenw'></span>
+                      </li>
+                      
+                      <li id='profile' 
+                      className={segment == 'user-profile' 
+                      ? 'border-b-dgreenw border-b-2 ml-10 p-0.5 text-sm' 
+                      : 'ml-10 p-0.5 text-sm group transition duration-300'}
+                      ><Link href='/user-profile' aria-label='DineIntel User Profile Page Link'>Profile</Link>
+                      <span className='block max-w-0 group-hover:max-w-full transition-all duration-200 h-0.5 bg-dgreenw'></span>
+                      </li>
                     </>
                     ) : (
                     <>
-                        <Link href='/sign-up'>
-                        <li id='signup' 
-                        className={segment == 'sign-up' 
-                        ? 'border-b-dgreenw border-b-2 ml-10 p-0.5 text-sm' 
-                        : 'ml-10 p-0.5 text-sm group transition duration-300'}
-                        >Sign Up
-                        <span className='block max-w-0 group-hover:max-w-full transition-all duration-200 h-0.5 bg-dgreenw'></span>
-                        </li>
-                        </Link>
-                        <Link href='/log-in'>
-                        <li id='login' 
-                        className={segment == 'log-in' 
-                        ? 'border-b-dgreenw border-b-2 ml-10 p-0.5 text-sm' 
-                        : 'ml-10 p-0.5 text-sm group transition duration-300'}
-                        >Log In
-                        <span className='block max-w-0 group-hover:max-w-full transition-all duration-200 h-0.5 bg-dgreenw'></span>
-                        </li>
-                        </Link>
+                      <li id='signup' 
+                      className={segment == 'sign-up' 
+                      ? 'border-b-dgreenw border-b-2 ml-10 p-0.5 text-sm' 
+                      : 'ml-10 p-0.5 text-sm group transition duration-300'}
+                      ><Link href='/sign-up' aria-labelledby='DineIntel Sign Up Page Link'>Sign Up</Link>
+                      <span className='block max-w-0 group-hover:max-w-full transition-all duration-200 h-0.5 bg-dgreenw'></span>
+                      </li>
+
+                      <li id='login' 
+                      className={segment == 'log-in' 
+                      ? 'border-b-dgreenw border-b-2 ml-10 p-0.5 text-sm' 
+                      : 'ml-10 p-0.5 text-sm group transition duration-300'}
+                      ><Link href='/log-in' aria-labelledby='DineIntel Login Page Link'>Login</Link>
+                      <span className='block max-w-0 group-hover:max-w-full transition-all duration-200 h-0.5 bg-dgreenw'></span>
+                      </li>
                     </>
-                )} */}
+                )}
                 <div className='ml-4'><DarkModeToggle /></div>
               </ul>
 
@@ -204,48 +194,48 @@ export default function Navbar({initialUser}) {
             </div>
             <div className='flex flex-col'>
               <ul className=''>
-                <Link href='/about'>
-                  <li onClick={() => setNav(false)} id='about' className='py-4 text-sm'>About</li>
-                </Link>
-                <Link href='/features'>
-                  <li onClick={() => setNav(false)} id='features' className='py-4 text-sm'>Features</li>
-                </Link>
-                <Link href='/pricing'>
-                  <li onClick={() => setNav(false)} id='pricing' className='py-4 text-sm'>Pricing</li>
-                </Link>
-                <Link href='/faqs'>
-                  <li onClick={() => setNav(false)} id='faqs' className='py-4 text-sm'>FAQs</li>
-                </Link>
-                {/* <Link href='/blog'>
-                  <li onClick={() => setNav(false)} id='blog' className='py-4 text-sm'>Blog</li>
-                </Link> */}
-                {/*<Link href='/contact'>
-                  <li onClick={() => setNav(false)} id='contact' className='py-4 text-sm'>Contact</li>
-                </Link>
+                <li onClick={() => setNav(false)} id='about' className='py-4 text-sm'>
+                  <Link href='/about' aria-labelledby='DineIntel About Page Link'>About</Link>
+                </li>
+                <li onClick={() => setNav(false)} id='features' className='py-4 text-sm'>
+                  <Link href='/features' aria-labelledby='DineIntel Features Page Link'>Features</Link>
+                </li>
+                <li onClick={() => setNav(false)} id='pricing' className='py-4 text-sm'>
+                  <Link href='/pricing' aria-labelledby='DineIntel Tiers and Pricing Link'>Pricing</Link>
+                </li>
+                <li onClick={() => setNav(false)} id='faqs' className='py-4 text-sm'>
+                  <Link href='/faqs' aria-labelledby='DineIntel Frequently Asked Questions Page Link'>FAQs</Link>
+                </li>
+                {/* <li onClick={() => setNav(false)} id='blog' className='py-4 text-sm'>
+                  <Link href='/blog' aria-labelledby='DineIntel Blog Page Link'>Blog</Link>
+                </li> */}
+                <li onClick={() => setNav(false)} id='contact' className='py-4 text-sm'>
+                  <Link href='/contact' aria-labelledby='DineIntel Contact Page Link'>Contact</Link>
+                </li>
 
                 {user ? (
                     <>
-                        <Link href='' onClick={handleSignOut}>
-                        <li onClick={() => setNav(false)} id='signout' className='py-4 text-sm'>Sign Out</li>
-                        </Link>
-                        <Link href='/user-profile'>
-                        <li onClick={() => setNav(false)} id='profile' className='py-4 text-sm'>My Profile</li>
-                        </Link>
+                      <li onClick={handleSignOut} id='signout' className='py-4 text-sm'>
+                        <Link href='' aria-labelledby='DineIntel Sign Out Button'>Sign Out</Link>
+                      </li>
+                      <li onClick={() => setNav(false)} id='profile' className='py-4 text-sm'>
+                        <Link href='/user-profile' aria-label='DineIntel User Profile Page Link'>Profile</Link>
+                      </li>
                     </>
                     ) : (
                     <>
-                        <Link href='/sign-up'>
-                        <li onClick={() => setNav(false)} id='signup' className='py-4 text-sm'>Sign Up</li>
-                        </Link>
-                        <Link href='/log-in'>
-                        <li onClick={() => setNav(false)} id='login' className='py-4 text-sm'>Log In</li>
-                        </Link>
+                      <li onClick={() => setNav(false)} id='signup' className='py-4 text-sm'>
+                        <Link href='/sign-up' aria-labelledby='DineIntel Sign Up Page Link'>Sign Up</Link>
+                      </li>
+                      <li onClick={() => setNav(false)} id='login' className='py-4 text-sm'>
+                        <Link href='/log-in' aria-labelledby='DineIntel Login Page Link'>Login</Link>
+                      </li>
                     </>
-                )} */}
+                )}
               </ul>
             </div>
           </div>
         </div>
-    </div>
+    </nav>
   )
 }

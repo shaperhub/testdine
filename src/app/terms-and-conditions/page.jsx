@@ -72,7 +72,7 @@ const TermsAndConditions = () => {
         <h2 className="font-bold text-xl">Subscription and Refund Policy</h2>
         <p>DineIntel is a subscription-based service. By subscribing, you agree to the following terms:</p>
         <ul className="list-disc list-inside">
-          <li><span className="font-bold">Subscription Terms:</span> Your subscription will automatically renew at the end of each billing cycle unless you cancel it before the renewal date. You can manage your subscription settings within the app.</li>
+          <li><span className="font-bold">Subscription Terms:</span> Your subscription will automatically renew at the end of each billing cycle unless you cancel it before the renewal date. You can manage your subscription settings within the app or website.</li>
           <li><span className="font-bold">Cancellation:</span> You may cancel your subscription at any time. Your subscription will remain active until the end of the current billing period, after which it will not be renewed.</li>
           <li><span className="font-bold">Refunds:</span> Refunds are not provided for any unused portion of the current subscription period. In case of a dispute or special circumstance, please contact our support team at <span className="font-bold">support@dineintel.io</span>.</li>
         </ul>

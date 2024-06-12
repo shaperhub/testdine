@@ -9,7 +9,7 @@ const Footer = () => {
   const currentyear = new Date().getFullYear();
 
   return (
-    <div className="text-xs md:text-sm font-regular">
+    <footer className="text-xs md:text-sm font-regular">
       <div className="footer bg-dblue px-8 2xl:px-16 pt-8">
         <div className="flex flex-wrap">
           <div className="w-full md:w-1/2 lg:w-4/12 xl:w-5/12">
@@ -31,6 +31,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="/"
+                    aria-labelledby='DineIntel Home Page Link'
                     className="text-dgrey hover:text-dgreen mb-4 inline-block"
                   >
                     Home
@@ -39,6 +40,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="/pricing"
+                    aria-labelledby='DineIntel Tiers and Pricing Page Link'
                     className="text-dgrey hover:text-dgreen mb-4 inline-block"
                   >
                     Pricing
@@ -47,6 +49,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="/features"
+                    aria-labelledby='DineIntel Features Page Link'
                     className="text-dgrey hover:text-dgreen mb-4 inline-block"
                   >
                     Features
@@ -65,6 +68,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="/terms-and-conditions"
+                    aria-labelledby='DineIntel Terms and Conditions Page Link'
                     className="text-dgrey hover:text-dgreen mb-4 inline-block"
                   >
                     Terms &amp; Conditions
@@ -73,6 +77,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="https://www.termsfeed.com/live/e70a25c5-a4d9-4666-9106-06971a074ffc"
+                    aria-labelledby='DineIntel Privacy Policy Page Link'
                     className="text-dgrey hover:text-dgreen mb-4 inline-block"
                   >
                     Privacy Policy
@@ -81,6 +86,7 @@ const Footer = () => {
                 <li>
                   <a
                     href="/about"
+                    aria-labelledby='DineIntel About Page Link'
                     className="text-dgrey hover:text-dgreen mb-4 inline-block"
                   >
                     About
@@ -97,20 +103,20 @@ const Footer = () => {
               </h2>
               {/* Social Media Icons */}
               <div className="flex gap-3 text-xl mb-6">
-                <Link className="text-dgrey hover:text-dgreen" href="https://www.facebook.com/profile.php?id=61559683601626"><FaFacebookF/></Link>
-                <Link className="text-dgrey hover:text-dgreen" href="https://www.instagram.com/dineintel/"><FaInstagram/></Link>
-                <Link className="text-dgrey hover:text-dgreen" href="https://x.com/dineintel"><FaXTwitter/></Link>
-                <Link className="text-dgrey hover:text-dgreen" href="https://www.youtube.com/@dineintel"><FaYoutube/></Link>
-                <Link className="text-dgrey hover:text-dgreen" href="https://www.linkedin.com/in/dine-intel-51216430b/"><FaLinkedin/></Link>
+                <Link className="text-dgrey hover:text-dgreen" href="https://www.facebook.com/profile.php?id=61559683601626" aria-label="DineIntel Facebook Page Link"><FaFacebookF/></Link>
+                <Link className="text-dgrey hover:text-dgreen" href="https://www.instagram.com/dineintel/" aria-label="DineIntel Instagram Page Link"><FaInstagram/></Link>
+                <Link className="text-dgrey hover:text-dgreen" href="https://x.com/dineintel" aria-label="DineIntel Twitter Page Link"><FaXTwitter/></Link>
+                <Link className="text-dgrey hover:text-dgreen" href="https://www.youtube.com/@dineintel" aria-label="DineIntel YouTube Page Link"><FaYoutube/></Link>
+                <Link className="text-dgrey hover:text-dgreen" href="https://www.linkedin.com/in/dine-intel-51216430b/" aria-label="DineIntel LinkedIn Page Link"><FaLinkedin/></Link>
               </div>
               <div className="text-white">
                 <div className="mb-4">
                   <p className="mb-2">To Contact Us:</p>
-                  <Link className="text-dgrey hover:text-dgreen" href="mailto:info@dineintel.io">info@dineintel.io</Link>
+                  <Link className="text-dgrey hover:text-dgreen" href="mailto:info@dineintel.io" aria-labelledby="DineIntel Contact Email Link">info@dineintel.io</Link>
                 </div>
                 <div className="mb-4">
                   <p className="mb-2">For Payment Related Issues:</p>
-                  <Link className="text-dgrey hover:text-dgreen" href="mailto:support@dineintel.io">support@dineintel.io</Link>
+                  <Link className="text-dgrey hover:text-dgreen" href="mailto:support@dineintel.io" aria-labelledby="DineIntel Support Email Link">support@dineintel.io</Link>
                 </div>
               </div>
             </div>
@@ -124,7 +130,7 @@ const Footer = () => {
           </p>
         </div>
       </div>
-    </div>
+    </footer>
   );
 };
 

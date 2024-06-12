@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Contactimage from "../../../public/LoginGraphic.png"
+import Button from "@/components/Button/Button";
 
 const Contact = () => {
   return (
@@ -33,7 +34,7 @@ const Contact = () => {
           ></textarea>
           <button 
             type="submit"
-            className="w-full px-8 py-4 bg-dbluew dark:bg-dgreen/20 hover:bg-dbluew/80 dark:hover:bg-dgreen/30 rounded-full font-bold text-white dark:text-dgreen"
+            className="w-full bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-2 text-dbluew dark:text-white text-center font-bold"
           >
             Submit
           </button>

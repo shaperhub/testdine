@@ -132,7 +132,7 @@ export default function Home() {
       {/* Pricing Cards */}
       <div className="px-8 md:px-24 py-12 md:py-16 bg-dlightestgreen dark:bg-dlightblack/90">
         <h2 className="text-dbluew dark:text-dlightblue mb-16 font-heading text-3xl text-center">Choose Your <span className="text-dgreenw dark:text-dgreen">Perfect Plan</span></h2>
-        <div className="flex flex-col lgmd:flex-row justify-center items-center gap-4">
+        <div className="flex flex-col lgmd:flex-row justify-center gap-4">
 
           {/* Taste Starter Card */}
           <div className="rounded-[24px] lgmd:max-w-[380px] lgmd:flex-1 p-8 mb-8 bg-white dark:bg-dblack font-regular text-dbluew  dark:text-dgrey">

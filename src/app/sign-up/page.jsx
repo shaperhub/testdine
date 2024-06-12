@@ -94,7 +94,8 @@ const SignUp = () => {
     try {
         const res = await createUserWithEmailAndPassword(auth, email, password)
         const userid = res.user.uid
-        handleCreate(firstname, lastname, email, useruname, userid, pic)
+        const userunamelower = useruname.toLowerCase()
+        handleCreate(firstname, lastname, email, userunamelower, userid, pic)
     } catch(e){
         console.error(e)
     }
@@ -126,11 +127,10 @@ const SignUp = () => {
           fcmToken: '',
           firstName: userfname,
           lastName: userlname,
-          userName: username.toLowerCase(),
+          userName: username,
           userEmail: useremail,
           userId: uid,
           userImage: upic,
-          subscriptionPlan: '',
           isProfilePublic: true,
           showMenus: true,
           showDietPref: true,
@@ -152,7 +152,7 @@ const SignUp = () => {
         setLastname('');
         setUseruname('')
         setImage('');
-        router.push('/user-profile')
+        router.push('/purchaseplan')
         return true
     } catch(e){
         console.error(e)
@@ -163,9 +163,9 @@ const SignUp = () => {
   return (
     <div className="bg-white/50 dark:bg-black/80 flex items-center justify-center pt-36 text-sm pb-8 font-regular">
       <div className="bg-white dark:bg-black p-10 rounded-lg shadow-xl w-96">
-        <h1 className="text-black dark:text-white text-2xl mb-4">Create An Account</h1>
-        <p className="text-ddarkgrey dark:text-dgrey mb-5">Sign up now to explore the app</p>
-        <button onClick={handleGoogleSignUp} className="flex w-full items-center justify-center outline-none px-8 py-4 bg-dbluew dark:bg-dgreen/20 hover:bg-dbluew/80 dark:hover:bg-dgreen/30 rounded-full font-bold text-white dark:text-dgreen">
+        <h1 className="text-black dark:text-white text-2xl mb-4 text-center">Create An Account</h1>
+        <p className="text-ddarkgrey dark:text-dgrey mb-5 text-center">Sign up now to explore the app</p>
+        <button onClick={handleGoogleSignUp} className="flex w-full items-center justify-center bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-2 text-dbluew dark:text-white font-bold">
           <span className="mr-3">
             <svg
               width="20"
@@ -199,7 +199,7 @@ const SignUp = () => {
               </defs>
             </svg>
           </span>
-          Sign in with Google
+          Sign Up with Google
         </button>
         <div className="my-4 flex items-center justify-center">
           <span className="hidden h-[1px] w-full max-w-[60px] bg-dblack dark:bg-dlightgreen sm:block"></span>
@@ -261,26 +261,8 @@ const SignUp = () => {
                 <input
                   type="checkbox"
                   id="checkboxLabel"
-                  className="sr-only"
+                  className="w-[16px] h-[16px] mr-4 mt-2"
                 />
-                <div className="mr-4 mt-1 flex h-5 w-5 items-center justify-center rounded border border-dblue dark:border-white">
-                  <span className="opacity-0">
-                    <svg
-                      width="11"
-                      height="8"
-                      viewBox="0 0 11 8"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M10.0915 0.951972L10.0867 0.946075L10.0813 0.940568C9.90076 0.753564 9.61034 0.753146 9.42927 0.939309L4.16201 6.22962L1.58507 3.63469C1.40401 3.44841 1.11351 3.44879 0.932892 3.63584C0.755703 3.81933 0.755703 4.10875 0.932892 4.29224L0.932878 4.29225L0.934851 4.29424L3.58046 6.95832C3.73676 7.11955 3.94983 7.2 4.1473 7.2C4.36196 7.2 4.55963 7.11773 4.71406 6.9584L10.0468 1.60234C10.2436 1.4199 10.2421 1.1339 10.0915 0.951972ZM4.2327 6.30081L4.2317 6.2998C4.23206 6.30015 4.23237 6.30049 4.23269 6.30082L4.2327 6.30081Z"
-                        fill="#3056D3"
-                        stroke="#3056D3"
-                        strokeWidth="0.4"
-                      />
-                    </svg>
-                  </span>
-                </div>
               </div>
               <span>
                 By creating an account you agree to our
@@ -298,7 +280,7 @@ const SignUp = () => {
           </div>
           <button 
             onClick={upload}
-            className="w-full px-8 py-4 bg-dbluew dark:bg-dgreen/20 hover:bg-dbluew/80 dark:hover:bg-dgreen/30 rounded-full font-bold text-white dark:text-dgreen"
+            className="w-full text-center bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-2 text-dbluew dark:text-white font-bold"
           >
             Sign Up
           </button>

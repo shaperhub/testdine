@@ -3,7 +3,7 @@ import {app, auth, db} from '@/app/firebase/config'
 import { addDoc, collection, onSnapshot } from "firebase/firestore";
 import { getFunctions, httpsCallable } from "firebase/functions";
 
-export const getCheckoutUrl = async (priceId) => {
+export const getCheckoutUrl = async (priceId, trial) => {
   const userId = auth.currentUser?.uid;
   if (!userId) throw new Error("User is not authenticated");
 
@@ -11,8 +11,11 @@ export const getCheckoutUrl = async (priceId) => {
 
   const docRef = await addDoc(checkoutSessionRef, {
     price: priceId,
+    trial_period_days: trial || 0,
+    automatic_tax: true,
     success_url: window.location.origin,
     cancel_url: window.location.origin,
+    allow_promotion_codes: trial ? false : true,
   });
 
   return new Promise((resolve, reject) => {
@@ -30,6 +33,7 @@ export const getCheckoutUrl = async (priceId) => {
     });
   });
 };
+
 
 export const getPortalUrl = async () => {
   const user = auth.currentUser;

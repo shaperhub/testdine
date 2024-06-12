@@ -52,9 +52,9 @@ const SignIn = () => {
   return (
     <div className="bg-white/50 dark:bg-black/80 min-h-screen pt-24 flex items-center justify-center text-sm font-regular">
       <div className="bg-white dark:bg-black p-10 rounded-lg shadow-xl w-96">
-        <h1 className="text-black dark:text-white text-2xl mb-4">Welcome Back!</h1>
-        <h1 className="text-ddarkgrey dark:text-dgrey mb-5">Let&apos;s get you logged in so you can start exploring</h1>
-        <button onClick={handleGoogleSignIn} className="flex w-full items-center justify-center outline-none px-8 py-4 bg-dbluew dark:bg-dgreen/20 hover:bg-dbluew/80 dark:hover:bg-dgreen/30 rounded-full font-bold text-white dark:text-dgreen">
+        <h1 className="text-black dark:text-white text-2xl mb-4 text-center">Welcome Back!</h1>
+        <h1 className="text-ddarkgrey dark:text-dgrey mb-5 text-center">Let&apos;s get you logged in so you can start exploring</h1>
+        <button onClick={handleGoogleSignIn} className="flex w-full items-center justify-center bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-2 text-dbluew dark:text-white font-bold">
           <span className="mr-3">
             <svg
               width="20"
@@ -88,7 +88,7 @@ const SignIn = () => {
               </defs>
             </svg>
           </span>
-          Sign in with Google
+          Sign In with Google
         </button>
         <div className="my-4 flex items-center justify-center">
           <span className="hidden h-[1px] w-full max-w-[60px] bg-dblack dark:bg-dlightgreen sm:block"></span>
@@ -114,7 +114,7 @@ const SignIn = () => {
           />
           <button 
             onClick={handleSignIn}
-            className="w-full px-8 py-4 bg-dbluew dark:bg-dgreen/20 hover:bg-dbluew/80 dark:hover:bg-dgreen/30 rounded-full font-bold text-white dark:text-dgreen"
+            className="w-full text-center bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-2 text-dbluew dark:text-white font-bold"
           >
             Log In
           </button>

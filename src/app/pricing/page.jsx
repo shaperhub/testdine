@@ -46,7 +46,7 @@ const Pricing = () => {
 
       {/* Pricing Cards */}
       <div className="px-8 md:px-24 py-4 md:py-8 bg-dlightestgreen dark:bg-dlightblack/90" id="tastestarter">
-        <div className="flex flex-col lgmd:flex-row justify-center items-center gap-4">
+        <div className="flex flex-col lgmd:flex-row justify-center gap-4">
 
           {/* Taste Starter Card */}
           <div className="rounded-[24px] lgmd:max-w-[380px] lgmd:flex-1 p-8 mb-8 bg-white dark:bg-dblack font-regular text-dbluew  dark:text-dgrey">
