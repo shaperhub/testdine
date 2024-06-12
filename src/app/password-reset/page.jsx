@@ -7,16 +7,15 @@ import {auth} from '@/app/firebase/config'
 import {sendPasswordResetEmail} from 'firebase/auth'
 import { useRouter } from 'next/navigation';
 
-
 const PasswordReset = () => {
-
   const [email, setEmail] = useState('');
+  const [success, setSuccess] = useState('');
   const router = useRouter()
 
   const resetPassword = () => {
     sendPasswordResetEmail(auth, email).then(() => {
     // Password reset email sent!
-      router.push('/')
+      setSuccess("We have sent you an email link to set a new password")
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -33,6 +32,8 @@ const PasswordReset = () => {
         <Image className='mb-6' src={Forgotpic} width={400} height={400} alt='Forgot Password Image' />
         <input 
           type="email" 
+          id="email" 
+          name="email" 
           placeholder="Email" 
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -44,6 +45,7 @@ const PasswordReset = () => {
         >
           Submit
         </button>
+        {success && <span className='text-dgreen text-sm'>{success}</span>}
         <p className="pt-8 text-center text-black dark:text-white">
           Remember Your Password?{" "}
           <Link href="/log-in" className="text-dgreen hover:underline">

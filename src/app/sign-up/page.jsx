@@ -17,6 +17,7 @@ const SignUp = () => {
   const [useruname, setUseruname] = useState('')
   const [unameerror, setUnameError] = useState('')
   const [unamegood, setUnameGood] = useState('')
+  const [imageerror, setImageerror] = useState('')
 
   useEffect(() => {
     // Check if the Username Already Exists
@@ -51,42 +52,62 @@ const SignUp = () => {
   }, [useruname])
   
 
+  const handleSelectedFile = (files) => {
+    if (files && files.size < 300000) {
+      if (files.type == 'image/png' || files.type == 'image/jpg' || files.type == 'image/jpeg'){
+        setImage(files)
+        setImageerror('')
+        console.log(files)
+      }
+      else {
+        setImageerror("Only png, jpg, or jpeg files are accepted")
+      }
+    } else {
+      setImageerror('File size must be less than 300kb')
+    }
+  }
+
   // Upload selected profile picture to storage before calling handleSignup with the download URL
   const upload = () => {
-    const storageRef = ref(storage, `usersImages/${image.name}`);
-    const uploadTask = uploadBytesResumable(storageRef, image);
-    
-    // Register three observers:
-    // 1. 'state_changed' observer, called any time the state changes
-    // 2. Error observer, called on failure
-    // 3. Completion observer, called on successful completion
-    uploadTask.on('state_changed', 
-      (snapshot) => {
-        // Observe state change events such as progress, pause, and resume
-        // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-        const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-        console.log('Upload is ' + progress + '% done');
-        switch (snapshot.state) {
-          case 'paused':
-            console.log('Upload is paused');
-            break;
-          case 'running':
-            console.log('Upload is running');
-            break;
+    if (image) {
+      const storageRef = ref(storage, `usersImages/${image.name}`);
+      const uploadTask = uploadBytesResumable(storageRef, image);
+      
+      // Register three observers:
+      // 1. 'state_changed' observer, called any time the state changes
+      // 2. Error observer, called on failure
+      // 3. Completion observer, called on successful completion
+      uploadTask.on('state_changed', 
+        (snapshot) => {
+          // Observe state change events such as progress, pause, and resume
+          // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+          const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          console.log('Upload is ' + progress + '% done');
+          switch (snapshot.state) {
+            case 'paused':
+              console.log('Upload is paused');
+              break;
+            case 'running':
+              console.log('Upload is running');
+              break;
+          }
+        }, 
+        (error) => {
+          // Handle unsuccessful uploads
+          console.log(error)
+        }, 
+        () => {
+          // Handle successful uploads on complete. For instance, get the download URL
+          getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+            // console.log('File available at', downloadURL);
+            handleSignUp(downloadURL);
+          });
         }
-      }, 
-      (error) => {
-        // Handle unsuccessful uploads
-        console.log(error)
-      }, 
-      () => {
-        // Handle successful uploads on complete. For instance, get the download URL
-        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-          // console.log('File available at', downloadURL);
-          handleSignUp(downloadURL);
-        });
-      }
-    )
+      )
+    }
+    else {
+      setImageerror("Upload a picture")
+    }
   }
 
   // Prepare data from Email SignUp to pass to handleCreate
@@ -212,6 +233,8 @@ const SignUp = () => {
         <>
           <input 
             type="text" 
+            id="firstname"
+            name="firstname"
             placeholder="First Name" 
             value={firstname} 
             onChange={(e) => setFirstname(e.target.value)} 
@@ -219,6 +242,8 @@ const SignUp = () => {
           />
           <input 
             type="text" 
+            id="lastname"
+            name="lastname"
             placeholder="Last Name" 
             value={lastname} 
             onChange={(e) => setLastname(e.target.value)} 
@@ -226,15 +251,19 @@ const SignUp = () => {
           />
           <input 
             type="text" 
+            id="username"
+            name="username"
             placeholder="Username" 
             value={useruname} 
             onChange={(e) => setUseruname(e.target.value)} 
             className="w-full p-3 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey"
           />
-          {unameerror && <span className='text-red-600 text-sm'>{unameerror}</span>}
-          {unamegood && <span className='text-dgreen text-sm'>{unamegood}</span>}
+          {unameerror && <span className='text-red-600 text-xs'>{unameerror}</span>}
+          {unamegood && <span className='text-dgreen text-xs'>{unamegood}</span>}
           <input 
             type="email" 
+            id="email"
+            name="email"
             placeholder="Email" 
             value={email} 
             onChange={(e) => setEmail(e.target.value)} 
@@ -242,16 +271,23 @@ const SignUp = () => {
           />
           <input 
             type="password" 
+            id="password"
+            name="password"
             placeholder="Password" 
             value={password} 
             onChange={(e) => setPassword(e.target.value)} 
             className="w-full p-3 mb-4 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey"
           />
+          <label htmlFor="profilepicture" className='text-black'>Upload Profile Picture:</label>
           <input 
             type="file"
-            onChange={(e) => {setImage(e.target.files[0])}} 
-            className="w-full p-3 mb-4 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey"
+            id="profilepicture"
+            name="profilepicture"
+            accept="image/png, image/jpeg, image/jpg"
+            onChange={(e) => {handleSelectedFile(e.target.files[0])}} 
+            className="w-full p-3 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey"
           />
+          {imageerror && <span className='text-red-600 text-xs mb-6'>{imageerror}</span>}
           <div className="mb-8 flex text-xs">
             <label
               htmlFor="checkboxLabel"
@@ -261,6 +297,7 @@ const SignUp = () => {
                 <input
                   type="checkbox"
                   id="checkboxLabel"
+                  name="checkboxLabel"
                   className="w-[16px] h-[16px] mr-4 mt-2"
                 />
               </div>

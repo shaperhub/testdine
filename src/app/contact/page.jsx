@@ -14,20 +14,28 @@ const Contact = () => {
         <form className="">
           <input 
             type="text" 
+            id="name" 
+            name="name" 
             placeholder="Your Name"
             className="w-full p-3 mb-4 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey"
           />
           <input 
             type="email" 
+            id="email" 
+            name="email" 
             placeholder="Email"
             className="w-full p-3 mb-4 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey"
           />
           <input 
             type="tel" 
+            id="phone" 
+            name="phone" 
             placeholder="Phone Number"
             className="w-full p-3 mb-4 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey"
           />
           <textarea
+            id="message"
+            name="message"
             placeholder="Message"
             rows={6}
             className="w-full p-3 mb-4 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey resize-none"

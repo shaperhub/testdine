@@ -100,6 +100,8 @@ const SignIn = () => {
         <>
           <input 
             type="email" 
+            id="email" 
+            name="email" 
             placeholder="Email" 
             value={email} 
             onChange={(e) => setEmail(e.target.value)} 
@@ -107,6 +109,8 @@ const SignIn = () => {
           />
           <input 
             type="password" 
+            id="password" 
+            name="password" 
             placeholder="Password" 
             value={password} 
             onChange={(e) => setPassword(e.target.value)} 

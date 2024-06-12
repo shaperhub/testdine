@@ -28,34 +28,66 @@ export default function PurchasePlan() {
         const unsubscribe = onAuthStateChanged(auth, async (user) => {
           if(user) {
             setUser(user)
-            getTaste();
-            getCuisine();
-            getCuisinetrial();
-            getEpic();
-            getEpictrial();
-            setTimeout(() => {
-              getDoc(doc(db, "users", user.uid)).then(docSnap => {
-                if (docSnap.exists()) {
-                  const userdata = docSnap.data()
-                  if (!userdata.paymenturls) {
-                    console.log("New User.....")
-                    const newupdate = doc(db, "users", user.uid);
-                    updateDoc(newupdate, {
-                      paymenturls: {
-                        tastestarterurl: tasteurl,
-                        cuisineurl: cuisineurl,
-                        cuisinetrialurl: cuisinetrialurl,
-                        epicureanurl: epicurl,
-                        epicureantrialurl: epictrialurl,
-                      }
-                    });
-                  }
-                  else{
-                    console.log("Urls already exist")
-                  }
-                }
+            setTasteurl(await getCheckoutUrl("price_1PQCBsRtFO8HcW8tVbDSPgLG")).then(() => {
+              setCuisineurl(getCheckoutUrl("price_1PQCCLRtFO8HcW8tNreLswEh")).then(() => {
+                setCuisinetrialurl(getCheckoutUrl("price_1PQCCLRtFO8HcW8tNreLswEh", 7)).then(() => {
+                  setEpicurl(getCheckoutUrl("price_1PQCCfRtFO8HcW8tFSOZtvIJ")).then(() => {
+                    setEpictrialurl(getCheckoutUrl("price_1PQCCfRtFO8HcW8tFSOZtvIJ", 7)).then(() => {
+                      setTimeout(() => {
+                        getDoc(doc(db, "users", user.uid)).then(docSnap => {
+                          if (docSnap.exists()) {
+                            const userdata = docSnap.data()
+                            if (!userdata.paymenturls) {
+                              console.log("New User.....")
+                              const newupdate = doc(db, "users", user.uid);
+                              updateDoc(newupdate, {
+                                paymenturls: {
+                                  tastestarterurl: tasteurl,
+                                  cuisineurl: cuisineurl,
+                                  cuisinetrialurl: cuisinetrialurl,
+                                  epicureanurl: epicurl,
+                                  epicureantrialurl: epictrialurl,
+                                }
+                              });
+                            }
+                            else{
+                              console.log("Urls already exist")
+                            }
+                          }
+                        })
+                      }, 20000)
+                    })
+                  })
+                })
               })
-            }, 20000)
+            })
+            // getCuisine();
+            // getCuisinetrial();
+            // getEpic();
+            // getEpictrial();
+            // setTimeout(() => {
+            //   getDoc(doc(db, "users", user.uid)).then(docSnap => {
+            //     if (docSnap.exists()) {
+            //       const userdata = docSnap.data()
+            //       if (!userdata.paymenturls) {
+            //         console.log("New User.....")
+            //         const newupdate = doc(db, "users", user.uid);
+            //         updateDoc(newupdate, {
+            //           paymenturls: {
+            //             tastestarterurl: tasteurl,
+            //             cuisineurl: cuisineurl,
+            //             cuisinetrialurl: cuisinetrialurl,
+            //             epicureanurl: epicurl,
+            //             epicureantrialurl: epictrialurl,
+            //           }
+            //         });
+            //       }
+            //       else{
+            //         console.log("Urls already exist")
+            //       }
+            //     }
+            //   })
+            // }, 20000)
             setLoading(false)
           }
           else {
@@ -73,44 +105,27 @@ export default function PurchasePlan() {
     getEpic();
     getEpictrial();
   }
-  
-  const setup = () => {
-    if (user)  {
-      getDoc(doc(db, "users", user.uid)).then(docSnap => {
-        if (docSnap.exists()) {
-          const userdata = docSnap.data()
-          if (userdata.paymenturls.cuisinetrialurl.length > 0) {
-            console.log("Urls already exist")
-          }
-          else{
-            console.log("Yes user...")
-            getup()
-          }
-        }
-      })
-    }
-  }
 
   // Set urls for users
   const getTaste = async () => {
-    const checkoutUrl = await getCheckoutUrl("price_1PQCBsRtFO8HcW8tVbDSPgLG");
-    setTasteurl(checkoutUrl)
+    setTasteurl(await getCheckoutUrl("price_1PQCBsRtFO8HcW8tVbDSPgLG"))
+    
   };
   const getCuisine = async () => {
-    const checkoutUrl = await getCheckoutUrl("price_1PQCCLRtFO8HcW8tNreLswEh");
-    setCuisineurl(checkoutUrl)
+    setCuisineurl(await getCheckoutUrl("price_1PQCCLRtFO8HcW8tNreLswEh"))
+    
   };
   const getCuisinetrial = async () => {
-    const checkoutUrl = await getCheckoutUrl("price_1PQCCLRtFO8HcW8tNreLswEh", 7);
-    setCuisinetrialurl(checkoutUrl)
+    setCuisinetrialurl(await getCheckoutUrl("price_1PQCCLRtFO8HcW8tNreLswEh", 7))
+    
   };
   const getEpic = async () => {
-    const checkoutUrl = await getCheckoutUrl("price_1PQCCfRtFO8HcW8tFSOZtvIJ");
-    setEpicurl(checkoutUrl)
+    setEpicurl(await getCheckoutUrl("price_1PQCCfRtFO8HcW8tFSOZtvIJ"))
+    
   };
   const getEpictrial = async () => {
-    const checkoutUrl = await getCheckoutUrl("price_1PQCCfRtFO8HcW8tFSOZtvIJ", 7);
-    setEpictrialurl(checkoutUrl)
+    setEpictrialurl(await getCheckoutUrl("price_1PQCCfRtFO8HcW8tFSOZtvIJ", 7))
+    
   };
 
 
