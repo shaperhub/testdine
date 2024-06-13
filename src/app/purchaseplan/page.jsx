@@ -4,17 +4,11 @@ import {auth, db} from '@/app/firebase/config'
 import {onAuthStateChanged} from "firebase/auth"
 import {doc, getDoc, addDoc, setDoc, updateDoc, getDocs, collection, onSnapshot, query,} from "firebase/firestore"
 import { useRouter } from 'next/navigation';
-import { getCheckoutUrl } from "../user-profile/payment";
+import { getCheckoutUrl, getPortalUrl } from "../user-profile/payment";
 import { Loader2 } from "lucide-react"
-import Button from "@/components/Button/Button";
 
 export default function PurchasePlan() {
     const [user, setUser] = useState('')
-    const [tasteurl, setTasteurl] = useState('')
-    const [cuisineurl, setCuisineurl] = useState('')
-    const [cuisinetrialurl, setCuisinetrialurl] = useState('')
-    const [epicurl, setEpicurl] = useState('')
-    const [epictrialurl, setEpictrialurl] = useState('')
     const router = useRouter()
     const [loading, setLoading] = useState(true)
     const [btnloading1, setBtnloading1] = useState(false)
@@ -28,66 +22,17 @@ export default function PurchasePlan() {
         const unsubscribe = onAuthStateChanged(auth, async (user) => {
           if(user) {
             setUser(user)
-            setTasteurl(await getCheckoutUrl("price_1PQCBsRtFO8HcW8tVbDSPgLG")).then(() => {
-              setCuisineurl(getCheckoutUrl("price_1PQCCLRtFO8HcW8tNreLswEh")).then(() => {
-                setCuisinetrialurl(getCheckoutUrl("price_1PQCCLRtFO8HcW8tNreLswEh", 7)).then(() => {
-                  setEpicurl(getCheckoutUrl("price_1PQCCfRtFO8HcW8tFSOZtvIJ")).then(() => {
-                    setEpictrialurl(getCheckoutUrl("price_1PQCCfRtFO8HcW8tFSOZtvIJ", 7)).then(() => {
-                      setTimeout(() => {
-                        getDoc(doc(db, "users", user.uid)).then(docSnap => {
-                          if (docSnap.exists()) {
-                            const userdata = docSnap.data()
-                            if (!userdata.paymenturls) {
-                              console.log("New User.....")
-                              const newupdate = doc(db, "users", user.uid);
-                              updateDoc(newupdate, {
-                                paymenturls: {
-                                  tastestarterurl: tasteurl,
-                                  cuisineurl: cuisineurl,
-                                  cuisinetrialurl: cuisinetrialurl,
-                                  epicureanurl: epicurl,
-                                  epicureantrialurl: epictrialurl,
-                                }
-                              });
-                            }
-                            else{
-                              console.log("Urls already exist")
-                            }
-                          }
-                        })
-                      }, 20000)
-                    })
-                  })
-                })
+              getDoc(doc(db, "users", user.uid)).then(docSnap => {
+                if (docSnap.exists()) {
+                  const userdata = docSnap.data()
+                  if (!userdata.paymenturls) {
+                    getAll()
+                  }
+                  else{
+                    console.log("Urls already exist")
+                  }
+                }
               })
-            })
-            // getCuisine();
-            // getCuisinetrial();
-            // getEpic();
-            // getEpictrial();
-            // setTimeout(() => {
-            //   getDoc(doc(db, "users", user.uid)).then(docSnap => {
-            //     if (docSnap.exists()) {
-            //       const userdata = docSnap.data()
-            //       if (!userdata.paymenturls) {
-            //         console.log("New User.....")
-            //         const newupdate = doc(db, "users", user.uid);
-            //         updateDoc(newupdate, {
-            //           paymenturls: {
-            //             tastestarterurl: tasteurl,
-            //             cuisineurl: cuisineurl,
-            //             cuisinetrialurl: cuisinetrialurl,
-            //             epicureanurl: epicurl,
-            //             epicureantrialurl: epictrialurl,
-            //           }
-            //         });
-            //       }
-            //       else{
-            //         console.log("Urls already exist")
-            //       }
-            //     }
-            //   })
-            // }, 20000)
             setLoading(false)
           }
           else {
@@ -98,34 +43,56 @@ export default function PurchasePlan() {
         return () => unsubscribe();
     }, [])
 
-  const getup = () => {
-    getTaste();
-    getCuisine();
-    getCuisinetrial();
-    getEpic();
-    getEpictrial();
-  }
-
   // Set urls for users
-  const getTaste = async () => {
-    setTasteurl(await getCheckoutUrl("price_1PQCBsRtFO8HcW8tVbDSPgLG"))
-    
-  };
-  const getCuisine = async () => {
-    setCuisineurl(await getCheckoutUrl("price_1PQCCLRtFO8HcW8tNreLswEh"))
-    
-  };
-  const getCuisinetrial = async () => {
-    setCuisinetrialurl(await getCheckoutUrl("price_1PQCCLRtFO8HcW8tNreLswEh", 7))
-    
-  };
-  const getEpic = async () => {
-    setEpicurl(await getCheckoutUrl("price_1PQCCfRtFO8HcW8tFSOZtvIJ"))
-    
-  };
-  const getEpictrial = async () => {
-    setEpictrialurl(await getCheckoutUrl("price_1PQCCfRtFO8HcW8tFSOZtvIJ", 7))
-    
+  const getAll = async () => {
+    const turl = await getCheckoutUrl("price_1PQCBsRtFO8HcW8tVbDSPgLG")
+    setTimeout(() => {
+      updateDoc(doc(db, "users", user.uid), {
+        "paymenturls.tastestarterurl": turl
+      })
+      console.log("Taste: " + turl)
+    }, 10000)
+
+    const curl = await getCheckoutUrl("price_1PQCCLRtFO8HcW8tNreLswEh")
+    setTimeout(() => {
+      updateDoc(doc(db, "users", user.uid), {
+        "paymenturls.cuisineurl": curl
+      })
+      console.log("Cuisine: " + curl)
+    }, 10000)
+
+    const cpurl = await getCheckoutUrl("price_1PQCCLRtFO8HcW8tNreLswEh", 7)
+    setTimeout(() => {
+      updateDoc(doc(db, "users", user.uid), {
+        "paymenturls.cuisinetrialurl": cpurl
+      })
+      console.log("Cuisine Trial: " + cpurl)
+    }, 10000)
+
+    const eurl = await getCheckoutUrl("price_1PQCCfRtFO8HcW8tFSOZtvIJ")
+    setTimeout(() => {
+      updateDoc(doc(db, "users", user.uid), {
+        "paymenturls.epicureanurl": eurl
+      })
+      console.log("Epic: " + eurl)
+    }, 10000)
+
+    const epurl = await getCheckoutUrl("price_1PQCCfRtFO8HcW8tFSOZtvIJ", 7)
+    setTimeout(() => {
+      updateDoc(doc(db, "users", user.uid), {
+        "paymenturls.epicureantrialurl": epurl
+      })
+      console.log("Epic Trial: " + epurl)
+    }, 10000)
+
+    const portal = await getPortalUrl()
+    setTimeout(() => {
+      updateDoc(doc(db, "users", user.uid), {
+        "paymenturls.portalurl": portal
+      })
+      console.log("Portal Url: " + portal)
+    }, 10000)
+
   };
 
 

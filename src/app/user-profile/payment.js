@@ -26,7 +26,7 @@ export const getCheckoutUrl = async (priceId, trial) => {
         reject(new Error(`An error occurred: ${error.message}`));
       }
       if (url) {
-        console.log("Stripe Checkout URL:", url);
+        // console.log("Stripe Checkout URL:", url);
         unsubscribe();
         resolve(url);
       }
