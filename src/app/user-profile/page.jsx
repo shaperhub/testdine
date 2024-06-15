@@ -1,16 +1,13 @@
 'use client'
 import {useState, useEffect} from 'react'
-import {auth, db, storage} from '@/app/firebase/config'
-import {doc, updateDoc, getDoc, getDocs, collection, onSnapshot, query, where, serverTimestamp, arrayRemove, arrayUnion} from "firebase/firestore"
-import {ref, getDownloadURL, uploadBytesResumable } from "firebase/storage"
-import { redirect, useRouter } from 'next/navigation';
-import Link from 'next/link';
+import {auth, db} from '@/app/firebase/config'
+import {doc, updateDoc, getDoc, getDocs, collection, onSnapshot, query, where, serverTimestamp} from "firebase/firestore"
+import { useRouter } from 'next/navigation';
+import { deleteUser } from 'firebase/auth';
 import { getCheckoutUrl, getPortalUrl } from "./payment";
 import Image from 'next/image';
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger} from "@/components/ui/dialog"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
 import { Badge } from "@/components/ui/badge"
 import { Loader2 } from "lucide-react"
 
@@ -153,11 +150,7 @@ const UserProfile = () => {
     setProfilepic('')
     setUsername('')
 
-    const deleteupdate = doc(db, "users", user.uid);
-    await updateDoc(deleteupdate, {
-      accountDeleted: true,
-      accountDeletedAt: serverTimestamp()
-    }).then(() => {
+    deleteUser(user).then(() => {
       auth.signOut()
     })
   }
@@ -179,7 +172,7 @@ const UserProfile = () => {
         <>
       <div className="h-screen flex flex-wrap items-center justify-center font-regular">
           <div className="p-2 lg:w-2/6 xl:w-2/7 sm:w-full md:w-2/3 border-2 border-dgreenw rounded-3xl bg-white dark:bg-black shadow-lg transform duration-200 ease-in-out">
-            <div className={currentsub == "taste" ? "bg-dgreenw dark:bg-dgreen h-32 rounded-3xl" : currentsub == "cuisine" ? "bg-gradient-to-r from-[#C0C0C0] via-[#AAABAB] to-[#6C6C6C] h-32 rounded-3xl" : currentsub == "epicurean" ? "bg-gradient-to-r from-[#B08C36] via-[#D9BD5B] to-[#9B7424] h-32 rounded-3xl" : "h-32 bg-dred rounded-3xl"}>
+            <div className={currentsub == "taste" ? "bg-dgreenw dark:bg-dgreen h-32 rounded-3xl" : currentsub == "cuisine" ? "bg-gradient-to-r from-[#C0C0C0] via-[#AAABAB] to-[#6C6C6C] h-32 rounded-3xl" : currentsub == "epicurean" ? "bg-gradient-to-r from-[#B08C36] via-[#D9BD5B] to-[#9B7424] h-32 rounded-3xl" : ""}>
               <div className='flex justify-between'>
                 <div className=''>
                 {isPremium && <Badge className="text-black bg-white hover:bg-white ml-4 mt-2">{currentsub == "taste" ? "Taste Starter" : currentsub == "cuisine" ? "Cuisine Crafter" : currentsub == "epicurean" ? "Epicurean Elite" : ""}</Badge>}

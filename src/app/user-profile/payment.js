@@ -50,7 +50,7 @@ export const getPortalUrl = async () => {
     });
 
     dataWithUrl = data;
-    console.log("Reroute to Stripe portal: ", dataWithUrl.url);
+    // console.log("Reroute to Stripe portal: ", dataWithUrl.url);
   } catch (error) {
     console.error(error);
   }

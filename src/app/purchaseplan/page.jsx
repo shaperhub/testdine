@@ -22,17 +22,17 @@ export default function PurchasePlan() {
         const unsubscribe = onAuthStateChanged(auth, async (user) => {
           if(user) {
             setUser(user)
-              getDoc(doc(db, "users", user.uid)).then(docSnap => {
-                if (docSnap.exists()) {
-                  const userdata = docSnap.data()
-                  if (!userdata.paymenturls) {
-                    getAll()
-                  }
-                  else{
-                    console.log("Urls already exist")
-                  }
-                }
-              })
+              // getDoc(doc(db, "users", user.uid)).then(docSnap => {
+              //   if (docSnap.exists()) {
+              //     const userdata = docSnap.data()
+              //     if (!userdata.paymenturls) {
+              //       getAll()
+              //     }
+              //     else{
+              //       console.log("Urls already exist")
+              //     }
+              //   }
+              // })
             setLoading(false)
           }
           else {
@@ -96,7 +96,7 @@ export default function PurchasePlan() {
   };
 
 
-  // Pay for Cuisine Crafter Subscription
+  // Pay for Taste Starter Subscription
   const upgradeToTasteStarter = async () => {
     setBtnloading1(true)
     const priceId = "price_1PQCBsRtFO8HcW8tVbDSPgLG";

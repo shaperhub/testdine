@@ -9,7 +9,7 @@ const SignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const router = useRouter()
-  const [error, setError] = useState('')
+  const [errorm, setErrorm] = useState('')
 
   // Sign In function for Email and Password users
   const handleSignIn = event => {
@@ -23,29 +23,30 @@ const SignIn = () => {
         setPassword('');
         router.push('/user-profile')
       })
-    }catch(e){
-      setError(e)
+    }catch(error) {
+      setErrorm(error)
       setEmail('')
       setPassword('')
-      console.error(e)
+      console.error(error.message)
     }
   };
 
   // Sign In function for Google users
   const handleGoogleSignIn = async(e) => {
     try {
-        e.preventDefault();
-        const provider = new GoogleAuthProvider();
-        signInWithPopup(auth, provider).then((userCredential) => {
-          // Signed in
-          const user = userCredential.user;
-          console.log(user);
-          setEmail('');
-          setPassword('');
-          router.push('/user-profile')
-        })
-    }catch(e){
-        console.error(e)
+      e.preventDefault();
+      const provider = new GoogleAuthProvider();
+      signInWithPopup(auth, provider).then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        console.log(user);
+        setEmail('');
+        setPassword('');
+        router.push('/user-profile')
+      })
+    }catch(error) {
+      setErrorm(error.message)
+      console.error(error.message)
     }
   };
 
@@ -104,6 +105,7 @@ const SignIn = () => {
             name="email" 
             placeholder="Email" 
             value={email} 
+            required
             onChange={(e) => setEmail(e.target.value)} 
             className="w-full p-3 mb-4 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey"
           />
@@ -113,6 +115,7 @@ const SignIn = () => {
             name="password" 
             placeholder="Password" 
             value={password} 
+            required
             onChange={(e) => setPassword(e.target.value)} 
             className="w-full p-3 mb-4 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey"
           />
@@ -123,7 +126,7 @@ const SignIn = () => {
             Log In
           </button>
         </>
-        {error && <span className='text-red-600'>{error}</span>}
+        {errorm && <span className='text-red-600 text-sm'>{errorm}</span>}
         <div className="pt-4 text-center">
           <Link href="/password-reset" className="text-dgreen hover:underline">
             Forgot Password?

@@ -159,12 +159,12 @@ const SignUp = () => {
           groupsJoined: [],
           groupsPending: [],
           preferences: {cuisines: [], dietaryPreferences: [], foodAllergies: [], nutritionalBlocks: []},
-          accountDeleted: false,
-          accountDeletedAt: '',
         })
         // Store New Unique Username in the Firestore Unique Usernames Collection
-        setDoc(doc(db, "uniqueusernames", uid), {
-          username: username,
+        setDoc(doc(db, "usernames", uid), {
+          usernames: {
+            username: serverTimestamp(),
+          }
         })
         console.log("User Data: " + userfname, userlname, useremail, username, uid, upic)
         setEmail('');
