@@ -24,12 +24,12 @@ export default function Sendtoweb() {
     }); 
     
     setTimeout(() => {
-      if (!user) {
-        signInWithCustomToken(auth, token)
-        .then((userCredential) => {
-          setUser(userCredential.user)
-        })
-      }
+      // if (!user) {
+      //   signInWithCustomToken(auth, token)
+      //   .then((userCredential) => {
+      //     setUser(userCredential.user)
+      //   })
+      // }
 
       if (user) {
         if (applink == "tastestarter"){
@@ -60,7 +60,7 @@ export default function Sendtoweb() {
     }, 3000)
     
     return () => unsubscribe();
-  }, [user, token, applink]);
+  }, [token, applink]);
 
   const manageSubscription = async () => {
     const portalUrl = await getPortalUrl();
