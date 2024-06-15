@@ -31,7 +31,7 @@ export default function Sendtoweb() {
       //   })
       // }
 
-      if (user) {
+      if (applink) {
         if (applink == "tastestarter"){
           upgradeToTasteStarter()
         }
