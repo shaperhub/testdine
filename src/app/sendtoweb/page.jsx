@@ -18,19 +18,28 @@ export default function Sendtoweb() {
   // console.log(applink)
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, async (user) => {
-      setUser(user)
-      console.log(user)
+    const unsubscribe = onAuthStateChanged(auth, async (authuser) => {
+      setUser(authuser)
+      console.log("Already user: " + user)
     }); 
+
+    setTimeout(() => {
+      if (!user && token){
+        try {
+          signInWithCustomToken(auth, token)
+          .then((userCredential) => {
+            setUser(userCredential.user)
+            console.log("Sign in with custom")
+          })
+        } catch(error) {
+          console.error(error.message);
+        }
+      }
+    }, 2000)
     
     setTimeout(() => {
-      // if (!user) {
-      //   signInWithCustomToken(auth, token)
-      //   .then((userCredential) => {
-      //     setUser(userCredential.user)
-      //   })
-      // }
-
+    if (user) {
+    setTimeout(() => {
       if (applink) {
         if (applink == "tastestarter"){
           upgradeToTasteStarter()
@@ -51,16 +60,14 @@ export default function Sendtoweb() {
           manageSubscription()
         }
       // })
-      // .catch((error) => {
-      //   const errorcode = error.code
-      //   const errorMessage = error.message
-      //   console.error('Error signing in with custom token:', errorMessage);
-      // });
+      
       }
     }, 3000)
+    }
+    }, 2000)
     
     return () => unsubscribe();
-  }, [token, applink]);
+  }, [user]);
 
   const manageSubscription = async () => {
     const portalUrl = await getPortalUrl();
