@@ -33,7 +33,7 @@ function useUserSession(initialUser) {
 
 			// if user is not logged in, execute functions here like redirecting to homepage for protected routes
 			if (user?.email !== authUser?.email) {
-				router.push('/')
+				// router.push('/')
 			}
 		})
 	}, [user])

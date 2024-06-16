@@ -18,56 +18,49 @@ export default function Sendtoweb() {
   // console.log(applink)
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, async (authuser) => {
-      setUser(authuser)
-      console.log("Already user: " + user)
-    }); 
+    // const unsubscribe = onAuthStateChanged(auth, async (authuser) => {
+    //   setUser(authuser)
+    //   console.log("Already user: " + user)
+    // }); 
 
-    setTimeout(() => {
-      if (!user && token){
-        try {
-          signInWithCustomToken(auth, token)
-          .then((userCredential) => {
-            setUser(userCredential.user)
-            console.log("Sign in with custom")
-          })
-        } catch(error) {
-          console.error(error.message);
-        }
-      }
-    }, 2000)
-    
-    setTimeout(() => {
-    if (user) {
-    setTimeout(() => {
-      if (applink) {
-        if (applink == "tastestarter"){
-          upgradeToTasteStarter()
-        }
-        if (applink == "cuisinecrafter"){
-          upgradeToCuisineCrafter()
-        }
-        if (applink == "cuisinecraftertrial"){
-          tryCuisineCrafter()
-        }
-        if (applink == "epicureanelite"){
-          upgradeToEpicurean()
-        }
-        if (applink == "epicureanelitetrial"){
-          tryEpicurean()
-        }
-        if (applink == "portal"){
-          manageSubscription()
-        }
-      // })
-      
-      }
-    }, 3000)
+    if (!token || !applink) {
+      console.log("Nothing to process")
     }
-    }, 2000)
+      
+    else if (token && applink) {
+      try {
+        signInWithCustomToken(auth, token)
+        .then((userCredential) => {
+          setUser(userCredential.user)
+          console.log("Sign in with custom")
+          setTimeout(() => {
+            if (applink == "tastestarter"){
+              upgradeToTasteStarter()
+            }
+            if (applink == "cuisinecrafter"){
+              upgradeToCuisineCrafter()
+            }
+            if (applink == "cuisinecraftertrial"){
+              tryCuisineCrafter()
+            }
+            if (applink == "epicureanelite"){
+              upgradeToEpicurean()
+            }
+            if (applink == "epicureanelitetrial"){
+              tryEpicurean()
+            }
+            if (applink == "portal"){
+              manageSubscription()
+            }
+          }, 1000)
+        })
+      } catch(error) {
+        console.error(error.message);
+      }
+    }
     
-    return () => unsubscribe();
-  }, [user]);
+    // return () => unsubscribe();
+  }, []);
 
   const manageSubscription = async () => {
     const portalUrl = await getPortalUrl();
@@ -116,7 +109,7 @@ export default function Sendtoweb() {
         {/* <h1 className="font-heading text-3xl text-center text-dbluew dark:text-dgrey my-4">DineIntel</h1> */}
         <button className="mt-2 px-4 py-2 bg-blue-500 hover:bg-dblue text-white rounded inline-flex items-center">
           Processing Request...
-          {applink && <Loader2 className="ml-2 h-4 w-4 animate-spin" />}
+          {(token && applink) && <Loader2 className="ml-2 h-4 w-4 animate-spin" />}
         </button>
       </div>
     </div>
