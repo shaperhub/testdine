@@ -13,7 +13,7 @@ export const getCheckoutUrl = async (priceId, trial) => {
     price: priceId,
     trial_period_days: trial || 0,
     automatic_tax: true,
-    success_url: window.location.origin,
+    success_url: "http://localhost:3000/success",
     cancel_url: window.location.origin,
     allow_promotion_codes: trial ? false : true,
   });
