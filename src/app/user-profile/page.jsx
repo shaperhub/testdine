@@ -54,7 +54,7 @@ const UserProfile = () => {
               if (snapshot.docs.length === 0) {
                 console.log("No active or trial subscriptions found");
                 setIsPremium(false);
-                router.push('/purchaseplan')
+                // router.push('/purchaseplan')
               } else {
                 console.log("Active or trial subscription found");
                 setIsPremium(true);
@@ -192,20 +192,6 @@ const UserProfile = () => {
 
                 {/* Manage Subscription Based on Premium Status */}
                 {isPremium && <button onClick={manageSubscription} className='mt-2 text-dgreenw dark:text-dgreen underline inline-flex items-center mb-4'>Manage Subscription{btnloading4 && <Loader2 className="ml-2 h-4 w-4 animate-spin" />}</button>}
-                {!isPremium && 
-                  <div className="mb-4">
-                    <Dialog>
-                      <DialogTrigger asChild>
-                        <button className='mt-2 text-dgreenw dark:text-dgreen underline'>Get Subscription</button>
-                      </DialogTrigger>
-                      <DialogContent className="sm:max-w-[425px] pt-12">
-                        <Button onClick={upgradeToTaste} className="p-3 bg-dblue rounded-lg text-white hover:bg-dlightblue inline-flex items-center mb-2">Taste Starter $0{btnloading1 && <Loader2 className="ml-2 h-4 w-4 animate-spin" />}</Button>
-                        <Button onClick={upgradeToCuisineCrafter} className="p-3 bg-dblue rounded-lg text-white hover:bg-dlightblue inline-flex items-center mb-2">Cuisine Crafter $15{btnloading2 && <Loader2 className="ml-2 h-4 w-4 animate-spin" />}</Button>
-                        <Button onClick={upgradeToEpicurean} className="p-3 bg-dblue rounded-lg text-white hover:bg-dlightblue inline-flex items-center mb-4">Epicurean Elite $50{btnloading3 && <Loader2 className="ml-2 h-4 w-4 animate-spin" />}</Button>
-                      </DialogContent>
-                    </Dialog>
-                  </div>
-                }
               </div>
             </div>
           </div>

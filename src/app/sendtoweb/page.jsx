@@ -107,7 +107,7 @@ export default function Sendtoweb() {
     <div className="bg-white/50 dark:bg-black/80 min-h-screen pt-24 flex items-center justify-center text-sm font-regular">
       <div>
         {/* <h1 className="font-heading text-3xl text-center text-dbluew dark:text-dgrey my-4">DineIntel</h1> */}
-        <button className="mt-2 px-4 py-2 bg-blue-500 hover:bg-dblue text-white rounded inline-flex items-center">
+        <button className="mt-2 px-4 py-2 bg-dbluew hover:bg-blue-500 text-white rounded inline-flex items-center">
           Processing Request...
           {(token && applink) && <Loader2 className="ml-2 h-4 w-4 animate-spin" />}
         </button>

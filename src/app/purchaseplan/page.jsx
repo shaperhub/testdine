@@ -152,47 +152,47 @@ export default function PurchasePlan() {
       <div className='pt-32 lg:pt-8'>
         <h1 className="text-4xl font-bold mb-8 text-center">Purchase a Plan</h1>
         <div className='flex flex-col md:flex-row gap-4 my-4'>
-            <div className='flex flex-col items-center bg-dgreenw rounded-xl text-white p-8 shadow-epc mb-4'>
+            <div className='flex flex-col items-center bg-dgreenw rounded-xl text-white p-8 shadow-epc mb-4 h-[210px] md:h-auto lg:w-[250px]'>
               <h2 className="text-2xl font-bold">Taste Starter</h2>
               <p className="text-lg">$0 per month</p>
               <button
-                className="mt-2 px-4 py-2 bg-blue-500 hover:bg-dblue text-white rounded inline-flex items-center"
+                className="mt-2 px-4 py-2 bg-dblue hover:bg-blue-500 text-white rounded inline-flex items-center"
                 onClick={upgradeToTasteStarter}
               >
                 Get Started
                 {btnloading1 && <Loader2 className="ml-2 h-4 w-4 animate-spin" />}
               </button>
             </div>
-            <div className='flex flex-col items-center bg-gradient-to-r from-[#6C6C6C] via-[#AAABAB] to-[#6C6C6C] rounded-xl text-white p-8 shadow-epc mb-4'>
+            <div className=' lg:w-[250px] flex flex-col items-center bg-gradient-to-r from-[#6C6C6C] via-[#AAABAB] to-[#6C6C6C] rounded-xl text-white p-8 shadow-epc mb-4'>
               <h2 className="text-2xl font-bold">Cuisine Crafter</h2>
               <p className="text-lg">$15 per month</p>
               <button
-                className="mt-2 px-4 py-2 bg-blue-500 hover:bg-dblue text-white rounded inline-flex items-center"
+                className="mt-2 px-4 py-2 bg-dblue hover:bg-blue-500 text-white rounded inline-flex items-center"
                 onClick={upgradeToCuisineCrafter}
               >
                 Purchase
                 {btnloading2 && <Loader2 className="ml-2 h-4 w-4 animate-spin" />}
               </button>
               <button
-                className="mt-2 px-4 py-2 bg-blue-500 hover:bg-dblue text-white rounded inline-flex items-center"
+                className="mt-2 px-4 py-2 bg-dblue hover:bg-blue-500 text-white rounded inline-flex items-center"
                 onClick={tryCuisineCrafter}
               >
                 Try for 7 days
                 {btnloading3 && <Loader2 className="ml-2 h-4 w-4 animate-spin" />}
               </button>
             </div>
-            <div className='flex flex-col items-center bg-gradient-to-r from-[#B08C36] via-[#D9BD5B] to-[#9B7424] rounded-xl text-white p-8 shadow-epc mb-4'>
+            <div className=' lg:w-[250px] flex flex-col items-center bg-gradient-to-r from-[#B08C36] via-[#D9BD5B] to-[#9B7424] rounded-xl text-white p-8 shadow-epc mb-4'>
               <h2 className="text-2xl font-bold">Epicurean Elite</h2>
               <p className="text-lg">$50 per month</p>
               <button
-                className="mt-2 px-4 py-2 bg-blue-500 hover:bg-dblue text-white rounded inline-flex items-center"
+                className="mt-2 px-4 py-2 bg-dblue hover:bg-blue-500 text-white rounded inline-flex items-center"
                 onClick={upgradeToEpicurean}
               >
                 Purchase
                 {btnloading4 && <Loader2 className="ml-2 h-4 w-4 animate-spin" />}
               </button>
               <button
-                className="mt-2 px-4 py-2 bg-blue-500 hover:bg-dblue text-white rounded inline-flex items-center"
+                className="mt-2 px-4 py-2 bg-dblue hover:bg-blue-500 text-white rounded inline-flex items-center"
                 onClick={tryEpicurean}
               >
                 Try for 7 days
