@@ -54,7 +54,7 @@ const UserProfile = () => {
               if (snapshot.docs.length === 0) {
                 console.log("No active or trial subscriptions found");
                 setIsPremium(false);
-                // router.push('/purchaseplan')
+                router.push('/purchaseplan')
               } else {
                 console.log("Active or trial subscription found");
                 setIsPremium(true);
