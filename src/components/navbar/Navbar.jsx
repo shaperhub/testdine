@@ -11,6 +11,7 @@ import {onAuthStateChanged} from "firebase/auth"
 import {auth} from "@/app/firebase/config"
 import ComingSoon from '../ComingSoon/ComingSoon'
 import { cn } from "@/lib/utils"
+import Epic from "../../../public/epicconc.png"
 // import { Icons } from "@/components/icons"
 import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle } from "@/components/ui/navigation-menu"
 
@@ -81,20 +82,147 @@ export default function Navbar({initialUser}) {
                 <span className='block max-w-0 group-hover:max-w-full transition-all duration-200 h-0.5 bg-dgreenw'></span>
                 </li>
 
-                <li id='features' 
-                className={segment == 'features' 
-                ? 'border-b-dgreenw border-b-2 ml-10 p-0.5 text-sm' 
-                : 'ml-10 p-0.5 text-sm group transition duration-300'}
-                ><Link href='/features' aria-labelledby='DineIntel Features Page Link'>Features</Link>
-                <span className='block max-w-0 group-hover:max-w-full transition-all duration-200 h-0.5 bg-dgreenw'></span>
+                <li id='features'
+                className={segment == 'features'
+                ? "relative group border-b-dgreenw border-b-2 ml-10 p-0.5 text-sm"
+                : "relative group ml-10 p-0.5 text-sm"}>
+                  <Link href="/features" aria-labelledby='DineIntel Features Page Link'>Features</Link>
+                  <div className="absolute top-0 -left-60 transition group-hover:translate-y-5 translate-y-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-50 min-w-[560px] transform">
+                    <div className="relative top-6 p-6 bg-white dark:bg-dblack rounded-xl shadow-xl w-full">
+                      <div className="w-10 h-10 bg-white dark:bg-dblack transform rotate-45 absolute top-0 z-0 translate-x-0 transition-transform group-hover:translate-x-[14.5rem] duration-500 ease-in-out rounded-sm">
+                      </div>
+                      <div className="relative z-10">
+                        <div className="grid grid-cols-2 gap-2">
+                          <div>
+                            <ul className="mt-3 text-[15px]">
+                              <li>
+                                <Link href="/features#foryou"
+                                  className="block p-2 -mx-2 rounded-lg hover:bg-dlightgreen dark:hover:bg-dlightblack transition ease-in-out duration-300 text-gray-800 font-semibold hover:text-indigo-600">
+                                  <span className='flex justify-center mb-2'>
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <g clipPath="url(#clip0_4962_8251)">
+                                      <path d="M23.3757 20.4059L13.9648 10.995L2.96984 0H2.11057L1.93512 0.445828C1.47204 1.62258 1.27418 2.82614 1.36301 3.92625C1.46426 5.18025 1.94065 6.26592 2.74076 7.06603L11.324 15.6493L12.4562 14.5172L20.3914 23.3903C21.1808 24.1797 22.5394 24.2265 23.3757 23.3903C24.1985 22.5675 24.1985 21.2287 23.3757 20.4059Z" fill="#2E8540"/>
+                                      <path d="M7.34678 13.6613L0.624387 20.3837C-0.198363 21.2065 -0.198363 22.5453 0.624387 23.368C1.40598 24.1496 2.75809 24.2186 3.60868 23.368L10.3311 16.6456L7.34678 13.6613Z" fill="#2E8540"/>
+                                      <path d="M22.9806 3.99603L19.1673 7.80931L18.1725 6.81453L21.9858 3.0012L20.991 2.00642L17.1777 5.8197L16.1829 4.82492L19.9963 1.01164L19.0015 0.0169067L14.0276 4.99081C13.4191 5.5993 13.0558 6.40724 13.0044 7.26589C12.9915 7.48344 12.9421 7.69742 12.8604 7.90095L16.0914 11.132C16.2949 11.0501 16.509 11.0008 16.7265 10.9879C17.5851 10.9366 18.3931 10.5732 19.0015 9.96472L23.9754 4.99086L22.9806 3.99603Z" fill="#2E8540"/>
+                                      </g>
+                                      <defs>
+                                      <clipPath id="clip0_4962_8251">
+                                      <rect width="24" height="24" fill="white"/>
+                                      </clipPath>
+                                      </defs>
+                                    </svg>
+                                  </span>
+                                  <p className="text-dbluew dark:text-dlightgreen font-heading mt-2 text-center">For You</p>
+                                </Link>
+                              </li>
+                              <li>
+                                <Link href="/features#modifydish"
+                                  className="block p-2 -mx-2 rounded-lg hover:bg-dlightgreen dark:hover:bg-dlightblack transition ease-in-out duration-300 text-gray-800 font-semibold hover:text-indigo-600">
+                                  <span className='flex justify-center mb-2'>
+                                    <svg width="24" height="24" viewBox="0 0 20 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <path d="M11.3705 2.60398C11.4525 2.41897 11.4995 2.21497 11.4995 2C11.4995 1.17298 10.8266 0.5 9.99955 0.5C9.17253 0.5 8.49955 1.17298 8.49955 2C8.49955 2.21502 8.54656 2.41902 8.62855 2.60398C4.09756 3.227 0.519547 6.875 0.0605469 11.5H19.9376C19.4786 6.87702 15.8996 3.227 11.3705 2.60398ZM9.53253 5.49898C6.73555 5.684 4.32655 7.50997 3.39753 10.151C3.32553 10.356 3.13152 10.485 2.92555 10.485C2.87056 10.485 2.81455 10.476 2.75956 10.457C2.49955 10.365 2.36258 10.08 2.45356 9.81898C3.51556 6.79897 6.26858 4.712 9.46658 4.50097C9.73156 4.48395 9.97958 4.69095 9.99856 4.96695C10.0166 5.243 9.80853 5.48098 9.53253 5.49898Z" fill="#2E8540"/>
+                                    </svg>
+                                  </span>
+                                  <p className="text-dbluew dark:text-dlightgreen font-heading mt-2 text-center">Modify Dish</p>
+                                </Link>
+                              </li>
+                            </ul>
+                          </div>
+                          <div>
+                            <ul className="mt-3 text-[15px]">
+                              <li>
+                                <Link href="/features#dinegroup"
+                                  className="block p-2 -mx-2 rounded-lg hover:bg-dlightgreen dark:hover:bg-dlightblack transition ease-in-out duration-300 text-gray-800 font-semibold hover:text-indigo-600">
+                                  <span className='flex justify-center mb-2'>
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                      <path d="M17.53 7.77C17.46 7.76 17.39 7.76 17.32 7.77C15.77 7.72 14.54 6.45 14.54 4.89C14.54 3.3 15.83 2 17.43 2C19.02 2 20.32 3.29 20.32 4.89C20.31 6.45 19.08 7.72 17.53 7.77Z" fill="#2E8540"/>
+                                      <path d="M20.7901 14.7C19.6701 15.45 18.1001 15.73 16.6501 15.54C17.0301 14.72 17.2301 13.81 17.2401 12.85C17.2401 11.85 17.0201 10.9 16.6001 10.07C18.0801 9.86998 19.6501 10.15 20.7801 10.9C22.3601 11.94 22.3601 13.65 20.7901 14.7Z" fill="#2E8540"/>
+                                      <path d="M6.44016 7.77C6.51016 7.76 6.58016 7.76 6.65016 7.77C8.20016 7.72 9.43016 6.45 9.43016 4.89C9.43016 3.29 8.14016 2 6.54016 2C4.95016 2 3.66016 3.29 3.66016 4.89C3.66016 6.45 4.89016 7.72 6.44016 7.77Z" fill="#2E8540"/>
+                                      <path d="M6.55012 12.85C6.55012 13.82 6.76012 14.74 7.14012 15.57C5.73012 15.72 4.26012 15.42 3.18012 14.71C1.60012 13.66 1.60012 11.95 3.18012 10.9C4.25012 10.18 5.76012 9.88998 7.18012 10.05C6.77012 10.89 6.55012 11.84 6.55012 12.85Z" fill="#2E8540"/>
+                                      <path d="M12.1198 15.87C12.0398 15.86 11.9498 15.86 11.8598 15.87C10.0198 15.81 8.5498 14.3 8.5498 12.44C8.5598 10.54 10.0898 9 11.9998 9C13.8998 9 15.4398 10.54 15.4398 12.44C15.4298 14.3 13.9698 15.81 12.1198 15.87Z" fill="#2E8540"/>
+                                      <path d="M8.8698 17.94C7.3598 18.95 7.3598 20.61 8.8698 21.61C10.5898 22.76 13.4098 22.76 15.1298 21.61C16.6398 20.6 16.6398 18.94 15.1298 17.94C13.4198 16.79 10.5998 16.79 8.8698 17.94Z" fill="#2E8540"/>
+                                    </svg>
+                                  </span>
+                                  <p className="text-dbluew dark:text-dlightgreen font-heading mt-2 text-center">Dine Group</p>
+                                </Link>
+                              </li>
+                              <li>
+                                <Link href="/features#epicureanconcierge"
+                                  className="block p-2 -mx-2 rounded-lg hover:bg-dlightgreen dark:hover:bg-dlightblack transition ease-in-out duration-300 text-gray-800 font-semibold hover:text-indigo-600">
+                                  <span className='flex justify-center mb-2'>
+                                    <Image src={Epic} width={24} height={24} alt='Epicurean Concierge' />
+                                  </span>
+                                  <p className="text-dbluew dark:text-dlightgreen font-heading mt-2 text-center">Epicurean Concierge</p>
+                                </Link>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </li>
 
-                <li id='pricing' 
-                className={segment == 'pricing' 
-                ? 'border-b-dgreenw border-b-2 ml-10 p-0.5 text-sm' 
-                : 'ml-10 p-0.5 text-sm group transition duration-300'}
-                ><Link href='/pricing' aria-labelledby='DineIntel Tiers and Pricing Link'>Pricing</Link>
-                <span className='block max-w-0 group-hover:max-w-full transition-all duration-200 h-0.5 bg-dgreenw'></span>
+                <li id='pricing'
+                className={segment == 'pricing'
+                ? "relative group border-b-dgreenw border-b-2 ml-10 p-0.5 text-sm"
+                : "relative group ml-10 p-0.5 text-sm"}>
+                  <Link href="/features" aria-labelledby='DineIntel Tiers and Pricing Link'>Pricing</Link>
+                  <div className="absolute top-0 -left-72 transition group-hover:translate-y-5 translate-y-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-50 min-w-[600px] transform">
+                    <div className="relative top-6 p-6 bg-white dark:bg-dblack rounded-xl shadow-xl w-full">
+                      <div className="w-10 h-10 bg-white dark:bg-dblack transform rotate-45 absolute top-0 z-0 translate-x-0 transition-transform group-hover:translate-x-[17rem] duration-500 ease-in-out rounded-sm">
+                      </div>
+                      <div className="relative z-10">
+                        <div className="grid grid-cols-3 gap-2">
+                          <div>
+                            <ul className="mt-3">
+                              <li className='w-[180px]'>
+                                <Link href="/pricing"
+                                  className="block p-2 -mx-2 rounded-lg transition ease-in-out duration-300">
+                                  <div className="bg-dgreenw rounded-xl text-white p-4 mb-4">
+                                    <p className="py-2 font-heading text-lg text-center">Taste Starter</p>
+                                    <p className="text-sm text-center">
+                                      $0/month
+                                    </p>
+                                  </div>
+                                </Link>
+                              </li>
+                            </ul>
+                          </div>
+                          <div>
+                            <ul className="mt-3">
+                              <li className='w-[180px]'>
+                                <Link href="/pricing"
+                                  className="block p-2 -mx-2 rounded-lg transition ease-in-out duration-300">
+                                  <div className="bg-gradient-to-r from-[#6C6C6C] via-[#AAABAB] to-[#6C6C6C] rounded-xl text-white p-4 mb-4">
+                                    <p className="py-2 font-heading text-lg text-white text-center">Cuisine Crafter</p>
+                                    <p className="text-sm text-center">
+                                      $15/month
+                                    </p>
+                                  </div>
+                                </Link>
+                              </li>
+                            </ul>
+                          </div>
+                          <div>
+                            <ul className="mt-3">
+                              <li className='w-[180px]'>
+                                <Link href="/pricing"
+                                  className="block p-2 -mx-2 rounded-lg transition ease-in-out duration-300">
+                                  <div className="bg-gradient-to-r from-[#B08C36] via-[#D9BD5B] to-[#9B7424] rounded-xl text-white p-4 mb-4">
+                                    <p className="py-2 font-heading text-lg text-white text-center">Epicurean Elite</p>
+                                    <p className="text-sm text-center">
+                                      $50/month
+                                    </p>
+                                  </div>
+                                </Link>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </li>
 
                 <li id='faqs' 
