@@ -102,7 +102,7 @@ const SignIn = () => {
           <Image className='' src={LoginPic} width={300} height={250} alt='Login Graphic' />
         </div>
         <h1 className="font-bold text-black dark:text-white text-xl my-2">Welcome Back!</h1>
-        <h1 className="text-ddarkgrey dark:text-dgrey mb-5 text-sm">Let&apos;s get you logged in so you can start exploring</h1>
+        <p className="text-ddarkgrey dark:text-dgrey mb-5 text-sm">Let&apos;s get you logged in so you can start exploring</p>
 
         <>
           <div className='flex mb-2'>
@@ -118,6 +118,7 @@ const SignIn = () => {
             type="email" 
             id="email" 
             name="email" 
+            aria-label='Email Address'
             placeholder="Enter email" 
             value={email} 
             required
@@ -139,6 +140,7 @@ const SignIn = () => {
             type={passwordvisible ? "text" : "password"} 
             id="password" 
             name="password" 
+            aria-label='Password'
             placeholder="Enter password" 
             value={password} 
             required
@@ -154,6 +156,8 @@ const SignIn = () => {
             </Link>
         </div>
           <button 
+            id='loginButton'
+            aria-label='Log In Button'
             onClick={validateform}
             className="w-full text-center bg-transparent p-3 mb-4 hover:bg-dblue hover:text-white rounded-xl outline outline-2 text-dbluew dark:text-white font-bold inline-flex justify-center items-center"
           >
@@ -172,7 +176,7 @@ const SignIn = () => {
           <span className="hidden h-[1px] w-full max-w-[60px] bg-dblack dark:bg-dlightgreen sm:block"></span>
         </div>
         <div className='flex justify-center'>
-          <button onClick={handleGoogleSignIn} className="">
+          <button onClick={handleGoogleSignIn} className="" aria-label='Google Log In Button'>
             <span className="mr-3">
               <svg
                 width="20"

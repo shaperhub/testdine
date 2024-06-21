@@ -334,6 +334,7 @@ const SignUp = () => {
                 type="text" 
                 id="firstname"
                 name="firstname"
+                aria-label='First Name'
                 placeholder="First name" 
                 value={firstname} 
                 required
@@ -357,6 +358,7 @@ const SignUp = () => {
                 type="text" 
                 id="lastname"
                 name="lastname"
+                aria-label='Last Name'
                 placeholder="Last name" 
                 value={lastname} 
                 required
@@ -384,6 +386,7 @@ const SignUp = () => {
             type="text" 
             id="username"
             name="username"
+            aria-label='Username'
             placeholder="Enter username" 
             value={useruname} 
             required
@@ -407,6 +410,7 @@ const SignUp = () => {
             type="email" 
             id="email"
             name="email"
+            aria-label='Email Address'
             placeholder="Enter email" 
             value={email} 
             required
@@ -429,6 +433,7 @@ const SignUp = () => {
             type={passwordvisible ? "text" : "password"}
             id="password"
             name="password"
+            aria-label='Password'
             placeholder="Enter password" 
             value={password} 
             required
@@ -453,6 +458,7 @@ const SignUp = () => {
             type={passwordvisible2==true ? "text" : "password"} 
             id="confirmpassword"
             name="confirmpassword"
+            aria-label='Confirm Password'
             placeholder="Enter password" 
             value={confirmpassword} 
             required
@@ -471,12 +477,13 @@ const SignUp = () => {
                 <path d="M5.36906 10.92C3.55406 12.135 3.55406 14.115 5.36906 15.3225C7.43156 16.7025 10.8141 16.7025 12.8766 15.3225C14.6916 14.1075 14.6916 12.1275 12.8766 10.92C10.8216 9.5475 7.43906 9.5475 5.36906 10.92Z" stroke="#A0A8B3" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </span>
-            <label htmlFor="firstname" className='text-sm text-black dark:text-white'>Profile Picture</label>
+            <label htmlFor="profilepicture" className='text-sm text-black dark:text-white'>Profile Picture</label>
           </div>
           <input 
             type="file"
             id="profilepicture"
             name="profilepicture"
+            aria-label='Upload Profile Picture'
             accept="image/png, image/jpeg, image/jpg"
             onChange={(e) => {handleSelectedFile(e.target.files[0])}} 
             className="w-full p-3 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey"
@@ -490,6 +497,7 @@ const SignUp = () => {
                   type="checkbox"
                   id="checkboxLabel"
                   name="checkboxLabel"
+                  aria-label='Accept Terms and Conditions'
                   className="w-[16px] h-[16px] mr-4 mt-2"
                   checked={isChecked}
                   onChange={checkHandler}
@@ -513,6 +521,8 @@ const SignUp = () => {
 
           <div className='flex items-center'>
             <button 
+              id="signupButton"
+              aria-label='Sign Up Button'
               onClick={validateform}
               className="w-full bg-transparent mt-8 p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-2 text-dbluew dark:text-white font-bold inline-flex justify-center items-center"
             >
@@ -532,7 +542,7 @@ const SignUp = () => {
           <span className="hidden h-[1px] w-full max-w-[60px] bg-dblack dark:bg-dlightgreen sm:block"></span>
         </div>
         <div className='flex justify-center'>
-          <button onClick={handleGoogleSignUp} className="">
+          <button onClick={handleGoogleSignUp} className="" id="googleSignup" aria-label='Google Sign Up Button'>
             <span className="mr-3">
               <svg
                 width="20"

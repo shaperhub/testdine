@@ -107,6 +107,7 @@ const Googleusername = () => {
                   type="text" 
                   id="username"
                   name="username"
+                  aria-label="Username"
                   placeholder="Enter username" 
                   value={useruname} 
                   required
@@ -117,6 +118,8 @@ const Googleusername = () => {
               {unamegood && <span className='text-dgreen text-xs mb-4'>{unamegood}</span>}
               
               <button 
+                  id="signup"
+                  aria-label="Sign Up Button"
                   onClick={handleCreate}
                   className="w-full text-center bg-transparent mt-12 p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-2 text-dbluew dark:text-white font-bold"
               >

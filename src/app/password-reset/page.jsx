@@ -56,6 +56,7 @@ const PasswordReset = () => {
           type="email" 
           id="email" 
           name="email" 
+          aria-label='Email Address'
           placeholder="Enter email" 
           required
           value={email}
@@ -63,6 +64,8 @@ const PasswordReset = () => {
           className="w-full p-3 mb-6 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] lg:text-sm text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey"
         />
         <button 
+          id='passwordReset'
+          aria-label='Password Reset Button'
           onClick={emailcheck}
           className="w-full bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-2 text-dbluew dark:text-white text-center font-bold"
         >
