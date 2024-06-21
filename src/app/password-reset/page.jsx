@@ -72,7 +72,7 @@ const PasswordReset = () => {
         {success && <span className='text-dgreen text-sm my-4'>{success}</span>}
         <p className="pt-8 text-center text-black dark:text-white">
           Remember Your Password?{" "}
-          <Link href="/log-in" className="text-dgreen font-bold hover:underline">
+          <Link href="/log-in" className="text-dblue dark:text-dyellow font-bold underline">
             Log In
           </Link>
         </p>

@@ -497,12 +497,12 @@ const SignUp = () => {
               </div>
               <span>
                 By creating an account you agree to our
-                <a href="/terms-and-conditions" className="text-dgreen hover:underline">
+                <a href="/terms-and-conditions" className="text-dblue dark:text-dyellow underline">
                   {" "}
                   Terms and Conditions{" "}
                 </a>
                 and
-                <a href="https://www.termsfeed.com/live/e70a25c5-a4d9-4666-9106-06971a074ffc" className="text-dgreen hover:underline">
+                <a href="https://www.termsfeed.com/live/e70a25c5-a4d9-4666-9106-06971a074ffc" className="text-dblue dark:text-dyellow underline">
                   {" "}
                   Privacy Policy{" "}
                 </a>
@@ -570,7 +570,7 @@ const SignUp = () => {
         </div>
         <p className="pt-6 text-center text-black dark:text-white">
           Already have an account?{" "}
-          <Link href="/log-in" className="text-dgreen font-bold hover:underline">
+          <Link href="/log-in" className="text-dblue dark:text-dyellow font-bold underline">
             Log in
           </Link>
         </p>

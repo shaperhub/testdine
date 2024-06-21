@@ -112,11 +112,11 @@ const Footer = () => {
               <div className="text-white">
                 <div className="mb-4">
                   <p className="mb-2">To Contact Us:</p>
-                  <Link className="text-dgrey hover:text-dgreen" href="mailto:info@dineintel.io" aria-labelledby="DineIntel Contact Email Link">info@dineintel.io</Link>
+                  <Link className="text-dyellow underline" href="mailto:info@dineintel.io" aria-labelledby="DineIntel Contact Email Link">info@dineintel.io</Link>
                 </div>
                 <div className="mb-4">
                   <p className="mb-2">For Payment Related Issues:</p>
-                  <Link className="text-dgrey hover:text-dgreen" href="mailto:support@dineintel.io" aria-labelledby="DineIntel Support Email Link">support@dineintel.io</Link>
+                  <Link className="text-dyellow underline" href="mailto:support@dineintel.io" aria-labelledby="DineIntel Support Email Link">support@dineintel.io</Link>
                 </div>
               </div>
             </div>

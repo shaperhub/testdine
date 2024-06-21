@@ -167,7 +167,7 @@ export default function Navbar({initialUser}) {
                 className={segment == 'pricing'
                 ? "relative group border-b-dgreenw border-b-2 ml-10 p-0.5 text-sm"
                 : "relative group ml-10 p-0.5 text-sm"}>
-                  <Link href="/features" aria-labelledby='DineIntel Tiers and Pricing Link'>Pricing</Link>
+                  <Link href="/pricing" aria-labelledby='DineIntel Tiers and Pricing Link'>Pricing</Link>
                   <div className="absolute top-0 -left-72 transition group-hover:translate-y-5 translate-y-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-50 min-w-[600px] transform">
                     <div className="relative top-6 p-6 bg-white dark:bg-dblack rounded-xl shadow-xl w-full">
                       <div className="w-10 h-10 bg-white dark:bg-dblack transform rotate-45 absolute top-0 z-0 translate-x-0 transition-transform group-hover:translate-x-[17rem] duration-500 ease-in-out rounded-sm">

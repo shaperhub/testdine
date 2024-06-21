@@ -47,12 +47,12 @@ export default function Home() {
       {/* Transforming Tradition */}
       <div className="flex flex-col lg:flex-row-reverse text-dbluew  dark:text-dgrey gap-8 py-16 px-8 md:px-24 bg-dlightestgreen dark:bg-dlightblack">
         <div className="lg:w-1/2 lgxl:pr-64 flex flex-col justify-center">
-          <h2 className="text-3xl font-heading mb-4 text-dbluew dark:text-dlightblue text-center lg:text-left">Transforming <span className="text-dgreenw dark:text-dgreen">Tradition</span> into <span className="text-dgreenw dark:text-dgreen">Innovation</span></h2>
+          <h1 className="text-3xl font-heading mb-4 text-dbluew dark:text-dlightblue text-center lg:text-left">Transforming <span className="text-dgreenw dark:text-dgreen">Tradition</span> into <span className="text-dgreenw dark:text-dgreen">Innovation</span></h1>
           <p className="font-regular mb-4 text-dbluew dark:text-dgrey">
             At DineIntel, culinary tradition meets innovation. Our culinary hub seamlessly blends global flavors with cutting-edge technology, offering personalized dining experiences tailored to your tastes.
           </p>
           <p className="font-regular mb-6 text-dbluew dark:text-dgrey">
-            Join our vibrant community at <span className="font-bold text-dgreenw dark:text-dgreen"><a href="/features#dinegroup">Dine Group</a></span> to share culinary adventures and inspire each other. Let's redefine dining together. Discover the DineIntel experience: a seamless blend of pleasure, health, and discovery.
+            Join our vibrant community at <span className="font-bold text-dblue dark:text-dyellow"><a href="/features#dinegroup">Dine Group</a></span> to share culinary adventures and inspire each other. Let's redefine dining together. Discover the DineIntel experience: a seamless blend of pleasure, health, and discovery.
           </p>
           <Button text="More About DineIntel" url="/about" />
         </div>
@@ -64,13 +64,13 @@ export default function Home() {
 
       {/* Igniting Joy */}
       <div className="px-8 md:px-24 py-12 md:py-24 bg-white dark:bg-dblack/90">
-        <h2 className="text-dbluew dark:text-dlightblue mb-16 font-heading text-3xl text-center">Discover Our Innovative Features for a <span className="text-dgreenw dark:text-dgreen">Modern Dining Experience</span></h2>
+        <h1 className="text-dbluew dark:text-dlightblue mb-16 font-heading text-3xl text-center">Discover Our Innovative Features for a <span className="text-dgreenw dark:text-dgreen">Modern Dining Experience</span></h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg1440:grid-cols-4 place-items-center place-content-center gap-4 lg2100:px-72">
           <div className="rounded-[24px] h-[420px] lg1440:max-w-[300px] p-8 bg-dlightestgreen dark:bg-black border-1 border-dlightgreen shadow-epc">
             <div className="flex justify-center mb-4">
               <Image className="" src={Foryou} width={35} height={35} alt="For You Icon" quality={100} />
             </div>
-            <h3 className="font-heading text-dbluew dark:text-dlightblue mb-6 text-center">For You</h3>
+            <p className="font-heading text-dbluew dark:text-dlightblue mb-6 text-center">For You</p>
             <p className="text-sm text-dbluew dark:text-dgrey font-regular mb-6">
               Unlock personalized restaurant recommendations, stay updated with real-time trending spots, and customize your search options to enhance your culinary journey.
             </p>
@@ -84,7 +84,7 @@ export default function Home() {
             <div className="flex justify-center mb-4">
               <Image className="" src={Modify} width={35} height={35} alt="Modify Dish Icon" quality={100} />
             </div>
-            <h3 className="font-heading text-dbluew dark:text-dlightblue mb-6 text-center">Modify Dish</h3>
+            <p className="font-heading text-dbluew dark:text-dlightblue mb-6 text-center">Modify Dish</p>
             <p className="text-sm text-dbluew dark:text-dgrey font-regular mb-6">
               A game-changer in personalized dining. Say goodbye to one-size-fits-all meals and hello to a world of culinary customization at your fingertips. 
               Explore personalized ingredient analysis, seamless swaps, and expert flavor pairings tailored to your taste buds.
@@ -99,7 +99,7 @@ export default function Home() {
             <div className="flex justify-center mb-4">
               <Image className="" src={Dinegroup} width={35} height={35} alt="Dine Group Icon" quality={100} />
             </div>
-            <h3 className="font-heading text-dbluew dark:text-dlightblue mb-6 text-center">Dine Group</h3>
+            <p className="font-heading text-dbluew dark:text-dlightblue mb-6 text-center">Dine Group</p>
             <p className="text-sm text-dbluew dark:text-dgrey font-regular mb-6">
               Your culinary community hub within the DineIntel universe, where members share dining narratives, insights, and favorite dining experiences. 
               Engage in lively forums, showcase your dining adventures, and discover hidden gems.
@@ -114,7 +114,7 @@ export default function Home() {
             <div className="flex justify-center mb-4">
               <Image className="" src={Epic} width={35} height={35} alt="Epicurean Concierge Icon" quality={100} />
             </div>
-            <h3 className="font-heading text-dbluew dark:text-dlightblue mb-6 text-center">Epicurean Concierge</h3>
+            <p className="font-heading text-dbluew dark:text-dlightblue mb-6 text-center">Epicurean Concierge</p>
             <p className="text-sm text-dbluew dark:text-dgrey font-regular mb-6">
               Step into a world of tailored culinary assistance with our Epicurean Concierge, the epitome of personalized service at DineIntel. 
               This feature is designed to offer customized meal experiences and deep insights into the culinary arts.
@@ -131,7 +131,7 @@ export default function Home() {
 
       {/* Pricing Cards */}
       <div className="px-8 md:px-24 py-12 md:py-16 bg-dlightestgreen dark:bg-dlightblack/90">
-        <h2 className="text-dbluew dark:text-dlightblue mb-16 font-heading text-3xl text-center">Choose Your <span className="text-dgreenw dark:text-dgreen">Perfect Plan</span></h2>
+        <h1 className="text-dbluew dark:text-dlightblue mb-16 font-heading text-3xl text-center">Choose Your <span className="text-dgreenw dark:text-dgreen">Perfect Plan</span></h1>
         <div className="flex flex-col lgmd:flex-row justify-center gap-4">
 
           {/* Taste Starter Card */}
@@ -438,8 +438,8 @@ export default function Home() {
             <AccordionTrigger className="text-left text-sm md:text-base font-bold">How Does DineIntel Work?</AccordionTrigger>
             <AccordionContent className="pt-2 text-ddarkgrey dark:text-dgrey">
               DineIntel works by leveraging advanced technology to provide personalized dining experiences. 
-              It uses features like <span className='font-bold text-dgreenw dark:text-dgreen'><a href="/features#foryou">For You</a></span> to offer tailored restaurant recommendations and <span className='font-bold text-dgreenw dark:text-dgreen'><a href="/features#modifydish">Modify Dish</a></span> to customize meals according to individual preferences. 
-              Users can also engage with the culinary community through the <span className='font-bold text-dgreenw dark:text-dgreen'><a href='/features#dinegroup'>Dine Group</a></span>, where they can share experiences and discover new dining spots.
+              It uses features like <span className='font-bold text-dblue dark:text-dyellow'><a href="/features#foryou">For You</a></span> to offer tailored restaurant recommendations and <span className='font-bold text-dblue dark:text-dyellow'><a href="/features#modifydish">Modify Dish</a></span> to customize meals according to individual preferences. 
+              Users can also engage with the culinary community through the <span className='font-bold text-dblue dark:text-dyellow'><a href='/features#dinegroup'>Dine Group</a></span>, where they can share experiences and discover new dining spots.
             </AccordionContent>
           </AccordionItem>
         </Accordion>

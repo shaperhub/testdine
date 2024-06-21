@@ -149,7 +149,7 @@ const SignIn = () => {
           {passwordvisible==true && <span className='relative float-right -mt-9 mr-4' onClick={() => setPasswordvisible(false)}><FaEyeSlash/></span>}
 
           <div className="pt-4 text-right mb-6">
-            <Link href="/password-reset" className="text-dgreen hover:underline">
+            <Link href="/password-reset" className="text-dblue dark:text-dyellow underline">
               Forgot Password?
             </Link>
         </div>
@@ -210,7 +210,7 @@ const SignIn = () => {
         </div>
         <p className="pt-4 text-center text-black dark:text-white">
           Don't have an account?{" "}
-          <Link href="/sign-up" className="text-dgreen font-bold hover:underline">
+          <Link href="/sign-up" className="text-dblue dark:text-dyellow font-bold underline">
             Sign Up
           </Link>
         </p>
