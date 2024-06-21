@@ -14,7 +14,7 @@ const Faqs = () => {
 
       {/* FAQs */}
       <div className='pt-20 pb-16 px-8 md:px-36'>
-        <p className='text-2xl lg:text-3xl mb-12 font-heading text-center text-dbluew dark:text-dgrey'>We&apos;ve got all the answers</p>
+        <h2 className='text-2xl lg:text-3xl mb-12 font-heading text-center text-dbluew dark:text-dgrey'>We&apos;ve got all the answers</h2>
         <Accordion type="single" collapsible className="font-regular">
           <AccordionItem value="item-1">
             <AccordionTrigger className="px-2 lg:px-16 text-left text-sm md:text-base font-bold">What is DineIntel?</AccordionTrigger>

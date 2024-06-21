@@ -165,9 +165,10 @@ const SignIn = () => {
             {loading && <Loader2 className="ml-2 h-4 w-4 animate-spin" />}
           </button>
         </>
-        {errorm && <span className='text-red-600 text-sm text-center'>{errorm}</span>}
-        {emailerror && <span className='text-red-600 text-sm text-center'>{emailerror}</span>}
-        {perror && <span className='text-red-600 text-sm text-center'>{perror}</span>}
+        {errorm && <span className='text-red-600 text-sm text-center'>{errorm}<br></br></span>}
+        {emailerror && <span className='text-red-600 text-sm text-center'>{emailerror}<br></br></span>}
+        {perror && <span className='text-red-600 text-sm text-center'>{perror}<br></br></span>}
+        {validateerror && <div className='w-full bg-dred/20 text-red-600 text-xs text-center p-4 my-4'><span>{validateerror}</span></div>}
         <div className="my-6 flex items-center justify-center">
           <span className="hidden h-[1px] w-full max-w-[60px] bg-dblack dark:bg-dlightgreen sm:block"></span>
           <p className="w-full px-5 text-center text-black dark:text-white">

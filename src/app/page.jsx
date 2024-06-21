@@ -419,7 +419,7 @@ export default function Home() {
 
       {/* FAQS */}
       <div className="bg-dlightestgreen dark:bg-dblack text-black dark:text-white px-8 md:px-36 py-16">
-        <h1 className="font-heading text-3xl mb-4 text-dbluew dark:text-dgrey text-center md:text-left">Frequently Asked Questions</h1>
+        <h2 className="font-heading text-3xl mb-4 text-dbluew dark:text-dgrey text-center md:text-left">Frequently Asked Questions</h2>
         <Accordion type="single" collapsible className="font-regular">
           <AccordionItem value="item-1">
             <AccordionTrigger className="text-left text-sm md:text-base font-bold">What is DineIntel?</AccordionTrigger>

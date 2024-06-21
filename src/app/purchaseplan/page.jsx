@@ -156,6 +156,8 @@ export default function PurchasePlan() {
               <h2 className="text-2xl font-bold">Taste Starter</h2>
               <p className="text-lg">$0 per month</p>
               <button
+                id='tastestarter'
+                aria-label='Subscribe to Taste Starter'
                 className="mt-2 px-4 py-2 bg-dblue hover:bg-blue-500 text-white rounded inline-flex items-center"
                 onClick={upgradeToTasteStarter}
               >
@@ -167,6 +169,8 @@ export default function PurchasePlan() {
               <h2 className="text-2xl font-bold">Cuisine Crafter</h2>
               <p className="text-lg">$15 per month</p>
               <button
+                id='cuisinecrafter'
+                aria-label='Subscribe to Cuisine Crafter'
                 className="mt-2 px-4 py-2 bg-dblue hover:bg-blue-500 text-white rounded inline-flex items-center"
                 onClick={upgradeToCuisineCrafter}
               >
@@ -174,6 +178,8 @@ export default function PurchasePlan() {
                 {btnloading2 && <Loader2 className="ml-2 h-4 w-4 animate-spin" />}
               </button>
               <button
+                id='cuisinecraftertrial'
+                aria-label='Try Cuisine Crafter for 7 Days'
                 className="mt-2 px-4 py-2 bg-dblue hover:bg-blue-500 text-white rounded inline-flex items-center"
                 onClick={tryCuisineCrafter}
               >
@@ -185,6 +191,8 @@ export default function PurchasePlan() {
               <h2 className="text-2xl font-bold">Epicurean Elite</h2>
               <p className="text-lg">$50 per month</p>
               <button
+                id='epicureanelite'
+                aria-label='Subscribe to Epicurean Elite'
                 className="mt-2 px-4 py-2 bg-dblue hover:bg-blue-500 text-white rounded inline-flex items-center"
                 onClick={upgradeToEpicurean}
               >
@@ -192,6 +200,8 @@ export default function PurchasePlan() {
                 {btnloading4 && <Loader2 className="ml-2 h-4 w-4 animate-spin" />}
               </button>
               <button
+                id='epicureanelitetrial'
+                aria-label='Try Epicurean Elite for 7 Days'
                 className="mt-2 px-4 py-2 bg-dblue hover:bg-blue-500 text-white rounded inline-flex items-center"
                 onClick={tryEpicurean}
               >

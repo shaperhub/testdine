@@ -41,21 +41,21 @@ const Features = () => {
         <div className="flex flex-col lg:flex-row gap-4">
           <div className='flex flex-col justify-center items-center gap-4 lg:w-1/2 my-4 lgmd:pl-36 lgxl:pl-64'>
             <div className="rounded-[24px] p-8 bg-dlightestgreen dark:bg-black border-1 border-dlightgreen shadow-epc">
-              <h4 className='font-heading text-dbluew dark:text-dlightblue mb-6 text-center'>Personalized Restaurant Recommendations</h4>
+              <h3 className='font-heading text-dbluew dark:text-dlightblue mb-6 text-center'>Personalized Restaurant Recommendations</h3>
               <p className='lgmd:max-w-xl text-sm text-dbluew dark:text-dgrey font-regular mb-6'>
                 We delve into the nuances of your palate, curating restaurant recommendations that perfectly align with your dietary preferences. 
                 Experience a selection of premier dining spots tailored to your unique culinary desires.
               </p>
             </div>
             <div className="rounded-[24px] p-8 bg-dlightestgreen dark:bg-black border-1 border-dlightgreen shadow-epc">
-              <h4 className='font-heading text-dbluew dark:text-dlightblue mb-6 text-center'>Location-Based Trending Options</h4>
+              <h3 className='font-heading text-dbluew dark:text-dlightblue mb-6 text-center'>Location-Based Trending Options</h3>
               <p className='lgmd:max-w-xl text-sm text-dbluew dark:text-dgrey font-regular mb-6'>
                 Immerse yourself in the local dining scene with real-time updates on trending dining spots. 
                 DineIntel brings the culinary pulse of your locale to your fingertips, ensuring you're always connected to the best dining experiences around you.
               </p>
             </div>
             <div className="rounded-[24px] p-8 bg-dlightestgreen dark:bg-black border-1 border-dlightgreen shadow-epc">
-              <h4 className='font-heading text-dbluew dark:text-dlightblue mb-6 text-center'>Customizable Search Dynamics</h4>
+              <h3 className='font-heading text-dbluew dark:text-dlightblue mb-6 text-center'>Customizable Search Dynamics</h3>
               <p className='lgmd:max-w-xl text-sm text-dbluew dark:text-dgrey font-regular mb-6'>
                 With DineIntel, you command the search. 
                 Our platform molds to your needs, offering flexible search options that adapt whether you're seeking a local bite or an exotic feast far from home.
@@ -66,11 +66,6 @@ const Features = () => {
             <Image className="dark:hidden" src={Foryou} width={220} height={400} alt="For You Image" priority />
             <Image className="hidden dark:flex" src={ForyouDark} width={220} height={400} alt="For You Image Dark" priority />
           </div>
-          {/* <div className='lg:w-1/2 my-4 flex justify-center max-h-[400px] lg1440:max-h-[500px]'>
-            <Image className="" src={AppForYou} width={460} height={400} alt="For You Image" />
-            <Image className="dark:hidden" src={Foryou} width={420} height={400} alt="For You Image" />
-            <Image className="hidden dark:flex" src={ForyouDark} width={420} height={400} alt="For You Image Dark" />
-          </div> */}
         </div>
       </div>
 
@@ -90,28 +85,28 @@ const Features = () => {
           <div className="flex flex-col lg:flex-row gap-4">
             <div className="flex flex-col justify-center items-center gap-4 lg:w-1/2 my-4 lgmd:pl-36 lgxl:pl-64">
               <div className="rounded-[24px] p-8 bg-dlightestgreen dark:bg-black border-1 border-dlightgreen shadow-epc">
-                <h4 className='font-heading text-dbluew dark:text-dlightblue mb-6 text-center'>Ingredient Analysis</h4>
+                <h3 className='font-heading text-dbluew dark:text-dlightblue mb-6 text-center'>Ingredient Analysis</h3>
                 <p className='lgmd:max-w-xl text-sm text-dbluew dark:text-dgrey font-regular mb-6'>
                   Discover the health benefits of any ingredient or its alternatives with our detailed analysis tool. 
                   Empowering you to make informed, healthier food choices.
                 </p>
               </div>
               <div className="rounded-[24px] p-8 bg-dlightestgreen dark:bg-black border-1 border-dlightgreen shadow-epc">
-                <h4 className='font-heading text-dbluew dark:text-dlightblue mb-6 text-center'>Ingredient Swap Suggester</h4>
+                <h3 className='font-heading text-dbluew dark:text-dlightblue mb-6 text-center'>Ingredient Swap Suggester</h3>
                 <p className='lgmd:max-w-xl text-sm text-dbluew dark:text-dgrey font-regular mb-6'>
                   Easily adapt your meals with our smart ingredient substitution tool. 
                   Tailor dishes to your dietary needs, allergies, and nutritional preferences without compromising on flavor.
                 </p>
               </div>
               <div className="rounded-[24px] p-8 bg-dlightestgreen dark:bg-black border-1 border-dlightgreen shadow-epc">
-                <h4 className='font-heading text-dbluew dark:text-dlightblue mb-6 text-center'>Flavor Compatibility Analyzer</h4>
+                <h3 className='font-heading text-dbluew dark:text-dlightblue mb-6 text-center'>Flavor Compatibility Analyzer</h3>
                 <p className='lgmd:max-w-xl text-sm text-dbluew dark:text-dgrey font-regular mb-6'>
                   Enhance your culinary experience with our Flavor Compatibility Analyzer. 
                   It suggests harmonious flavor pairings based on your personal taste, dietary restrictions, and nutritional profile, bringing the science of taste to your kitchen.
                 </p>
               </div>
               <div className="rounded-[24px] p-8 bg-dlightestgreen dark:bg-black border-1 border-dlightgreen shadow-epc">
-                <h4 className='font-heading text-dbluew dark:text-dlightblue mb-6 text-center'>Nutritional Insights</h4>
+                <h3 className='font-heading text-dbluew dark:text-dlightblue mb-6 text-center'>Nutritional Insights</h3>
                 <p className='lgmd:max-w-xl text-sm text-dbluew dark:text-dgrey font-regular mb-6'>
                   Stay informed with Modify Dish's real-time nutritional insights. 
                   Get clear views of calorie counts and nutritional information, ensuring balanced and informed meal choices with ease.
@@ -122,11 +117,6 @@ const Features = () => {
             <Image className="dark:hidden" src={Modify} width={220} height={400} alt="Modify Dish Image" />
             <Image className="hidden dark:flex" src={ModifyDark} width={220} height={400} alt="Modify Dish Image Dark" />
           </div>
-          {/* <div className='lg:w-1/2 my-4 flex justify-center max-h-[350px] lg1440:max-h-[500px]'>
-            <Image className="" src={AppModify} width={520} height={400} alt="Modify Dish Image" />
-            <Image className="dark:hidden" src={Modify} width={420} height={400} alt="Modify Dish Image" />
-            <Image className="hidden dark:flex" src={ModifyDark} width={420} height={400} alt="Modify Dish Image Dark" />
-          </div> */}
         </div>
         <p className='italic font-bold text-dbluew dark:text-dgrey lg:px-36 lgxl:px-72 mt-12 text-center lg:text-2xl'>
           DineIntel encapsulates the essence of modern dining—where technology, health, and taste converge to create an exclusive experience for the discerning diner.
@@ -149,21 +139,21 @@ const Features = () => {
         <div className="flex flex-col lg:flex-row gap-4">
           <div className="flex flex-col justify-center items-center gap-4 lg:w-1/2 my-4 lgmd:pl-36 lgxl:pl-64">
             <div className="rounded-[24px] p-8 bg-dlightestgreen dark:bg-black border-1 border-dlightgreen shadow-epc">
-              <h4 className='font-heading text-dbluew dark:text-dlightblue mb-6 text-center'>Community Engagement</h4>
+              <h3 className='font-heading text-dbluew dark:text-dlightblue mb-6 text-center'>Community Engagement</h3>
               <p className='lgmd:max-w-xl text-sm text-dbluew dark:text-dgrey font-regular mb-6'>
                 Immerse yourself in a spirited community where you can share and relive your culinary journeys. 
                 Showcase your dining experiences, share snapshots of your delectable meals, and highlight your culinary exploits, shining a spotlight on your top picks for cuisine and dining venues.
               </p>
             </div>
             <div className="rounded-[24px] p-8 bg-dlightestgreen dark:bg-black border-1 border-dlightgreen shadow-epc">
-              <h4 className='font-heading text-dbluew dark:text-dlightblue mb-6 text-center'>Celebration of Favorites</h4>
+              <h3 className='font-heading text-dbluew dark:text-dlightblue mb-6 text-center'>Celebration of Favorites</h3>
               <p className='lgmd:max-w-xl text-sm text-dbluew dark:text-dgrey font-regular mb-6'>
                 Empower yourself to share your most cherished dining experiences, from memorable meals to the thrill of discovering new restaurants. 
                 Your contributions enrich our tapestry of collective food appreciation and discovery.
               </p>
             </div>
             <div className="rounded-[24px] p-8 bg-dlightestgreen dark:bg-black border-1 border-dlightgreen shadow-epc">
-              <h4 className='font-heading text-dbluew dark:text-dlightblue mb-6 text-center'>Dialogue and Discovery</h4>
+              <h3 className='font-heading text-dbluew dark:text-dlightblue mb-6 text-center'>Dialogue and Discovery</h3>
               <p className='lgmd:max-w-xl text-sm text-dbluew dark:text-dgrey font-regular mb-6'>
                 Engage in lively forums where culinary opinions, reviews, and recommendations are exchanged. 
                 Enter discussions that spark curiosity, share knowledge of hidden gems, and inspire with tales from your dining experiences. 
@@ -171,7 +161,7 @@ const Features = () => {
               </p>
             </div>
             <div className="rounded-[24px] p-8 bg-dlightestgreen dark:bg-black border-1 border-dlightgreen shadow-epc">
-              <h4 className='font-heading text-dbluew dark:text-dlightblue mb-6 text-center'>Meal Planning Events</h4>
+              <h3 className='font-heading text-dbluew dark:text-dlightblue mb-6 text-center'>Meal Planning Events</h3>
               <p className='lgmd:max-w-xl text-sm text-dbluew dark:text-dgrey font-regular mb-6'>
                 Exclusive to Cuisine Crafter and Epicurean Elite members, our Meal Planning Events feature allows you to collaborate with fellow food enthusiasts 
                 in private groups to create and vote on upcoming dining experiences, ensuring memorable gatherings centered around exceptional cuisine.
@@ -204,28 +194,28 @@ const Features = () => {
         <div className="flex flex-col lg:flex-row gap-4 pb-12">
           <div className="flex flex-col justify-center items-center gap-4 lg:w-1/2 my-4 lgmd:pl-36 lgxl:pl-64">
             <div className="rounded-[24px] p-8 bg-dlightestgreen dark:bg-black border-1 border-dlightgreen shadow-epc">
-              <h4 className='font-heading text-dbluew dark:text-dlightblue mb-6 text-center'>Personalized Dining Experiences</h4>
+              <h3 className='font-heading text-dbluew dark:text-dlightblue mb-6 text-center'>Personalized Dining Experiences</h3>
               <p className='lgmd:max-w-xl text-sm text-dbluew dark:text-dgrey font-regular mb-6'>
                 Receive customized dining plans that perfectly align with your taste preferences and dietary needs. 
                 Each meal is crafted to ensure a delightful and satisfying experience, considering your favorite cuisines, dietary restrictions, and nutritional goals.
               </p>
             </div>
             <div className="rounded-[24px] p-8 bg-dlightestgreen dark:bg-black border-1 border-dlightgreen shadow-epc">
-              <h4 className='font-heading text-dbluew dark:text-dlightblue mb-6 text-center'>Event Creation</h4>
+              <h3 className='font-heading text-dbluew dark:text-dlightblue mb-6 text-center'>Event Creation</h3>
               <p className='lgmd:max-w-xl text-sm text-dbluew dark:text-dgrey font-regular mb-6'>
                 Easily create and organize exclusive dining events with the Epicurean Concierge. Whether planning a dinner party or a grand celebration, 
                 our tool helps you craft unforgettable culinary experiences, from selecting the menu to managing guest preferences.
               </p>
             </div>
             <div className="rounded-[24px] p-8 bg-dlightestgreen dark:bg-black border-1 border-dlightgreen shadow-epc">
-              <h4 className='font-heading text-dbluew dark:text-dlightblue mb-6 text-center'>Private Group Connection</h4>
+              <h3 className='font-heading text-dbluew dark:text-dlightblue mb-6 text-center'>Private Group Connection</h3>
               <p className='lgmd:max-w-xl text-sm text-dbluew dark:text-dgrey font-regular mb-6'>
                 Discover and join private groups that resonate with your culinary interests. 
                 The Epicurean Concierge connects you with like-minded food enthusiasts, allowing you to share experiences, exchange recipes, and build meaningful connections within a vibrant community.
               </p>
             </div>
             <div className="rounded-[24px] p-8 bg-dlightestgreen dark:bg-black border-1 border-dlightgreen shadow-epc">
-              <h4 className='font-heading text-dbluew dark:text-dlightblue mb-6 text-center'>Historical Dining Insights</h4>
+              <h3 className='font-heading text-dbluew dark:text-dlightblue mb-6 text-center'>Historical Dining Insights</h3>
               <p className='lgmd:max-w-xl text-sm text-dbluew dark:text-dgrey font-regular mb-6'>
                 Benefit from detailed insights based on your past dining history. The Epicurean Concierge analyzes your previous meals and dining experiences 
                 to provide informed recommendations and advice, helping you make well-informed culinary choices that enhance your gastronomic journey.

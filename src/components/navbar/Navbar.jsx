@@ -73,7 +73,7 @@ export default function Navbar({initialUser}) {
                 <Image className="" src={NavlogDark} alt="DineIntel Logo Darkmode" width='150' height='70' priority />
             </Link>
             <div>
-              <ul className='hidden min-[950px]:flex text-black dark:text-dlightgreen'>
+              <ul className='hidden lg:flex text-black dark:text-dlightgreen'>
                 <li id='about' 
                 className={segment == 'about' 
                 ? 'border-b-dgreenw border-b-2 ml-10 p-0.5 text-sm' 
