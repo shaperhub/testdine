@@ -17,48 +17,36 @@ const Googleusername = () => {
 
     useEffect(() => {
         // Check if the Username Already Exists
-        const checkUsername = async () => {
-            const userlower = useruname.toLowerCase()
-          const usersCollection = collection(db, 'usernames');
-          const queryun = query(usersCollection, where('usernames', '==', userlower));
-          
-          // If the username input length is within range
-          if (useruname.length > 3 && useruname.length < 17){
-            const snap = await getDocs(usersCollection)
-            snap.forEach((doc) => {
-                const data = doc.data().usernames
-                console.log(data)
-                if (data && data[useruname]) {
-                    setUnameError("Username Already Exists");
-                    setUnameGood("")
-                }
-                else{
-                    setUnameError("")
-                    setUnameGood("Username is Available")
-                }
-            });
-            // if the username exists
-            // if(unameexists == true){
-            //   setUnameError("Username Already Exists")
-            //   setUnameGood("")
-            // }
-            // else {
-            //   setUnameError('')
-            //   setUnameGood("Username is available")
-            // }
+      const checkUsername = async () => {
+        const userlower = useruname.toLowerCase()
+        const usersCollection = collection(db, 'usernames');
+        const queryun = query(usersCollection, where('currentUsername', '==', userlower));
+            
+        // If the username input length is within range
+        if (useruname.length > 3 && useruname.length < 33){
+          // if the username exists
+          const snap = await getDocs(queryun)
+          if(snap.size > 0){
+            setUnameError("Username Already Exists")
+            setUnameGood("")
           }
-          // if the username field is empty
-          else if (useruname.length == 0){
-            setUnameError('')
-            setUnameGood('')
-          }
-          // if the username length is our of range
           else {
-            setUnameError("Username must be between 4 to 16 characters long")
-            setUnameGood('')
+            setUnameError('')
+            setUnameGood("Username is available")
           }
         }
-        checkUsername()
+        // if the username field is empty
+        else if (useruname.length == 0){
+          setUnameError('')
+          setUnameGood('')
+        }
+        // if the username length is our of range
+        else {
+          setUnameError("Username must be between 4 to 32 characters long")
+          setUnameGood('')
+        }
+      }
+      checkUsername()
     }, [useruname])
 
 

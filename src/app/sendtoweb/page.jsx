@@ -11,6 +11,7 @@ import {collection, doc, getDoc, getDocs, addDoc, setDoc, updateDoc, onSnapshot,
 export default function Sendtoweb() {
   const [user, setUser] = useState('')
   const [newerror, setNewerror] = useState('')
+  const [loading, setLoading] = useState(false)
   const router = useRouter()
   const searchParams = useSearchParams()
   const token = searchParams.get("token")
@@ -33,29 +34,40 @@ export default function Sendtoweb() {
         try {
           await signInWithCustomToken(auth, token).then((userCredential) => {
             setUser(userCredential.user)
-            console.log("Sign in with custom")
+            console.log("Sign in with custom token...")
             setTimeout(() => {
               if (applink == "tastestarter"){
+                setLoading(true)
                 upgradeToTasteStarter()
               }
-              if (applink == "cuisinecrafter"){
+              else if (applink == "cuisinecrafter"){
+                setLoading(true)
                 upgradeToCuisineCrafter()
               }
-              if (applink == "cuisinecraftertrial"){
+              else if (applink == "cuisinecraftertrial"){
+                setLoading(true)
                 tryCuisineCrafter()
               }
-              if (applink == "epicureanelite"){
+              else if (applink == "epicureanelite"){
+                setLoading(true)
                 upgradeToEpicurean()
               }
-              if (applink == "epicureanelitetrial"){
+              else if (applink == "epicureanelitetrial"){
+                setLoading(true)
                 tryEpicurean()
               }
-              if (applink == "portal"){
+              else if (applink == "portal"){
+                setLoading(true)
                 manageSubscription()
+              }
+              else {
+                setLoading(false)
+                setNewerror("Invalid Request")
               }
             }, 1000)
           })
         } catch(error) {
+          setLoading(false)
           setNewerror(error.message)
           console.error(error.message);
         }
@@ -113,7 +125,7 @@ export default function Sendtoweb() {
         {/* <h1 className="font-heading text-3xl text-center text-dbluew dark:text-dgrey my-4">DineIntel</h1> */}
         <button className="mt-2 px-4 py-2 bg-dbluew hover:bg-blue-500 text-white rounded inline-flex items-center">
           Processing Request...
-          {(token && applink) && <Loader2 className="ml-2 h-4 w-4 animate-spin" />}
+          {loading && <Loader2 className="ml-2 h-4 w-4 animate-spin" />}
         </button>
         <div>
           <p className="text-dred text-sm my-2">{newerror}</p>

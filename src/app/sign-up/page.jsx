@@ -42,11 +42,11 @@ const SignUp = () => {
   useEffect(() => {
     // Check if the Username Already Exists
     const checkUsername = async () => {
-      const usersCollection = collection(db, 'uniqueusernames');
-      const queryun = query(usersCollection, where('username', '==', useruname.toLowerCase()));
-      const snap = await getDocs(queryun)
+      const usersCollection = collection(db, 'usernames');
+      const queryun = query(usersCollection, where('currentUsername', '==', useruname.toLowerCase()));
       // If the username input length is within range
-      if (useruname.length > 3 && useruname.length < 17){
+      if (useruname.length > 3 && useruname.length < 33){
+        const snap = await getDocs(queryun)
         // if the username exists
         if(snap.size > 0){
           setUnameError("Username Already Exists")
@@ -64,7 +64,7 @@ const SignUp = () => {
       }
       // if the username length is our of range
       else {
-        setUnameError("Username must be between 4 to 16 characters long")
+        setUnameError("Username must be between 4 to 32 characters long")
         setUnameGood('')
       }
     }

@@ -10,10 +10,7 @@ import { useRouter, useSelectedLayoutSegment } from 'next/navigation'
 import {onAuthStateChanged} from "firebase/auth"
 import {auth} from "@/app/firebase/config"
 import ComingSoon from '../ComingSoon/ComingSoon'
-import { cn } from "@/lib/utils"
 import Epic from "../../../public/epicconc.png"
-// import { Icons } from "@/components/icons"
-import { NavigationMenu, NavigationMenuContent, NavigationMenuItem, NavigationMenuLink, NavigationMenuList, NavigationMenuTrigger, navigationMenuTriggerStyle } from "@/components/ui/navigation-menu"
 
 function useUserSession(initialUser) {
 	// The initialUser comes from the server via a server component
