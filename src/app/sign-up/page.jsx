@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import {createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider} from "firebase/auth";
-import {collection, doc, getDocs, onSnapshot, query, setDoc, serverTimestamp, where} from "firebase/firestore"
+import {collection, doc, getDocs, query, setDoc, serverTimestamp, where} from "firebase/firestore"
 import {ref, getDownloadURL, uploadBytesResumable } from "firebase/storage"
 import {auth, db, storage} from '@/app/firebase/config'
 import { useRouter } from 'next/navigation';
@@ -45,7 +45,7 @@ const SignUp = () => {
       const usersCollection = collection(db, 'usernames');
       const queryun = query(usersCollection, where('currentUsername', '==', useruname.toLowerCase()));
       // If the username input length is within range
-      if (useruname.length > 3 && useruname.length < 33){
+      if (useruname.length > 3 && useruname.length < 17){
         const snap = await getDocs(queryun)
         // if the username exists
         if(snap.size > 0){
@@ -64,7 +64,7 @@ const SignUp = () => {
       }
       // if the username length is our of range
       else {
-        setUnameError("Username must be between 4 to 32 characters long")
+        setUnameError("Username must be between 4 to 16 characters long")
         setUnameGood('')
       }
     }
@@ -272,21 +272,15 @@ const SignUp = () => {
           userImage: upic,
           isProfilePublic: true,
           showMenus: true,
+          showAllergies: true,
+          showCuisines: true,
+          showNutritionalBlocks: true,
           showDietPref: true,
           showFavRestaurants: true,
           groupsJoined: [],
           groupsPending: [],
           preferences: {cuisines: [], dietaryPreferences: [], foodAllergies: [], nutritionalBlocks: []},
         })
-
-        // Store New Unique Username in the Firestore Unique Usernames Collection
-        // if (username.length > 3) {
-        //   setDoc(doc(db, "usernames", uid), {
-        //     usernames: {
-        //       username: serverTimestamp(),
-        //     }
-        //   })
-        // }
 
         console.log("User Data: " + userfname, userlname, useremail, username, uid, upic)
         setEmail('');
@@ -443,6 +437,7 @@ const SignUp = () => {
           />
           {passwordvisible==false && <span className='relative float-right -mt-11 mr-4' onClick={() => setPasswordvisible(true)}><FaEye/></span>}
           {passwordvisible==true && <span className='relative float-right -mt-11 mr-4' onClick={() => setPasswordvisible(false)}><FaEyeSlash/></span>}
+          {p1error && <span className='text-red-600 text-xs mb-4 -mt-4'>{p1error}<br></br></span>}
 
           <div className='flex mb-2'>
             <span className='mr-2'>
@@ -468,7 +463,8 @@ const SignUp = () => {
           />
           {passwordvisible2==false && <span className='relative float-right -mt-11 mr-4' onClick={() => setPasswordvisible2(true)}><FaEye/></span>}
           {passwordvisible2==true && <span className='relative float-right -mt-11 mr-4' onClick={() => setPasswordvisible2(false)}><FaEyeSlash/></span>}
-          {perror && <span className='text-red-600 text-xs mb-4 -mt-4'>{perror}</span>}
+          {p2error && <span className='text-red-600 text-xs mb-4 -mt-4'>{p2error}<br></br></span>}
+          {perror && <span className='text-red-600 text-xs mb-4 -mt-4'>{perror}<br></br></span>}
 
           <div className='flex mb-2 mt-2'>
             <span className='mr-2'>

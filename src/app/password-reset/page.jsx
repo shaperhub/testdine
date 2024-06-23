@@ -3,16 +3,13 @@ import { useState } from 'react';
 import Link from 'next/link'
 import Image from 'next/image';
 import Forgotpic from '../../../public/ForgotPassword.png'
-import EmailIcon from '../../../public/email.png'
 import {auth} from '@/app/firebase/config'
 import {sendPasswordResetEmail} from 'firebase/auth'
-import { useRouter } from 'next/navigation';
 
 const PasswordReset = () => {
   const [email, setEmail] = useState('');
   const [emailerror, setEmailError] = useState('');
   const [success, setSuccess] = useState('');
-  const router = useRouter()
 
   const emailcheck = () => {
     let emailRegex = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/
@@ -26,13 +23,11 @@ const PasswordReset = () => {
 
   const resetPassword = () => {
     sendPasswordResetEmail(auth, email).then(() => {
-    // Password reset email sent!
       setSuccess("We have sent you an email link to set a new password")
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
-      // ..
     });
   }
 
@@ -61,7 +56,7 @@ const PasswordReset = () => {
           required
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="w-full p-3 mb-6 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] lg:text-sm text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey"
+          className={emailerror ? "w-full p-3 mb-4 bg-white dark:bg-black rounded-xl outline outline-dred outline-1 text-[16px] lg:text-sm text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey" : "w-full p-3 mb-4 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] lg:text-sm text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey"}
         />
         <button 
           id='passwordReset'

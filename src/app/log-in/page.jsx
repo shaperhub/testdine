@@ -123,7 +123,7 @@ const SignIn = () => {
             value={email} 
             required
             onChange={(e) => setEmail(e.target.value)} 
-            className="w-full p-3 mb-4 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] lg:text-sm text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey"
+            className={emailerror ? "w-full p-3 mb-4 bg-white dark:bg-black rounded-xl outline outline-dred outline-1 text-[16px] lg:text-sm text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey" : "w-full p-3 mb-4 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] lg:text-sm text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey"}
           />
 
           <div className='flex mb-2'>
@@ -145,7 +145,7 @@ const SignIn = () => {
             value={password} 
             required
             onChange={(e) => setPassword(e.target.value)} 
-            className="w-full p-3 mb-2 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] lg:text-sm text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey"
+            className={perror ? "w-full p-3 mb-4 bg-white dark:bg-black rounded-xl outline outline-dred outline-1 text-[16px] lg:text-sm text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey" : "w-full p-3 mb-4 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] lg:text-sm text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey"}
           />
           {passwordvisible==false && <span className='relative float-right -mt-9 mr-4' onClick={() => setPasswordvisible(true)}><FaEye/></span>}
           {passwordvisible==true && <span className='relative float-right -mt-9 mr-4' onClick={() => setPasswordvisible(false)}><FaEyeSlash/></span>}
