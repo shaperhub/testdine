@@ -1,16 +1,20 @@
 'use client'
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import Link from 'next/link';
 import Image from 'next/image';
+import dynamic from "next/dynamic";
 import {collection, doc, addDoc, updateDoc, getDocs, query, setDoc, serverTimestamp, where} from "firebase/firestore"
 import {ref, getDownloadURL, uploadBytesResumable } from "firebase/storage"
 import {auth, db, storage} from '@/app/firebase/config'
 import { Plus } from "lucide-react";
-import ReactQuill from "react-quill";
+// import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import parse from "html-react-parser";
 
 const CreateBlog = () => {
+  const ReactQuill = useMemo(() => dynamic(() => import("react-quill"), {ssr: false}),[],);
+  // const ReactQuill = useMemo(() => dynamic(() => import("../../components/ReactQuillWrapper/ReactQuillWrapper"), {ssr: false}),[],);
+
     const [title, setTitle] = useState("");
     const [slug, setSlug] = useState("");
     const [description, setDescription] = useState("");
