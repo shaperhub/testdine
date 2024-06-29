@@ -34,74 +34,56 @@ const CreateBlog = () => {
       setSlug(autoSlug);
     }
 
-    const handleSelectedFile = (files) => {
-        if (files && files.size < 300000) {
-          if (files.type == 'image/png' || files.type == 'image/jpg' || files.type == 'image/jpeg'){
-            setImage(files)
-            setImageerror('')
-            console.log(files)
-          }
-          else {
-            setImageerror("Only png, jpg, or jpeg files are accepted")
-          }
-        } else {
-          setImageerror('File size must be less than 300kb')
-        }
-    }
+    // const handleSelectedFile = (files) => {
+    //     if (files && files.size < 300000) {
+    //       if (files.type == 'image/png' || files.type == 'image/jpg' || files.type == 'image/jpeg'){
+    //         setImage(files)
+    //         setImageerror('')
+    //         console.log(files)
+    //       }
+    //       else {
+    //         setImageerror("Only png, jpg, or jpeg files are accepted")
+    //       }
+    //     } else {
+    //       setImageerror('File size must be less than 300kb')
+    //     }
+    // }
     
-    // Upload selected profile picture to storage before calling handleSignup with the download URL
-    const upload = () => {
-        if (image) {
-          const storageRef = ref(storage, `usersImages/${image.name}`);
-          const uploadTask = uploadBytesResumable(storageRef, image);
-          
-          // Register three observers:
-          // 1. 'state_changed' observer, called any time the state changes
-          // 2. Error observer, called on failure
-          // 3. Completion observer, called on successful completion
-          uploadTask.on('state_changed', 
-            (snapshot) => {
-              // Observe state change events such as progress, pause, and resume
-              // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-              const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-              console.log('Upload is ' + progress + '% done');
-              switch (snapshot.state) {
-                case 'paused':
-                  console.log('Upload is paused');
-                  break;
-                case 'running':
-                  console.log('Upload is running');
-                  break;
-              }
-            }, 
-            (error) => {
-              // Handle unsuccessful uploads
-              console.log(error)
-            }, 
-            () => {
-              // Handle successful uploads on complete. For instance, get the download URL
-              getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-                // console.log('File available at', downloadURL);
-                handleSubmit(downloadURL);
-              });
-            }
-          )
-        }
-        else {
-          setImageerror("Upload a picture")
-        }
-    }    
+    // const upload = () => {
+    //     if (image) {
+    //       const storageRef = ref(storage, `usersImages/${image.name}`);
+    //       const uploadTask = uploadBytesResumable(storageRef, image)
+    //       uploadTask.on('state_changed', 
+    //         (snapshot) => {
+    //           const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+    //           console.log('Upload is ' + progress + '% done');
+    //           switch (snapshot.state) {
+    //             case 'paused':
+    //               console.log('Upload is paused');
+    //               break;
+    //             case 'running':
+    //               console.log('Upload is running');
+    //               break;
+    //           }
+    //         }, 
+    //         (error) => {
+    //           console.log(error)
+    //         }, 
+    //         () => {
+    //           getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+    //             handleSubmit(downloadURL);
+    //           });
+    //         }
+    //       )
+    //     }
+    //     else {
+    //       setImageerror("Upload a picture")
+    //     }
+    // }    
 
     const handleSubmit = async(e) => {
       e.preventDefault();
-    //   const newBlog = {
-    //     title,
-    //     slug,
-    //     description,
-    //     content,
-    //   };
-    //   console.log(newBlog);
-      const docRef = await setDoc(doc(db, "blogposts", slug), {
+      await setDoc(doc(db, "blogposts", slug), {
         createdAt: serverTimestamp(),
         blogTitle: title,
         blogSlug: slug,
@@ -273,8 +255,8 @@ const CreateBlog = () => {
                     <h2 className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                     Blog Content
                     </h2>
-                    {/* {parse(content)} */}
-                    {content}
+                    {parse(content)}
+                    {/* {content} */}
                 </div>
                 </div>
             </div>
