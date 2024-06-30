@@ -86,13 +86,13 @@ const UserProfile = () => {
       arr.push(d.data())
     });
     const subproduct = arr[0].items[0].plan.product;
-    if(subproduct == "prod_QGjfrnxwRu2hDb"){
+    if(subproduct == "prod_QNwb1P3N64DMeR"){
       setCurrentsub("cuisine")
     }
-    else if(subproduct == "prod_QGjgNfyy6nyO16"){
+    else if(subproduct == "prod_QNwcTkKjpozLxA"){
       setCurrentsub("epicurean")
     }
-    else if(subproduct == "prod_QGjfFjOovI8bgP"){
+    else if(subproduct == "prod_QNwaLfuulh5xqC"){
       setCurrentsub("taste")
     }
   }
@@ -100,8 +100,8 @@ const UserProfile = () => {
   // Pay for Taste Starter Subscription
   const upgradeToTaste = async () => {
     setBtnloading1(true)
-    const priceId = "price_1PQCBsRtFO8HcW8tVbDSPgLG";
-    const checkoutUrl = await getCheckoutUrl(priceId, 0);
+    const priceId = "price_1PXAhgC5ZTGkUkqROPV27nVF"
+    const checkoutUrl = await getCheckoutUrl(priceId);
     router.push(checkoutUrl);
     console.log("Upgrade to Taste Starter");
   };
@@ -109,7 +109,7 @@ const UserProfile = () => {
   // Pay for Cuisine Crafter Subscription
   const upgradeToCuisineCrafter = async () => {
     setBtnloading2(true)
-    const priceId = "price_1PQCCLRtFO8HcW8tNreLswEh";
+    const priceId = "price_1PXAiaC5ZTGkUkqR6bNvM3Vt"
     const checkoutUrl = await getCheckoutUrl(priceId);
     router.push(checkoutUrl);
     console.log("Upgrade to Cuisine Crafter");
@@ -118,7 +118,7 @@ const UserProfile = () => {
   // Pay for Epicurean Elite Subscription
   const upgradeToEpicurean = async () => {
     setBtnloading3(true)
-    const priceId = "price_1PQCCfRtFO8HcW8tFSOZtvIJ";
+    const priceId = "price_1PXAj1C5ZTGkUkqRYQ8NoqbP"
     const checkoutUrl = await getCheckoutUrl(priceId);
     router.push(checkoutUrl);
     console.log("Upgrade to Epicurean Elite");

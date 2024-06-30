@@ -5,16 +5,16 @@ import Image from 'next/image';
 import {collection, doc, addDoc, updateDoc, getDoc, getDocs, query, setDoc, serverTimestamp, where} from "firebase/firestore"
 import {db} from '@/app/firebase/config'
 import parse from "html-react-parser";
-import { notFound, usePathname } from 'next/navigation';
+import { notFound, usePathname, useRouter } from 'next/navigation';
 
 const BlogPost = () => {
     const [title, setTitle] = useState('')
     const [date, setDate] = useState('')
     // const [image, setImage] = useState('')
-    const [slug, setSlug] = useState('')
     const [content, setContent] = useState('')
     const [loading, setLoading] = useState(false)
     const pathname = usePathname()
+    const router = useRouter()
     const newpathname = pathname.split("/")[2]
 
     useEffect(() => {
@@ -29,7 +29,7 @@ const BlogPost = () => {
                   setContent(postdata.blogContent)
                 }
                 else {
-                    notFound()
+                  router.push('/blog')
                 }
             })
         }

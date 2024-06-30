@@ -85,35 +85,35 @@ export default function Sendtoweb() {
   };
 
   const upgradeToTasteStarter = async () => {
-    const priceId = "price_1PQCBsRtFO8HcW8tVbDSPgLG";
+    const priceId = "price_1PXAhgC5ZTGkUkqROPV27nVF"
     const checkoutUrl = await getCheckoutUrl(priceId);
     router.push(checkoutUrl);
     console.log("Taste: " + checkoutUrl);
   };
   
   const upgradeToCuisineCrafter = async () => {
-    const priceId = "price_1PQCCLRtFO8HcW8tNreLswEh";
+    const priceId = "price_1PXAiaC5ZTGkUkqR6bNvM3Vt"
     const checkoutUrl = await getCheckoutUrl(priceId);
     router.push(checkoutUrl);
     console.log("Cuisine: " + checkoutUrl);
   };
 
   const tryCuisineCrafter = async () => {
-    const priceId = "price_1PQCCLRtFO8HcW8tNreLswEh";
+    const priceId = "price_1PXAiaC5ZTGkUkqR6bNvM3Vt"
     const checkoutUrl = await getCheckoutUrl(priceId, 7);
     router.push(checkoutUrl);
     console.log("Cuisine Trial: " + checkoutUrl);
   };
 
   const upgradeToEpicurean = async () => {
-    const priceId = "price_1PQCCfRtFO8HcW8tFSOZtvIJ";
+    const priceId = "price_1PXAj1C5ZTGkUkqRYQ8NoqbP"
     const checkoutUrl = await getCheckoutUrl(priceId);
     router.push(checkoutUrl);
     console.log("Epicurean: " + checkoutUrl);
   };  
 
   const tryEpicurean = async () => {
-    const priceId = "price_1PQCCfRtFO8HcW8tFSOZtvIJ";
+    const priceId = "price_1PXAj1C5ZTGkUkqRYQ8NoqbP"
     const checkoutUrl = await getCheckoutUrl(priceId, 7);
     router.push(checkoutUrl);
     console.log("Epicurean Trial: " + checkoutUrl);
