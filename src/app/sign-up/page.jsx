@@ -45,7 +45,7 @@ const SignUp = () => {
       const usersCollection = collection(db, 'usernames');
       const queryun = query(usersCollection, where('currentUsername', '==', useruname.toLowerCase()));
       // If the username input length is within range
-      if (useruname.length > 3 && useruname.length < 17){
+      if (useruname.length > 3 && useruname.length < 21){
         const snap = await getDocs(queryun)
         // if the username exists
         if(snap.size > 0){
@@ -64,7 +64,7 @@ const SignUp = () => {
       }
       // if the username length is our of range
       else {
-        setUnameError("Username must be between 4 to 16 characters long")
+        setUnameError("Username must be between 4 to 20 characters long")
         setUnameGood('')
       }
     }
@@ -107,7 +107,7 @@ const SignUp = () => {
   }
 
   const usernamecheck = () => {
-    if (useruname.length < 4 || useruname.length > 16) {
+    if (useruname.length < 4 || useruname.length > 20) {
       setUnameEmpty(true)
     } else {
       setUnameEmpty(false)
@@ -528,7 +528,7 @@ const SignUp = () => {
           </div>
         </>
         {validateerror && <div className='w-full bg-dred/20 text-red-600 text-xs text-center p-4 my-4'><span>{validateerror}</span></div>}
-        {signuperror && <div className='w-full bg-dred/20 text-red-600 text-xs text-center p-4 my-4'><span>{signuperror}</span></div>}
+        {signuperror=='Firebase: Error (auth/email-already-in-use).' && <div className='w-full bg-dred/20 text-red-600 text-xs text-center p-4 my-4'><span>Email already exists</span></div>}
 
         <div className="my-6 flex items-center justify-center">
           <span className="hidden h-[1px] w-full max-w-[60px] bg-dblack dark:bg-dlightgreen sm:block"></span>

@@ -19,7 +19,7 @@ const Googleusername = () => {
         const usersCollection = collection(db, 'usernames');
         const queryun = query(usersCollection, where('currentUsername', '==', userlower));
             
-        if (useruname.length > 3 && useruname.length < 17){
+        if (useruname.length > 3 && useruname.length < 21){
           const snap = await getDocs(queryun)
           if(snap.size > 0){
             setUnameError("Username Already Exists")
@@ -35,7 +35,7 @@ const Googleusername = () => {
           setUnameGood('')
         }
         else {
-          setUnameError("Username must be between 4 to 16 characters long")
+          setUnameError("Username must be between 4 to 20 characters long")
           setUnameGood('')
         }
       }
@@ -45,7 +45,7 @@ const Googleusername = () => {
 
   // Create User in the Firestore Users Collection
   const handleCreate = async() => {
-    if (useruname.length>3 && useruname.length<17) {
+    if (useruname.length>3 && useruname.length<21) {
       try {
         updateDoc(doc(db, "users", user.uid), {
           userName: useruname
@@ -59,7 +59,7 @@ const Googleusername = () => {
       }
     }
     else {
-      setUnameError("Username must be between 4 to 16 characters long")
+      setUnameError("Username must be between 4 to 20 characters long")
     }
   };
 

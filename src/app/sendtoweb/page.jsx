@@ -128,7 +128,7 @@ export default function Sendtoweb() {
           {loading && <Loader2 className="ml-2 h-4 w-4 animate-spin" />}
         </button>
         <div>
-          <p className="text-dred text-sm my-2">{newerror}</p>
+          {newerror=='Firebase: Error (auth/invalid-credential).' && <p className="text-dred text-sm my-2">Invalid Token</p>}
         </div>
       </div>
     </div>

@@ -165,7 +165,7 @@ const SignIn = () => {
             {loading && <Loader2 className="ml-2 h-4 w-4 animate-spin" />}
           </button>
         </>
-        {errorm && <span className='text-red-600 text-sm text-center'>{errorm}<br></br></span>}
+        {errorm=='Firebase: Error (auth/invalid-credential).' && <span className='text-red-600 text-sm text-center'>Incorrect Email or Password<br></br></span>}
         {emailerror && <span className='text-red-600 text-sm text-center'>{emailerror}<br></br></span>}
         {perror && <span className='text-red-600 text-sm text-center'>{perror}<br></br></span>}
         {validateerror && <div className='w-full bg-dred/20 text-red-600 text-xs text-center p-4 my-4'><span>{validateerror}</span></div>}
