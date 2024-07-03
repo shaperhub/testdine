@@ -85,8 +85,8 @@ const CreateBlog = () => {
     //     }
     // }    
 
-    const handleSubmit = async() => {
-      // e.preventDefault();
+    const handleSubmit = async(e) => {
+      e.preventDefault();
       await setDoc(doc(db, "blogposts", slug), {
         createdAt: serverTimestamp(),
         blogTitle: title,

@@ -233,6 +233,7 @@ const SignUp = () => {
     } catch(e){
         setSignuperror(e.message)
         console.error(e)
+        setLoading(false)
     }
   };
 
@@ -251,6 +252,7 @@ const SignUp = () => {
     } catch(e){
         setSignuperror(e.message)
         console.error(e)
+        setLoading(false)
     }
   };
 

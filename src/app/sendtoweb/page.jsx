@@ -124,11 +124,16 @@ export default function Sendtoweb() {
       <div className="flex flex-col items-center">
         {/* <h1 className="font-heading text-3xl text-center text-dbluew dark:text-dgrey my-4">DineIntel</h1> */}
         <button className="mt-2 px-4 py-2 bg-dbluew hover:bg-blue-500 text-white rounded inline-flex items-center">
-          Processing Request...
-          {loading && <Loader2 className="ml-2 h-4 w-4 animate-spin" />}
+          {loading && 
+            <div className="inline-flex items-center"><span>Processing Request...<Loader2 className="ml-2 h-4 w-4 animate-spin" /></span></div>
+          }
+          {loading==false && 
+            <span>Request Failed</span>
+          }
         </button>
         <div>
-          {newerror=='Firebase: Error (auth/invalid-custom-token).' && <p className="text-dred text-sm my-2 text-center">Invalid Token</p>}
+          {newerror=='Firebase: Error (auth/invalid-custom-token).' && <p className="text-dred text-sm my-2 text-center">Invalid Credentials</p>}
+          {newerror=='Firebase: Invalid assertion format. 3 dot separated segments required. (auth/invalid-custom-token).' && <p className="text-dred text-sm my-2 text-center">Invalid Credentials</p>}
         </div>
       </div>
     </div>
