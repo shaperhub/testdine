@@ -2,6 +2,7 @@
 import { useState, useMemo } from "react";
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
 import {collection, doc, addDoc, updateDoc, getDocs, query, setDoc, serverTimestamp, where} from "firebase/firestore"
 import {ref, getDownloadURL, uploadBytesResumable } from "firebase/storage"
@@ -10,6 +11,7 @@ import { Plus } from "lucide-react";
 // import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import parse from "html-react-parser";
+import { Loader2 } from "lucide-react"
 
 const CreateBlog = () => {
   const ReactQuill = useMemo(() => dynamic(() => import("react-quill"), {ssr: false}),[],);
@@ -19,6 +21,8 @@ const CreateBlog = () => {
     const [slug, setSlug] = useState("");
     const [description, setDescription] = useState("");
     const [content, setContent] = useState("");
+    const [loading, setLoading] = useState(false);
+    const router = useRouter()
     
     const generateSlug = (title) => {
         const slug = title
@@ -87,13 +91,22 @@ const CreateBlog = () => {
 
     const handleSubmit = async(e) => {
       e.preventDefault();
-      await setDoc(doc(db, "blogposts", slug), {
-        createdAt: serverTimestamp(),
-        blogTitle: title,
-        blogSlug: slug,
-        blogDescription: description,
-        blogContent: content,
-      })
+      try {
+        setLoading(true)
+        await setDoc(doc(db, "blogposts", slug), {
+            createdAt: serverTimestamp(),
+            blogTitle: title,
+            blogSlug: slug,
+            blogDescription: description,
+            blogContent: content,
+        }).then(() => {
+            setTimeout(() => {
+                router.push(`/blog/${slug}/`)
+            }, 2000)
+        })
+      } catch(error) {
+        setLoading(false)
+      }
     }
   
     //Custom Tool Bar
@@ -140,78 +153,66 @@ const CreateBlog = () => {
                 <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
                     {/* Title */}
                     <div className="sm:col-span-2">
-                    <label
-                        htmlFor="title"
-                        className="block text-sm font-medium leading-6 text-gray-900 mb-2 "
-                    >
-                        Blog Title
-                    </label>
-                    <div className="mt-2">
-                        <input
-                        onChange={handleTitle}
-                        type="text"
-                        value={title}
-                        name="title"
-                        id="title"
-                        autoComplete="given-name"
-                        className="block w-full rounded-md border-0 py-2 px-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-600 sm:text-sm sm:leading-6"
-                        placeholder="Type the Course title"
-                        />
-                    </div>
+                        <label htmlFor="title" className="block text-sm font-medium leading-6 text-gray-900 mb-2 ">
+                            Blog Title
+                        </label>
+                        <div className="mt-2">
+                            <input
+                            onChange={handleTitle}
+                            type="text"
+                            value={title}
+                            name="title"
+                            id="title"
+                            className="block w-full rounded-md border-0 py-2 px-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-600 sm:text-sm sm:leading-6"
+                            placeholder="Enter Blog Title"
+                            />
+                        </div>
                     </div>
                     {/* Slug */}
                     <div className="sm:col-span-2">
-                    <label
-                        htmlFor="slug"
-                        className="block text-sm font-medium leading-6 text-gray-900 mb-2 "
-                    >
-                        Blog Slug
-                    </label>
-                    <div className="mt-2">
-                        <input
-                        onChange={(e) => setSlug(e.target.value)}
-                        type="text"
-                        value={slug}
-                        name="slug"
-                        id="slug"
-                        autoComplete="slug"
-                        className="block w-full rounded-md border-0 py-2 px-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-600 sm:text-sm sm:leading-6"
-                        placeholder="Type the Course title"
-                        />
-                    </div>
+                        <label htmlFor="slug" className="block text-sm font-medium leading-6 text-gray-900 mb-2">
+                            Blog Slug
+                        </label>
+                        <div className="mt-2">
+                            <input
+                            onChange={(e) => setSlug(e.target.value)}
+                            type="text"
+                            value={slug}
+                            name="slug"
+                            id="slug"
+                            autoComplete="slug"
+                            className="block w-full rounded-md border-0 py-2 px-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-600 sm:text-sm sm:leading-6"
+                            placeholder="Blog Slug"
+                            />
+                        </div>
                     </div>
                     {/* Description */}
                     <div className="sm:col-span-2">
-                    <label
-                        htmlFor="description"
-                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                    >
-                        Blog Description
-                    </label>
-                    <textarea
-                        id="description"
-                        rows="4"
-                        onChange={(e) => setDescription(e.target.value)}
-                        value={description}
-                        className="block p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-purple-500 focus:border-purple-500 "
-                        placeholder="Write your thoughts here..."
-                    ></textarea>
+                        <label htmlFor="description" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                            Blog Description
+                        </label>
+                        <textarea
+                            id="description"
+                            name="description"
+                            rows="4"
+                            onChange={(e) => setDescription(e.target.value)}
+                            value={description}
+                            className="block p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-purple-500 focus:border-purple-500 "
+                            placeholder="Blog Description"
+                        ></textarea>
                     </div>
                     {/* Content */}
                     <div className="sm:col-span-2">
-                    <label
-                        htmlFor="content"
-                        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                    >
-                        Blog Content
-                    </label>
-                    <ReactQuill
-                        theme="snow"
-                        value={content}
-                        onChange={setContent}
-                        modules={modules}
-                        formats={formats}
-                    />
+                        <label htmlFor="content" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                            Blog Content
+                        </label>
+                        <ReactQuill
+                            theme="snow"
+                            value={content}
+                            onChange={setContent}
+                            modules={modules}
+                            formats={formats}
+                        />
                     </div>
                 </div>
                 <button
@@ -220,6 +221,7 @@ const CreateBlog = () => {
                 >
                     <Plus className="w-5 h-5 mr-2" />
                     <span>Create Blog Post</span>
+                    {loading && <Loader2 className="ml-2 h-4 w-4 animate-spin" />}
                 </button>
                 </form>
             </div>

@@ -5,7 +5,7 @@ import Image from 'next/image';
 import {collection, doc, addDoc, updateDoc, getDoc, getDocs, query, setDoc, serverTimestamp, where} from "firebase/firestore"
 import {db} from '@/app/firebase/config'
 import parse from "html-react-parser";
-import { notFound, usePathname, useRouter } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 
 const BlogPost = () => {
     const [title, setTitle] = useState('')
@@ -18,7 +18,6 @@ const BlogPost = () => {
     const newpathname = pathname.split("/")[2]
 
     useEffect(() => {
-        console.log("Pathname slug: " + newpathname)
         const fetchPost = async () => {
             await getDoc(doc(db, "blogposts", newpathname)).then(docSnap => {
                 if (docSnap.exists()) {
