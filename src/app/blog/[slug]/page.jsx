@@ -6,6 +6,7 @@ import {collection, doc, addDoc, updateDoc, getDoc, getDocs, query, setDoc, serv
 import {db} from '@/app/firebase/config'
 import parse from "html-react-parser";
 import { usePathname, useRouter } from 'next/navigation';
+import styles from "./page.module.css";
 
 const BlogPost = () => {
     const [title, setTitle] = useState('')
@@ -47,7 +48,7 @@ const BlogPost = () => {
 
       <div className='flex flex-col justify-center py-8'>
         <h3 className='font-heading text-3xl mb-6 text-dbluew dark:text-dgreen'>{title}</h3>
-        <div className='font-regular text-black dark:text-dgrey mb-8'>{parse(content)}</div>
+        <div className={styles.blogcontent}>{parse(content)}</div>
       </div>
     </div>
   )

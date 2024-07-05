@@ -1,7 +1,5 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import IosApp from "../../../public/appstore.png"
-import AndroidApp from "../../../public/googleplay.png"
 import AppShot from "../../../public/newdownloadlight.png"
 import AppShotdark from "../../../public/newdownload.png"
 

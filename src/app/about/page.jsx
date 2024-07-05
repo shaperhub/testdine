@@ -1,12 +1,12 @@
 import Image from "next/image";
 import Vision from "../../../public/cheers.jpg"
-import Mission from "../../../public/mission.png"
-import Topimage from "../../../public/aboutus.png"
-import Dimage from "../../../public/foodbasket.png"
-import Rimage from "../../../public/response.png"
-import Inimage from "../../../public/innotech.png"
-import Vimage from "../../../public/vibrant.png"
-import Eimage from "../../../public/excellence.png"
+import Mission from "../../../public/mission.jpg"
+import Topimage from "../../../public/aboutus.jpg"
+import Dimage from "../../../public/foodbasket.jpg"
+import Rimage from "../../../public/response.jpg"
+import Inimage from "../../../public/innotech.jpg"
+import Vimage from "../../../public/vibrant.jpg"
+import Eimage from "../../../public/excellence.jpg"
 
 const About = () => {
   return (

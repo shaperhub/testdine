@@ -3,7 +3,7 @@ import Link from "next/link";
 import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/components/ui/accordion"
 import Epic from "../../public/epicconc.png"
 import HeroPic from "../../public/restaurant.jpg"
-import TransformPic from "../../public/trad2inno.png"
+import TransformPic from "../../public/trad2inno.jpg"
 import DownloadApp from "@/components/DownloadApp/DownloadApp";
 import Button from "@/components/Button/Button";
 import { FaCheck } from "react-icons/fa6";

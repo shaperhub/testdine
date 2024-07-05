@@ -37,9 +37,9 @@ module.exports = {
         // => @media (min-width: 2100px) { ... }
       },
       backgroundImage: {
-        'lightbg': "url('/LightThemeBg.png')",
-        'darkbg': "url('/DarkThemeBg.png')",
-        'aboutbg': "url('/aboutus.png')",
+        'lightbg': "url('/LightThemeBg.jpg')",
+        'darkbg': "url('/DarkThemeBg.jpg')",
+        'aboutbg': "url('/aboutus.jpg')",
       },
       fontFamily: {
         heading: ["var(--font-poppins-big)"],

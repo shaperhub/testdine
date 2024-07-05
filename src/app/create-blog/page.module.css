@@ -1,0 +1,11 @@
+.blogcontent {
+    color: blueviolet;
+}
+
+.blogcontent > p > a {
+    color: red
+}
+
+.blogcontent > p > img {
+    max-width: 400px;
+}
