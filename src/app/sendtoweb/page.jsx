@@ -122,12 +122,10 @@ export default function Sendtoweb() {
   return (
     <div className="bg-white/50 dark:bg-black/80 min-h-screen pt-24 flex items-center justify-center text-sm font-regular">
       <div className="flex flex-col items-center">
-        {/* <h1 className="font-heading text-3xl text-center text-dbluew dark:text-dgrey my-4">DineIntel</h1> */}
         <button className="mt-2 px-4 py-2 bg-dbluew hover:bg-blue-500 text-white rounded inline-flex items-center">
-          {loading && 
-            <div className="inline-flex items-center"><span>Processing Request...<Loader2 className="ml-2 h-4 w-4 animate-spin" /></span></div>
-          }
-          {loading==false && 
+          {loading ? 
+            <div className="inline-flex items-center"><span>Processing Request...</span><Loader2 className="ml-2 h-4 w-4 animate-spin" /></div>
+            :
             <span>Request Failed</span>
           }
         </button>
