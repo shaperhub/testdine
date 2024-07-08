@@ -12,6 +12,7 @@ credentials.json
 # next.js
 /.next/
 /out/
+out.zip
 
 # production
 /build

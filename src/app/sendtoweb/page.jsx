@@ -1,32 +1,23 @@
 'use client'
 import { useState, useEffect } from "react"
-import { usePathname, useRouter, redirect, useSearchParams } from "next/navigation"
-import Link from 'next/link'
+import { useRouter, useSearchParams } from "next/navigation"
 import { Loader2 } from "lucide-react"
 import { getCheckoutUrl, getPortalUrl } from "../user-profile/payment";
-import {app, auth, db} from '@/app/firebase/config'
-import {signInWithCustomToken, onAuthStateChanged} from "firebase/auth"
-import {collection, doc, getDoc, getDocs, addDoc, setDoc, updateDoc, onSnapshot, query, serverTimestamp, where} from "firebase/firestore"
+import { auth } from '@/app/firebase/config'
+import { signInWithCustomToken } from "firebase/auth"
 
 export default function Sendtoweb() {
   const [user, setUser] = useState('')
   const [newerror, setNewerror] = useState('')
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(null)
   const router = useRouter()
   const searchParams = useSearchParams()
   const token = searchParams.get("token")
   const applink = searchParams.get("request")
-  // console.log(token)
-  // console.log(applink)
 
   useEffect(() => {
-    // const unsubscribe = onAuthStateChanged(auth, async (authuser) => {
-    //   setUser(authuser)
-    //   console.log("Already user: " + user)
-    // }); 
     const getsignin = async() => {
       if (!token || !applink) {
-        console.log("Nothing to process")
         setNewerror("Missing Token or Request")
       }
         
@@ -75,7 +66,6 @@ export default function Sendtoweb() {
     }
     
     getsignin();
-    // return () => unsubscribe();
   }, []);
 
   const manageSubscription = async () => {
@@ -123,10 +113,12 @@ export default function Sendtoweb() {
     <div className="bg-white/50 dark:bg-black/80 min-h-screen pt-24 flex items-center justify-center text-sm font-regular">
       <div className="flex flex-col items-center">
         <button className="mt-2 px-4 py-2 bg-dbluew hover:bg-blue-500 text-white rounded inline-flex items-center">
-          {loading ? 
+          {loading==true ? 
             <div className="inline-flex items-center"><span>Processing Request...</span><Loader2 className="ml-2 h-4 w-4 animate-spin" /></div>
-            :
+            : loading==false ?
             <span>Request Failed</span>
+            :
+            <span>Welcome</span>
           }
         </button>
         <div>
@@ -135,5 +127,6 @@ export default function Sendtoweb() {
         </div>
       </div>
     </div>
+
   )
 }
