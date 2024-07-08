@@ -1,5 +1,6 @@
 import Button from "@/components/Button/Button"
 import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/components/ui/accordion"
+import Link from "next/link"
 
 const Faqs = () => {
   return (
@@ -33,8 +34,8 @@ const Faqs = () => {
             <AccordionTrigger className="px-2 lg:px-16 text-left text-sm md:text-base font-bold">How Does DineIntel Work?</AccordionTrigger>
             <AccordionContent className="px-2 lg:px-16 pt-2 text-ddarkgrey dark:text-dgrey">
               DineIntel works by leveraging advanced technology to provide personalized dining experiences. 
-              It uses features like <span className='font-bold text-dblue dark:text-dyellow'><a href="/features#foryou">For You</a></span> to offer tailored restaurant recommendations and <span className='font-bold text-dblue dark:text-dyellow'><a href="/features#modifydish">Modify Dish</a></span> to customize meals according to individual preferences. 
-              Users can also engage with the culinary community through the <span className='font-bold text-dblue dark:text-dyellow'><a href='/features#dinegroup'>Dine Group</a></span>, where they can share experiences and discover new dining spots.
+              It uses features like <span className='font-bold text-dblue dark:text-dyellow'><Link href="/features#foryou">For You</Link></span> to offer tailored restaurant recommendations and <span className='font-bold text-dblue dark:text-dyellow'><Link href="/features#modifydish">Modify Dish</Link></span> to customize meals according to individual preferences. 
+              Users can also engage with the culinary community through the <span className='font-bold text-dblue dark:text-dyellow'><Link href='/features#dinegroup'>Dine Group</Link></span>, where they can share experiences and discover new dining spots.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-4">
@@ -48,13 +49,13 @@ const Faqs = () => {
             <AccordionTrigger className="px-2 lg:px-16 text-left text-sm md:text-base font-bold">How Can I Customize My Dining Experience on the DineIntel App?</AccordionTrigger>
             <AccordionContent className="px-2 lg:px-16 pt-2 text-ddarkgrey dark:text-dgrey">
               With DineIntel, you have the power to tailor your dining experience to your preferences like never before. 
-              Use features like <span className='font-bold text-dblue dark:text-dyellow'><a href="/features#modifydish">Modify Dish</a></span> to customize your meal, explore personalized restaurant recommendations, and engage with our Epicurean Concierge for expert guidance on crafting the perfect culinary adventure.
+              Use features like <span className='font-bold text-dblue dark:text-dyellow'><Link href="/features#modifydish">Modify Dish</Link></span> to customize your meal, explore personalized restaurant recommendations, and engage with our Epicurean Concierge for expert guidance on crafting the perfect culinary adventure.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-6">
             <AccordionTrigger className="px-2 lg:px-16 text-left text-sm md:text-base font-bold">Can I Join a Community of Fellow Food Enthusiasts on DineIntel?</AccordionTrigger>
             <AccordionContent className="px-2 lg:px-16 pt-2 text-ddarkgrey dark:text-dgrey">
-              Absolutely! DineIntel offers a vibrant culinary community through our <span className='font-bold text-dblue dark:text-dyellow'><a href='/features#dinegroup'>Dine Group</a></span> feature. 
+              Absolutely! DineIntel offers a vibrant culinary community through our <span className='font-bold text-dblue dark:text-dyellow'><Link href='/features#dinegroup'>Dine Group</Link></span> feature. 
               Connect with like-minded individuals, share dining experiences, discover new restaurants, and participate in engaging discussions about all things food.
             </AccordionContent>
           </AccordionItem>
@@ -70,7 +71,7 @@ const Faqs = () => {
             <AccordionTrigger className="px-2 lg:px-16 text-left text-sm md:text-base font-bold">Can I Share My Dining Experiences with Friends on DineIntel?</AccordionTrigger>
             <AccordionContent className="px-2 lg:px-16 pt-2 text-ddarkgrey dark:text-dgrey">
               Absolutely! DineIntel encourages sharing and celebrating dining experiences with friends. 
-              You can easily share your favorite restaurants, dishes, and culinary adventures with your friends and fellow food enthusiasts within the <span className='font-bold text-dblue dark:text-dyellow'><a href='/features#dinegroup'>Dine Group</a></span> community. 
+              You can easily share your favorite restaurants, dishes, and culinary adventures with your friends and fellow food enthusiasts within the <span className='font-bold text-dblue dark:text-dyellow'><Link href='/features#dinegroup'>Dine Group</Link></span> community. 
               Join the conversation, exchange recommendations, and inspire each other to discover new culinary delights.
             </AccordionContent>
           </AccordionItem>
@@ -79,7 +80,7 @@ const Faqs = () => {
             <AccordionContent className="px-2 lg:px-16 pt-2 text-ddarkgrey dark:text-dgrey">
               Yes, DineIntel is equipped to accommodate a wide range of dietary preferences. 
               Whether you're vegetarian, vegan, gluten-free, or have specific allergies, our platform provides personalized recommendations and customizable options to ensure a seamless dining experience. 
-              Our <span className='font-bold text-dblue dark:text-dyellow'><a href="/features#modifydish">Modify Dish</a></span> feature allows you to adapt menu items to suit your dietary preferences, ensuring that every meal meets your unique needs and tastes.
+              Our <span className='font-bold text-dblue dark:text-dyellow'><Link href="/features#modifydish">Modify Dish</Link></span> feature allows you to adapt menu items to suit your dietary preferences, ensuring that every meal meets your unique needs and tastes.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-10">

@@ -39,7 +39,7 @@ export default function Home() {
             At DineIntel, culinary tradition meets innovation. Our culinary hub seamlessly blends global flavors with cutting-edge technology, offering personalized dining experiences tailored to your tastes.
           </p>
           <p className="font-regular mb-6 text-dbluew dark:text-dgrey">
-            Join our vibrant community at <span className="font-bold text-dblue dark:text-dyellow"><a href="/features#dinegroup">Dine Group</a></span> to share culinary adventures and inspire each other. Let's redefine dining together. Discover the DineIntel experience: a seamless blend of pleasure, health, and discovery.
+            Join our vibrant community at <span className="font-bold text-dblue dark:text-dyellow"><Link href="/features#dinegroup">Dine Group</Link></span> to share culinary adventures and inspire each other. Let's redefine dining together. Discover the DineIntel experience: a seamless blend of pleasure, health, and discovery.
           </p>
           <Button text="More About DineIntel" url="/about" />
         </div>
@@ -481,8 +481,8 @@ export default function Home() {
             <AccordionTrigger className="text-left text-sm md:text-base font-bold">How Does DineIntel Work?</AccordionTrigger>
             <AccordionContent className="pt-2 text-ddarkgrey dark:text-dgrey">
               DineIntel works by leveraging advanced technology to provide personalized dining experiences. 
-              It uses features like <span className='font-bold text-dblue dark:text-dyellow'><a href="/features#foryou">For You</a></span> to offer tailored restaurant recommendations and <span className='font-bold text-dblue dark:text-dyellow'><a href="/features#modifydish">Modify Dish</a></span> to customize meals according to individual preferences. 
-              Users can also engage with the culinary community through the <span className='font-bold text-dblue dark:text-dyellow'><a href='/features#dinegroup'>Dine Group</a></span>, where they can share experiences and discover new dining spots.
+              It uses features like <span className='font-bold text-dblue dark:text-dyellow'><Link href="/features#foryou">For You</Link></span> to offer tailored restaurant recommendations and <span className='font-bold text-dblue dark:text-dyellow'><Link href="/features#modifydish">Modify Dish</Link></span> to customize meals according to individual preferences. 
+              Users can also engage with the culinary community through the <span className='font-bold text-dblue dark:text-dyellow'><Link href='/features#dinegroup'>Dine Group</Link></span>, where they can share experiences and discover new dining spots.
             </AccordionContent>
           </AccordionItem>
         </Accordion>

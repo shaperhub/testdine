@@ -29,31 +29,31 @@ const Footer = () => {
               </h2>
               <ul>
                 <li>
-                  <a
+                  <Link
                     href="/"
                     aria-labelledby='DineIntel Home Page Link'
                     className="text-dgrey hover:text-dgreen mb-4 inline-block"
                   >
                     Home
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     href="/pricing"
                     aria-labelledby='DineIntel Tiers and Pricing Page Link'
                     className="text-dgrey hover:text-dgreen mb-4 inline-block"
                   >
                     Pricing
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     href="/features"
                     aria-labelledby='DineIntel Features Page Link'
                     className="text-dgrey hover:text-dgreen mb-4 inline-block"
                   >
                     Features
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -66,31 +66,31 @@ const Footer = () => {
               </h2>
               <ul>
                 <li>
-                  <a
+                  <Link
                     href="/terms-and-conditions"
                     aria-labelledby='DineIntel Terms and Conditions Page Link'
                     className="text-dgrey hover:text-dgreen mb-4 inline-block"
                   >
                     Terms &amp; Conditions
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     href="https://www.termsfeed.com/live/e70a25c5-a4d9-4666-9106-06971a074ffc"
                     aria-labelledby='DineIntel Privacy Policy Page Link'
                     className="text-dgrey hover:text-dgreen mb-4 inline-block"
                   >
                     Privacy Policy
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     href="/about"
                     aria-labelledby='DineIntel About Page Link'
                     className="text-dgrey hover:text-dgreen mb-4 inline-block"
                   >
                     About
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>

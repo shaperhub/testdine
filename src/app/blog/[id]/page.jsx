@@ -8,40 +8,40 @@ import parse from "html-react-parser";
 import { usePathname, useRouter } from 'next/navigation';
 import styles from "./page.module.css";
 
-export async function getStaticPaths() {
-  const response = await getDocs(collection(db, "blogposts"))
-  console.log(response)
-  const blogs = response.docs.map((doc) => ({
-    id: doc.id,
-    ...doc.data()
-  }))
-  return {
-    paths: blogs.map((blog) => ({
-      params: {
-        slug: blog.blogSlug,
-      },
-    })),
-    fallback: false,
-  }
-}
+// export async function getStaticPaths() {
+//   const response = await getDocs(collection(db, "blogposts"))
+//   console.log(response)
+//   const blogs = response.docs.map((doc) => ({
+//     id: doc.id,
+//     ...doc.data()
+//   }))
+//   return {
+//     paths: blogs.map((blog) => ({
+//       params: {
+//         slug: blog.blogSlug,
+//       },
+//     })),
+//     fallback: false,
+//   }
+// }
 
-export async function getStaticProps({ params }) {
-  console.log("Parameter: " + params.slug)
-  var respost = ''
-  // const oneblog = await getDoc(doc(db, "blogposts", params.slug))
-  await getDoc(doc(db, "blogposts", params.slug)).then((docSnap) => {
-    if (docSnap.exists()) {
-      respost = docSnap.data()
-    }
-  })
-  return {
-    props: {
-      post: respost,
-    },
-  }
-}
+// export async function getStaticProps({ params }) {
+//   console.log("Parameter: " + params.slug)
+//   var respost = ''
+//   // const oneblog = await getDoc(doc(db, "blogposts", params.slug))
+//   await getDoc(doc(db, "blogposts", params.slug)).then((docSnap) => {
+//     if (docSnap.exists()) {
+//       respost = docSnap.data()
+//     }
+//   })
+//   return {
+//     props: {
+//       post: respost,
+//     },
+//   }
+// }
 
-export default function BlogPost ({post}) {
+export default async function BlogPost ({ params }) {
   // const [title, setTitle] = useState('')
   // const [date, setDate] = useState('')
   // const [content, setContent] = useState('')
@@ -70,6 +70,28 @@ export default function BlogPost ({post}) {
   // if (router.isFallback) {
   //   return <div>loading...</div>
   // }
+
+  const { id } = params;
+  let post = null;
+  try {
+    const docRef = doc(db, "blogposts", id);
+    const docSnap = await getDoc(docRef);
+    if (docSnap.exists()) {
+      post = { 
+        id: docSnap.id, 
+        ...docSnap.data() 
+      };
+    } 
+    else {
+      console.error("No such document!");
+    }
+  } catch (error) {
+      console.error("Error fetching blog post: ", error);
+  }
+
+  if (!post) {
+      return <div>Post not found</div>;
+  }
     
   return (
     <div className='bg-white dark:bg-dblack px-8 md:px-16 text-black dark:text-dgrey font-regular'>
@@ -77,13 +99,13 @@ export default function BlogPost ({post}) {
       {/* Hero */}
       <div className="bg-aboutbg bg-cover bg-center">
         <div className="flex flex-col text-center items-center px-4 md:px-36 xl:px-48 pt-40 pb-16 md:pt-60 md:pb-40 backdrop-brightness-50 backdrop-blur-sm">
-          <h1 className="font-heading text-2xl md:text-4xl text-center text-white">{post}</h1>
+          <h1 className="font-heading text-2xl md:text-4xl text-center text-white">{post.blogTitle}</h1>
         </div>
       </div>
 
       <div className='flex flex-col justify-center py-8'>
-        <h3 className='font-heading text-3xl mb-6 text-dbluew dark:text-dgreen'>{post}</h3>
-        {/* <div className={styles.blogcontent}>{parse(post.blogContent)}</div> */}
+        <h3 className='font-heading text-3xl mb-6 text-dbluew dark:text-dgreen'>{post.blogTitle}</h3>
+        <div className={styles.blogcontent}>{parse(post.blogContent)}</div>
       </div>
     </div>
   )
