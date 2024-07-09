@@ -9,36 +9,48 @@ import { usePathname, useRouter } from 'next/navigation';
 import styles from "./page.module.css";
 
 // export async function getStaticPaths() {
-//   const response = await getDocs(collection(db, "blogposts"))
-//   console.log(response)
-//   const blogs = response.docs.map((doc) => ({
-//     id: doc.id,
-//     ...doc.data()
-//   }))
-//   return {
-//     paths: blogs.map((blog) => ({
-//       params: {
-//         slug: blog.blogSlug,
+//   let paths = []
+//   try {
+//     const querySnapshot = await getDocs(collection(db, "blogposts"));
+//     paths = querySnapshot.docs.map(doc => ({
+//       params: { 
+//         id: doc.id 
 //       },
-//     })),
+//     }));
+//   } catch(error) {
+//     console.error("Error fetching blog post paths: ", error);
+//   }
+
+//   return {
+//     paths,
 //     fallback: false,
 //   }
 // }
 
 // export async function getStaticProps({ params }) {
-//   console.log("Parameter: " + params.slug)
-//   var respost = ''
-//   // const oneblog = await getDoc(doc(db, "blogposts", params.slug))
-//   await getDoc(doc(db, "blogposts", params.slug)).then((docSnap) => {
+//   const { id } = params;
+//   let post = null;
+//   try {
+//     const docRef = doc(db, "blogposts", id);
+//     const docSnap = await getDoc(docRef);
 //     if (docSnap.exists()) {
-//       respost = docSnap.data()
+//       post = { 
+//         id: docSnap.id, 
+//         ...docSnap.data() 
+//       };
+//     } 
+//     else {
+//         console.error("No such document!");
 //     }
-//   })
+//   } catch (error) {
+//     console.error("Error fetching blog post: ", error);
+//   }
+
 //   return {
 //     props: {
-//       post: respost,
+//         post,
 //     },
-//   }
+//   };
 // }
 
 export default async function BlogPost ({ params }) {
@@ -47,7 +59,7 @@ export default async function BlogPost ({ params }) {
   // const [content, setContent] = useState('')
   // const [loading, setLoading] = useState(false)
   // const pathname = usePathname()
-  const router = useRouter()
+  // const router = useRouter()
   // const newpathname = pathname.split("/")[2]
 
   // useEffect(() => {
@@ -71,6 +83,8 @@ export default async function BlogPost ({ params }) {
   //   return <div>loading...</div>
   // }
 
+
+
   const { id } = params;
   let post = null;
   try {
@@ -89,9 +103,9 @@ export default async function BlogPost ({ params }) {
       console.error("Error fetching blog post: ", error);
   }
 
-  if (!post) {
-      return <div>Post not found</div>;
-  }
+  // if (!post) {
+  //     return <div>Post not found</div>;
+  // }
     
   return (
     <div className='bg-white dark:bg-dblack px-8 md:px-16 text-black dark:text-dgrey font-regular'>

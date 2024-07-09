@@ -51,6 +51,10 @@ export default function Sendtoweb() {
                 setLoading(true)
                 manageSubscription()
               }
+              else if (applink == "purchaseplan"){
+                setLoading(true)
+                router.push('/purchaseplan')
+              }
               else {
                 setLoading(false)
                 setNewerror("Invalid Request")
