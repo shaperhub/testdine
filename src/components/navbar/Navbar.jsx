@@ -202,7 +202,7 @@ export default function Navbar({initialUser}) {
                                   <div className="bg-gradient-to-r from-[#6C6C6C] via-[#AAABAB] to-[#6C6C6C] rounded-xl text-white p-4 mb-4">
                                     <p className="py-2 font-heading text-lg text-white text-center">Cuisine Crafter</p>
                                     <p className="text-sm text-center">
-                                      $15/month
+                                      $18/month
                                     </p>
                                   </div>
                                 </Link>
