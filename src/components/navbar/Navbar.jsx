@@ -246,13 +246,13 @@ export default function Navbar({initialUser}) {
                 <span className='block max-w-0 group-hover:max-w-full transition-all duration-200 h-0.5 bg-dgreenw'></span>
                 </li> */}
 
-                <li id='contact' 
+                {/* <li id='contact' 
                 className={segment == 'contact' 
                 ? 'border-b-dgreenw border-b-2 ml-10 p-0.5 text-sm' 
                 : 'ml-10 p-0.5 text-sm group transition duration-300'}
                 ><Link href='/contact' aria-labelledby='DineIntel Contact Page Link'>Contact</Link>
                 <span className='block max-w-0 group-hover:max-w-full transition-all duration-200 h-0.5 bg-dgreenw'></span>
-                </li>
+                </li> */}
               
                  {user ? (
                     <>
@@ -342,9 +342,9 @@ export default function Navbar({initialUser}) {
                 {/* <li onClick={() => setNav(false)} id='blog' className='py-4 text-sm'>
                   <Link href='/blog' aria-labelledby='DineIntel Blog Page Link'>Blog</Link>
                 </li> */}
-                <li onClick={() => setNav(false)} id='contact' className='py-4 text-sm'>
+                {/* <li onClick={() => setNav(false)} id='contact' className='py-4 text-sm'>
                   <Link href='/contact' aria-labelledby='DineIntel Contact Page Link'>Contact</Link>
-                </li>
+                </li> */}
 
                 {user ? (
                     <>

@@ -212,7 +212,7 @@ const Pricing = () => {
                 dish customization. Elevate your journey and prepare for the ultimate indulgence with Epicurean Elite.
               </p>
             </div>
-            <p className="text-xl mb-4">Price: $15<span className="text-xs">/Month</span></p>
+            <p className="text-xl mb-4">Price: $18<span className="text-xs">/Month</span></p>
             <div className="flex gap-4 text-dgreenw dark:text-dgreen">
               <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M23.3757 20.4059L13.9648 10.995L2.96984 0H2.11057L1.93512 0.445828C1.47204 1.62258 1.27418 2.82614 1.36301 3.92625C1.46426 5.18025 1.94065 6.26592 2.74076 7.06603L11.324 15.6493L12.4562 14.5172L20.3914 23.3903C21.1808 24.1797 22.5394 24.2265 23.3757 23.3903C24.1985 22.5675 24.1985 21.2287 23.3757 20.4059Z" fill="#2E8540"/>
@@ -438,7 +438,7 @@ const Pricing = () => {
             </div>
             <div className="flex gap-2 my-4 items-center text-sm">
               <div className=""><FaCheck className="text-dgreenw" /></div>
-              <p>Culinary Tracker: Unlimited meal tracking</p>
+              <p>Culinary Tracker: Track up to <span className="font-bold">1000</span> meals</p>
             </div>
             <div className="flex gap-2 my-4 items-center text-sm">
               <div className=""><FaCheck className="text-dgreenw" /></div>

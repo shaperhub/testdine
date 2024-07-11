@@ -249,7 +249,7 @@ export default function Home() {
                 dish customization. Elevate your journey and prepare for the ultimate indulgence with Epicurean Elite.
               </p>
             </div>
-            <p className="text-xl mb-4">Price: $15<span className="text-xs">/Month</span></p>
+            <p className="text-xl mb-4">Price: $18<span className="text-xs">/Month</span></p>
             <div className="flex gap-4 text-dgreenw dark:text-dgreen">
               <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M23.3757 20.4059L13.9648 10.995L2.96984 0H2.11057L1.93512 0.445828C1.47204 1.62258 1.27418 2.82614 1.36301 3.92625C1.46426 5.18025 1.94065 6.26592 2.74076 7.06603L11.324 15.6493L12.4562 14.5172L20.3914 23.3903C21.1808 24.1797 22.5394 24.2265 23.3757 23.3903C24.1985 22.5675 24.1985 21.2287 23.3757 20.4059Z" fill="#2E8540"/>
@@ -423,7 +423,7 @@ export default function Home() {
             </div>
             <div className="flex gap-2 my-4 items-center text-sm">
               <div className=""><FaCheck className="text-dgreenw" /></div>
-              <p>Culinary Tracker: Unlimited meal tracking</p>
+              <p>Culinary Tracker: Track up to <span className="font-bold">1000</span> meals</p>
             </div>
             <div className="flex gap-2 my-4 items-center text-sm">
               <div className=""><FaCheck className="text-dgreenw" /></div>
@@ -485,6 +485,46 @@ export default function Home() {
               Users can also engage with the culinary community through the <span className='font-bold text-dblue dark:text-dyellow'><Link href='/features#dinegroup'>Dine Group</Link></span>, where they can share experiences and discover new dining spots.
             </AccordionContent>
           </AccordionItem>
+          <AccordionItem value="item-4">
+            <AccordionTrigger className="text-left text-sm md:text-base font-bold">How Do I Sign Up for an Account?</AccordionTrigger>
+            <AccordionContent className="pt-2 text-ddarkgrey dark:text-dgrey">
+              You can sign up using your <span className='font-bold text-dblue dark:text-dyellow'>Email and Password</span> or <span className='font-bold text-dblue dark:text-dyellow'>Google</span> account. 
+              If you sign up on the website, you will be prompted to choose a subscription plan. 
+              If you sign up using the iOS or Android app, you will receive an email with a link to complete your registration on our website.
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-5">
+            <AccordionTrigger className="text-left text-sm md:text-base font-bold">What Subscription Plans and Trials Do You Offer?</AccordionTrigger>
+            <AccordionContent className="pt-2 text-ddarkgrey dark:text-dgrey">
+              We offer 3 subscription tiers: <span className='font-bold text-dblue dark:text-dyellow'>Taste Starter</span>, <span className='font-bold text-dblue dark:text-dyellow'>Cuisine Crafter</span>, and <span className='font-bold text-dblue dark:text-dyellow'>Epicurean Elite</span>. 
+              We provide a 7-day free trial for both the Cuisine Crafter and Epicurean Elite plans. During the trial, you get full access to the selected plan&apos;s features. 
+              If you do not cancel before the trial ends, your subscription will automatically roll over to a paid monthly subscription.
+            </AccordionContent>
+          </AccordionItem>
+          {/* <AccordionItem value="item-6">
+            <AccordionTrigger className="text-left text-sm md:text-base font-bold">Can I Upgrade or Downgrade my Subscription?</AccordionTrigger>
+            <AccordionContent className="pt-2 text-ddarkgrey dark:text-dgrey">
+              Yes, you can upgrade or downgrade your subscription at any time from your <span className='font-bold text-dblue dark:text-dyellow'>Profile</span>. 
+              Click on <span className='font-bold text-dblue dark:text-dyellow'>Manage Subscription</span>. When the portal opens, click on <span className='font-bold text-dblue dark:text-dyellow'>Update Plan</span> and choose which plan you want to upgrade or downgrade to. 
+              The changes will take effect immediately.
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-7">
+            <AccordionTrigger className="text-left text-sm md:text-base font-bold">How Do I Update my Payment Information?</AccordionTrigger>
+            <AccordionContent className="pt-2 text-ddarkgrey dark:text-dgrey">
+              All payments are managed through our website. 
+              To update your payment information, log in to your account on our website and go to your <span className='font-bold text-dblue dark:text-dyellow'>Profile</span>, click on <span className='font-bold text-dblue dark:text-dyellow'>Manage Subscription</span>. 
+              When the portal opens, you can edit your <span className='font-bold text-dblue dark:text-dyellow'>Payment Method</span>.
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-8">
+            <AccordionTrigger className="text-left text-sm md:text-base font-bold">How Do I Cancel my Subscription</AccordionTrigger>
+            <AccordionContent className="pt-2 text-ddarkgrey dark:text-dgrey">
+              To cancel your subscription, you need to log in to your account on our website. 
+              Navigate to your <span className='font-bold text-dblue dark:text-dyellow'>Profile</span> and click on <span className='font-bold text-dblue dark:text-dyellow'>Manage Subscription</span>. When the portal opens, click on <span className='font-bold text-dblue dark:text-dyellow'>Cancel Plan</span>. 
+              Your subscription will be cancelled at the end of the current billing cycle.
+            </AccordionContent>
+          </AccordionItem> */}
         </Accordion>
         <br></br>
         <Button text="See More" url="/faqs" />

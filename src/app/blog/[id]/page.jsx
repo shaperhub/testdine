@@ -118,7 +118,6 @@ export default async function BlogPost ({ params }) {
       </div>
 
       <div className='flex flex-col justify-center py-8'>
-        <h3 className='font-heading text-3xl mb-6 text-dbluew dark:text-dgreen'>{post.blogTitle}</h3>
         <div className={styles.blogcontent}>{parse(post.blogContent)}</div>
       </div>
     </div>

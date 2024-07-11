@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import {createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider} from "firebase/auth";
+import {createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, sendEmailVerification} from "firebase/auth";
 import {collection, doc, getDocs, query, setDoc, serverTimestamp, where} from "firebase/firestore"
 import {ref, getDownloadURL, uploadBytesResumable } from "firebase/storage"
 import {auth, db, storage} from '@/app/firebase/config'
@@ -227,6 +227,8 @@ const SignUp = () => {
   const handleSignUp = async (pic) => {
     try {
         const res = await createUserWithEmailAndPassword(auth, email, password)
+        const userobj = res.user
+        await sendEmailVerification(userobj)
         const userid = res.user.uid
         const userunamelower = useruname.toLowerCase()
         handleCreate(firstname, lastname, email, userunamelower, userid, pic)

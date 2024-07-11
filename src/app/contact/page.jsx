@@ -4,11 +4,19 @@ import Button from "@/components/Button/Button";
 
 const Contact = () => {
   return (
-    <div className="bg-white/50 dark:bg-black/80 min-h-screen flex flex-col md:flex-row items-center justify-center text-sm font-regular pt-8 shadow-xl">
+    <div className="bg-white/50 dark:bg-black/80 min-h-screen flex flex-col md:flex-row items-center justify-center text-sm font-regular pt-16 shadow-xl">
       <div className="bg-white dark:bg-black w-96 md:w-1/2 lg:w-1/3 px-12 py-12">
         <h2 className="font-heading text-black dark:text-white text-3xl lg:text-4xl pb-8">Contact Us</h2>
-        <h4 className="font-heading text-ddarkgrey dark:text-dgrey text-xl lg:text-2xl pb-16">Got Questions? Let&apos;s give you the answers you need.</h4>
-        <Image className="pb-8" src={Contactimage} width="375" height="180" alt="Contact Page Image" />
+        <h4 className="font-heading text-ddarkgrey dark:text-dgrey text-xl lg:text-2xl pb-8">Got Questions? Let&apos;s give you the answers you need.</h4>
+        <Image className="pb-8" src={Contactimage} width="375" height="180" alt="Contact Page Image" quality={100} />
+        <div className="mt-4">
+          <p className="text-black dark:text-white font-heading text-xl">For General Inquiries</p>
+          <p className="text-ddarkgrey dark:text-dgrey text-base">info@dineintel.io </p>
+        </div>
+        <div className="mt-4">
+          <p className="text-black dark:text-white font-heading text-xl">For Payment Issues</p>
+          <p className="text-ddarkgrey dark:text-dgrey text-base">support@dineintel.io </p>
+        </div>
       </div>
       <div className="bg-dlightestgreen dark:bg-dblack p-10 w-96">
         <form className="">

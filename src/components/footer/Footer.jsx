@@ -107,7 +107,7 @@ const Footer = () => {
                 <Link className="text-dgrey hover:text-dgreen" href="https://www.instagram.com/dineintel/" aria-label="DineIntel Instagram Page Link"><FaInstagram/></Link>
                 <Link className="text-dgrey hover:text-dgreen" href="https://x.com/dineintel" aria-label="DineIntel Twitter Page Link"><FaXTwitter/></Link>
                 <Link className="text-dgrey hover:text-dgreen" href="https://www.youtube.com/@dineintel" aria-label="DineIntel YouTube Page Link"><FaYoutube/></Link>
-                <Link className="text-dgrey hover:text-dgreen" href="https://www.linkedin.com/in/dine-intel-51216430b/" aria-label="DineIntel LinkedIn Page Link"><FaLinkedin/></Link>
+                <Link className="text-dgrey hover:text-dgreen" href="https://www.linkedin.com/company/103967524/" aria-label="DineIntel LinkedIn Page Link"><FaLinkedin/></Link>
               </div>
               <div className="text-white">
                 <div className="mb-4">
