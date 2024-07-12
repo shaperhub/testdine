@@ -261,7 +261,7 @@ const SignUp = () => {
   // Create User in the Firestore Users Collection
   const handleCreate = async(userfname, userlname, useremail, username, uid, upic) => {
     try {
-      const defaultpic = "https://masterfed.com/laptop.jpg"
+      const defaultpic = "https://firebasestorage.googleapis.com/v0/b/dineintl.appspot.com/o/usersImages%2Fnopic.png?alt=media&token=4cb028c2-d7f0-4b57-89d5-cf7c34d94120"
       if(upic.length < 3) {
         upic = defaultpic
       }

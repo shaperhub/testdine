@@ -16,7 +16,7 @@ const Success = () => {
   return (
     <div className="bg-white/50 dark:bg-black/80 min-h-screen pt-24 flex items-center justify-center text-black dark:text-dgrey text-sm font-regular">
         <div>
-            <p>Payment Successful</p>
+            <p className="text-2xl">Payment Successful</p>
             <Dialog open={modalopen}>
                 {/* <DialogTrigger asChild>
                     <button className='mt-2 text-dgreenw dark:text-dgreen underline text-center'>Get Subscription</button>
