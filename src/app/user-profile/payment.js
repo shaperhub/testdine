@@ -13,7 +13,7 @@ export const getCheckoutUrl = async (priceId, trial) => {
     price: priceId,
     trial_period_days: trial || 0,
     automatic_tax: true,
-    success_url: "https://dineintel.io/success",
+    success_url: "https://testdine.vercel.app/success",
     cancel_url: window.location.origin,
     allow_promotion_codes: trial ? false : true,
   });
