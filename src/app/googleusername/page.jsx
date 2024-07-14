@@ -1,17 +1,53 @@
 'use client'
 import { useState, useEffect } from "react"
 import Image from 'next/image';
-import {collection, doc, getDocs, query, updateDoc, where} from "firebase/firestore"
-import {auth, db} from '@/app/firebase/config'
+import { collection, doc, getDoc, getDocs, query, updateDoc, where } from "firebase/firestore"
+import { auth, db } from '@/app/firebase/config'
+import { onAuthStateChanged } from "firebase/auth"
 import { useRouter } from 'next/navigation';
 import LoginPic from '../../../public/LoginGraphic.png'
+import { Loader2 } from "lucide-react"
+import { Button } from '@/components/ui/button';
 
 const Googleusername = () => {
-    const user = auth.currentUser
+    // const user = auth.currentUser
+    const [user, setUser] = useState('')
     const [useruname, setUseruname] = useState('')
     const [unameerror, setUnameError] = useState('')
     const [unamegood, setUnameGood] = useState('')
+    const [loading, setLoading] = useState(true)
     const router = useRouter()
+
+    useEffect(() => {
+      const unsubscribe = onAuthStateChanged(auth, async (user) => {
+        if(user) {
+          setUser(user)
+        }
+        else {
+          router.push('/log-in')
+        }
+      });    
+      return () => unsubscribe();
+    }, [])
+
+    useEffect(() => {
+      if (user) {
+        const checkexist = async() => {
+          await getDoc(doc(db, "users", user.uid)).then(docSnap => {
+            if (docSnap.exists()) {
+              const userdata = docSnap.data()
+              if (userdata.userName.length > 3) {
+                router.push('/')
+              }
+              else {
+                setLoading(false)
+              }
+            }
+          })
+        }   
+        checkexist();
+      }
+    }, [user])
 
     useEffect(() => {
       const checkUsername = async () => {
@@ -54,7 +90,7 @@ const Googleusername = () => {
         router.push('/purchaseplan')
         return true
       } catch(e){
-        console.error(e)
+        // console.error(e)
         return false
       }
     }
@@ -63,6 +99,16 @@ const Googleusername = () => {
     }
   };
 
+  if (loading) {
+    return (
+      <div className="h-screen flex flex-wrap items-center justify-center bg-white dark:bg-dblack">
+        <Button disabled>
+          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+             Loading....
+        </Button>
+      </div>
+    )
+  }
 
   return (
     <div className="bg-white/50 dark:bg-black/80 flex items-center justify-center pt-36 text-sm pb-8 font-regular">

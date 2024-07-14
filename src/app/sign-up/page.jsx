@@ -150,18 +150,14 @@ const SignUp = () => {
     pass2check()
     passcomp()
     setTimeout(() => {
-    if (fnameerror.length==0 && firstname.length>0 && lnameerror.length==0 && lastname.length>0 && emailerror.length==0 && email.length>4 && p1error.length==0 && password.length>5 && p2error.length==0 && confirmpassword.length>5 && perror.length==0 && checkerror.length==0 && imageerror.length==0 && useruname.length>3 && unameempty==false && isChecked==true) {
-      setValidateerror('')
-      if(image) {
-        upload()
-      } else {
-        handleSignUp('')
+      if (fnameerror.length==0 && firstname.length>0 && lnameerror.length==0 && lastname.length>0 && emailerror.length==0 && email.length>4 && p1error.length==0 && password.length>5 && p2error.length==0 && confirmpassword.length>5 && perror.length==0 && checkerror.length==0 && imageerror.length==0 && useruname.length>3 && unameempty==false && isChecked==true) {
+        setValidateerror('')
+        handleSignUp()
       }
-    }
-    else {
-      setLoading(false)
-      setValidateerror("Complete the form")
-    }
+      else {
+        setLoading(false)
+        setValidateerror("Complete the form")
+      }
     }, 2000)
   }
   
@@ -170,7 +166,7 @@ const SignUp = () => {
       if (files.type == 'image/png' || files.type == 'image/jpg' || files.type == 'image/jpeg'){
         setImage(files)
         setImageerror('')
-        console.log(files)
+        // console.log(files)
       }
       else {
         setImageerror("Only png, jpg, or jpeg files are accepted")
@@ -181,7 +177,7 @@ const SignUp = () => {
   }
 
   // Upload selected profile picture to storage before calling handleSignup with the download URL
-  const upload = () => {
+  const upload = (fname, lname, email, uname, uid) => {
     if (image) {
       const storageRef = ref(storage, `usersImages/${image.name}`);
       const uploadTask = uploadBytesResumable(storageRef, image);
@@ -207,13 +203,13 @@ const SignUp = () => {
         }, 
         (error) => {
           // Handle unsuccessful uploads
-          console.log(error)
+          // console.log(error)
         }, 
         () => {
           // Handle successful uploads on complete. For instance, get the download URL
           getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
             // console.log('File available at', downloadURL);
-            handleSignUp(downloadURL);
+            handleCreate(fname, lname, email, uname, uid, downloadURL);
           });
         }
       )
@@ -224,17 +220,23 @@ const SignUp = () => {
   }
 
   // Prepare data from Email SignUp to pass to handleCreate
-  const handleSignUp = async (pic) => {
+  const handleSignUp = async () => {
     try {
-        const res = await createUserWithEmailAndPassword(auth, email, password)
-        const userobj = res.user
-        await sendEmailVerification(userobj)
-        const userid = res.user.uid
-        const userunamelower = useruname.toLowerCase()
-        handleCreate(firstname, lastname, email, userunamelower, userid, pic)
+      const res = await createUserWithEmailAndPassword(auth, email, password)
+      const userobj = res.user
+      await sendEmailVerification(userobj)
+      const userid = res.user.uid
+      const userunamelower = useruname.toLowerCase()
+
+      if(image) {
+        upload(firstname, lastname, email, userunamelower, userid)
+      }
+      else {
+        handleCreate(firstname, lastname, email, userunamelower, userid, '')
+      }
     } catch(e){
         setSignuperror(e.message)
-        console.error(e)
+        // console.error(e)
         setLoading(false)
     }
   };
@@ -242,19 +244,19 @@ const SignUp = () => {
   // Prepare data from Google SignUp to pass to handleCreate
   const handleGoogleSignUp = async () => {
     try {
-        const provider = new GoogleAuthProvider();
-        const res = await signInWithPopup(auth, provider)
-        const guserid = res.user.uid
-        const gdisplayname = res.user.displayName
-        const gfirstname = gdisplayname.split(" ")[0]
-        const glastname = gdisplayname.split(" ")[1]
-        const gemail = res.user.email
-        const gpicture = res.user.photoURL
-        handleCreate(gfirstname, glastname, gemail, '', guserid, gpicture)
+      const provider = new GoogleAuthProvider();
+      const res = await signInWithPopup(auth, provider)
+      const guserid = res.user.uid
+      const gdisplayname = res.user.displayName
+      const gfirstname = gdisplayname.split(" ")[0]
+      const glastname = gdisplayname.split(" ")[1]
+      const gemail = res.user.email
+      const gpicture = res.user.photoURL
+      handleCreate(gfirstname, glastname, gemail, '', guserid, gpicture)
     } catch(e){
-        setSignuperror(e.message)
-        console.error(e)
-        setLoading(false)
+      setSignuperror(e.message)
+      // console.error(e)
+      setLoading(false)
     }
   };
 
@@ -265,40 +267,40 @@ const SignUp = () => {
       if(upic.length < 3) {
         upic = defaultpic
       }
-        const docRef = await setDoc(doc(db, "users", uid), {
-          createdAt: serverTimestamp(),
-          fcmToken: '',
-          firstName: userfname,
-          lastName: userlname,
-          userName: username,
-          userEmail: useremail,
-          userId: uid,
-          userImage: upic,
-          isProfilePublic: true,
-          showMenus: true,
-          showAllergies: true,
-          showCuisines: true,
-          showNutritionalBlocks: true,
-          showDietPref: true,
-          showFavRestaurants: true,
-          groupsJoined: [],
-          groupsPending: [],
-          preferences: {cuisines: [], dietaryPreferences: [], foodAllergies: [], nutritionalBlocks: []},
-        })
+      const docRef = await setDoc(doc(db, "users", uid), {
+        createdAt: serverTimestamp(),
+        fcmToken: '',
+        firstName: userfname,
+        lastName: userlname,
+        userName: username,
+        userEmail: useremail,
+        userId: uid,
+        userImage: upic,
+        isProfilePublic: true,
+        showMenus: true,
+        showAllergies: true,
+        showCuisines: true,
+        showNutritionalBlocks: true,
+        showDietPref: true,
+        showFavRestaurants: true,
+        groupsJoined: [],
+        groupsPending: [],
+        preferences: {cuisines: [], dietaryPreferences: [], foodAllergies: [], nutritionalBlocks: []},
+      })
 
-        console.log("User Data: " + userfname, userlname, useremail, username, uid, upic)
-        setEmail('');
-        setPassword('');
-        setConfirmpassword('');
-        setFirstname('');
-        setLastname('');
-        setUseruname('')
-        setImage('');
-        if(upic.startsWith("https://lh3.googleusercontent.com")){router.push('/googleusername')}
-        else{router.push('/purchaseplan')}
-        return true
+      // console.log("User Data: " + userfname, userlname, useremail, username, uid, upic)
+      setEmail('');
+      setPassword('');
+      setConfirmpassword('');
+      setFirstname('');
+      setLastname('');
+      setUseruname('')
+      setImage('');
+      if(upic.startsWith("https://lh3.googleusercontent.com")){router.push('/googleusername')}
+      else{router.push('/purchaseplan')}
+      return true
     } catch(e){
-        console.error(e)
+        // console.error(e)
         return false
     }
   };

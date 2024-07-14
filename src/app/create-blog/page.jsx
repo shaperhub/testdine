@@ -1,26 +1,63 @@
 'use client'
-import { useState, useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
+import { onAuthStateChanged } from "firebase/auth"
 import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
-import {collection, doc, addDoc, updateDoc, getDocs, query, setDoc, serverTimestamp, where} from "firebase/firestore"
-import {ref, getDownloadURL, uploadBytesResumable } from "firebase/storage"
-import {auth, db, storage} from '@/app/firebase/config'
+import { collection, doc, addDoc, updateDoc, getDoc, getDocs, query, setDoc, serverTimestamp, where } from "firebase/firestore"
+import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage"
+import { auth, db, storage } from '@/app/firebase/config'
 import { Plus } from "lucide-react";
 import "react-quill/dist/quill.snow.css";
 import parse from "html-react-parser";
 import { Loader2 } from "lucide-react"
+import { Button } from "@/components/ui/button";
 import styles from "./page.module.css";
 
 const CreateBlog = () => {
-  const ReactQuill = useMemo(() => dynamic(() => import("react-quill"), {ssr: false}),[],);
-
+    const ReactQuill = useMemo(() => dynamic(() => import("react-quill"), {ssr: false}),[],);
+    const [user, setUser] = useState("");
     const [title, setTitle] = useState("");
     const [slug, setSlug] = useState("");
     const [description, setDescription] = useState("");
     const [content, setContent] = useState("");
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
+    const [loading2, setLoading2] = useState(false);
+    const [image, setImage] = useState("");
+    const [imageerror, setImageerror] = useState("");
     const router = useRouter()
+
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, async (user) => {
+          if(user) {
+            setUser(user)
+            setLoading(false)
+          }
+          else {
+            router.push('/log-in')
+          }
+        });    
+        return () => unsubscribe();
+    }, [])
     
+    // useEffect(() => {
+    //   if (user) {
+    //     const checkexist = async() => {
+    //       await getDoc(doc(db, "users", user.uid)).then(docSnap => {
+    //         if (docSnap.exists()) {
+    //           const userdata = docSnap.data()
+    //           if (userdata.blogEditor == true) {
+    //             setLoading(false)
+    //           }
+    //           else {
+    //             router.push('/')
+    //           }
+    //         }
+    //       })
+    //     }   
+    //     checkexist();
+    //   }
+    // }, [user])
+
     const generateSlug = (title) => {
         const slug = title
           .toLowerCase() // Convert the title to lowercase
@@ -39,57 +76,57 @@ const CreateBlog = () => {
       setSlug(autoSlug);
     }
 
-    // const handleSelectedFile = (files) => {
-    //     if (files && files.size < 300000) {
-    //       if (files.type == 'image/png' || files.type == 'image/jpg' || files.type == 'image/jpeg'){
-    //         setImage(files)
-    //         setImageerror('')
-    //         console.log(files)
-    //       }
-    //       else {
-    //         setImageerror("Only png, jpg, or jpeg files are accepted")
-    //       }
-    //     } else {
-    //       setImageerror('File size must be less than 300kb')
-    //     }
-    // }
+    const handleSelectedFile = (files) => {
+        if (files && files.size < 300000) {
+          if (files.type == 'image/png' || files.type == 'image/jpg' || files.type == 'image/jpeg'){
+            setImage(files)
+            setImageerror('')
+            // console.log(files)
+          }
+          else {
+            setImageerror("Only png, jpg, or jpeg files are accepted")
+          }
+        } else {
+          setImageerror('File size must be less than 300kb')
+        }
+    }
     
-    // const upload = () => {
-    //     if (image) {
-    //       const storageRef = ref(storage, `usersImages/${image.name}`);
-    //       const uploadTask = uploadBytesResumable(storageRef, image)
-    //       uploadTask.on('state_changed', 
-    //         (snapshot) => {
-    //           const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-    //           console.log('Upload is ' + progress + '% done');
-    //           switch (snapshot.state) {
-    //             case 'paused':
-    //               console.log('Upload is paused');
-    //               break;
-    //             case 'running':
-    //               console.log('Upload is running');
-    //               break;
-    //           }
-    //         }, 
-    //         (error) => {
-    //           console.log(error)
-    //         }, 
-    //         () => {
-    //           getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-    //             handleSubmit(downloadURL);
-    //           });
-    //         }
-    //       )
-    //     }
-    //     else {
-    //       setImageerror("Upload a picture")
-    //     }
-    // }    
+    const upload = () => {
+        if (image) {
+          const storageRef = ref(storage, `blogImages/${image.name}`);
+          const uploadTask = uploadBytesResumable(storageRef, image)
+          uploadTask.on('state_changed', 
+            (snapshot) => {
+              const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+              console.log('Upload is ' + progress + '% done');
+              switch (snapshot.state) {
+                case 'paused':
+                  console.log('Upload is paused');
+                  break;
+                case 'running':
+                  console.log('Upload is running');
+                  break;
+              }
+            }, 
+            (error) => {
+              // console.log(error)
+            }, 
+            () => {
+              getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                handleSubmit(downloadURL);
+              });
+            }
+          )
+        }
+        else {
+          setImageerror("Upload a picture")
+        }
+    }    
 
     const handleSubmit = async(e) => {
       e.preventDefault();
       try {
-        setLoading(true)
+        setLoading2(true)
         await setDoc(doc(db, "blogposts", slug), {
             createdAt: serverTimestamp(),
             blogTitle: title,
@@ -102,7 +139,7 @@ const CreateBlog = () => {
             }, 2000)
         })
       } catch(error) {
-        setLoading(false)
+        setLoading2(false)
       }
     }
   
@@ -133,6 +170,17 @@ const CreateBlog = () => {
       "code-block",
       "color",
     ];
+
+    if (loading) {
+      return (
+        <div className="h-screen flex flex-wrap items-center justify-center bg-white dark:bg-dblack">
+          <Button disabled>
+            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+               Loading....
+          </Button>
+        </div>
+      )
+    }
 
     return (
       <div className="bg-white/50 dark:bg-black/80 flex items-center justify-center pt-36 pb-8">
@@ -198,6 +246,22 @@ const CreateBlog = () => {
                                     placeholder="Blog Description"
                                 ></textarea>
                             </div>
+                            {/* Blog Image */}
+                            <div className="sm:col-span-2">
+                                <label htmlFor="description" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                    Blog Image
+                                </label>
+                                <input
+                                    type="file"
+                                    id="blogimage"
+                                    name="blogimage"
+                                    aria-label='Upload Blog Image'
+                                    accept="image/png, image/jpeg, image/jpg"
+                                    onChange={(e) => {handleSelectedFile(e.target.files[0])}} 
+                                    className="w-full p-3 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey"
+                                />
+                                {imageerror && <span className='text-red-600 text-xs mb-6'>{imageerror}</span>}
+                            </div>
                             {/* ReactQuill Editor */}
                             <div className="sm:col-span-2">
                                 <label htmlFor="content" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
@@ -218,7 +282,7 @@ const CreateBlog = () => {
                         >
                             <Plus className="w-5 h-5 mr-2" />
                             <span>Create Blog Post</span>
-                            {loading && <Loader2 className="ml-2 h-4 w-4 animate-spin" />}
+                            {loading2 && <Loader2 className="ml-2 h-4 w-4 animate-spin" />}
                         </button>
                     </form>
                 </div>

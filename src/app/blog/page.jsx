@@ -45,7 +45,7 @@ const Blog = () => {
       </div>
 
       {posts.map(post => (
-        <div key={post.id}>
+        <div key={post.id} className='grid grid-cols-1 md:grid-cols-2 lgxl:grid-cols-3 gap-4'>
           <h3>{post.blogTitle}</h3>
           <div>{parse(post.blogContent)}</div>
         </div>

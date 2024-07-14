@@ -1,20 +1,18 @@
 'use client'
-import {useState, useEffect} from 'react'
-import {auth, db} from '@/app/firebase/config'
-import {doc, updateDoc, getDoc, getDocs, collection, onSnapshot, query, where, serverTimestamp} from "firebase/firestore"
-import { useRouter } from 'next/navigation';
-import { deleteUser } from 'firebase/auth';
-import { getCheckoutUrl, getPortalUrl } from "./payment";
-import Image from 'next/image';
+import { useState, useEffect } from 'react'
+import { auth, db } from '@/app/firebase/config'
+import { onAuthStateChanged } from "firebase/auth"
+import { doc, getDoc, getDocs, collection, onSnapshot, query, where } from "firebase/firestore"
+import { useRouter } from 'next/navigation'
+import { getPortalUrl } from "./payment"
+import Image from 'next/image'
 import { Button } from "@/components/ui/button"
-import { Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger} from "@/components/ui/dialog"
 import { Badge } from "@/components/ui/badge"
 import { Loader2 } from "lucide-react"
 
 const UserProfile = () => {
-  const user = auth.currentUser;
-  const [firstname, setFirstname] = useState('')
-  const [lastname, setLastname] = useState('')
+  // const userv = auth.currentUser;
+  const [user, setUser] = useState('')
   const [useremail, setUseremail] = useState('')
   const [profilepic, setProfilepic] = useState('')
   const [username, setUsername] = useState('')
@@ -23,58 +21,71 @@ const UserProfile = () => {
   const [isPublic, setPublic] = useState(true);
   const [currentsub, setCurrentsub] = useState('')
   const [loading, setLoading] = useState(true)
-  const [btnloading1, setBtnloading1] = useState(false)
-  const [btnloading2, setBtnloading2] = useState(false)
-  const [btnloading3, setBtnloading3] = useState(false)
+  const [loading2, setLoading2] = useState(true)
   const [btnloading4, setBtnloading4] = useState(false)
-  
-  console.log({user})
+  // console.log({userv})
 
-	useEffect(() => {
-    // Get user details
-		const getUserData = async() => { 
-      await getDoc(doc(db, "users", user.uid)).then(docSnap => {
-        if (docSnap.exists()) {
-          const userdata = docSnap.data()
-          setFirstname(userdata.firstName)
-          setLastname(userdata.lastName)
-          setProfilepic(userdata.userImage)
-          setUseremail(userdata.userEmail)
-          setUsername(userdata.userName)
-          setPublic(userdata.isProfilePublic)
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, async (userobj) => {
+      if(userobj) {
+        setUser(userobj)
+        setLoading2(false)
+      }
+      else {
+        router.push('/log-in')
+      }
+    });    
+    return () => unsubscribe();
+  }, [])
 
-          // Check if user has a subscription
-          const subscriptionsRef = collection(db, "customers", user.uid, "subscriptions");
-          const q = query(
-            subscriptionsRef,
-            where("status", "in", ["trialing", "active"])
-          );
-          const unsubscribe = onSnapshot(q, (snapshot) => {
-              // In this implementation we only expect one active or trial subscription to exist.
-              if (snapshot.docs.length === 0) {
-                console.log("No active or trial subscriptions found");
-                setIsPremium(false);
-                router.push('/purchaseplan')
-              } else {
-                console.log("Active or trial subscription found");
-                setIsPremium(true);
-                getSubscription();
-              }
-              unsubscribe();
-          });
-          console.log("Document data:", docSnap.data());
-        } else {
-          // docSnap.data() will be undefined in this case
-          console.log("No such document!");
-        } 
-        setLoading(false)
-      })
+  useEffect(() => {
+    if (user) {
+      // Get user details
+      const getUserData = async() => { 
+        await getDoc(doc(db, "users", user.uid)).then(docSnap => {
+          if (docSnap.exists()) {
+            const userdata = docSnap.data()
+            if (userdata.userName.length < 4) {
+              router.push('/googleusername')
+            }
+            else {
+              setProfilepic(userdata.userImage)
+              setUseremail(userdata.userEmail)
+              setUsername(userdata.userName)
+              setPublic(userdata.isProfilePublic)
+
+              // Check if user has a subscription
+              const subscriptionsRef = collection(db, "customers", user.uid, "subscriptions");
+              const q = query(
+                subscriptionsRef,
+                where("status", "in", ["trialing", "active"])
+              );
+              const unsubscribe = onSnapshot(q, (snapshot) => {
+                  // In this implementation we only expect one active or trial subscription to exist.
+                  if (snapshot.docs.length === 0) {
+                    // console.log("No active or trial subscriptions found");
+                    setIsPremium(false);
+                    router.push('/purchaseplan')
+                  } else {
+                    // console.log("Active or trial subscription found");
+                    setIsPremium(true);
+                    getSubscription();
+                    setLoading(false)
+                  }
+                  unsubscribe();
+              });
+              // console.log("Document data:", docSnap.data())
+            }
+          } else {
+            // console.log("No such document!");
+          } 
+        })
+      }
+      getUserData();
     }
-    getUserData();
+  }, [user])
 
-	}, [])
-
-  console.log("Subscription Status: " + isPremium)
+  // console.log("Subscription Status: " + isPremium)
 
   // Get Subscription Tier
   const getSubscription = async() => {
@@ -97,67 +108,23 @@ const UserProfile = () => {
     }
   }
 
-  // Pay for Taste Starter Subscription
-  const upgradeToTaste = async () => {
-    setBtnloading1(true)
-    const priceId = "price_1PXAhgC5ZTGkUkqROPV27nVF"
-    const checkoutUrl = await getCheckoutUrl(priceId);
-    router.push(checkoutUrl);
-    console.log("Upgrade to Taste Starter");
-  };
-
-  // Pay for Cuisine Crafter Subscription
-  const upgradeToCuisineCrafter = async () => {
-    setBtnloading2(true)
-    const priceId = "price_1PXAiaC5ZTGkUkqR6bNvM3Vt"
-    const checkoutUrl = await getCheckoutUrl(priceId);
-    router.push(checkoutUrl);
-    console.log("Upgrade to Cuisine Crafter");
-  };
-
-  // Pay for Epicurean Elite Subscription
-  const upgradeToEpicurean = async () => {
-    setBtnloading3(true)
-    const priceId = "price_1PXAj1C5ZTGkUkqRYQ8NoqbP"
-    const checkoutUrl = await getCheckoutUrl(priceId);
-    router.push(checkoutUrl);
-    console.log("Upgrade to Epicurean Elite");
-  };
-
-  // Manage Subscription and Payments
+  // Manage Subscription
   const manageSubscription = async () => {
     setBtnloading4(true)
     const portalUrl = await getPortalUrl();
     router.push(portalUrl);
-    console.log("Manage Subscription");
   };
 
-  // Update Profile
-  const updateProfile = async () => {
-    const newupdate = doc(db, "users", user.uid);
-  
-    await updateDoc(newupdate, {
-      firstName: firstname,
-      lastName: lastname
-    });
+  if (loading2) {
+    return (
+      <div className="h-screen flex flex-wrap items-center justify-center bg-white dark:bg-dblack">
+        <Button disabled>
+          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+          Wait....
+        </Button>
+      </div>
+    )
   }
-  
-  // Delete Profile
-  const deleteProfile = async () => {
-    setFirstname('')
-    setLastname('')
-    setUseremail('')
-    setProfilepic('')
-    setUsername('')
-
-    deleteUser(user).then(() => {
-      auth.signOut()
-    })
-  }
-
-  // if(!user){
-  //   redirect("/sign-up")
-  // }
 
   return (
     <div className='bg-white/50 dark:bg-black/80 font-regular'>

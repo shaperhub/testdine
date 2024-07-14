@@ -1,100 +1,57 @@
 'use client'
 import { useEffect, useState } from 'react';
-import {auth, db} from '@/app/firebase/config'
-import {onAuthStateChanged} from "firebase/auth"
-import {doc, getDoc, addDoc, setDoc, updateDoc, getDocs, collection, onSnapshot, query,} from "firebase/firestore"
+import { auth, db } from '@/app/firebase/config'
+import { onAuthStateChanged } from "firebase/auth"
+import { collection, doc, getDoc, getDocs, query, updateDoc, where } from "firebase/firestore"
 import { useRouter } from 'next/navigation';
-import { getCheckoutUrl, getPortalUrl } from "../user-profile/payment";
+import { getCheckoutUrl } from "../user-profile/payment";
 import { Loader2 } from "lucide-react"
+import { Button } from '@/components/ui/button';
 
 export default function PurchasePlan() {
-    const [user, setUser] = useState('')
-    const router = useRouter()
-    const [loading, setLoading] = useState(true)
-    const [btnloading1, setBtnloading1] = useState(false)
-    const [btnloading2, setBtnloading2] = useState(false)
-    const [btnloading3, setBtnloading3] = useState(false)
-    const [btnloading4, setBtnloading4] = useState(false)
-    const [btnloading5, setBtnloading5] = useState(false)
-    console.log(user)
+  const [user, setUser] = useState('')
+  const router = useRouter()
+  const [loading, setLoading] = useState(true)
+  const [btnloading1, setBtnloading1] = useState(false)
+  const [btnloading2, setBtnloading2] = useState(false)
+  const [btnloading3, setBtnloading3] = useState(false)
+  const [btnloading4, setBtnloading4] = useState(false)
+  const [btnloading5, setBtnloading5] = useState(false)
+  // console.log(user)
 
-    useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, async (user) => {
-          if(user) {
-            setUser(user)
-              // getDoc(doc(db, "users", user.uid)).then(docSnap => {
-              //   if (docSnap.exists()) {
-              //     const userdata = docSnap.data()
-              //     if (!userdata.paymenturls) {
-              //       getAll()
-              //     }
-              //     else{
-              //       console.log("Urls already exist")
-              //     }
-              //   }
-              // })
-            setLoading(false)
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      if(user) {
+        setUser(user)
+      }
+      else {
+        router.push('/log-in')
+      }
+    });
+    return () => unsubscribe();
+  }, [])
+
+  useEffect(() => {
+    if (user) {
+      const checkexist = async() => {
+        await getDoc(doc(db, "users", user.uid)).then(docSnap => {
+          if (docSnap.exists()) {
+            const userdata = docSnap.data()
+            if (userdata.subscriptionPlan) {
+              router.push('/')
+            }
+            else if (userdata.userName.length < 4) {
+              router.push('/googleusername')
+            }
+            else {
+              setLoading(false)
+            }
           }
-          else {
-            router.push('/log-in')
-          }
-        });
-        
-        return () => unsubscribe();
-    }, [])
-
-  // Set urls for users
-  const getAll = async () => {
-    const turl = await getCheckoutUrl("price_1PQCBsRtFO8HcW8tVbDSPgLG")
-    setTimeout(() => {
-      updateDoc(doc(db, "users", user.uid), {
-        "paymenturls.tastestarterurl": turl
-      })
-      console.log("Taste: " + turl)
-    }, 10000)
-
-    const curl = await getCheckoutUrl("price_1PQCCLRtFO8HcW8tNreLswEh")
-    setTimeout(() => {
-      updateDoc(doc(db, "users", user.uid), {
-        "paymenturls.cuisineurl": curl
-      })
-      console.log("Cuisine: " + curl)
-    }, 10000)
-
-    const cpurl = await getCheckoutUrl("price_1PQCCLRtFO8HcW8tNreLswEh", 7)
-    setTimeout(() => {
-      updateDoc(doc(db, "users", user.uid), {
-        "paymenturls.cuisinetrialurl": cpurl
-      })
-      console.log("Cuisine Trial: " + cpurl)
-    }, 10000)
-
-    const eurl = await getCheckoutUrl("price_1PQCCfRtFO8HcW8tFSOZtvIJ")
-    setTimeout(() => {
-      updateDoc(doc(db, "users", user.uid), {
-        "paymenturls.epicureanurl": eurl
-      })
-      console.log("Epic: " + eurl)
-    }, 10000)
-
-    const epurl = await getCheckoutUrl("price_1PQCCfRtFO8HcW8tFSOZtvIJ", 7)
-    setTimeout(() => {
-      updateDoc(doc(db, "users", user.uid), {
-        "paymenturls.epicureantrialurl": epurl
-      })
-      console.log("Epic Trial: " + epurl)
-    }, 10000)
-
-    const portal = await getPortalUrl()
-    setTimeout(() => {
-      updateDoc(doc(db, "users", user.uid), {
-        "paymenturls.portalurl": portal
-      })
-      console.log("Portal Url: " + portal)
-    }, 10000)
-
-  };
-
+        })
+      }   
+      checkexist();
+    }
+  }, [user])
 
   // Pay for Taste Starter Subscription
   const upgradeToTasteStarter = async () => {
@@ -102,15 +59,16 @@ export default function PurchasePlan() {
     const priceId = "price_1PXAhgC5ZTGkUkqROPV27nVF"
     const checkoutUrl = await getCheckoutUrl(priceId);
     router.push(checkoutUrl);
-    console.log("Get Taste Starter");
+    // console.log("Get Taste Starter");
   };
+
   // Pay for Cuisine Crafter Subscription
   const upgradeToCuisineCrafter = async () => {
     setBtnloading2(true)
     const priceId = "price_1PXAiaC5ZTGkUkqR6bNvM3Vt"
     const checkoutUrl = await getCheckoutUrl(priceId);
     router.push(checkoutUrl);
-    console.log("Upgrade to Cuisine Crafter");
+    // console.log("Upgrade to Cuisine Crafter");
   };
 
   const tryCuisineCrafter = async () => {
@@ -118,7 +76,7 @@ export default function PurchasePlan() {
     const priceId = "price_1PXAiaC5ZTGkUkqR6bNvM3Vt"
     const checkoutUrl = await getCheckoutUrl(priceId, 7);
     router.push(checkoutUrl);
-    console.log("Trying Cuisine Crafter");
+    // console.log("Trying Cuisine Crafter");
   };
 
   // Pay for Epicurean Elite Subscription
@@ -127,7 +85,7 @@ export default function PurchasePlan() {
     const priceId = "price_1PXAj1C5ZTGkUkqRYQ8NoqbP"
     const checkoutUrl = await getCheckoutUrl(priceId);
     router.push(checkoutUrl);
-    console.log("Upgrade to Epicurean Elite");
+    // console.log("Upgrade to Epicurean Elite");
   };  
 
   const tryEpicurean = async () => {
@@ -135,17 +93,19 @@ export default function PurchasePlan() {
     const priceId = "price_1PXAj1C5ZTGkUkqRYQ8NoqbP"
     const checkoutUrl = await getCheckoutUrl(priceId, 7);
     router.push(checkoutUrl);
-    console.log("Trying Epicurean Elite");
+    // console.log("Trying Epicurean Elite");
   };  
   
-  // if (loading) {
-  //   return (<div className="h-screen flex flex-wrap items-center justify-center">
-  //           <Button disabled>
-  //             <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-  //             Loading....
-  //           </Button>
-  //         </div>)
-  // }
+  if (loading) {
+    return (
+      <div className="h-screen flex flex-wrap items-center justify-center bg-white dark:bg-dblack">
+        <Button disabled>
+          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+             Loading....
+        </Button>
+      </div>
+    )
+  }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-white dark:bg-dblack text-black dark:text-dgrey">
@@ -167,7 +127,7 @@ export default function PurchasePlan() {
             </div>
             <div className=' lg:w-[250px] flex flex-col items-center bg-gradient-to-r from-[#6C6C6C] via-[#AAABAB] to-[#6C6C6C] rounded-xl text-white p-8 shadow-epc mb-4'>
               <h2 className="text-2xl font-bold">Cuisine Crafter</h2>
-              <p className="text-lg">$15 per month</p>
+              <p className="text-lg">$18 per month</p>
               <button
                 id='cuisinecrafter'
                 aria-label='Subscribe to Cuisine Crafter'
