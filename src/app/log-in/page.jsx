@@ -61,18 +61,18 @@ const SignIn = () => {
       await signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        console.log(user);
+        // console.log(user);
         setEmail('');
         setPassword('');
         router.push('/user-profile')
       })
     }catch(error) {
       setLoading(false)
-      console.log("Yippee")
+      // console.log("Yippee")
       setErrorm(error.message)
       setEmail('')
       setPassword('')
-      console.error(error.message)
+      // console.error(error.message)
     }
   };
 
@@ -84,14 +84,14 @@ const SignIn = () => {
       signInWithPopup(auth, provider).then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        console.log(user);
+        // console.log(user);
         setEmail('');
         setPassword('');
         router.push('/user-profile')
       })
     }catch(error) {
       setErrorm(error.message)
-      console.error(error.message)
+      // console.error(error.message)
     }
   };
 

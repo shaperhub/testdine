@@ -97,13 +97,13 @@ const UserProfile = () => {
       arr.push(d.data())
     });
     const subproduct = arr[0].items[0].plan.product;
-    if(subproduct == "prod_QNwb1P3N64DMeR"){
+    if(subproduct == "prod_QVsYLG7NI5lfKm"){
       setCurrentsub("cuisine")
     }
-    else if(subproduct == "prod_QNwcTkKjpozLxA"){
+    else if(subproduct == "prod_QVsVZpvgoeVFsw"){
       setCurrentsub("epicurean")
     }
-    else if(subproduct == "prod_QNwaLfuulh5xqC"){
+    else if(subproduct == "prod_QVsVhYl64iKlrQ"){
       setCurrentsub("taste")
     }
   }

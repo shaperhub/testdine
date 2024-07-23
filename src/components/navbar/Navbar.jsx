@@ -24,18 +24,6 @@ function useUserSession(initialUser) {
 		return () => unsubscribe()
 	}, [])
 
-	useEffect(() => {
-        // only when the auth state changes
-		onAuthStateChanged(auth, (authUser) => {
-			if (user === undefined) return
-
-			// if user is not logged in, execute functions here like redirecting to homepage for protected routes
-			if (user?.email !== authUser?.email) {
-				// router.push('/')
-			}
-		})
-	}, [user])
-
 	return user;
 }
 
@@ -48,7 +36,7 @@ export default function Navbar({initialUser}) {
   const handleSignOut = event => {
 	  event.preventDefault();
 	  auth.signOut().then(() => {
-      routernew.push('/');
+      routernew.push('/log-in');
     })
   };
 
@@ -73,16 +61,16 @@ export default function Navbar({initialUser}) {
               <ul className='hidden lg:flex text-black dark:text-dlightgreen'>
                 <li id='about' 
                 className={segment == 'about' 
-                ? 'border-b-dgreenw border-b-2 ml-10 p-0.5 text-sm' 
-                : 'ml-10 p-0.5 text-sm group transition duration-300'}
+                ? 'border-b-dgreenw border-b-2 ml-8 p-0.5 text-sm' 
+                : 'ml-8 p-0.5 text-sm group transition duration-300'}
                 ><Link href='/about' aria-labelledby='DineIntel About Page Link'>About</Link>
                 <span className='block max-w-0 group-hover:max-w-full transition-all duration-200 h-0.5 bg-dgreenw'></span>
                 </li>
 
                 <li id='features'
                 className={segment == 'features'
-                ? "relative group border-b-dgreenw border-b-2 ml-10 p-0.5 text-sm"
-                : "relative group ml-10 p-0.5 text-sm"}>
+                ? "relative group border-b-dgreenw border-b-2 ml-8 p-0.5 text-sm"
+                : "relative group ml-8 p-0.5 text-sm"}>
                   <Link href="/features" aria-labelledby='DineIntel Features Page Link'>Features</Link>
                   <div className="absolute top-0 -left-60 transition group-hover:translate-y-5 translate-y-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-50 min-w-[560px] transform">
                     <div className="relative top-6 p-6 bg-white dark:bg-dblack rounded-xl shadow-xl w-full">
@@ -170,8 +158,8 @@ export default function Navbar({initialUser}) {
 
                 <li id='pricing'
                 className={segment == 'pricing'
-                ? "relative group border-b-dgreenw border-b-2 ml-10 p-0.5 text-sm"
-                : "relative group ml-10 p-0.5 text-sm"}>
+                ? "relative group border-b-dgreenw border-b-2 ml-8 p-0.5 text-sm"
+                : "relative group ml-8 p-0.5 text-sm"}>
                   <Link href="/pricing" aria-labelledby='DineIntel Tiers and Pricing Link'>Pricing</Link>
                   <div className="absolute top-0 -left-72 transition group-hover:translate-y-5 translate-y-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-50 min-w-[600px] transform">
                     <div className="relative top-6 p-6 bg-white dark:bg-dblack rounded-xl shadow-xl w-full">
@@ -232,24 +220,24 @@ export default function Navbar({initialUser}) {
 
                 <li id='faqs' 
                 className={segment == 'faqs' 
-                ? 'border-b-dgreenw border-b-2 ml-10 p-0.5 text-sm' 
-                : 'ml-10 p-0.5 text-sm group transition duration-300'}
+                ? 'border-b-dgreenw border-b-2 ml-8 p-0.5 text-sm' 
+                : 'ml-8 p-0.5 text-sm group transition duration-300'}
                 ><Link href='/faqs' aria-labelledby='DineIntel Frequently Asked Questions Page Link'>FAQs</Link>
                 <span className='block max-w-0 group-hover:max-w-full transition-all duration-200 h-0.5 bg-dgreenw'></span>
                 </li>
 
-              {/* <li id='blog' 
+                <li id='blog' 
                 className={segment == 'blog' 
-                ? 'border-b-dgreenw border-b-2 ml-10 p-0.5 text-sm' 
-                : 'ml-10 p-0.5 text-sm group transition duration-300'}
-                ><Link href='/blog' aria-labelledby='DineIntel Blog Page Link'>Blog</Link>
+                ? 'border-b-dgreenw border-b-2 ml-8 p-0.5 text-sm' 
+                : 'ml-8 p-0.5 text-sm group transition duration-300'}
+                ><a href='/blog' aria-labelledby='DineIntel Blog Page Link'>Blog</a>
                 <span className='block max-w-0 group-hover:max-w-full transition-all duration-200 h-0.5 bg-dgreenw'></span>
-                </li> */}
+                </li>
 
                 <li id='contact' 
                 className={segment == 'contact' 
-                ? 'border-b-dgreenw border-b-2 ml-10 p-0.5 text-sm' 
-                : 'ml-10 p-0.5 text-sm group transition duration-300'}
+                ? 'border-b-dgreenw border-b-2 ml-8 p-0.5 text-sm' 
+                : 'ml-8 p-0.5 text-sm group transition duration-300'}
                 ><Link href='/contact' aria-labelledby='DineIntel Contact Page Link'>Contact</Link>
                 <span className='block max-w-0 group-hover:max-w-full transition-all duration-200 h-0.5 bg-dgreenw'></span>
                 </li>
@@ -257,15 +245,15 @@ export default function Navbar({initialUser}) {
                  {user ? (
                     <>
                       <li id='signout' onClick={handleSignOut}
-                      className='ml-10 p-0.5 text-sm group transition duration-300'
+                      className='ml-8 p-0.5 text-sm group transition duration-300'
                       ><Link href='' aria-labelledby='DineIntel Sign Out Button'>Sign Out</Link>
                       <span className='block max-w-0 group-hover:max-w-full transition-all duration-200 h-0.5 bg-dgreenw'></span>
                       </li>
                       
                       <li id='profile' 
                       className={segment == 'user-profile' 
-                      ? 'border-b-dgreenw border-b-2 ml-10 p-0.5 text-sm' 
-                      : 'ml-10 p-0.5 text-sm group transition duration-300'}
+                      ? 'border-b-dgreenw border-b-2 ml-8 p-0.5 text-sm' 
+                      : 'ml-8 p-0.5 text-sm group transition duration-300'}
                       ><Link href='/user-profile' aria-label='DineIntel User Profile Page Link'>Profile</Link>
                       <span className='block max-w-0 group-hover:max-w-full transition-all duration-200 h-0.5 bg-dgreenw'></span>
                       </li>
@@ -274,16 +262,16 @@ export default function Navbar({initialUser}) {
                     <>
                       <li id='signup' 
                       className={segment == 'sign-up' 
-                      ? 'border-b-dgreenw border-b-2 ml-10 p-0.5 text-sm' 
-                      : 'ml-10 p-0.5 text-sm group transition duration-300'}
+                      ? 'border-b-dgreenw border-b-2 ml-8 p-0.5 text-sm' 
+                      : 'ml-8 p-0.5 text-sm group transition duration-300'}
                       ><Link href='/sign-up' aria-labelledby='DineIntel Sign Up Page Link'>Sign Up</Link>
                       <span className='block max-w-0 group-hover:max-w-full transition-all duration-200 h-0.5 bg-dgreenw'></span>
                       </li>
 
                       <li id='login' 
                       className={segment == 'log-in' 
-                      ? 'border-b-dgreenw border-b-2 ml-10 p-0.5 text-sm' 
-                      : 'ml-10 p-0.5 text-sm group transition duration-300'}
+                      ? 'border-b-dgreenw border-b-2 ml-8 p-0.5 text-sm' 
+                      : 'ml-8 p-0.5 text-sm group transition duration-300'}
                       ><Link href='/log-in' aria-labelledby='DineIntel Login Page Link'>Login</Link>
                       <span className='block max-w-0 group-hover:max-w-full transition-all duration-200 h-0.5 bg-dgreenw'></span>
                       </li>
@@ -339,9 +327,9 @@ export default function Navbar({initialUser}) {
                 <li onClick={() => setNav(false)} id='faqs' className='py-4 text-sm'>
                   <Link href='/faqs' aria-labelledby='DineIntel Frequently Asked Questions Page Link'>FAQs</Link>
                 </li>
-                {/* <li onClick={() => setNav(false)} id='blog' className='py-4 text-sm'>
-                  <Link href='/blog' aria-labelledby='DineIntel Blog Page Link'>Blog</Link>
-                </li> */}
+                <li onClick={() => setNav(false)} id='blog' className='py-4 text-sm'>
+                  <a href='/blog' aria-labelledby='DineIntel Blog Page Link'>Blog</a>
+                </li>
                 <li onClick={() => setNav(false)} id='contact' className='py-4 text-sm'>
                   <Link href='/contact' aria-labelledby='DineIntel Contact Page Link'>Contact</Link>
                 </li>

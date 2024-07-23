@@ -56,14 +56,21 @@ const Googleusername = () => {
         const queryun = query(usersCollection, where('currentUsername', '==', userlower));
             
         if (useruname.length > 3 && useruname.length < 21){
-          const snap = await getDocs(queryun)
-          if(snap.size > 0){
-            setUnameError("Username Already Exists")
+          const usernameRegex = /^[a-zA-Z0-9]*$/
+          if (!usernameRegex.test(useruname)) {
+            setUnameError("Use only alphabet and numbers")
             setUnameGood("")
           }
           else {
-            setUnameError('')
-            setUnameGood("Username is available")
+            const snap = await getDocs(queryun)
+            if(snap.size > 0){
+              setUnameError("Username Already Exists")
+              setUnameGood("")
+            }
+            else {
+              setUnameError('')
+              setUnameGood("Username is available")
+            }
           }
         }
         else if (useruname.length == 0){
@@ -78,8 +85,7 @@ const Googleusername = () => {
       checkUsername()
     }, [useruname])
 
-
-  // Create User in the Firestore Users Collection
+  // Create User
   const handleCreate = async() => {
     if (useruname.length>3 && useruname.length<21) {
       try {
@@ -143,8 +149,8 @@ const Googleusername = () => {
                   onChange={(e) => setUseruname(e.target.value)} 
                   className={unameerror ? "w-full p-3 bg-white dark:bg-black rounded-xl outline outline-dred outline-1 text-[16px] lg:text-sm text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey" : "w-full p-3 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] lg:text-sm text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey"}
               />
-              {unameerror && <span className='text-red-600 text-xs mb-4'>{unameerror}</span>}
-              {unamegood && <span className='text-dgreen text-xs mb-4'>{unamegood}</span>}
+              {unameerror && <span className='text-red-600 text-xs mb-4'>{unameerror}<br></br></span>}
+              {unamegood && <span className='text-dgreen text-xs mb-4'>{unamegood}<br></br></span>}
               
               <button 
                   id="signup"

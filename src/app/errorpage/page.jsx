@@ -1,5 +1,5 @@
 import Image from "next/image"
-import Notfound from "../../public/NoSearchResults.png"
+import Notfound from "../../../public/NoSearchResults.png"
 
 export default function Custom404() {
   return (

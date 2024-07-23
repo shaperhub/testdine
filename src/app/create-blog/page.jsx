@@ -3,7 +3,7 @@ import { useState, useEffect, useMemo } from "react";
 import { onAuthStateChanged } from "firebase/auth"
 import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
-import { collection, doc, addDoc, updateDoc, getDoc, getDocs, query, setDoc, serverTimestamp, where } from "firebase/firestore"
+import { doc, setDoc, serverTimestamp } from "firebase/firestore"
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage"
 import { auth, db, storage } from '@/app/firebase/config'
 import { Plus } from "lucide-react";
@@ -18,12 +18,13 @@ const CreateBlog = () => {
     const [user, setUser] = useState("");
     const [title, setTitle] = useState("");
     const [slug, setSlug] = useState("");
-    const [description, setDescription] = useState("");
     const [content, setContent] = useState("");
     const [loading, setLoading] = useState(true);
     const [loading2, setLoading2] = useState(false);
     const [image, setImage] = useState("");
     const [imageerror, setImageerror] = useState("");
+    const [titleerror, setTitleerror] = useState("");
+    const [contenterror, setContenterror] = useState("");
     const router = useRouter()
 
     useEffect(() => {
@@ -49,7 +50,7 @@ const CreateBlog = () => {
     //             setLoading(false)
     //           }
     //           else {
-    //             router.push('/')
+    //             router.push('/log-in')
     //           }
     //         }
     //       })
@@ -71,7 +72,8 @@ const CreateBlog = () => {
 
     const handleTitle = (e) => {
       const newTitle = e.target.value;
-      setTitle(newTitle);
+      const finalTitle = newTitle.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase());
+      setTitle(finalTitle);
       const autoSlug = generateSlug(newTitle);
       setSlug(autoSlug);
     }
@@ -92,7 +94,7 @@ const CreateBlog = () => {
     }
     
     const upload = () => {
-        if (image) {
+        if (image && title && content) {
           const storageRef = ref(storage, `blogImages/${image.name}`);
           const uploadTask = uploadBytesResumable(storageRef, image)
           uploadTask.on('state_changed', 
@@ -109,7 +111,7 @@ const CreateBlog = () => {
               }
             }, 
             (error) => {
-              // console.log(error)
+              console.log(error)
             }, 
             () => {
               getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
@@ -119,23 +121,25 @@ const CreateBlog = () => {
           )
         }
         else {
-          setImageerror("Upload a picture")
+          if (!image){setImageerror("Upload a picture")}
+          if (!title){setTitleerror("Add a Title")}
+          if (!content){setContenterror("Add Blog Content")}
         }
     }    
 
-    const handleSubmit = async(e) => {
-      e.preventDefault();
+    const handleSubmit = async(imageurl) => {
       try {
         setLoading2(true)
         await setDoc(doc(db, "blogposts", slug), {
             createdAt: serverTimestamp(),
-            blogTitle: title,
-            blogSlug: slug,
-            blogDescription: description,
-            blogContent: content,
+            title: title,
+            slug: slug,
+            image: imageurl,
+            content: content,
         }).then(() => {
+          // console.log("Blog Data: " + slug, title, imageurl)
             setTimeout(() => {
-                router.push(`/blog/${slug}/`)
+                router.push(`/blog/?post=${slug}`)
             }, 2000)
         })
       } catch(error) {
@@ -183,22 +187,22 @@ const CreateBlog = () => {
     }
 
     return (
-      <div className="bg-white/50 dark:bg-black/80 flex items-center justify-center pt-36 pb-8">
+      <div className="bg-white/50 dark:bg-black text-black dark:text-white flex items-center justify-center pt-36 pb-8">
         <div className="">
-            <h1 className="text-4xl text-center font-semibold py-4">
+            <h1 className="text-4xl text-center font-heading py-4">
                 Create Blog Post
             </h1>
             <div className="grid grid-cols-1 lg:grid-cols-2 p-8 gap-4">
                 {/* Blog Editor */}
-                <div className="w-full max-w-3xl p-5 my-6 bg-white border border-gray-200 rounded-lg shadow mx-auto">
+                <div className="w-full max-w-3xl p-5 my-6 bg-white dark:bg-dblack border border-gray-200 rounded-lg shadow mx-auto">
                     <h2 className="text-3xl font-bold border-b border-gray-400 pb-2 mb-5 ">
                         Blog Editor
                     </h2>
-                    <form onSubmit={handleSubmit}>
+                    <>
                         <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
                             {/* Title */}
                             <div className="sm:col-span-2">
-                                <label htmlFor="title" className="block text-sm font-medium leading-6 text-gray-900 mb-2 ">
+                                <label htmlFor="title" className="block text-sm font-medium leading-6 mb-2 ">
                                     Blog Title
                                 </label>
                                 <div className="mt-2">
@@ -208,14 +212,15 @@ const CreateBlog = () => {
                                     value={title}
                                     name="title"
                                     id="title"
-                                    className="block w-full rounded-md border-0 py-2 px-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-600 sm:text-sm sm:leading-6"
+                                    className="block w-full dark:bg-dblack rounded-md border-0 py-2 px-4 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-dbluew sm:text-sm sm:leading-6"
                                     placeholder="Enter Blog Title"
                                     />
                                 </div>
+                                {titleerror && <span className='text-red-600 text-sm mb-6'>{titleerror}</span>}
                             </div>
                             {/* Slug */}
                             <div className="sm:col-span-2">
-                                <label htmlFor="slug" className="block text-sm font-medium leading-6 text-gray-900 mb-2">
+                                <label htmlFor="slug" className="block text-sm font-medium leading-6 mb-2">
                                     Blog Slug
                                 </label>
                                 <div className="mt-2">
@@ -226,29 +231,14 @@ const CreateBlog = () => {
                                     name="slug"
                                     id="slug"
                                     autoComplete="slug"
-                                    className="block w-full rounded-md border-0 py-2 px-4 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-600 sm:text-sm sm:leading-6"
+                                    className="block w-full dark:bg-dblack rounded-md border-0 py-2 px-4 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-dbluew sm:text-sm sm:leading-6"
                                     placeholder="Blog Slug"
                                     />
                                 </div>
                             </div>
-                            {/* Description */}
-                            <div className="sm:col-span-2">
-                                <label htmlFor="description" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                                    Blog Description
-                                </label>
-                                <textarea
-                                    id="description"
-                                    name="description"
-                                    rows="4"
-                                    onChange={(e) => setDescription(e.target.value)}
-                                    value={description}
-                                    className="block p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-purple-500 focus:border-purple-500 "
-                                    placeholder="Blog Description"
-                                ></textarea>
-                            </div>
                             {/* Blog Image */}
                             <div className="sm:col-span-2">
-                                <label htmlFor="description" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                <label htmlFor="description" className="block mb-2 text-sm font-medium">
                                     Blog Image
                                 </label>
                                 <input
@@ -258,13 +248,13 @@ const CreateBlog = () => {
                                     aria-label='Upload Blog Image'
                                     accept="image/png, image/jpeg, image/jpg"
                                     onChange={(e) => {handleSelectedFile(e.target.files[0])}} 
-                                    className="w-full p-3 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey"
+                                    className="w-full p-3 rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey"
                                 />
-                                {imageerror && <span className='text-red-600 text-xs mb-6'>{imageerror}</span>}
+                                {imageerror && <span className='text-red-600 text-sm mb-6'>{imageerror}</span>}
                             </div>
                             {/* ReactQuill Editor */}
                             <div className="sm:col-span-2">
-                                <label htmlFor="content" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                <label htmlFor="content" className="block mb-2 text-sm font-medium">
                                     Blog Content
                                 </label>
                                 <ReactQuill
@@ -274,37 +264,32 @@ const CreateBlog = () => {
                                     modules={modules}
                                     formats={formats}
                                 />
+                                {contenterror && <span className='text-red-600 text-sm mb-6'>{contenterror}</span>}
                             </div>
                         </div>
                         <button
-                            type="submit"
-                            className="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-purple-700 rounded-lg focus:ring-4 focus:ring-purple-200 dark:focus:ring-purple-900 hover:bg-purple-800"
+                            onClick={upload}
+                            className="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center text-white bg-dbluew dark:bg-dblue rounded-lg hover:bg-dgreenw dark:hover:bg-dgreen"
                         >
                             <Plus className="w-5 h-5 mr-2" />
                             <span>Create Blog Post</span>
                             {loading2 && <Loader2 className="ml-2 h-4 w-4 animate-spin" />}
                         </button>
-                    </form>
+                    </>
                 </div>
         
                 {/* Blog Preview */}
-                <div className=" blog-view w-full max-w-3xl p-8 my-6 bg-white border border-gray-200 rounded-lg shadow mx-auto">
+                <div className=" blog-view w-full max-w-3xl p-8 my-6 bg-white dark:bg-dblack border border-gray-200 rounded-lg shadow mx-auto">
                     <h2 className="text-3xl font-bold border-b border-gray-400 pb-2 mb-5 ">
                         Blog Preview
                     </h2>
                     <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
                         <div className="sm:col-span-2">
-                            <h2 className="block text-sm font-medium leading-6 text-gray-900 mb-2 ">
-                                Blog Title
-                            </h2>
                             <div className="mt-2">
                                 <p className="text-2xl font-bold">{title}</p>
                             </div>
                         </div>
                         <div className="sm:col-span-full">
-                            <h2 className="block mb-2">
-                                Blog Content
-                            </h2>
                             <div className={styles.blogcontent}>
                                 {parse(content)}
                             </div>

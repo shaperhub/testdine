@@ -11,4 +11,5 @@
 
 .blogcontent > p > img {
     max-width: 400px;
+    padding-bottom: 12px;
 }

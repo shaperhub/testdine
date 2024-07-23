@@ -1,25 +1,25 @@
 'use client'
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import {createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, sendEmailVerification} from "firebase/auth";
+import { useState, useEffect } from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
+import {createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, sendEmailVerification} from "firebase/auth"
 import {collection, doc, getDocs, query, setDoc, serverTimestamp, where} from "firebase/firestore"
 import {ref, getDownloadURL, uploadBytesResumable } from "firebase/storage"
 import {auth, db, storage} from '@/app/firebase/config'
-import { useRouter } from 'next/navigation';
-import { FaEye } from "react-icons/fa";
-import { FaEyeSlash } from "react-icons/fa";
+import { useRouter } from 'next/navigation'
+import { FaEye } from "react-icons/fa"
+import { FaEyeSlash } from "react-icons/fa"
 import DefaultPic from '../../../public/nopic.png'
 import { Loader2 } from "lucide-react"
 
 const SignUp = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmpassword, setConfirmpassword] = useState('');
-  const [firstname, setFirstname] = useState('');
-  const [lastname, setLastname] = useState('');
-  const router = useRouter();
-  const [image, setImage] = useState('');
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [confirmpassword, setConfirmpassword] = useState('')
+  const [firstname, setFirstname] = useState('')
+  const [lastname, setLastname] = useState('')
+  const router = useRouter()
+  const [image, setImage] = useState('')
   const [useruname, setUseruname] = useState('')
   const [fnameerror, setFnameError] = useState('')
   const [lnameerror, setLnameError] = useState('')
@@ -46,15 +46,22 @@ const SignUp = () => {
       const queryun = query(usersCollection, where('currentUsername', '==', useruname.toLowerCase()));
       // If the username input length is within range
       if (useruname.length > 3 && useruname.length < 21){
-        const snap = await getDocs(queryun)
-        // if the username exists
-        if(snap.size > 0){
-          setUnameError("Username Already Exists")
+        const usernameRegex = /^[a-zA-Z0-9]*$/
+        if (!usernameRegex.test(useruname)) {
+          setUnameError("Use only alphabet and numbers")
           setUnameGood("")
         }
         else {
-          setUnameError('')
-          setUnameGood("Username is available")
+          const snap = await getDocs(queryun)
+          // if the username exists
+          if(snap.size > 0){
+            setUnameError("Username Already Exists")
+            setUnameGood("")
+          }
+          else {
+            setUnameError('')
+            setUnameGood("Username is available")
+          }
         }
       }
       // if the username field is empty
@@ -82,18 +89,28 @@ const SignUp = () => {
   }
 
   const fnamecheck = () => {
+    const nameregex = /^([a-zA-Z\xC0-\uFFFF]+([ \-']{0,1}[a-zA-Z\xC0-\uFFFF]+)*[.]{0,1}){1,2}$/
     if (firstname.length < 1) {
       setFnameError("First name cannot be empty")
     } else {
-      setFnameError('')
+      if (!nameregex.test(firstname)) {
+        setFnameError("Invalid Name")
+      } else {
+        setFnameError('')
+      }
     }
   }
 
   const lnamecheck = () => {
+    const nameregex = /^([a-zA-Z\xC0-\uFFFF]+([ \-']{0,1}[a-zA-Z\xC0-\uFFFF]+)*[.]{0,1}){1,2}$/
     if (lastname.length < 1) {
       setLnameError("First name cannot be empty")
     } else {
-      setLnameError('')
+      if (!nameregex.test(lastname)) {
+        setLnameError("Invalid Name")
+      } else {
+        setLnameError('')
+      }
     }
   }
 
@@ -260,7 +277,7 @@ const SignUp = () => {
     }
   };
 
-  // Create User in the Firestore Users Collection
+  // Create User
   const handleCreate = async(userfname, userlname, useremail, username, uid, upic) => {
     try {
       const defaultpic = "https://firebasestorage.googleapis.com/v0/b/dineintl.appspot.com/o/usersImages%2Fnopic.png?alt=media&token=4cb028c2-d7f0-4b57-89d5-cf7c34d94120"
@@ -394,8 +411,8 @@ const SignUp = () => {
             onBlur={usernamecheck}
             className={unameempty==true ? "w-full p-3 bg-white dark:bg-black rounded-xl outline outline-dred outline-1 text-[16px] lg:text-sm text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey" : "w-full p-3 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] lg:text-sm text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey"}
           />
-          {unameerror && <span className='text-red-600 text-xs mb-4'>{unameerror}</span>}
-          {unamegood && <span className='text-dgreen text-xs mb-4'>{unamegood}</span>}
+          {unameerror && <span className='text-red-600 text-xs mb-4'>{unameerror}<br></br></span>}
+          {unamegood && <span className='text-dgreen text-xs mb-4'>{unamegood}<br></br></span>}
 
           <div className='flex mt-4 mb-2'>
             <span className='mr-2'>
