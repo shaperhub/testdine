@@ -1,19 +1,18 @@
 'use client'
-import {useState, useEffect} from 'react'
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import {AiOutlineClose, AiOutlineMenu} from 'react-icons/ai'
+import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai'
 import DarkModeToggle from "../DarkModeToggle/DarkModeToggle"
 import Navlog from '../../../public/DineIntelLogoLight.png'
 import NavlogDark from '../../../public/DineIntelLogoDark.png'
 import { useRouter, useSelectedLayoutSegment } from 'next/navigation'
-import {onAuthStateChanged} from "firebase/auth"
-import {auth} from "@/app/firebase/config"
+import { onAuthStateChanged } from "firebase/auth"
+import { auth } from "@/app/firebase/config"
 import ComingSoon from '../ComingSoon/ComingSoon'
 import Epic from "../../../public/epicconc.png"
 
 function useUserSession(initialUser) {
-	// The initialUser comes from the server via a server component
 	const [user, setUser] = useState(initialUser)
 	const router = useRouter()
 
@@ -28,15 +27,15 @@ function useUserSession(initialUser) {
 }
 
 export default function Navbar({initialUser}) {
-  const user = useUserSession(initialUser);
-  const routernew = useRouter();
-  const segment = useSelectedLayoutSegment();
+  const user = useUserSession(initialUser)
+  const routernew = useRouter()
+  const segment = useSelectedLayoutSegment()
 
   // Sign Out function
   const handleSignOut = event => {
 	  event.preventDefault();
 	  auth.signOut().then(() => {
-      routernew.push('/log-in');
+      routernew.push('/log-in')
     })
   };
 

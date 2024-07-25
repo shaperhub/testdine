@@ -17,11 +17,16 @@ const Success = () => {
     <div className="bg-white/50 dark:bg-black/80 min-h-screen pt-24 flex items-center justify-center text-black dark:text-dgrey text-sm font-regular">
         <div>
             <p className="text-2xl">Payment Successful</p>
-            <Dialog open={modalopen}>
-                {/* <DialogTrigger asChild>
-                    <button className='mt-2 text-dgreenw dark:text-dgreen underline text-center'>Get Subscription</button>
-                </DialogTrigger> */}
+            <Dialog open={modalopen} onOpenChange={setModalopen}>
+                <DialogTrigger asChild>
+                    {/* <button className='mt-2 text-dgreenw dark:text-dgreen underline text-center'>Get Subscription</button> */}
+                </DialogTrigger>
                 <DialogContent className="sm:max-w-[425px] pt-12">
+                    <DialogHeader>
+                        <DialogTitle></DialogTitle>
+                        <DialogDescription>
+                        </DialogDescription>
+                    </DialogHeader>
                     <div className='flex flex-col justify-center items-center lgxl:max-w-[500px]'>
                         <div className=''>
                             <h2 className='font-heading text-2xl md:text-3xl mb-6'>Download the App</h2>
@@ -51,7 +56,7 @@ const Success = () => {
                             </Link>
                         </div>
                     </div>
-                    <DialogFooter className="justify-center">
+                    <DialogFooter className="sm:justify-center">
                         <DialogClose asChild className="">
                             <Button type="button" variant="secondary" className="" onClick={() => {setModalopen(false)}}>
                                 Close

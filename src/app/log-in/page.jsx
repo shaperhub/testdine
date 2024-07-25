@@ -1,13 +1,13 @@
 'use client'
-import { useState } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
-import {auth} from '@/app/firebase/config'
-import { useRouter } from 'next/navigation';
+import { useState } from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
+import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, sendEmailVerification } from 'firebase/auth'
+import { auth } from '@/app/firebase/config'
+import { useRouter } from 'next/navigation'
 import LoginPic from '../../../public/LoginGraphic.png'
-import { FaEye } from "react-icons/fa";
-import { FaEyeSlash } from "react-icons/fa";
+import { FaEye } from "react-icons/fa"
+import { FaEyeSlash } from "react-icons/fa"
 import { Loader2 } from "lucide-react"
 
 const SignIn = () => {
@@ -18,6 +18,7 @@ const SignIn = () => {
   const [validateerror, setValidateerror] = useState('');
   const [passwordvisible, setPasswordvisible] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [unverified, setUnverified] = useState(false)
   const router = useRouter()
   const [errorm, setErrorm] = useState('')
 
@@ -62,9 +63,19 @@ const SignIn = () => {
         // Signed in
         const user = userCredential.user;
         // console.log(user);
-        setEmail('');
-        setPassword('');
-        router.push('/user-profile')
+        setEmail('')
+        setPassword('')
+        router.push("/user-profile")
+        // if (user.emailVerified) {
+        //   router.push('/user-profile')
+        // } else {
+        //   sendEmailVerification(user)
+        //   setUnverified(true)
+        //   setLoading(false)
+        //   setTimeout(() => {
+        //     auth.signOut()
+        //   }, 2000)
+        // }
       })
     }catch(error) {
       setLoading(false)
@@ -147,8 +158,8 @@ const SignIn = () => {
             onChange={(e) => setPassword(e.target.value)} 
             className={perror ? "w-full p-3 mb-4 bg-white dark:bg-black rounded-xl outline outline-dred outline-1 text-[16px] lg:text-sm text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey" : "w-full p-3 mb-4 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] lg:text-sm text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey"}
           />
-          {passwordvisible==false && <span className='relative float-right -mt-9 mr-4' onClick={() => setPasswordvisible(true)}><FaEye/></span>}
-          {passwordvisible==true && <span className='relative float-right -mt-9 mr-4' onClick={() => setPasswordvisible(false)}><FaEyeSlash/></span>}
+          {passwordvisible==false && <span className='relative float-right -mt-11 mr-4' onClick={() => setPasswordvisible(true)}><FaEye/></span>}
+          {passwordvisible==true && <span className='relative float-right -mt-11 mr-4' onClick={() => setPasswordvisible(false)}><FaEyeSlash/></span>}
 
           <div className="pt-4 text-right mb-6">
             <Link href="/password-reset" className="text-dblue dark:text-dyellow underline">
@@ -168,7 +179,8 @@ const SignIn = () => {
         {errorm=='Firebase: Error (auth/invalid-credential).' && <div className='w-full bg-dred/20 text-red-600 text-xs text-center p-4 my-4'><span>Incorrect Email or Password</span></div>}
         {emailerror && <span className='text-red-600 text-sm text-center'>{emailerror}<br></br></span>}
         {perror && <span className='text-red-600 text-sm text-center'>{perror}<br></br></span>}
-        {validateerror && <div className='w-full bg-dred/20 text-red-600 text-xs text-center p-4 my-4'><span>{validateerror}</span></div>}
+        {validateerror && <div className='w-full bg-dred/20 text-red-600 text-xs text-center p-4 my-4'><span>{validateerror}<br></br></span></div>}
+        {unverified && <div className='w-full bg-dblue/20 dark:bg-dblue/40 text-blue-600 text-sm text-center p-4 my-4'><span>Check your email for verification link<br></br></span></div>}
         <div className="my-6 flex items-center justify-center">
           <span className="hidden h-[1px] w-full max-w-[60px] bg-dblack dark:bg-dlightgreen sm:block"></span>
           <p className="w-full px-5 text-center text-black dark:text-white">

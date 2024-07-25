@@ -233,6 +233,7 @@ const CreateBlog = () => {
                                     autoComplete="slug"
                                     className="block w-full dark:bg-dblack rounded-md border-0 py-2 px-4 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-dbluew sm:text-sm sm:leading-6"
                                     placeholder="Blog Slug"
+                                    readOnly
                                     />
                                 </div>
                             </div>

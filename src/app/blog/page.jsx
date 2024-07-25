@@ -65,6 +65,19 @@ const Blog = () => {
     })
   }
 
+  const extractExcerpt = (htmlString) => {
+    // Remove HTML tags
+    const text = htmlString.replace(/<\/?[^>]+(>|$)/g, "");
+    
+    // Split the text into words
+    const words = text.split(/\s+/);
+  
+    // Get the first 30 words
+    const first30Words = words.slice(0, 30).join(" ");
+  
+    return first30Words;
+  }
+
   return (
     <div className='bg-white dark:bg-dblack text-black dark:text-dgrey font-regular'>
         
@@ -75,7 +88,8 @@ const Blog = () => {
         </div>
       </div>
       
-      <div className="flex flex-col md:flex-row justify-center items-center gap-4 py-36 px-8 md:px-24 bg-white/80 dark:bg-black/90">
+      {/* Content */}
+      <div className="flex flex-col md:flex-row justify-center items-center gap-4 pb-16 px-8 md:px-24 lg:px-36 bg-white/80 dark:bg-black/90">
         <div className="">
           <h2 className="text-xl md:text-2xl lg:text-4xl mb-4 font-heading text-center text-dblue dark:text-dgrey">{!posts && "No blog posts yet"}</h2>
 
@@ -83,11 +97,12 @@ const Blog = () => {
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pb-8'>
               {posts.map(post => (
                 <div key={post.id}>
-                  <div>
-                    <h3>{post.title}</h3>
-                    <div>{parse(post.content)}</div>
-                    <a href={`/blog/?post=${post.slug}`} className='text-dred'>
-                      <button className=''>Read More</button>
+                  <div className='pt-8 pb-4'>
+                    <img src={post.image} width="400" height="300" alt={post.title} />
+                    <h3 className='font-heading text-2xl text-dbluew dark:text-dgreen my-2'>{post.title}</h3>
+                    <div>{extractExcerpt(post.content)}</div>
+                    <a href={`/blog/?post=${post.slug}`} className=''>
+                      <button className='bg-transparent mt-4 p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-2 text-dbluew dark:text-white'>Read More</button>
                     </a>
                   </div>
                 </div>
@@ -96,9 +111,13 @@ const Blog = () => {
           }
 
           {onepost && 
-            <div className=''>
-              <div className='mb-8'><img src={onepost.image} alt={onepost.title} /></div>
-              <div className='blogcontent'>{parse(onepost.content)}</div>
+            <div className='text-black dark:text-dgrey text-sm lg:text-base'>
+              <div className='mb-8'>
+                <img src={onepost.image} width="400" height="300" alt={onepost.title} />
+              </div>
+              <div className={styles.blogcontent}>
+                {parse(onepost.content)}
+              </div>
             </div>
           }
 

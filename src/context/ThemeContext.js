@@ -1,20 +1,30 @@
 "use client"
-import { createContext, useState } from "react"
-// import { setCookie, getCookie } from 'cookies-next'
+import { createContext, useState, useEffect } from "react"
+import Cookies from "js-cookie"
 
-export const ThemeContext = createContext();
+export const ThemeContext = createContext()
 
 export const ThemeProvider = ({ children }) => {
-  // const lasttheme = getCookie('theme')
-  // const [mode, setMode] = useState(lasttheme)
   const [mode, setMode] = useState("light")
 
-  // setCookie('theme', mode)
+  useEffect(() => {
+    const savedTheme = Cookies.get('theme')
+    if (savedTheme) {
+      setMode(savedTheme)
+    }
+  }, [])
 
   const toggle = () => {
-    setMode((prev) => (prev === "dark" ? "light" : "dark"))
-    // setCookie('theme', mode)
+    setMode((prev) => {
+      const newMode = prev === "dark" ? "light" : "dark"
+      Cookies.set('theme', newMode, { expires: 365 })
+      return newMode
+    })
   }
+
+  useEffect(() => {
+    Cookies.set('theme', mode, { expires: 365 })
+  }, [mode])
 
   return (
     <ThemeContext.Provider value={{ toggle, mode }}>

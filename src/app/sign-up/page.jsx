@@ -2,10 +2,10 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import {createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, sendEmailVerification} from "firebase/auth"
-import {collection, doc, getDocs, query, setDoc, serverTimestamp, where} from "firebase/firestore"
-import {ref, getDownloadURL, uploadBytesResumable } from "firebase/storage"
-import {auth, db, storage} from '@/app/firebase/config'
+import { createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, sendEmailVerification } from "firebase/auth"
+import { collection, doc, getDocs, query, setDoc, serverTimestamp, where } from "firebase/firestore"
+import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage"
+import { auth, db, storage } from '@/app/firebase/config'
 import { useRouter } from 'next/navigation'
 import { FaEye } from "react-icons/fa"
 import { FaEyeSlash } from "react-icons/fa"
@@ -38,6 +38,7 @@ const SignUp = () => {
   const [checkerror, setCheckerror] = useState('')
   const [validateerror, setValidateerror] = useState('')
   const [loading, setLoading] = useState(false)
+  const [unverified, setUnverified] = useState(false)
 
   useEffect(() => {
     // Check if the Username Already Exists
@@ -242,6 +243,7 @@ const SignUp = () => {
       const res = await createUserWithEmailAndPassword(auth, email, password)
       const userobj = res.user
       await sendEmailVerification(userobj)
+      setUnverified(true)
       const userid = res.user.uid
       const userunamelower = useruname.toLowerCase()
 
@@ -313,8 +315,12 @@ const SignUp = () => {
       setLastname('');
       setUseruname('')
       setImage('');
-      if(upic.startsWith("https://lh3.googleusercontent.com")){router.push('/googleusername')}
-      else{router.push('/purchaseplan')}
+      if (upic.startsWith("https://lh3.googleusercontent.com")) {
+        router.push('/googleusername')
+      } else {
+        auth.signOut()
+        setLoading(false)
+      }
       return true
     } catch(e){
         // console.error(e)
@@ -550,7 +556,8 @@ const SignUp = () => {
             </button>
           </div>
         </>
-        {validateerror && <div className='w-full bg-dred/20 text-red-600 text-xs text-center p-4 my-4'><span>{validateerror}</span></div>}
+        {validateerror && <div className='w-full bg-dred/20 text-red-600 text-xs text-center p-4 my-4'><span>{validateerror}<br></br></span></div>}
+        {unverified && <div className='w-full bg-dblue/20 dark:bg-dblue/40 text-blue-600 text-sm text-center p-4 my-4'><span>Check your email for verification link<br></br></span></div>}
         {signuperror=='Firebase: Error (auth/email-already-in-use).' && <div className='w-full bg-dred/20 text-red-600 text-xs text-center p-4 my-4'><span>Email already exists</span></div>}
 
         <div className="my-6 flex items-center justify-center">
