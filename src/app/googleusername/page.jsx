@@ -1,13 +1,13 @@
 'use client'
 import { useState, useEffect } from "react"
-import Image from 'next/image';
+import Image from 'next/image'
 import { collection, doc, getDoc, getDocs, query, updateDoc, where } from "firebase/firestore"
 import { auth, db } from '@/app/firebase/config'
 import { onAuthStateChanged } from "firebase/auth"
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation'
 import LoginPic from '../../../public/LoginGraphic.png'
 import { Loader2 } from "lucide-react"
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/button'
 
 const Googleusername = () => {
     // const user = auth.currentUser
@@ -22,12 +22,11 @@ const Googleusername = () => {
       const unsubscribe = onAuthStateChanged(auth, async (user) => {
         if(user) {
           setUser(user)
-        }
-        else {
+        } else {
           router.push('/log-in')
         }
-      });    
-      return () => unsubscribe();
+      })
+      return () => unsubscribe()
     }, [])
 
     useEffect(() => {
@@ -45,15 +44,15 @@ const Googleusername = () => {
             }
           })
         }   
-        checkexist();
+        checkexist()
       }
     }, [user])
 
     useEffect(() => {
       const checkUsername = async () => {
         const userlower = useruname.toLowerCase()
-        const usersCollection = collection(db, 'usernames');
-        const queryun = query(usersCollection, where('currentUsername', '==', userlower));
+        const usersCollection = collection(db, 'usernames')
+        const queryun = query(usersCollection, where('currentUsername', '==', userlower))
             
         if (useruname.length > 3 && useruname.length < 21){
           const usernameRegex = /^[a-zA-Z0-9]*$/

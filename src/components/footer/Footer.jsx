@@ -1,65 +1,84 @@
-import Link from "next/link";
-import { FaInstagram } from "react-icons/fa6";
-import { FaXTwitter } from "react-icons/fa6";
-import { FaFacebookF } from "react-icons/fa6";
-import { FaYoutube } from "react-icons/fa6";
-import { FaLinkedin } from "react-icons/fa6";
+'use client'
+import { useState, useEffect } from 'react'
+import Image from 'next/image'
+import Link from 'next/link'
+import { collection, doc, getDoc, getDocs } from "firebase/firestore"
+import { db } from '@/app/firebase/config'
+import { FaInstagram } from "react-icons/fa6"
+import { FaXTwitter } from "react-icons/fa6"
+import { FaFacebookF } from "react-icons/fa6"
+import { FaYoutube } from "react-icons/fa6"
+import { FaLinkedin } from "react-icons/fa6"
 
 const Footer = () => {
-  const currentyear = new Date().getFullYear();
+  const currentyear = new Date().getFullYear()
+  const [posts, setPosts] = useState([])
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const blogCollection = collection(db, 'blogposts')
+      const blogposts = await getDocs(blogCollection)
+      const blogs = blogposts.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data()
+      }))
+      if(blogs.length === 0) {
+        // return []
+      } else {
+        if (blogs.length == 1 || blogs.length == 2 || blogs.length == 3){
+          setPosts(blogs)
+        }
+        else if (blogs.length > 3){
+          setPosts(getRandomPosts(blogs, 3))
+        }
+      }
+    }
+    fetchPosts()
+  }, [])
+
+  const getRandomPosts = (allPosts, numberOfPosts) => {
+    let shuffled = [...allPosts].sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, numberOfPosts);
+  }
 
   return (
     <footer className="text-xs md:text-sm font-regular">
       <div className="footer bg-dblue px-8 2xl:px-16 pt-8">
         <div className="flex flex-wrap">
-          <div className="w-full md:w-1/2 lg:w-4/12 xl:w-5/12">
-            <div className="mb-12 max-w-[360px] lg:mb-16">
+          <div className="w-full md:w-1/2 xl:w-3/12">
+            <div className="mb-12 max-w-[300px] lg:mb-16">
               <h2 className="mb-4 text-xl font-bold text-white">About Us</h2>
-              <p className="mb-4 text-dgrey">
+              <p className="mb-4 text-dgrey xl:pr-8">
                 At DineIntel, our passion lies in revolutionizing the dining experience. 
                 Founded by a team of culinary enthusiasts and tech innovators, our mission is to seamlessly merge the art of gastronomy with cutting-edge digital innovation.
               </p>
             </div>
           </div>
 
-          <div className="w-full sm:w-1/2 md:w-1/2 lg:w-2/12 xl:w-2/12">
+          <div className="w-full md:w-1/2 xl:w-3/12">
             <div className="mb-6 lg:mb-16">
               <h2 className="mb-4 text-xl font-bold text-white">
-                Quick Links
+                Blog
               </h2>
-              <ul>
-                <li>
-                  <Link
-                    href="/"
-                    aria-labelledby='DineIntel Home Page Link'
-                    className="text-dgrey hover:text-dgreen mb-4 inline-block"
-                  >
-                    Home
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/pricing"
-                    aria-labelledby='DineIntel Tiers and Pricing Page Link'
-                    className="text-dgrey hover:text-dgreen mb-4 inline-block"
-                  >
-                    Pricing
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/features"
-                    aria-labelledby='DineIntel Features Page Link'
-                    className="text-dgrey hover:text-dgreen mb-4 inline-block"
-                  >
-                    Features
-                  </Link>
-                </li>
-              </ul>
+              {posts && 
+                <div className='flex flex-col'>
+                  {posts.map(post => (
+                    <div key={post.id}>
+                      <div className='pb-4 max-w-[400px]'>
+                        <a href={`/blog/?post=${post.slug}`} className='flex flex-row gap-4'>
+                          <Image className='h-10 w-10 rounded-xl' src={post.image} width={40} height={40} alt={post.title} />
+                          <p className='font-bold text-sm text-dgrey hover:text-dgreen my-2'>{post.title}</p>
+                        </a>
+                      </div>
+                    </div>
+                  ))}
+                </div> 
+              }
+
             </div>
           </div>
 
-          <div className="w-full sm:w-1/2 md:w-1/2 lg:w-2/12 xl:w-2/12">
+          <div className="w-full md:w-1/2 xl:w-3/12">
             <div className="mb-6 lg:mb-16">
               <h2 className="mb-4 text-xl font-bold text-white">
                 Terms
@@ -96,7 +115,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="w-full md:w-1/2 lg:w-4/12 xl:w-3/12">
+          <div className="w-full md:w-1/2 xl:w-3/12">
             <div className="mb-6 lg:mb-16">
               <h2 className="mb-4 text-xl font-bold text-white">
                 Follow Us
@@ -131,7 +150,7 @@ const Footer = () => {
         </div>
       </div>
     </footer>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

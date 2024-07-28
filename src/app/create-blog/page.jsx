@@ -151,11 +151,9 @@ const CreateBlog = () => {
     const modules = {
       toolbar: [
         [{ header: [1, 2, false] }],
-        ["bold", "italic", "underline", "strike", "blockquote"],
+        ["bold", "italic", "underline", "blockquote"],
         [{ list: "ordered" }, { list: "bullet" }],
-        ["link", "color", "image"],
-        [{ "code-block": true }],
-        ["clean"],
+        ["link", "image"],
       ],
     };
 
@@ -164,15 +162,11 @@ const CreateBlog = () => {
       "bold",
       "italic",
       "underline",
-      "strike",
       "blockquote",
       "list",
       "bullet",
       "link",
-      "indent",
       "image",
-      "code-block",
-      "color",
     ];
 
     if (loading) {
@@ -280,7 +274,7 @@ const CreateBlog = () => {
                 </div>
         
                 {/* Blog Preview */}
-                <div className=" blog-view w-full max-w-3xl p-8 my-6 bg-white dark:bg-dblack border border-gray-200 rounded-lg shadow mx-auto">
+                <div className=" blog-view w-full max-w-3xl p-5 my-6 bg-white dark:bg-dblack border border-gray-200 rounded-lg shadow mx-auto">
                     <h2 className="text-3xl font-bold border-b border-gray-400 pb-2 mb-5 ">
                         Blog Preview
                     </h2>

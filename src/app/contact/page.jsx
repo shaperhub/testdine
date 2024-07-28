@@ -1,6 +1,6 @@
 'use client'
 import { useState } from 'react'
-import Image from "next/image";
+import Image from "next/image"
 import Contactimage from "../../../public/LoginGraphic.png"
 import { Loader2 } from "lucide-react"
 
@@ -32,17 +32,17 @@ const Contact = () => {
   const emailcheck = () => {
     let emailRegex = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/
     if (!emailRegex.test(email)) {
-      setEmailError("Error! you have entered invalid email.");
+      setEmailError("Error! you have entered invalid email.")
     } else {
-      setEmailError("");
+      setEmailError("")
     }
   }
   
   const messagecheck = () => {
     if (message.length < 3) {
-      setMessageError("Message Too Short");
+      setMessageError("Message Too Short")
     } else {
-      setMessageError("");
+      setMessageError("")
     }
   }
   
@@ -55,8 +55,7 @@ const Contact = () => {
       if (nameerror.length==0 && name.length>1 && emailerror.length==0 && email.length>4 && messageerror.length==0 && message.length>2) {
         setValidateError('')
         handleContact()
-      }
-      else {
+      } else {
         setValidateError("Complete the form")
         setLoading(false)
       }
@@ -74,11 +73,11 @@ const Contact = () => {
   }
 
   return (
-    <div className="bg-white/50 dark:bg-black/80 min-h-screen flex flex-col md:flex-row items-center justify-center text-sm font-regular pt-16 shadow-xl">
-      <div className="bg-white dark:bg-black w-96 md:w-1/2 lg:w-1/3 px-12 py-12">
+    <div className="bg-white/50 dark:bg-black/80 min-h-screen flex flex-col md:flex-row items-center justify-center text-sm font-regular pt-24 md:pt-16 shadow-xl">
+      <div className="bg-white dark:bg-black w-80 md:w-1/2 lg:w-1/3 px-12 py-12">
         <h2 className="font-heading text-black dark:text-white text-3xl lg:text-4xl pb-8">Contact Us</h2>
         <h4 className="font-heading text-ddarkgrey dark:text-dgrey text-xl lg:text-2xl pb-8">Got Questions? Let&apos;s give you the answers you need.</h4>
-        <Image className="pb-8" src={Contactimage} width="375" height="180" alt="Contact Page Image" quality={100} />
+        <Image className="pb-8" src={Contactimage} width="320" height="160" alt="Contact Page Image" quality={100} />
         <div className="mt-4">
           <p className="text-black dark:text-white font-heading text-xl">For General Inquiries</p>
           <p className="text-ddarkgrey dark:text-dgrey text-base">info@dineintel.io </p>
@@ -88,7 +87,7 @@ const Contact = () => {
           <p className="text-ddarkgrey dark:text-dgrey text-base">support@dineintel.io </p>
         </div>
       </div>
-      <div className="bg-dlightestgreen dark:bg-dblack p-10 w-96">
+      <div className="bg-dlightestgreen dark:bg-dblack p-10 w-80">
         <>
           <input 
             type="text" 
@@ -155,7 +154,7 @@ const Contact = () => {
         {validated && <div className='w-full bg-dgreen/20 text-green-600 text-xs text-center p-4 my-4'><span>{validated}</span></div>}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Contact;
+export default Contact

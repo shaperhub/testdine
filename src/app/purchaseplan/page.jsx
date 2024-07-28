@@ -1,12 +1,12 @@
 'use client'
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'
 import { auth, db } from '@/app/firebase/config'
 import { onAuthStateChanged } from "firebase/auth"
-import { collection, doc, getDoc, getDocs, query, updateDoc, where } from "firebase/firestore"
-import { useRouter } from 'next/navigation';
-import { getCheckoutUrl } from "../user-profile/payment";
+import { doc, getDoc } from "firebase/firestore"
+import { useRouter } from 'next/navigation'
+import { getCheckoutUrl } from "../user-profile/payment"
 import { Loader2 } from "lucide-react"
-import { Button } from '@/components/ui/button';
+import { Button } from '@/components/ui/button'
 
 export default function PurchasePlan() {
   const [user, setUser] = useState('')
@@ -17,18 +17,16 @@ export default function PurchasePlan() {
   const [btnloading3, setBtnloading3] = useState(false)
   const [btnloading4, setBtnloading4] = useState(false)
   const [btnloading5, setBtnloading5] = useState(false)
-  // console.log(user)
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       if(user) {
         setUser(user)
-      }
-      else {
+      } else {
         router.push('/log-in')
       }
-    });
-    return () => unsubscribe();
+    })
+    return () => unsubscribe()
   }, [])
 
   useEffect(() => {

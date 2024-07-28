@@ -80,7 +80,7 @@ export default function Navbar({initialUser}) {
                           <div>
                             <ul className="mt-3 text-[15px]">
                               <li>
-                                <Link href="/features#foryou"
+                                <Link href="/features#foryou" aria-labelledby="DineIntel For You Feature"
                                   className="block p-2 -mx-2 rounded-lg hover:bg-dlightgreen dark:hover:bg-dlightblack transition ease-in-out duration-300 text-gray-800 font-semibold hover:text-indigo-600">
                                   <span className='flex justify-center mb-2'>
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -100,7 +100,7 @@ export default function Navbar({initialUser}) {
                                 </Link>
                               </li>
                               <li>
-                                <Link href="/features#modifydish"
+                                <Link href="/features#modifydish" aria-labelledby="DineIntel Modify Dish Feature"
                                   className="block p-2 -mx-2 rounded-lg hover:bg-dlightgreen dark:hover:bg-dlightblack transition ease-in-out duration-300 text-gray-800 font-semibold hover:text-indigo-600">
                                   <span className='flex justify-center mb-2'>
                                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -123,7 +123,7 @@ export default function Navbar({initialUser}) {
                           <div>
                             <ul className="mt-3 text-[15px]">
                               <li>
-                                <Link href="/features#dinegroup"
+                                <Link href="/features#dinegroup" aria-labelledby="DineIntel Dine Group Feature"
                                   className="block p-2 -mx-2 rounded-lg hover:bg-dlightgreen dark:hover:bg-dlightblack transition ease-in-out duration-300 text-gray-800 font-semibold hover:text-indigo-600">
                                   <span className='flex justify-center mb-2'>
                                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -139,7 +139,7 @@ export default function Navbar({initialUser}) {
                                 </Link>
                               </li>
                               <li>
-                                <Link href="/features#epicureanconcierge"
+                                <Link href="/features#epicureanconcierge" aria-labelledby="DineIntel Epicurean Concierge Feature"
                                   className="block p-2 -mx-2 rounded-lg hover:bg-dlightgreen dark:hover:bg-dlightblack transition ease-in-out duration-300 text-gray-800 font-semibold hover:text-indigo-600">
                                   <span className='flex justify-center mb-2'>
                                     <Image src={Epic} width={24} height={24} alt='Epicurean Concierge' />

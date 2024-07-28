@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react"
 import { useRouter, useSearchParams } from "next/navigation"
 import { Loader2 } from "lucide-react"
-import { getCheckoutUrl, getPortalUrl } from "../user-profile/payment";
+import { getCheckoutUrl, getPortalUrl } from "../user-profile/payment"
 import { auth } from '@/app/firebase/config'
 import { signInWithCustomToken } from "firebase/auth"
 
@@ -64,54 +64,54 @@ export default function Sendtoweb() {
         } catch(error) {
           setLoading(false)
           setNewerror(error.message)
-          console.error(error.message);
+          console.error(error.message)
         }
       }
     }
     
-    getsignin();
-  }, []);
+    getsignin()
+  }, [])
 
   const manageSubscription = async () => {
-    const portalUrl = await getPortalUrl();
-    router.push(portalUrl);
-    console.log("Get Portal: " + portalUrl);
-  };
+    const portalUrl = await getPortalUrl()
+    router.push(portalUrl)
+    // console.log("Get Portal: " + portalUrl)
+  }
 
   const upgradeToTasteStarter = async () => {
     const priceId = "price_1PeqkCC5ZTGkUkqR6nAP3vAl"
-    const checkoutUrl = await getCheckoutUrl(priceId);
-    router.push(checkoutUrl);
-    console.log("Taste: " + checkoutUrl);
-  };
+    const checkoutUrl = await getCheckoutUrl(priceId)
+    router.push(checkoutUrl)
+    // console.log("Taste: " + checkoutUrl)
+  }
   
   const upgradeToCuisineCrafter = async () => {
     const priceId = "price_1Peqn9C5ZTGkUkqRue67jjeL"
-    const checkoutUrl = await getCheckoutUrl(priceId);
-    router.push(checkoutUrl);
-    console.log("Cuisine: " + checkoutUrl);
-  };
+    const checkoutUrl = await getCheckoutUrl(priceId)
+    router.push(checkoutUrl)
+    // console.log("Cuisine: " + checkoutUrl)
+  }
 
   const tryCuisineCrafter = async () => {
     const priceId = "price_1Peqn9C5ZTGkUkqRue67jjeL"
-    const checkoutUrl = await getCheckoutUrl(priceId, 7);
-    router.push(checkoutUrl);
-    console.log("Cuisine Trial: " + checkoutUrl);
-  };
+    const checkoutUrl = await getCheckoutUrl(priceId, 7)
+    router.push(checkoutUrl)
+    // console.log("Cuisine Trial: " + checkoutUrl)
+  }
 
   const upgradeToEpicurean = async () => {
     const priceId = "price_1Peqk6C5ZTGkUkqRNCPznEQc"
-    const checkoutUrl = await getCheckoutUrl(priceId);
-    router.push(checkoutUrl);
-    console.log("Epicurean: " + checkoutUrl);
-  };  
+    const checkoutUrl = await getCheckoutUrl(priceId)
+    router.push(checkoutUrl)
+    // console.log("Epicurean: " + checkoutUrl)
+  }
 
   const tryEpicurean = async () => {
     const priceId = "price_1Peqk6C5ZTGkUkqRNCPznEQc"
-    const checkoutUrl = await getCheckoutUrl(priceId, 7);
-    router.push(checkoutUrl);
-    console.log("Epicurean Trial: " + checkoutUrl);
-  };  
+    const checkoutUrl = await getCheckoutUrl(priceId, 7)
+    router.push(checkoutUrl)
+    // console.log("Epicurean Trial: " + checkoutUrl)
+  }
 
   return (
     <div className="bg-white/50 dark:bg-black/80 min-h-screen pt-24 flex items-center justify-center text-sm font-regular">
@@ -131,6 +131,5 @@ export default function Sendtoweb() {
         </div>
       </div>
     </div>
-
   )
 }

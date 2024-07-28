@@ -2,8 +2,9 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, sendEmailVerification } from 'firebase/auth'
-import { auth } from '@/app/firebase/config'
+import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, sendEmailVerification, deleteUser } from 'firebase/auth'
+import { doc, getDoc, deleteDoc } from "firebase/firestore"
+import { auth, db } from '@/app/firebase/config'
 import { useRouter } from 'next/navigation'
 import LoginPic from '../../../public/LoginGraphic.png'
 import { FaEye } from "react-icons/fa"
@@ -11,24 +12,25 @@ import { FaEyeSlash } from "react-icons/fa"
 import { Loader2 } from "lucide-react"
 
 const SignIn = () => {
-  const [email, setEmail] = useState('');
-  const [emailerror, setEmailError] = useState('');
-  const [password, setPassword] = useState('');
-  const [perror, setPerror] = useState('');
-  const [validateerror, setValidateerror] = useState('');
+  const [email, setEmail] = useState('')
+  const [emailerror, setEmailError] = useState('')
+  const [password, setPassword] = useState('')
+  const [perror, setPerror] = useState('')
+  const [validateerror, setValidateerror] = useState('')
   const [passwordvisible, setPasswordvisible] = useState(false)
   const [loading, setLoading] = useState(false)
   const [unverified, setUnverified] = useState(false)
   const router = useRouter()
   const [errorm, setErrorm] = useState('')
+  const [nonuser, setNonUser] = useState('')
 
 
   const emailcheck = () => {
     let emailRegex = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/
     if (!emailRegex.test(email)) {
-      setEmailError("Error! you have entered invalid email.");
+      setEmailError("Error! you have entered invalid email.")
     } else {
-      setEmailError("");
+      setEmailError("")
     }
   }
 
@@ -61,8 +63,7 @@ const SignIn = () => {
     try {
       await signInWithEmailAndPassword(auth, email, password).then((userCredential) => {
         // Signed in
-        const user = userCredential.user;
-        // console.log(user);
+        const user = userCredential.user
         setEmail('')
         setPassword('')
         router.push("/user-profile")
@@ -85,26 +86,36 @@ const SignIn = () => {
       setPassword('')
       // console.error(error.message)
     }
-  };
+  }
 
   // Sign In function for Google users
   const handleGoogleSignIn = async(e) => {
     try {
-      e.preventDefault();
-      const provider = new GoogleAuthProvider();
+      e.preventDefault()
+      const provider = new GoogleAuthProvider()
       signInWithPopup(auth, provider).then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        // console.log(user);
-        setEmail('');
-        setPassword('');
-        router.push('/user-profile')
+        const user = userCredential.user
+        // console.log(user)
+        setEmail('')
+        setPassword('')
+        getDoc(doc(db, "users", user.uid)).then(docSnap => {
+          if (docSnap.exists()) {
+            router.push('/user-profile')
+          } else {
+            setNonUser("User does not exist. ")
+            deleteDoc(doc(db, "customers", user.uid)).then(() => {
+              deleteUser(user).then(() => {
+                auth.signOut()
+              })
+            })
+          }
+        })
       })
     }catch(error) {
       setErrorm(error.message)
       // console.error(error.message)
     }
-  };
+  }
 
   return (
     <div className="bg-white/50 dark:bg-black/80 pt-36 pb-16 flex items-center justify-center text-sm font-regular">
@@ -158,8 +169,8 @@ const SignIn = () => {
             onChange={(e) => setPassword(e.target.value)} 
             className={perror ? "w-full p-3 mb-4 bg-white dark:bg-black rounded-xl outline outline-dred outline-1 text-[16px] lg:text-sm text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey" : "w-full p-3 mb-4 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] lg:text-sm text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey"}
           />
-          {passwordvisible==false && <span className='relative float-right -mt-11 mr-4' onClick={() => setPasswordvisible(true)}><FaEye/></span>}
-          {passwordvisible==true && <span className='relative float-right -mt-11 mr-4' onClick={() => setPasswordvisible(false)}><FaEyeSlash/></span>}
+          {passwordvisible==false && <span className='relative float-right -mt-11 mr-4 dark:text-dgrey' onClick={() => setPasswordvisible(true)}><FaEye/></span>}
+          {passwordvisible==true && <span className='relative float-right -mt-11 mr-4 dark:text-dgrey' onClick={() => setPasswordvisible(false)}><FaEyeSlash/></span>}
 
           <div className="pt-4 text-right mb-6">
             <Link href="/password-reset" className="text-dblue dark:text-dyellow underline">
@@ -180,6 +191,7 @@ const SignIn = () => {
         {emailerror && <span className='text-red-600 text-sm text-center'>{emailerror}<br></br></span>}
         {perror && <span className='text-red-600 text-sm text-center'>{perror}<br></br></span>}
         {validateerror && <div className='w-full bg-dred/20 text-red-600 text-xs text-center p-4 my-4'><span>{validateerror}<br></br></span></div>}
+        {nonuser && <div className='w-full bg-dred/20 text-red-600 text-xs text-center p-4 my-4'><span>{nonuser}<a href='/sign-up'>Sign Up</a><br></br></span></div>}
         {unverified && <div className='w-full bg-dblue/20 dark:bg-dblue/40 text-blue-600 text-sm text-center p-4 my-4'><span>Check your email for verification link<br></br></span></div>}
         <div className="my-6 flex items-center justify-center">
           <span className="hidden h-[1px] w-full max-w-[60px] bg-dblack dark:bg-dlightgreen sm:block"></span>
@@ -233,7 +245,7 @@ const SignIn = () => {
         </p>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default SignIn;
+export default SignIn

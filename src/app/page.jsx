@@ -1,14 +1,14 @@
-import Image from "next/image";
-import Link from "next/link";
-import {Accordion, AccordionContent, AccordionItem, AccordionTrigger} from "@/components/ui/accordion"
+import Image from "next/image"
+import Link from "next/link"
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import Epic from "../../public/epicconc.png"
 import HeroPic from "../../public/restaurant.jpg"
 import TransformPic from "../../public/trad2inno.jpg"
-import DownloadApp from "@/components/DownloadApp/DownloadApp";
-import Button from "@/components/Button/Button";
-import { FaCheck } from "react-icons/fa6";
-import { FaXmark } from "react-icons/fa6";
-import { BsArrowRight } from "react-icons/bs";
+import DownloadApp from "@/components/DownloadApp/DownloadApp"
+import Button from "@/components/Button/Button"
+import { FaCheck } from "react-icons/fa6"
+import { FaXmark } from "react-icons/fa6"
+import { BsArrowRight } from "react-icons/bs"
 
 export default function Home() {
   return (

@@ -43,8 +43,8 @@ const SignUp = () => {
   useEffect(() => {
     // Check if the Username Already Exists
     const checkUsername = async () => {
-      const usersCollection = collection(db, 'usernames');
-      const queryun = query(usersCollection, where('currentUsername', '==', useruname.toLowerCase()));
+      const usersCollection = collection(db, 'usernames')
+      const queryun = query(usersCollection, where('currentUsername', '==', useruname.toLowerCase()))
       // If the username input length is within range
       if (useruname.length > 3 && useruname.length < 21){
         const usernameRegex = /^[a-zA-Z0-9]*$/
@@ -118,9 +118,9 @@ const SignUp = () => {
   const emailcheck = () => {
     let emailRegex = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/
     if (!emailRegex.test(email)) {
-      setEmailError("Error! you have entered invalid email.");
+      setEmailError("Error! you have entered invalid email.")
     } else {
-      setEmailError("");
+      setEmailError("")
     }
   }
 
@@ -197,8 +197,8 @@ const SignUp = () => {
   // Upload selected profile picture to storage before calling handleSignup with the download URL
   const upload = (fname, lname, email, uname, uid) => {
     if (image) {
-      const storageRef = ref(storage, `usersImages/${image.name}`);
-      const uploadTask = uploadBytesResumable(storageRef, image);
+      const storageRef = ref(storage, `usersImages/${image.name}`)
+      const uploadTask = uploadBytesResumable(storageRef, image)
       
       // Register three observers:
       // 1. 'state_changed' observer, called any time the state changes
@@ -208,15 +208,15 @@ const SignUp = () => {
         (snapshot) => {
           // Observe state change events such as progress, pause, and resume
           // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-          const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          console.log('Upload is ' + progress + '% done');
+          const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+          console.log('Upload is ' + progress + '% done')
           switch (snapshot.state) {
             case 'paused':
-              console.log('Upload is paused');
-              break;
+              console.log('Upload is paused')
+              break
             case 'running':
-              console.log('Upload is running');
-              break;
+              console.log('Upload is running')
+              break
           }
         }, 
         (error) => {
@@ -226,9 +226,9 @@ const SignUp = () => {
         () => {
           // Handle successful uploads on complete. For instance, get the download URL
           getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-            // console.log('File available at', downloadURL);
-            handleCreate(fname, lname, email, uname, uid, downloadURL);
-          });
+            // console.log('File available at', downloadURL)
+            handleCreate(fname, lname, email, uname, uid, downloadURL)
+          })
         }
       )
     }
@@ -249,8 +249,7 @@ const SignUp = () => {
 
       if(image) {
         upload(firstname, lastname, email, userunamelower, userid)
-      }
-      else {
+      } else {
         handleCreate(firstname, lastname, email, userunamelower, userid, '')
       }
     } catch(e){
@@ -258,12 +257,12 @@ const SignUp = () => {
         // console.error(e)
         setLoading(false)
     }
-  };
+  }
 
   // Prepare data from Google SignUp to pass to handleCreate
   const handleGoogleSignUp = async () => {
     try {
-      const provider = new GoogleAuthProvider();
+      const provider = new GoogleAuthProvider()
       const res = await signInWithPopup(auth, provider)
       const guserid = res.user.uid
       const gdisplayname = res.user.displayName
@@ -272,12 +271,12 @@ const SignUp = () => {
       const gemail = res.user.email
       const gpicture = res.user.photoURL
       handleCreate(gfirstname, glastname, gemail, '', guserid, gpicture)
-    } catch(e){
-      setSignuperror(e.message)
-      // console.error(e)
+    } catch(error){
+      setSignuperror(error.message)
+      // console.log(error.message)
       setLoading(false)
     }
-  };
+  }
 
   // Create User
   const handleCreate = async(userfname, userlname, useremail, username, uid, upic) => {
@@ -308,25 +307,25 @@ const SignUp = () => {
       })
 
       // console.log("User Data: " + userfname, userlname, useremail, username, uid, upic)
-      setEmail('');
-      setPassword('');
-      setConfirmpassword('');
-      setFirstname('');
-      setLastname('');
+      setEmail('')
+      setPassword('')
+      setConfirmpassword('')
+      setFirstname('')
+      setLastname('')
       setUseruname('')
-      setImage('');
-      if (upic.startsWith("https://lh3.googleusercontent.com")) {
+      setImage('')
+      if (useremail.endsWith("@gmail.com") && username.length<1) {
         router.push('/googleusername')
       } else {
         auth.signOut()
         setLoading(false)
       }
       return true
-    } catch(e){
-        // console.error(e)
+    } catch(error){
+        // console.log(error.message)
         return false
     }
-  };
+  }
 
   return (
     <div className="bg-white/50 dark:bg-black/80 flex items-center justify-center pt-36 text-sm pb-8 font-regular">
@@ -464,8 +463,8 @@ const SignUp = () => {
             onBlur={passcheck}
             className={p1error ? "w-full p-3 mb-4 bg-white dark:bg-black rounded-xl outline outline-dred outline-1 text-[16px] lg:text-sm text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey" : "w-full p-3 mb-4 bg-white dark:bg-black rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] lg:text-sm text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey"}
           />
-          {passwordvisible==false && <span className='relative float-right -mt-11 mr-4' onClick={() => setPasswordvisible(true)}><FaEye/></span>}
-          {passwordvisible==true && <span className='relative float-right -mt-11 mr-4' onClick={() => setPasswordvisible(false)}><FaEyeSlash/></span>}
+          {passwordvisible==false && <span className='relative float-right -mt-11 mr-4 dark:text-dgrey' onClick={() => setPasswordvisible(true)}><FaEye/></span>}
+          {passwordvisible==true && <span className='relative float-right -mt-11 mr-4 dark:text-dgrey' onClick={() => setPasswordvisible(false)}><FaEyeSlash/></span>}
           {p1error && <span className='text-red-600 text-xs mb-4 -mt-4'>{p1error}<br></br></span>}
 
           <div className='flex mb-2'>
@@ -490,8 +489,8 @@ const SignUp = () => {
             onBlur={pass2check}
             className={p2error ? "w-full p-3 mb-4 bg-transparent rounded-xl outline outline-dred outline-1 text-[16px] lg:text-sm text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey" : "w-full p-3 mb-4 bg-transparent rounded-xl outline outline-dlightblue/20 dark:outline-dlightblack outline-1 text-[16px] lg:text-sm text-black dark:text-white placeholder-dgrey dark:placeholder-ddarkgrey"}
           />
-          {passwordvisible2==false && <span className='relative float-right -mt-11 mr-4' onClick={() => setPasswordvisible2(true)}><FaEye/></span>}
-          {passwordvisible2==true && <span className='relative float-right -mt-11 mr-4' onClick={() => setPasswordvisible2(false)}><FaEyeSlash/></span>}
+          {passwordvisible2==false && <span className='relative float-right -mt-11 mr-4 dark:text-dgrey' onClick={() => setPasswordvisible2(true)}><FaEye/></span>}
+          {passwordvisible2==true && <span className='relative float-right -mt-11 mr-4 dark:text-dgrey' onClick={() => setPasswordvisible2(false)}><FaEyeSlash/></span>}
           {p2error && <span className='text-red-600 text-xs mb-4 -mt-4'>{p2error}<br></br></span>}
           {perror && <span className='text-red-600 text-xs mb-4 -mt-4'>{perror}<br></br></span>}
 
@@ -612,7 +611,7 @@ const SignUp = () => {
         </p>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default SignUp;
+export default SignUp

@@ -1,5 +1,5 @@
-import Image from "next/image";
-import Link from "next/link";
+import Image from "next/image"
+import Link from "next/link"
 import Foryou from "../../../public/newforyou.png"
 import ForyouDark from "../../../public/newforyoudark.png"
 import Modify from "../../../public/newmodify.png"

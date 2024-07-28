@@ -1,22 +1,22 @@
 'use client'
-import { useState } from 'react';
+import { useState } from 'react'
 import Link from 'next/link'
-import Image from 'next/image';
+import Image from 'next/image'
 import Forgotpic from '../../../public/ForgotPassword.png'
-import {auth} from '@/app/firebase/config'
-import {sendPasswordResetEmail} from 'firebase/auth'
+import { auth } from '@/app/firebase/config'
+import { sendPasswordResetEmail } from 'firebase/auth'
 
 const PasswordReset = () => {
-  const [email, setEmail] = useState('');
-  const [emailerror, setEmailError] = useState('');
-  const [success, setSuccess] = useState('');
+  const [email, setEmail] = useState('')
+  const [emailerror, setEmailError] = useState('')
+  const [success, setSuccess] = useState('')
 
   const emailcheck = () => {
     let emailRegex = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/
     if (!emailRegex.test(email)) {
-      setEmailError("Error! you have entered invalid email.");
+      setEmailError("Error! you have entered invalid email.")
     } else {
-      setEmailError("");
+      setEmailError("")
       resetPassword()
     }
   }
@@ -26,9 +26,8 @@ const PasswordReset = () => {
       setSuccess("We have sent you an email link to set a new password")
     })
     .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-    });
+      console.log(error.message)
+    })
   }
 
   return (

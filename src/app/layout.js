@@ -1,23 +1,23 @@
-import Navbar from "@/components/navbar/Navbar";
-import "./globals.css";
-import { Poppins, Merriweather } from "next/font/google";
-import Footer from "@/components/footer/Footer";
-import { ThemeProvider } from "@/context/ThemeContext";
-import {auth} from '@/app/firebase/config'
-import ScrollToTop from "@/components/ScrollToTop/ScrollToTop";
-import Script from "next/script";
+import Navbar from "@/components/navbar/Navbar"
+import "./globals.css"
+import { Poppins, Merriweather } from "next/font/google"
+import Footer from "@/components/footer/Footer"
+import { ThemeProvider } from "@/context/ThemeContext"
+import { auth } from '@/app/firebase/config'
+import ScrollToTop from "@/components/ScrollToTop/ScrollToTop"
+import Script from "next/script"
 
-const merry = Merriweather({ subsets: ['latin'], weight: "900", variable: "--font-merriweather-regular"});
-const poppins = Poppins({ subsets: ['latin'], weight: "400", variable: "--font-poppins-regular"});
-const poppinsbig = Poppins({ subsets: ['latin'], weight: "700", variable:"--font-poppins-big"});
+const merry = Merriweather({ subsets: ['latin'], weight: "900", variable: "--font-merriweather-regular"})
+const poppins = Poppins({ subsets: ['latin'], weight: "400", variable: "--font-poppins-regular"})
+const poppinsbig = Poppins({ subsets: ['latin'], weight: "700", variable:"--font-poppins-big"})
 
 export const metadata = {
   title: "Home - DineIntel",
   description: "Welcome to DineIntel, where dining innovation meets personalization. Explore custom dining experiences that cater uniquely to your taste and lifestyle.",
-};
+}
 
 export default function RootLayout({ children }) {
-  const currentuser = auth.currentUser;
+  const currentuser = auth.currentUser
   return (
     <html lang="en">
       <head>
@@ -54,5 +54,5 @@ export default function RootLayout({ children }) {
         </ThemeProvider>
       </body>
     </html>
-  );
+  )
 }

@@ -1,10 +1,10 @@
 "use client"
 import Link from 'next/link'
 import Image from 'next/image'
-import {useState} from 'react'
+import { useState } from 'react'
 import Epic from "../../../public/epicconc.png"
-import { FaCheck } from "react-icons/fa6";
-import { FaXmark } from "react-icons/fa6";
+import { FaCheck } from "react-icons/fa6"
+import { FaXmark } from "react-icons/fa6"
 
 const Pricing = () => {
   const [ttier, setTtier] = useState(false)

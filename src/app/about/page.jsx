@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/image"
 import Vision from "../../../public/cheers.jpg"
 import Mission from "../../../public/mission.jpg"
 import Topimage from "../../../public/aboutus.jpg"
