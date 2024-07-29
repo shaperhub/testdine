@@ -141,7 +141,7 @@ const UserProfile = () => {
                   {isPremium && <Badge className="text-black bg-white hover:bg-white ml-2 mt-2">{currentsub == "taste" ? "Taste Starter" : currentsub == "cuisine" ? "Cuisine Crafter" : currentsub == "epicurean" ? "Epicurean Elite" : ""}</Badge>}
                 </div>
                 <div className="flex items-center justify-center mt-4 mr-8">
-                  <Image className="h-24 w-24 bg-white p-1 rounded-full" src={profilepic} width={80} height={80} alt="Profile Picture" />
+                  <Image className="h-24 w-24 bg-white dark:bg-black p-1 rounded-full" src={profilepic.length>2 ? profilepic : "https://firebasestorage.googleapis.com/v0/b/dineintl.appspot.com/o/usersImages%2Fnopic.png?alt=media&token=4cb028c2-d7f0-4b57-89d5-cf7c34d94120"} width={80} height={80} alt="Profile Picture" />
                 </div>
                 <div className=''>
                   {isPremium && <Badge className="text-black bg-white hover:bg-white mr-2 mt-2">{isPublic ? "Public" : "Private"}</Badge>}
@@ -151,7 +151,7 @@ const UserProfile = () => {
             <div className=''>
               <div className="text-center px-14 font-regular">
                 <p className="text-black dark:text-white mt-2 font-bold">@{username}</p>
-                <p className="mt-2 text-ddarkgrey dark:text-dgrey text-sm">{useremail}</p>
+                <p className="mt-2 text-ddarkgrey dark:text-dgrey text-sm font-bold">{useremail}</p>
 
                 {/* Manage Subscription Based on Premium Status */}
                 {isPremium && <button onClick={manageSubscription} className='mt-2 text-dgreenw dark:text-dgreen underline inline-flex items-center mb-4'>Manage Subscription{btnloading4 && <Loader2 className="ml-2 h-4 w-4 animate-spin" />}</button>}

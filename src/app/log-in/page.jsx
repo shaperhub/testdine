@@ -66,17 +66,19 @@ const SignIn = () => {
         const user = userCredential.user
         setEmail('')
         setPassword('')
-        router.push("/user-profile")
-        // if (user.emailVerified) {
-        //   router.push('/user-profile')
-        // } else {
-        //   sendEmailVerification(user)
-        //   setUnverified(true)
-        //   setLoading(false)
-        //   setTimeout(() => {
-        //     auth.signOut()
-        //   }, 2000)
-        // }
+        getDoc(doc(db, "users", user.uid)).then(docSnap => {
+          const userdata = docSnap.data()
+          if (user.emailVerified || userdata.fcmToken.length > 2) {
+            router.push('/user-profile')
+          } else {
+              sendEmailVerification(user)
+              setUnverified(true)
+              setLoading(false)
+              setTimeout(() => {
+                auth.signOut()
+              }, 2000)
+          }
+        })
       })
     }catch(error) {
       setLoading(false)

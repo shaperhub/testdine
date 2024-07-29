@@ -116,7 +116,7 @@ export default function PurchasePlan() {
               <button
                 id='tastestarter'
                 aria-label='Subscribe to Taste Starter'
-                className="mt-2 px-4 py-2 bg-dblue hover:bg-blue-500 text-white rounded inline-flex items-center"
+                className="mt-4 bg-transparent p-2 hover:bg-dblue hover:text-white rounded-lg outline outline-2 text-dbluew dark:text-white inline-flex items-center font-bold"
                 onClick={upgradeToTasteStarter}
               >
                 Get Started
@@ -129,7 +129,7 @@ export default function PurchasePlan() {
               <button
                 id='cuisinecrafter'
                 aria-label='Subscribe to Cuisine Crafter'
-                className="mt-2 px-4 py-2 bg-dblue hover:bg-blue-500 text-white rounded inline-flex items-center"
+                className="mt-4 bg-transparent p-2 hover:bg-dblue hover:text-white rounded-lg outline outline-2 text-dbluew dark:text-white inline-flex items-center font-bold"
                 onClick={upgradeToCuisineCrafter}
               >
                 Purchase
@@ -138,7 +138,7 @@ export default function PurchasePlan() {
               <button
                 id='cuisinecraftertrial'
                 aria-label='Try Cuisine Crafter for 7 Days'
-                className="mt-2 px-4 py-2 bg-dblue hover:bg-blue-500 text-white rounded inline-flex items-center"
+                className="mt-2 bg-transparent p-2 hover:bg-dblue hover:text-white rounded-lg outline outline-2 text-dbluew dark:text-white inline-flex items-center font-bold"
                 onClick={tryCuisineCrafter}
               >
                 Try for 7 days
@@ -151,7 +151,7 @@ export default function PurchasePlan() {
               <button
                 id='epicureanelite'
                 aria-label='Subscribe to Epicurean Elite'
-                className="mt-2 px-4 py-2 bg-dblue hover:bg-blue-500 text-white rounded inline-flex items-center"
+                className="mt-4 bg-transparent p-2 hover:bg-dblue hover:text-white rounded-lg outline outline-2 text-dbluew dark:text-white inline-flex items-center font-bold"
                 onClick={upgradeToEpicurean}
               >
                 Purchase
@@ -160,7 +160,7 @@ export default function PurchasePlan() {
               <button
                 id='epicureanelitetrial'
                 aria-label='Try Epicurean Elite for 7 Days'
-                className="mt-2 px-4 py-2 bg-dblue hover:bg-blue-500 text-white rounded inline-flex items-center"
+                className="mt-2 bg-transparent p-2 hover:bg-dblue hover:text-white rounded-lg outline outline-2 text-dbluew dark:text-white inline-flex items-center font-bold"
                 onClick={tryEpicurean}
               >
                 Try for 7 days

@@ -47,9 +47,9 @@ export default function Navbar({initialUser}) {
   }
 
   return (
-    <nav className='fixed w-full h-28 bg-dlightgreen dark:bg-dblue shadow-xl z-[100] font-regular'>
-        <div className=''><ComingSoon /></div>
-        <div className='flex justify-between items-center w-full h-full px-8 2xl:px-16 mb-40 -mt-6'>
+    <nav className='fixed w-full h-16 bg-dlightgreen dark:bg-dblue shadow-xl z-[100] font-regular'>
+        {/* <div className=''><ComingSoon /></div> */}
+        <div className='flex justify-between items-center w-full h-full px-8 2xl:px-16 mb-40'>
             <Link className='dark:hidden' href='/'>
                 <Image className="" src={Navlog} alt="DineIntel Logo" width='150' height='70' priority />
             </Link>

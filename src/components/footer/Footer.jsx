@@ -147,6 +147,9 @@ const Footer = () => {
           <p className="text-center text-white">
             &copy; {currentyear}. DineIntel. All Rights Reserved.
           </p>
+          <p className="text-center text-white text-xs pt-4">
+            Regrev Technology LLC &#8482;
+          </p>
         </div>
       </div>
     </footer>

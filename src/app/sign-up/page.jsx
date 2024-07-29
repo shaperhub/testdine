@@ -281,10 +281,6 @@ const SignUp = () => {
   // Create User
   const handleCreate = async(userfname, userlname, useremail, username, uid, upic) => {
     try {
-      const defaultpic = "https://firebasestorage.googleapis.com/v0/b/dineintl.appspot.com/o/usersImages%2Fnopic.png?alt=media&token=4cb028c2-d7f0-4b57-89d5-cf7c34d94120"
-      if(upic.length < 3) {
-        upic = defaultpic
-      }
       const docRef = await setDoc(doc(db, "users", uid), {
         createdAt: serverTimestamp(),
         fcmToken: '',
@@ -294,6 +290,7 @@ const SignUp = () => {
         userEmail: useremail,
         userId: uid,
         userImage: upic,
+        optOutNotifications: false,
         isProfilePublic: true,
         showMenus: true,
         showAllergies: true,

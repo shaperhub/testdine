@@ -13,14 +13,13 @@ const Blog = () => {
   const [posts, setPosts] = useState([])
   const [onepost, setOnepost] = useState('')
   const [relatedPosts, setRelatedPosts] = useState([])
-  const [loading, setLoading] = useState(null)
+  const [loading, setLoading] = useState(true)
   const [postexists, setPostexists] = useState(false)
   const router = useRouter()
   const searchParams = useSearchParams()
   const postid = searchParams.get("post")
 
   useEffect(() => {
-    setLoading(true)
     if(postid) {
       const fetchPost = async () => {
         await getOnePost(postid)
@@ -80,18 +79,6 @@ const Blog = () => {
     return first30Words
   }
 
-  if (loading) {
-    return (
-      <div className="h-screen flex flex-wrap items-center justify-center bg-white dark:bg-dblack">
-        <Button disabled>
-          <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-          Loading...
-        </Button>
-      </div>
-    )
-  }
-
-
   return (
     <div className='bg-white dark:bg-dblack text-black dark:text-dgrey font-regular'>
         
@@ -101,11 +88,20 @@ const Blog = () => {
           <h1 className="font-heading text-2xl md:text-4xl text-center text-white">{postexists ? onepost.title : "Blog"}</h1>
         </div>
       </div>
+
+      {loading && 
+        <div className="pt-24 flex flex-wrap items-center justify-center bg-white dark:bg-black">
+          <Button disabled>
+            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+            Loading...
+          </Button>
+        </div>
+      }
       
       {/* Content */}
       <div className="flex flex-col md:flex-row justify-center items-center gap-4 pb-16 px-8 md:px-24 lg:px-36 bg-white/80 dark:bg-black/90">
         <div className="">
-          <h2 className="text-xl md:text-2xl lg:text-4xl mt-20 mb-4 font-heading text-center text-dblue dark:text-dgrey">{loading==false && posts.length===0 && !postid && "No blog posts yet"}</h2>
+          <h2 className="text-xl md:text-2xl lg:text-4xl mt-20 font-heading text-center text-dblue dark:text-dgrey">{loading==false && posts.length===0 && !postid && "No blog posts yet"}</h2>
 
           {posts && 
             <div className='grid grid-cols-1 md:grid-cols-2 lgbox:grid-cols-3 gap-4 lg2100:gap-12 pb-8 place-content-center'>
