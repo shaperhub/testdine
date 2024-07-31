@@ -325,7 +325,7 @@ const SignUp = () => {
   }
 
   return (
-    <div className="bg-white/50 dark:bg-black/80 flex items-center justify-center pt-36 text-sm pb-8 font-regular">
+    <div className="bg-white/50 dark:bg-black/80 flex items-center justify-center pt-8 md:pt-36 text-sm pb-8 font-regular">
       <div className="bg-white dark:bg-black p-6 rounded-lg shadow-xl w-96">
         <div className="flex justify-between">
           <div></div>

@@ -31,7 +31,7 @@ const PasswordReset = () => {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center pt-36 pb-16 bg-white/50 dark:bg-black/80 text-sm font-regular">
+    <div className="min-h-screen flex items-center justify-center pt-24 md:pt-36 pb-16 bg-white/50 dark:bg-black/80 text-sm font-regular">
       <div className="bg-white dark:bg-black p-6 rounded-lg shadow-xl w-96">
         <h1 className="text-black dark:text-white text-center text-xl mb-4 font-bold">Forgot Password?</h1>
         <p className='mb-4 text-black dark:text-white text-center'>Enter your registered email below to receive password reset instructions.</p>

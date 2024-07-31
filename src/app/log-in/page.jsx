@@ -120,7 +120,7 @@ const SignIn = () => {
   }
 
   return (
-    <div className="bg-white/50 dark:bg-black/80 pt-36 pb-16 flex items-center justify-center text-sm font-regular">
+    <div className="bg-white/50 dark:bg-black/80 pt-16 md:pt-36 pb-16 flex items-center justify-center text-sm font-regular">
       <div className="bg-white dark:bg-black p-6 rounded-lg shadow-xl w-96">
         <div className='mb-8 flex justify-center'>
           <Image className='' src={LoginPic} width={300} height={250} alt='Login Graphic' />

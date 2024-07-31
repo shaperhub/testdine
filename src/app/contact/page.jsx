@@ -73,7 +73,7 @@ const Contact = () => {
   }
 
   return (
-    <div className="bg-white/50 dark:bg-black/80 min-h-screen flex flex-col md:flex-row items-center justify-center text-sm font-regular pt-24 md:pt-16 shadow-xl">
+    <div className="bg-white/50 dark:bg-black/80 min-h-screen flex flex-col md:flex-row items-center justify-center text-sm font-regular pt-12 md:pt-16 shadow-xl">
       <div className="bg-white dark:bg-black w-80 md:w-1/2 lg:w-1/3 px-12 py-12">
         <h2 className="font-heading text-black dark:text-white text-3xl lg:text-4xl pb-8">Contact Us</h2>
         <h4 className="font-heading text-ddarkgrey dark:text-dgrey text-xl lg:text-2xl pb-8">Got Questions? Let&apos;s give you the answers you need.</h4>
