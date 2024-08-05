@@ -3,7 +3,7 @@ import { useState, useEffect, useMemo } from "react"
 import { onAuthStateChanged } from "firebase/auth"
 import { useRouter } from "next/navigation"
 import dynamic from "next/dynamic"
-import { doc, setDoc, serverTimestamp } from "firebase/firestore"
+import { doc, getDoc, setDoc, serverTimestamp } from "firebase/firestore"
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage"
 import { auth, db, storage } from '@/app/firebase/config'
 import { Plus } from "lucide-react"

@@ -1,6 +1,7 @@
 'use client'
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { useRouter, useSearchParams } from "next/navigation"
 import { onAuthStateChanged } from "firebase/auth"
 import { collection, doc, getDoc, getDocs, deleteDoc } from "firebase/firestore"
@@ -9,6 +10,7 @@ import parse from "html-react-parser"
 import { Loader2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import styles from "./page.module.css"
+import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "@/components/ui/alert-dialog"
 
 const Blog = () => {
   const [user, setUser] = useState("")
@@ -112,7 +114,9 @@ const Blog = () => {
   }
 
   const deletePost = async (postId) => {
-    await deleteDoc(doc(db, "blogposts", postId))
+    await deleteDoc(doc(db, "blogposts", postId)).then(() => {
+      window.location.reload()
+    })
   }
 
   return (
@@ -137,14 +141,35 @@ const Blog = () => {
       {/* Content */}
       <div className="flex flex-col md:flex-row justify-center items-center gap-4 pb-16 px-8 md:px-24 lg:px-36 bg-white/80 dark:bg-black/90">
         <div className="">
-          <h2 className="text-xl md:text-2xl lg:text-4xl mt-20 font-heading text-center text-dblue dark:text-dgrey">{loading==false && posts.length===0 && !postid && "No blog posts yet"}</h2>
+          <h2 className="mb-8 text-xl md:text-2xl lg:text-4xl mt-20 font-heading text-center text-dblue dark:text-dgrey">{loading==false && posts.length===0 && !postid && "No blog posts yet"}</h2>
+          {blogeditor && !postid && <Link href="/create-blog" alt="Create Blog Link" className="py-8 text-center underline text-dbluew dark:text-dyellow">Create Blog Post</Link>}
 
           {posts && 
             <div className='grid grid-cols-1 md:grid-cols-2 lgbox:grid-cols-3 gap-4 lg2100:gap-12 pb-8 place-content-center'>
               {posts.map(post => (
                 <div key={post.id}>
                   <div className='pt-8 pb-4 max-w-[400px]'>
-                    {blogfullaccess && <span className='text-sm text-dred text-right' onClick={() => {deletePost(post.id)}}>Delete</span>}
+                    {blogfullaccess && 
+                      <div className='mb-4'>
+                        <AlertDialog>
+                          <AlertDialogTrigger asChild>
+                            <Button variant="destructive">Delete</Button>
+                          </AlertDialogTrigger>
+                          <AlertDialogContent>
+                            <AlertDialogHeader>
+                              <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+                              <AlertDialogDescription>
+                                This action cannot be undone. This will permanently delete the blog post.
+                              </AlertDialogDescription>
+                            </AlertDialogHeader>
+                            <AlertDialogFooter>
+                              <AlertDialogCancel>Cancel</AlertDialogCancel>
+                              <AlertDialogAction onClick={() => {deletePost(post.id)}}>Continue</AlertDialogAction>
+                            </AlertDialogFooter>
+                          </AlertDialogContent>
+                        </AlertDialog>
+                      </div>
+                    }
                     <Image className='h-60 w-96 rounded-xl' src={post.image} width={400} height={300} alt={post.title} />
                     <h3 className='font-heading text-2xl text-dbluew dark:text-dgreen my-2'>{post.title}</h3>
                     <div>{extractExcerpt(post.content)}</div>
@@ -165,7 +190,7 @@ const Blog = () => {
               <div className={styles.blogcontent}>
                 {parse(onepost.content)}
               </div>
-              <hr className='h-1 bg-ddarkgrey dark:bg-dgrey'></hr>
+              <hr className='h-1 bg-ddarkgrey dark:bg-dgrey my-8'></hr>
               <div>
                 <p className='font-heading text-dblack dark:text-white text-2xl mt-8'>Related Posts</p>
                 <div className='related flex flex-col md:flex-row gap-8'>
