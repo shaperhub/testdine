@@ -2,14 +2,18 @@
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { useRouter, useSearchParams } from "next/navigation"
-import { collection, doc, getDoc, getDocs } from "firebase/firestore"
-import { db } from '@/app/firebase/config'
+import { onAuthStateChanged } from "firebase/auth"
+import { collection, doc, getDoc, getDocs, deleteDoc } from "firebase/firestore"
+import { auth, db } from '@/app/firebase/config'
 import parse from "html-react-parser"
 import { Loader2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import styles from "./page.module.css"
 
 const Blog = () => {
+  const [user, setUser] = useState("")
+  const [blogeditor, setBlogeditor] = useState(false)
+  const [blogfullaccess, setBlogfullaccess] = useState(false)
   const [posts, setPosts] = useState([])
   const [onepost, setOnepost] = useState('')
   const [relatedPosts, setRelatedPosts] = useState([])
@@ -18,6 +22,34 @@ const Blog = () => {
   const router = useRouter()
   const searchParams = useSearchParams()
   const postid = searchParams.get("post")
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, async (user) => {
+      if(user) {
+        setUser(user)
+      }
+    })
+    return () => unsubscribe()
+  }, [])
+
+  useEffect(() => {
+    if (user) {
+      const checkexist = async() => {
+        await getDoc(doc(db, "users", user.uid)).then(docSnap => {
+          if (docSnap.exists()) {
+            const userdata = docSnap.data()
+            if (userdata.blogEditor == true) {
+              setBlogeditor(true)
+              if (userdata.blogFullAccess == true) {
+                setBlogfullaccess(true)
+              }
+            }
+          }
+        })
+      }   
+      checkexist()
+    }
+  }, [user])
 
   useEffect(() => {
     if(postid) {
@@ -79,6 +111,10 @@ const Blog = () => {
     return first30Words
   }
 
+  const deletePost = async (postId) => {
+    await deleteDoc(doc(db, "blogposts", postId))
+  }
+
   return (
     <div className='bg-white dark:bg-dblack text-black dark:text-dgrey font-regular'>
         
@@ -108,6 +144,7 @@ const Blog = () => {
               {posts.map(post => (
                 <div key={post.id}>
                   <div className='pt-8 pb-4 max-w-[400px]'>
+                    {blogfullaccess && <span className='text-sm text-dred text-right' onClick={() => {deletePost(post.id)}}>Delete</span>}
                     <Image className='h-60 w-96 rounded-xl' src={post.image} width={400} height={300} alt={post.title} />
                     <h3 className='font-heading text-2xl text-dbluew dark:text-dgreen my-2'>{post.title}</h3>
                     <div>{extractExcerpt(post.content)}</div>

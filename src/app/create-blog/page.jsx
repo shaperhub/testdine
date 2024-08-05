@@ -1,63 +1,67 @@
 'use client'
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect, useMemo } from "react"
 import { onAuthStateChanged } from "firebase/auth"
-import { useRouter } from "next/navigation";
-import dynamic from "next/dynamic";
+import { useRouter } from "next/navigation"
+import dynamic from "next/dynamic"
 import { doc, setDoc, serverTimestamp } from "firebase/firestore"
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage"
 import { auth, db, storage } from '@/app/firebase/config'
-import { Plus } from "lucide-react";
-import "react-quill/dist/quill.snow.css";
-import parse from "html-react-parser";
+import { Plus } from "lucide-react"
+import "react-quill/dist/quill.snow.css"
+import parse from "html-react-parser"
 import { Loader2 } from "lucide-react"
-import { Button } from "@/components/ui/button";
-import styles from "./page.module.css";
+import { Button } from "@/components/ui/button"
+import styles from "./page.module.css"
 
 const CreateBlog = () => {
-    const ReactQuill = useMemo(() => dynamic(() => import("react-quill"), {ssr: false}),[],);
-    const [user, setUser] = useState("");
-    const [title, setTitle] = useState("");
-    const [slug, setSlug] = useState("");
-    const [content, setContent] = useState("");
-    const [loading, setLoading] = useState(true);
-    const [loading2, setLoading2] = useState(false);
-    const [image, setImage] = useState("");
-    const [imageerror, setImageerror] = useState("");
-    const [titleerror, setTitleerror] = useState("");
-    const [contenterror, setContenterror] = useState("");
+    const ReactQuill = useMemo(() => dynamic(() => import("react-quill"), {ssr: false}),[],)
+    const [user, setUser] = useState("")
+    const [canDelete, setCanDelete] = useState(false)
+    const [title, setTitle] = useState("")
+    const [slug, setSlug] = useState("")
+    const [content, setContent] = useState("")
+    const [loading, setLoading] = useState(true)
+    const [loading2, setLoading2] = useState(false)
+    const [image, setImage] = useState("")
+    const [imageerror, setImageerror] = useState("")
+    const [titleerror, setTitleerror] = useState("")
+    const [contenterror, setContenterror] = useState("")
     const router = useRouter()
 
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, async (user) => {
-          if(user) {
-            setUser(user)
-            setLoading(false)
-          }
-          else {
-            router.push('/log-in')
-          }
-        });    
-        return () => unsubscribe();
+      const unsubscribe = onAuthStateChanged(auth, async (user) => {
+        if(user) {
+          setUser(user)
+          setLoading(false)
+        }
+        else {
+          router.push('/log-in')
+        }
+      })
+      return () => unsubscribe()
     }, [])
     
-    // useEffect(() => {
-    //   if (user) {
-    //     const checkexist = async() => {
-    //       await getDoc(doc(db, "users", user.uid)).then(docSnap => {
-    //         if (docSnap.exists()) {
-    //           const userdata = docSnap.data()
-    //           if (userdata.blogEditor == true) {
-    //             setLoading(false)
-    //           }
-    //           else {
-    //             router.push('/log-in')
-    //           }
-    //         }
-    //       })
-    //     }   
-    //     checkexist();
-    //   }
-    // }, [user])
+    useEffect(() => {
+      if (user) {
+        const checkexist = async() => {
+          await getDoc(doc(db, "users", user.uid)).then(docSnap => {
+            if (docSnap.exists()) {
+              const userdata = docSnap.data()
+              if (userdata.blogEditor == true) {
+                if (userdata.blogFullAccess == true) {
+                  setCanDelete(true)
+                }
+                setLoading(false)
+              }
+              else {
+                router.push('/log-in')
+              }
+            }
+          })
+        }   
+        checkexist()
+      }
+    }, [user])
 
     const generateSlug = (title) => {
         const slug = title
@@ -66,16 +70,16 @@ const CreateBlog = () => {
           .replace(/[^\w\-]+/g, "") // Remove non-word characters except dashes
           .replace(/\-\-+/g, "-") // Replace multiple consecutive dashes with a single dash
           .replace(/^\-+/, "") // Remove dashes from the beginning
-          .replace(/\-+$/, ""); // Remove dashes from the end
-        return slug;
+          .replace(/\-+$/, "") // Remove dashes from the end
+        return slug
     }
 
     const handleTitle = (e) => {
       const newTitle = e.target.value;
-      const finalTitle = newTitle.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase());
-      setTitle(finalTitle);
-      const autoSlug = generateSlug(newTitle);
-      setSlug(autoSlug);
+      const finalTitle = newTitle.replace(/(^\w{1})|(\s+\w{1})/g, letter => letter.toUpperCase())
+      setTitle(finalTitle)
+      const autoSlug = generateSlug(newTitle)
+      setSlug(autoSlug)
     }
 
     const handleSelectedFile = (files) => {
@@ -95,19 +99,19 @@ const CreateBlog = () => {
     
     const upload = () => {
         if (image && title && content) {
-          const storageRef = ref(storage, `blogImages/${image.name}`);
+          const storageRef = ref(storage, `blogImages/${image.name}`)
           const uploadTask = uploadBytesResumable(storageRef, image)
           uploadTask.on('state_changed', 
             (snapshot) => {
-              const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-              console.log('Upload is ' + progress + '% done');
+              const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+              console.log('Upload is ' + progress + '% done')
               switch (snapshot.state) {
                 case 'paused':
-                  console.log('Upload is paused');
-                  break;
+                  console.log('Upload is paused')
+                  break
                 case 'running':
-                  console.log('Upload is running');
-                  break;
+                  console.log('Upload is running')
+                  break
               }
             }, 
             (error) => {
@@ -115,8 +119,8 @@ const CreateBlog = () => {
             }, 
             () => {
               getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-                handleSubmit(downloadURL);
-              });
+                handleSubmit(downloadURL)
+              })
             }
           )
         }
@@ -132,6 +136,7 @@ const CreateBlog = () => {
         setLoading2(true)
         await setDoc(doc(db, "blogposts", slug), {
             createdAt: serverTimestamp(),
+            author: user.uid,
             title: title,
             slug: slug,
             image: imageurl,
@@ -155,7 +160,7 @@ const CreateBlog = () => {
         [{ list: "ordered" }, { list: "bullet" }],
         ["link", "image"],
       ],
-    };
+    }
 
     const formats = [
       "header",
@@ -167,7 +172,7 @@ const CreateBlog = () => {
       "bullet",
       "link",
       "image",
-    ];
+    ]
 
     if (loading) {
       return (
@@ -294,7 +299,7 @@ const CreateBlog = () => {
             </div>
         </div>
       </div>
-    );
+    )
   
 }
 

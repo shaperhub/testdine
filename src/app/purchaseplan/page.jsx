@@ -47,52 +47,47 @@ export default function PurchasePlan() {
           }
         })
       }   
-      checkexist();
+      checkexist()
     }
   }, [user])
 
   // Pay for Taste Starter Subscription
   const upgradeToTasteStarter = async () => {
     setBtnloading1(true)
-    const priceId = "price_1PeqkCC5ZTGkUkqR6nAP3vAl"
-    const checkoutUrl = await getCheckoutUrl(priceId);
-    router.push(checkoutUrl);
-    // console.log("Get Taste Starter");
-  };
+    const priceId = process.env.NEXT_PUBLIC_TASTE
+    const checkoutUrl = await getCheckoutUrl(priceId)
+    router.push(checkoutUrl)
+  }
 
   // Pay for Cuisine Crafter Subscription
   const upgradeToCuisineCrafter = async () => {
     setBtnloading2(true)
-    const priceId = "price_1Peqn9C5ZTGkUkqRue67jjeL"
-    const checkoutUrl = await getCheckoutUrl(priceId);
-    router.push(checkoutUrl);
-    // console.log("Upgrade to Cuisine Crafter");
-  };
+    const priceId = process.env.NEXT_PUBLIC_CUISINE
+    const checkoutUrl = await getCheckoutUrl(priceId)
+    router.push(checkoutUrl)
+  }
 
   const tryCuisineCrafter = async () => {
     setBtnloading3(true)
-    const priceId = "price_1Peqn9C5ZTGkUkqRue67jjeL"
-    const checkoutUrl = await getCheckoutUrl(priceId, 7);
-    router.push(checkoutUrl);
-    // console.log("Trying Cuisine Crafter");
-  };
+    const priceId = process.env.NEXT_PUBLIC_CUISINE
+    const checkoutUrl = await getCheckoutUrl(priceId, 7)
+    router.push(checkoutUrl)
+  }
 
   // Pay for Epicurean Elite Subscription
   const upgradeToEpicurean = async () => {
     setBtnloading4(true)
-    const priceId = "price_1Peqk6C5ZTGkUkqRNCPznEQc"
-    const checkoutUrl = await getCheckoutUrl(priceId);
-    router.push(checkoutUrl);
-    // console.log("Upgrade to Epicurean Elite");
-  };  
+    const priceId = process.env.NEXT_PUBLIC_EPICUREAN
+    const checkoutUrl = await getCheckoutUrl(priceId)
+    router.push(checkoutUrl)
+  }
 
   const tryEpicurean = async () => {
     setBtnloading5(true)
-    const priceId = "price_1Peqk6C5ZTGkUkqRNCPznEQc"
-    const checkoutUrl = await getCheckoutUrl(priceId, 7);
-    router.push(checkoutUrl);
-    // console.log("Trying Epicurean Elite");
-  };  
+    const priceId = process.env.NEXT_PUBLIC_EPICUREAN
+    const checkoutUrl = await getCheckoutUrl(priceId, 7)
+    router.push(checkoutUrl)
+  }
   
   if (loading) {
     return (

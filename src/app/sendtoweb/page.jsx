@@ -75,42 +75,36 @@ export default function Sendtoweb() {
   const manageSubscription = async () => {
     const portalUrl = await getPortalUrl()
     router.push(portalUrl)
-    // console.log("Get Portal: " + portalUrl)
   }
 
   const upgradeToTasteStarter = async () => {
-    const priceId = "price_1PeqkCC5ZTGkUkqR6nAP3vAl"
+    const priceId = process.env.NEXT_PUBLIC_TASTE
     const checkoutUrl = await getCheckoutUrl(priceId)
     router.push(checkoutUrl)
-    // console.log("Taste: " + checkoutUrl)
   }
   
   const upgradeToCuisineCrafter = async () => {
-    const priceId = "price_1Peqn9C5ZTGkUkqRue67jjeL"
+    const priceId = process.env.NEXT_PUBLIC_CUISINE
     const checkoutUrl = await getCheckoutUrl(priceId)
     router.push(checkoutUrl)
-    // console.log("Cuisine: " + checkoutUrl)
   }
 
   const tryCuisineCrafter = async () => {
-    const priceId = "price_1Peqn9C5ZTGkUkqRue67jjeL"
+    const priceId = process.env.NEXT_PUBLIC_CUISINE
     const checkoutUrl = await getCheckoutUrl(priceId, 7)
     router.push(checkoutUrl)
-    // console.log("Cuisine Trial: " + checkoutUrl)
   }
 
   const upgradeToEpicurean = async () => {
-    const priceId = "price_1Peqk6C5ZTGkUkqRNCPznEQc"
+    const priceId = process.env.NEXT_PUBLIC_EPICUREAN
     const checkoutUrl = await getCheckoutUrl(priceId)
     router.push(checkoutUrl)
-    // console.log("Epicurean: " + checkoutUrl)
   }
 
   const tryEpicurean = async () => {
-    const priceId = "price_1Peqk6C5ZTGkUkqRNCPznEQc"
+    const priceId = process.env.NEXT_PUBLIC_EPICUREAN
     const checkoutUrl = await getCheckoutUrl(priceId, 7)
     router.push(checkoutUrl)
-    // console.log("Epicurean Trial: " + checkoutUrl)
   }
 
   return (
