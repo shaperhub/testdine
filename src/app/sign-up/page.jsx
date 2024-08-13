@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { createUserWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, sendEmailVerification } from "firebase/auth"
-import { collection, doc, getDocs, query, setDoc, serverTimestamp, where } from "firebase/firestore"
+import { collection, doc, getDocs, query, setDoc, updateDoc, serverTimestamp, where } from "firebase/firestore"
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage"
 import { auth, db, storage } from '@/app/firebase/config'
 import { useRouter } from 'next/navigation'
@@ -281,16 +281,17 @@ const SignUp = () => {
   // Create User
   const handleCreate = async(userfname, userlname, useremail, username, uid, upic) => {
     try {
-      const docRef = await setDoc(doc(db, "users", uid), {
+      await setDoc(doc(db, "users", uid), {
         createdAt: serverTimestamp(),
         fcmToken: '',
         firstName: userfname,
         lastName: userlname,
-        userName: username,
+        userName: '',
         userEmail: useremail,
         userId: uid,
         userImage: upic,
         optOutNotifications: false,
+        website: true,
         isProfilePublic: true,
         showMenus: true,
         showAllergies: true,
@@ -301,6 +302,10 @@ const SignUp = () => {
         groupsJoined: [],
         groupsPending: [],
         preferences: {cuisines: [], dietaryPreferences: [], foodAllergies: [], nutritionalBlocks: []},
+      }).then(() => {
+        updateDoc(doc(db, "users", uid), {
+          userName: username
+        })
       })
 
       // console.log("User Data: " + userfname, userlname, useremail, username, uid, upic)
