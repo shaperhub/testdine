@@ -291,7 +291,7 @@ const SignUp = () => {
         userId: uid,
         userImage: upic,
         optOutNotifications: false,
-        website: true,
+        store: 'website',
         isProfilePublic: true,
         showMenus: true,
         showAllergies: true,

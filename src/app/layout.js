@@ -12,7 +12,7 @@ const poppins = Poppins({ subsets: ['latin'], weight: "400", variable: "--font-p
 const poppinsbig = Poppins({ subsets: ['latin'], weight: "700", variable:"--font-poppins-big"})
 
 export const metadata = {
-  title: "Home - DineIntel",
+  title: "DineIntel",
   description: "Welcome to DineIntel, where dining innovation meets personalization. Explore custom dining experiences that cater uniquely to your taste and lifestyle.",
 }
 
