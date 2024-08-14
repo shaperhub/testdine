@@ -1,16 +1,9 @@
 import Image from "next/image"
 import Link from "next/link"
-// import Foryou from "../../../public/newforyou.png"
 import Foryou from "../../../public/foryoued.png"
-// import ForyouDark from "../../../public/newforyoudark.png"
-// import Modify from "../../../public/newmodify.png"
 import Modify from "../../../public/modifyed.png"
-// import ModifyDark from "../../../public/newmodifydark.png"
 import Dine from "../../../public/dinegrouped.png"
-// import Dine from "../../../public/newdine.png"
-// import DineDark from "../../../public/newdinedark.png"
 import Epic from "../../../public/epiced.png"
-// import Epic from "../../../public/newepic.png"
 import EpicIcon from "../../../public/epicconc.png"
 
 const Features = () => {
@@ -69,8 +62,6 @@ const Features = () => {
           </div>
           <div className='lg:w-1/2 my-4 flex justify-center max-h-[420px] lg1440:max-h-[460px]'>
             <Image className="" src={Foryou} width={480} height={400} alt="For You Image" quality={100} priority />
-            {/* <Image className="dark:hidden" src={Foryou} width={220} height={400} alt="For You Image" priority />
-            <Image className="hidden dark:flex" src={ForyouDark} width={220} height={400} alt="For You Image Dark" priority /> */}
           </div>
         </div>
       </div>
@@ -126,8 +117,6 @@ const Features = () => {
           </div>
           <div className='lg:w-1/2 my-4 flex justify-center max-h-[420px] lg1440:max-h-[460px]'>
             <Image className="" src={Modify} width={480} height={400} alt="Modify Dish Image" quality={100} />
-            {/* <Image className="dark:hidden" src={Modify} width={220} height={400} alt="Modify Dish Image" />
-            <Image className="hidden dark:flex" src={ModifyDark} width={220} height={400} alt="Modify Dish Image Dark" /> */}
           </div>
         </div>
         <p className='italic font-bold text-dbluew dark:text-dgrey lg:px-36 lgxl:px-72 mt-12 text-center lg:text-2xl'>
@@ -191,8 +180,6 @@ const Features = () => {
           </div>
           <div className='lg:w-1/2 my-4 flex justify-center max-h-[420px] lg1440:max-h-[460px]'>
             <Image className="" src={Dine} width={460} height={400} alt="Dine Group Image" quality={100} />
-            {/* <Image className="dark:hidden" src={Dine} width={220} height={400} alt="Dine Group Image" />
-            <Image className="hidden dark:flex" src={DineDark} width={220} height={400} alt="Dine Group Image Dark" /> */}
           </div>
         </div>
         <p className='font-bold italic text-dbluew dark:text-dgrey lg:px-36 lgxl:px-72 mt-12 text-center lg:text-2xl'>
@@ -246,7 +233,6 @@ const Features = () => {
           </div>
           <div className='lg:w-1/2 my-4 flex justify-center max-h-[420px] lg1440:max-h-[460px]'>
             <Image className="" src={Epic} width={420} height={400} alt="Epicurean Concierge Image" />
-            {/* <Image className="" src={Epic} width={220} height={400} alt="Epicurean Concierge Image" /> */}
           </div>
         </div>
 

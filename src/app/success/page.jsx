@@ -19,7 +19,7 @@ const Success = () => {
             <p className="text-2xl">Payment Successful</p>
             <Dialog open={modalopen} onOpenChange={setModalopen}>
                 <DialogTrigger asChild>
-                    {/* <button className='mt-2 text-dgreenw dark:text-dgreen underline text-center'>Get Subscription</button> */}
+                    {/* <button className='mt-2 text-dgreenw dark:text-dgreen underline text-center'>Open</button> */}
                 </DialogTrigger>
                 <DialogContent className="sm:max-w-[425px] pt-12">
                     <DialogHeader>

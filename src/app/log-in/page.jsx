@@ -82,7 +82,6 @@ const SignIn = () => {
       })
     }catch(error) {
       setLoading(false)
-      // console.log("Yippee")
       setErrorm(error.message)
       setEmail('')
       setPassword('')
@@ -97,7 +96,6 @@ const SignIn = () => {
       const provider = new GoogleAuthProvider()
       signInWithPopup(auth, provider).then((userCredential) => {
         const user = userCredential.user
-        // console.log(user)
         setEmail('')
         setPassword('')
         getDoc(doc(db, "users", user.uid)).then(docSnap => {

@@ -16,7 +16,6 @@ import styles from "./page.module.css"
 const CreateBlog = () => {
     const ReactQuill = useMemo(() => dynamic(() => import("react-quill"), {ssr: false}),[],)
     const [user, setUser] = useState("")
-    const [canDelete, setCanDelete] = useState(false)
     const [title, setTitle] = useState("")
     const [slug, setSlug] = useState("")
     const [content, setContent] = useState("")
@@ -48,9 +47,6 @@ const CreateBlog = () => {
             if (docSnap.exists()) {
               const userdata = docSnap.data()
               if (userdata.blogEditor == true) {
-                if (userdata.blogFullAccess == true) {
-                  setCanDelete(true)
-                }
                 setLoading(false)
               }
               else {
@@ -115,7 +111,7 @@ const CreateBlog = () => {
               }
             }, 
             (error) => {
-              console.log(error)
+              // console.log(error)
             }, 
             () => {
               getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {

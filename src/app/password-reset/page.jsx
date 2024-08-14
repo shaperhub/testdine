@@ -26,7 +26,7 @@ const PasswordReset = () => {
       setSuccess("We have sent you an email link to set a new password")
     })
     .catch((error) => {
-      console.log(error.message)
+      // console.log(error.message)
     })
   }
 

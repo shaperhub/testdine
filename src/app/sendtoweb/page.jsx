@@ -25,7 +25,7 @@ export default function Sendtoweb() {
         try {
           await signInWithCustomToken(auth, token).then((userCredential) => {
             setUser(userCredential.user)
-            console.log("Sign in with custom token...")
+            // console.log("Sign in with custom token...")
             setTimeout(() => {
               if (applink == "tastestarter"){
                 setLoading(true)
@@ -64,7 +64,7 @@ export default function Sendtoweb() {
         } catch(error) {
           setLoading(false)
           setNewerror(error.message)
-          console.error(error.message)
+          // console.error(error.message)
         }
       }
     }
