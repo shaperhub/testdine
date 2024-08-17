@@ -9,12 +9,10 @@ import NavlogDark from '../../../public/DineIntelLogoDark.png'
 import { useRouter, useSelectedLayoutSegment } from 'next/navigation'
 import { onAuthStateChanged } from "firebase/auth"
 import { auth } from "@/app/firebase/config"
-import ComingSoon from '../ComingSoon/ComingSoon'
 import Epic from "../../../public/epicconc.png"
 
 function useUserSession(initialUser) {
 	const [user, setUser] = useState(initialUser)
-	const router = useRouter()
 
 	useEffect(() => {
 		const unsubscribe = onAuthStateChanged(auth, (authUser) => {
@@ -23,23 +21,25 @@ function useUserSession(initialUser) {
 		return () => unsubscribe()
 	}, [])
 
-	return user;
+	return user
 }
 
 export default function Navbar({initialUser}) {
   const user = useUserSession(initialUser)
-  const routernew = useRouter()
+  const router = useRouter()
   const segment = useSelectedLayoutSegment()
+  const [isHovered, setIsHovered] = useState(false)
+  const [priceHovered, setPriceHovered] = useState(false)
 
   // Sign Out function
   const handleSignOut = event => {
-	  event.preventDefault();
+	  event.preventDefault()
 	  auth.signOut().then(() => {
-      routernew.push('/log-in')
+      router.push('/log-in')
     })
-  };
+  }
 
-  const [nav, setNav] = useState(false);
+  const [nav, setNav] = useState(false)
 
   // Hamburger Menu Toggle setState
   const handleNav = () => {
@@ -48,13 +48,12 @@ export default function Navbar({initialUser}) {
 
   return (
     <nav className='fixed w-full h-16 bg-dlightgreen dark:bg-dblue shadow-xl z-[100] font-regular'>
-        {/* <div className=''><ComingSoon /></div> */}
         <div className='flex justify-between items-center w-full h-full px-8 2xl:px-16 mb-40'>
             <Link className='dark:hidden' href='/'>
                 <Image className="" src={Navlog} alt="DineIntel Logo" width='150' height='70' priority />
             </Link>
             <Link className='hidden dark:flex' href='/'>
-                <Image className="" src={NavlogDark} alt="DineIntel Logo Darkmode" width='150' height='70' priority />
+                <Image className="" src={NavlogDark} alt="DineIntel Logo Darkmode" width='150' height='70' />
             </Link>
             <div>
               <ul className='hidden lg:flex text-black dark:text-dlightgreen'>
@@ -67,10 +66,22 @@ export default function Navbar({initialUser}) {
                 </li>
 
                 <li id='features'
+                onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}
                 className={segment == 'features'
                 ? "relative group border-b-dgreenw border-b-2 ml-8 p-0.5 text-sm"
                 : "relative group ml-8 p-0.5 text-sm"}>
-                  <Link href="/features" aria-labelledby='DineIntel Features Page Link'>Features</Link>
+                  <Link href="/features" aria-labelledby='DineIntel Features Page Link' className='flex items-center space-x-1'>
+                    <span>Features</span>
+                    <svg
+                      className={`w-4 h-4 transition-transform duration-300 ${isHovered ? 'rotate-180' : ''}`}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                  </Link>
                   <div className="absolute top-0 -left-60 transition group-hover:translate-y-5 translate-y-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-50 min-w-[560px] transform">
                     <div className="relative top-6 p-6 bg-white dark:bg-dblack rounded-xl shadow-xl w-full">
                       <div className="w-10 h-10 bg-white dark:bg-dblack transform rotate-45 absolute top-0 z-0 translate-x-0 transition-transform group-hover:translate-x-[14.5rem] duration-500 ease-in-out rounded-sm">
@@ -156,10 +167,22 @@ export default function Navbar({initialUser}) {
                 </li>
 
                 <li id='pricing'
+                onMouseEnter={() => setPriceHovered(true)} onMouseLeave={() => setPriceHovered(false)}
                 className={segment == 'pricing'
                 ? "relative group border-b-dgreenw border-b-2 ml-8 p-0.5 text-sm"
                 : "relative group ml-8 p-0.5 text-sm"}>
-                  <Link href="/pricing" aria-labelledby='DineIntel Tiers and Pricing Link'>Pricing</Link>
+                  <Link href="/pricing" aria-labelledby='DineIntel Tiers and Pricing Link' className='flex items-center space-x-1'>
+                    <span>Pricing</span>
+                    <svg
+                      className={`w-4 h-4 transition-transform duration-300 ${priceHovered ? 'rotate-180' : ''}`}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                  </Link>
                   <div className="absolute top-0 -left-72 transition group-hover:translate-y-5 translate-y-0 opacity-0 invisible group-hover:opacity-100 group-hover:visible duration-500 ease-in-out group-hover:transform z-50 min-w-[600px] transform">
                     <div className="relative top-6 p-6 bg-white dark:bg-dblack rounded-xl shadow-xl w-full">
                       <div className="w-10 h-10 bg-white dark:bg-dblack transform rotate-45 absolute top-0 z-0 translate-x-0 transition-transform group-hover:translate-x-[17rem] duration-500 ease-in-out rounded-sm">
@@ -302,14 +325,14 @@ export default function Navbar({initialUser}) {
                   <Image src={Navlog} width='100' height='40' alt='DineIntel Logo' priority />
                 </Link>
                 <Link onClick={() => setNav(false)} href='/' className='pt-4 hidden dark:flex'>
-                  <Image src={NavlogDark} width='100' height='40' alt='DineIntel Logo Darkmode' priority />
+                  <Image src={NavlogDark} width='100' height='40' alt='DineIntel Logo Darkmode' />
                 </Link>
-                <div onClick={handleNav} className='rounded-full shadow-lg shadow-gray-400 p-3 cursor-pointer'>
+                <div onClick={handleNav} className='rounded-full shadow-lg shadow-gray-400 mt-4 p-3 cursor-pointer'>
                   <AiOutlineClose />
                 </div>
               </div>
               <div className='border-b border-ddarkgrey dark:border-dgrey my-4'>
-                <p className='w-[85%] md:w-[90%] py-2 text-sm'>Revolutionizing the dining experience</p>
+                <p className='w-[85%] md:w-[90%] py-2 text-sm'>Transform your dining experience</p>
               </div>
             </div>
             <div className='flex flex-col'>

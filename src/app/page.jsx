@@ -2,8 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import Epic from "../../public/epicconc.png"
-import HeroPic from "../../public/restaurant.jpg"
-import TransformPic from "../../public/trad2inno.jpg"
+import TransformPic from "../../public/transform.jpg"
 import DownloadApp from "@/components/DownloadApp/DownloadApp"
 import Button from "@/components/Button/Button"
 import { FaCheck } from "react-icons/fa6"
@@ -26,7 +25,13 @@ export default function Home() {
           <Button text="Explore Features" url="/features"/>
         </div>
         <div className="lg:w-1/2 flex items-center">
-          <Image className="rounded-tr-[50px] rounded-bl-[50px]" width={600} height={320} alt="Hero Image" src={HeroPic} priority />
+        <iframe
+          className="w-full aspect-video border-0"
+          src="https://www.youtube.com/embed/r0eIxwbybv8"
+          frameBorder="0"
+          title="DineIntel Explainer Video"
+          aria-hidden="true"
+        />
         </div>
       </div>
 
@@ -44,7 +49,7 @@ export default function Home() {
           <Button text="More About DineIntel" url="/about" />
         </div>
         <div className="flex items-center justify-center lg:w-1/2">
-          <Image className="rounded-tr-[50px] rounded-bl-[50px]" src={TransformPic} width={440} height={320} alt="Dining Photo" priority />
+          <Image className="rounded-tr-[50px] rounded-bl-[50px]" src={TransformPic} width={440} height={220} alt="Dining Photo" priority />
         </div>
       </div>
 
@@ -66,7 +71,7 @@ export default function Home() {
               Unlock personalized restaurant recommendations, stay updated with real-time trending spots, and customize your search options to enhance your culinary journey.
             </p>
             <div className="flex justify-center mt-16">
-              <Link href="/features#foryou">
+              <Link href="/features#foryou" aria-labelledby="Learn More About For You">
                 <button className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-2 text-dbluew dark:text-white inline-flex items-center font-bold'>Learn More <span className="pl-2"><BsArrowRight /></span></button>
               </Link>
             </div>
@@ -84,7 +89,7 @@ export default function Home() {
               Explore personalized ingredient analysis, seamless swaps, and expert flavor pairings tailored to your taste buds.
             </p>
             <div className="flex justify-center">
-              <Link href="/features#modifydish">
+              <Link href="/features#modifydish" aria-labelledby="Learn More About Modify Dish">
                 <button className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-2 text-dbluew dark:text-white inline-flex items-center font-bold'>Learn More <span className="pl-2"><BsArrowRight /></span></button>
               </Link>
             </div>
@@ -106,7 +111,7 @@ export default function Home() {
               Engage in lively forums, showcase your dining adventures, and discover hidden gems.
             </p>
             <div className="flex justify-center">
-              <Link href="/features#dinegroup">
+              <Link href="/features#dinegroup" aria-labelledby="Learn More About Dine Group">
                 <button className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-2 text-dbluew dark:text-white inline-flex items-center font-bold'>Learn More <span className="pl-2"><BsArrowRight /></span></button>
               </Link>
             </div>
@@ -121,7 +126,7 @@ export default function Home() {
               This feature is designed to offer customized meal experiences and deep insights into the culinary arts.
             </p>
             <div className="flex justify-center">
-              <Link href="/features#epicureanconcierge">
+              <Link href="/features#epicureanconcierge" aria-labelledby="Learn More About Epicurean Concierge">
                 <button className='bg-transparent p-3 hover:bg-dblue hover:text-white rounded-xl outline outline-2 text-dbluew dark:text-white inline-flex items-center font-bold'>Learn More <span className="pl-2"><BsArrowRight /></span></button>
               </Link>
             </div>
@@ -501,30 +506,6 @@ export default function Home() {
               If you do not cancel before the trial ends, your subscription will automatically roll over to a paid monthly subscription.
             </AccordionContent>
           </AccordionItem>
-          {/* <AccordionItem value="item-6">
-            <AccordionTrigger className="text-left text-sm md:text-base font-bold">Can I Upgrade or Downgrade my Subscription?</AccordionTrigger>
-            <AccordionContent className="pt-2 text-ddarkgrey dark:text-dgrey">
-              Yes, you can upgrade or downgrade your subscription at any time from your <span className='font-bold text-dblue dark:text-dyellow'>Profile</span>. 
-              Click on <span className='font-bold text-dblue dark:text-dyellow'>Manage Subscription</span>. When the portal opens, click on <span className='font-bold text-dblue dark:text-dyellow'>Update Plan</span> and choose which plan you want to upgrade or downgrade to. 
-              The changes will take effect immediately.
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="item-7">
-            <AccordionTrigger className="text-left text-sm md:text-base font-bold">How Do I Update my Payment Information?</AccordionTrigger>
-            <AccordionContent className="pt-2 text-ddarkgrey dark:text-dgrey">
-              All payments are managed through our website. 
-              To update your payment information, log in to your account on our website and go to your <span className='font-bold text-dblue dark:text-dyellow'>Profile</span>, click on <span className='font-bold text-dblue dark:text-dyellow'>Manage Subscription</span>. 
-              When the portal opens, you can edit your <span className='font-bold text-dblue dark:text-dyellow'>Payment Method</span>.
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="item-8">
-            <AccordionTrigger className="text-left text-sm md:text-base font-bold">How Do I Cancel my Subscription</AccordionTrigger>
-            <AccordionContent className="pt-2 text-ddarkgrey dark:text-dgrey">
-              To cancel your subscription, you need to log in to your account on our website. 
-              Navigate to your <span className='font-bold text-dblue dark:text-dyellow'>Profile</span> and click on <span className='font-bold text-dblue dark:text-dyellow'>Manage Subscription</span>. When the portal opens, click on <span className='font-bold text-dblue dark:text-dyellow'>Cancel Plan</span>. 
-              Your subscription will be cancelled at the end of the current billing cycle.
-            </AccordionContent>
-          </AccordionItem> */}
         </Accordion>
         <br></br>
         <Button text="See More" url="/faqs" />
