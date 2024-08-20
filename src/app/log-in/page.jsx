@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, sendEmailVerification, deleteUser } from 'firebase/auth'
+import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, deleteUser } from 'firebase/auth'
 import { doc, getDoc, deleteDoc } from "firebase/firestore"
 import { auth, db } from '@/app/firebase/config'
 import { useRouter } from 'next/navigation'
@@ -19,7 +19,6 @@ const SignIn = () => {
   const [validateerror, setValidateerror] = useState('')
   const [passwordvisible, setPasswordvisible] = useState(false)
   const [loading, setLoading] = useState(false)
-  const [unverified, setUnverified] = useState(false)
   const router = useRouter()
   const [errorm, setErrorm] = useState('')
   const [nonuser, setNonUser] = useState('')
@@ -66,26 +65,13 @@ const SignIn = () => {
         const user = userCredential.user
         setEmail('')
         setPassword('')
-        getDoc(doc(db, "users", user.uid)).then(docSnap => {
-          const userdata = docSnap.data()
-          if (user.emailVerified || userdata.fcmToken.length > 2) {
-            router.push('/user-profile')
-          } else {
-              sendEmailVerification(user)
-              setUnverified(true)
-              setLoading(false)
-              setTimeout(() => {
-                auth.signOut()
-              }, 2000)
-          }
-        })
+        router.push("/user-profile")
       })
     }catch(error) {
       setLoading(false)
       setErrorm(error.message)
       setEmail('')
       setPassword('')
-      // console.error(error.message)
     }
   }
 
@@ -113,7 +99,6 @@ const SignIn = () => {
       })
     }catch(error) {
       setErrorm(error.message)
-      // console.error(error.message)
     }
   }
 
@@ -192,7 +177,6 @@ const SignIn = () => {
         {perror && <span className='text-red-600 text-sm text-center'>{perror}<br></br></span>}
         {validateerror && <div className='w-full bg-dred/20 text-red-600 text-xs text-center p-4 my-4'><span>{validateerror}<br></br></span></div>}
         {nonuser && <div className='w-full bg-dred/20 text-red-600 text-xs text-center p-4 my-4'><span>{nonuser}<a href='/sign-up'>Sign Up</a><br></br></span></div>}
-        {unverified && <div className='w-full bg-dblue/20 dark:bg-dblue/40 text-blue-600 text-sm text-center p-4 my-4'><span>Check your email for verification link<br></br></span></div>}
         <div className="my-6 flex items-center justify-center">
           <span className="hidden h-[1px] w-full max-w-[60px] bg-dblack dark:bg-dlightgreen sm:block"></span>
           <p className="w-full px-5 text-center text-black dark:text-white">
